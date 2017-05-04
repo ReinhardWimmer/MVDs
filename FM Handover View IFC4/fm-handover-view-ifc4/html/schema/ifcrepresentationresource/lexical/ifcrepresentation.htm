@@ -1,0 +1,175 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcRepresentation</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 18 index3 3 index4 9 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.10");
+//-->
+</script>
+
+<h4 class="num">IfcRepresentation</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a></td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>ABSTRACT</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      The <span class="self-ref">IfcRepresentation</span> defines the general concept of
+      representing product properties and in particular the product
+      shape.
+    </p>
+    <blockquote class="extDef">
+      NOTE&nbsp; Definition from ISO 10303-43:<br>
+      A representation is a collection of one or more representation items that are
+      related in a specified representation context. The relationship of representation
+			item to representation context is the basis for distinguishing which representation
+			item entities are related.<br><br>
+			A representation item can be related to a representation context directly, when it 
+			occurs as an element is a representation, or indirectly, when it is referenced
+			through any number of intervening entities, each of type representation item.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; Entity adapted from
+      <strong>representation</strong> defined in ISO 10303-42.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2.0
+    </blockquote>
+    <blockquote class="change-ifc2x3">
+      IFC2x3 CHANGE&nbsp; The inverse attributes
+      <i>LayerAssignments</i> and<i>RepresentationMap</i> have been
+      added with upward compatibility.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; Entity <span class="self-ref">IfcRepresentation</span> has been
+      changed into an ABSTRACT supertype.
+    </blockquote>
+    <p class="use-head">
+      Representation Use Definition
+    </p>
+    <p>
+      Each representation, either <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>, or
+      <a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a> shall have a well defined:
+    </p>
+    <ul>
+      <li>
+        <i>ContextOfItems</i>: Reference to an
+        <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a> as agreed for this
+        representation.
+      </li>
+      <li>
+        <i>RepresentationIdentifier</i>: Name of the
+        representation, for example, 'Body' for 3D shape,
+        'FootPrint' for 2D ground view, 'Axis' for reference axis.
+      </li>
+      <li>
+        <i>RepresentationType</i>: Name for the geometric, or
+        topological representation type, for example, 'SweptSolid'
+        for 3D swept solids, 'Brep' for boundary representation.
+      </li>
+    </ul>
+    <blockquote class="note">
+      NOTE&nbsp; Guidelines for applying correct values to those
+      attributes are provided in the geometry use definition
+      section at each subtype of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>. These
+      guidelines can be further refined in view definitions or
+      implementer agreements.
+    </blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>ContextOfItems</td><td><a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a></td><td></td><td>
+Definition of the representation context for which the different subtypes of representation are valid.</td><td>X</td></tr>
+<tr><td>2</td><td>RepresentationIdentifier</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+The optional identifier of the representation as used within a project.</td><td>X</td></tr>
+<tr><td>3</td><td>RepresentationType</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+The description of the type of a representation context. The representation type defines the type of geometry or topology used for representing the product representation. More information is given at the subtypes <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> and <a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>.<br>
+The supported values for context type are to be specified by implementers agreements.
+</td><td>X</td></tr>
+<tr><td>4</td><td>Items</td><td><a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a></td><td>S[1:?]</td><td>
+Set of geometric representation items that are defined for this representation.</td><td>X</td></tr>
+<tr><td></td><td><i>RepresentationMap</i></td><td><a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a><br/>@MappedRepresentation</td><td>S[0:1]</td><td>Use of the representation within an <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a>. If used, this <span class="self-ref">IfcRepresentation</span> may be assigned to many representations as one of its <i>Items</i> using an <a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>. Using <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a> is the way to share one representation (often of type <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>) by many products.  
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; The inverse attribute <i>LayerAssignments</i> has been added</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>LayerAssignments</i></td><td><a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a><br/>@AssignedItems</td><td>S[0:?]</td><td>Assignment of the whole representation to a single or multiple layer(s). The <i>LayerAssigments</i> can be overridden by <i>LayerAssigments</i> of the <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>'s within the list of <i>Items</i>.
+<blockquote class="note">NOTE&nbsp; Implementation agreements can restrict the maximum number of layer assignments to 1.</blockquote>
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; The inverse attribute <i>LayerAssignments</i> has been added</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>OfProductRepresentation</i></td><td><a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a><br/>@Representations</td><td>S[0:?]</td><td>Reference to the product representations to which this individual representation applies. In most cases it is the reference to one or many product shapes, to which this shape representation is applicable.
+<blockquote class="change-ifc2x4">IFC4 CHANGE Inverse relationship cardinality relaxed to be 0:N.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ContextOfItems&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Items&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RepresentationIdentifier&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RepresentationType&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcRepresentation<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>, <a href="../../ifcrepresentationresource/lexical/ifcstylemodel.htm">IfcStyleModel</a>))<b>;</b><br/>
+&nbsp;&nbsp;ContextOfItems : <a href="../../ifcrepresentationresource/lexical/ifcrepresentationcontext.htm">IfcRepresentationContext</a>;<br/>
+&nbsp;&nbsp;RepresentationIdentifier : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;RepresentationType : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;Items : <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcgeometryresource/lexical/ifcrepresentationitem.htm">IfcRepresentationItem</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;RepresentationMap : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a> <span class="keyword">FOR</span> MappedRepresentation;<br/>
+&nbsp;&nbsp;LayerAssignments : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerassignment.htm">IfcPresentationLayerAssignment</a> <span class="keyword">FOR</span> AssignedItems;<br/>
+&nbsp;&nbsp;OfProductRepresentation : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a> <span class="keyword">FOR</span> Representations;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcrepresentation%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcrepresentation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

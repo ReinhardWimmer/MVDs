@@ -1,0 +1,221 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTriangulatedFaceSet</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 41 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.42");
+//-->
+</script>
+
+<h4 class="num">IfcTriangulatedFaceSet</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closed</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CoordIndex</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>INTEGER</i> to <i>IfcPositiveInteger</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NormalIndex</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>INTEGER</i> to <i>IfcPositiveInteger</i>. <br/></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-2/index.htm">IFC4 Addendum 2</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normals</td><td></td><td>X</td><td>MODIFIED</td><td>Xsdformat changed from <i>Content</i> to <i>Default</i>. <br/>Xsdtagless changed from <i>True</i> to <i>False</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PnIndex</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>NormalIndex</i> to <i>PnIndex</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcTriangulatedFaceSet</span> is a tessellated face set with all faces being bound by triangles. The faces are constructed by implicit polylines defined by three Cartesian points. Depending on the value of the attribute <i>Closed</i> the instance of <span class="self-ref">IfcTriangulatedFaceSet</span> represents:</p>
+<ul>
+ <li>if TRUE, a boundary represention (or B-rep);</li>
+ <li>if FALSE, a face based surface representation.</li>
+</ul>
+<p>The coordinates of each point are provided by a one-based index into an ordered list of Cartesian points provided by the two-dimensional list <i>CoordIndex</i>, where</p>
+<ul>
+ <li>the first dimension of the two-dimensional list addresses the list of triangular faces;</li>
+ <li>the second dimension of the two-dimensional list provides exactly three indices. Each index points to a Cartesian point being a vertex of the triangle.</li>
+</ul>
+<p>Depending on the provision of <i>PnIndex</i> the indices point either directly into the <a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist3d.htm">IfcCartesianPointList3D</a> referenced by <i>Coordinates</i> defined at the supertype <a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>, or they point into the <i>PnIndex</i> where the integer values at that position provides the location of the coordinate values within the <a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist3d.htm">IfcCartesianPointList3D</a>. See Figure 171 for the handling of point index.</p>
+<table summary="tessellation">
+ <tr>
+  <td style="width: 600px"><img src="../../../figures/ifctriangulatedfaceset_03.png" alt="PnIndex"></td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 171 &mdash; Use of <i>PnIndex</i> </p></td>
+ </tr>
+</table>
+<p>See Figure 172 for using the <span class="self-ref">IfcTriangulatedFaceSet</span> without (as default) and with using the <i>PnIndex</i>.</p>
+<table summary="tessellation">
+ <tr>
+  <td style="width: 600px"><img src="../../../figures/ifctriangulatedfaceset_01.png" alt="IfcTriangulatedFaceSet_01"></td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 172 &mdash; Triangulated face set</p></td>
+ </tr>
+</table>
+<p>Optionally normals can be provided. Only normals per vector are supported allowing for visually curved triangles when the three normals of the corresponding three vertices of a triangle are not co-linear to the normal of the triangular face. If they are identical, normals shall be omited.</p>
+<blockquote class="note">NOTE&nbsp; In case of a body representation having triangular faces with curvature, different normals for all three vertices in context of this triangles are exported, describing the curvature for smooth visualisation. In case of triangular faces with no curvature, the three vertex-based normals are identical and could always be computed from the face. Therefore vertices should only be exported to support smooth visualisation by curvature of triangles. In case of faceted representation no vertices should be exported.</blockquote>
+
+<p>Normals are provided by the two-dimensional list <i>Normals</i>, where</p>
+<ul>
+ <li>the first dimension of the two-dimensional list addresses the corresponding list of vertex indices of the triangular faces;
+</li>
+ <li>the second dimension of the two-dimensional list provides exactly three real values to determine the direction of the normal at this vertex of the triangle.</li>
+</ul>
+<p>The indices in the <i>CoordIndex</i> point into the list of <i>Normals</i>. The indices of <i>CoordIndex</i> are applied to both points, either directly directly, or via the <i>PnIndex</i> and normals. See Figure 173 for handling of normals.</p>
+<table summary="tessellation">
+ <tr>
+  <td style="width: 600px"><img src="../../../figures/ifctriangulatedfaceset_02.png" alt="IfcTriangulatedFaceSet_02"></td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 173 &mdash; Triangulated face set with normals</p></td>
+ </tr>
+</table>
+<blockquote class="note">NOTE&nbsp; Using corresponding lists of points and normals allows to use only a single list of indices into both at the expense of having non-unique collections of vertices.</blockquote>
+
+<p>Figure 174 shows the use of <span class="self-ref">IfcTriangulatedFaceSet</span> without annotation. The diagram of the <span class="self-ref">IfcTriangulatedFaceSet</span>  represents the indices and the ordered list into which the indices point. The index starts with 1 (indexed as 1 to N), if the greatest index in <i>CoordIndex</i> in N, then the <a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist.htm">IfcCartesianPointList</a> shall have N lists of 3:3 coordinates.</p>
+<p>&nbsp;</p>
+<table summary="tessellation">
+ <tr><td style="width: 280px"><img src="../../../figures/ifctriangulatedfaceset_example-01.png" width="275" height="350" alt="IfcTriangulatedFaceSet_Example-01">
+ </td>
+ <td>
+  <p>Figure 168 shows an <span class="self-ref">IfcTriangulatedFaceSet</span> represented by<br /><br /></p>
+<tt class="spf">
+<i>CoordIndex</i>: ((1,6,5), (1,2,6), (6,2,7), (7,2,3), (7,8,6), (6,8,5), (5,8,1), (1,8,4), (4,2,1), (2,4,3), (4,8,7), (7,3,4))<br />
+<a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist3d.htm">IfcCartesianPointList3D</a>: ((0.,0.,0.), (1.,0.,0.), (1.,1.,0.), (0.,1.,0.), (0.,0.,2.), (1.,0.,2.), (1.,1.,2.), (0.,1.,2.))
+</tt>
+  </td>
+ </tr>
+ <tr>
+  <td><p class="figure">Figure 174 &mdash; Triangulated face set geometry</p></td>
+  <td>&nbsp;</td>
+ </tr>
+</table>
+
+<blockquote class="note">NOTE&nbsp; The definition of <span class="self-ref">IfcTriangulatedFaceSet</span> is based on the <strong>indexedFaceSet</strong> and <strong>indexedTriangleSet</strong> defined in ISO/IEC 19775-1. The use of <i>PnIndex</i> has been adopted from <strong>triangulated_surface_set</strong> defined in ISO-10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+ <li>If <i>Closed</i> = TRUE, the same topological constraints as imposed by an faceted boundary representation shall be
+ safisfied. In particular:
+  <ul>
+   <li>each face shall be unique;</li>
+   <li>each edge shall be used by exactly two boundaries of faces;</li>
+   <li>the topological normal at each point on the boundary of the triangulated face set shall point away from the mater
+ial of the solid.</li>
+  </ul>
+ </li>
+</ol>
+  <p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>Normals</td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a></td><td>? L[1:?] L[3:3]</td><td>
+An ordered list of three directions for normals. It is a two-dimensional list of directions provided by three parameter 
+values.
+<ul>
+ <li class="small">The first dimension corresponds to the vertex indices of the <i>Coordindex</i></li>
+ <li class="small">The second dimension has exactly three values, [1] the x-direction, [2] the y-direction and [3] the z-directions</li>
+</ul></td><td>X</td></tr>
+<tr><td>3</td><td>Closed</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td>? </td><td>
+Indication whether the <span class="self-ref">IfcTriangulatedFaceSet</span> is a closed shell or not. If omited no such information can be provided.</td><td>X</td></tr>
+<tr><td>4</td><td>CoordIndex</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a></td><td>L[1:?] L[3:3]</td><td>
+Two-dimensional list for the indexed-based triangles, where 
+<ul>
+ <li class="small">The first dimension represents the triangles (from 1 to N)</li>
+ <li class="small">The second dimension has exactly three values representing the indices to three vertex points (from 1 to 3).</li>
+</ul>
+<blockquote class="note">NOTE&nbsp; The coordinates of the vertices are provided by the indexed list of <i>SELF\IfcTessellatedFaceSet.Coordinates.CoordList</i>.</blockquote></td><td>X</td></tr>
+<tr><td>5</td><td>PnIndex</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a></td><td>? L[1:?]</td><td>
+The list of integers defining the locations in the <a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist3d.htm">IfcCartesianPointList3D</a> to obtain the point coordinates for the indices withint the <i>CoordIndex</i>. If the <i>PnIndex</i> is not provided the indices point directly into the <a href="../../ifcgeometricmodelresource/lexical/ifccartesianpointlist3d.htm">IfcCartesianPointList3D</a>.</td><td>X</td></tr>
+<tr><td></td><td>NumberOfTriangles<br/>:=SIZEOF(CoordIndex)</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td></td><td>Derived number of triangles used for this triangulation.</td>
+<td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm">IfcTriangulatedFaceSet</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Normals&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;3&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Closed&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CoordIndex&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;3&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PnIndex&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcTriangulatedFaceSet<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifctessellatedfaceset.htm">IfcTessellatedFaceSet</a>)<b>;</b><br/>
+&nbsp;&nbsp;Normals : <span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] OF <span class="keyword">LIST</span> [3:3] OF <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;<br/>
+&nbsp;&nbsp;Closed : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>;<br/>
+&nbsp;&nbsp;CoordIndex : <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <span class="keyword">LIST</span> [3:3] OF <a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a>;<br/>
+&nbsp;&nbsp;PnIndex : <span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] OF <a href="../../ifcmeasureresource/lexical/ifcpositiveinteger.htm">IfcPositiveInteger</a>;<br/>
+&nbsp;<span class="keyword">DERIVE</span><br/>
+&nbsp;&nbsp;NumberOfTriangles : <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a> := SIZEOF(CoordIndex);<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0009.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctriangulatedfaceset%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctriangulatedfaceset.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

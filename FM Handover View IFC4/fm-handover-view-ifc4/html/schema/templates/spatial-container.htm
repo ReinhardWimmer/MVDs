@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Spatial Container</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.7.1.1");
+//-->
+</script>
+
+<h4 class="std">4.7.1.1 Spatial Container</h4>
+<p>The <a href="spatial-container.htm">Spatial Container</a> concept defines a spatial element as being the spatial container for physical elements, or other elements being directly related to the spatial container, such as annotations or grids. </p>
+<blockquote class="example">EXAMPLE&nbsp; A building story is a logical spatial container of building elements, distribution elements, or furnishing elements.</blockquote>
+<p>The <a href="spatial-container.htm">Spatial Container</a> concept is realized by using the <a href="../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> objectified relationship between subtypes of <a href="../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a> and the elements contained. The inverse relationship <i>ContainsElements</i> at the subtypes of <a href="../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a> refers to the contained physical elements.</p><p class="fig-ref">Figure 20 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Spatial Container" src="./diagrams/spatial-container.png" usemap="#f20"><map name="f20"><area shape="rect" coords="8,8,176,296" href="../ifcproductextension/lexical/ifcspatialelement.htm" alt="IfcSpatialElement" /><area shape="rect" coords="208,8,376,92" href="../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm" alt="IfcRelContainedInSpatialStructure" /><area shape="rect" coords="408,8,576,248" href="../ifckernel/lexical/ifcproduct.htm" alt="IfcProduct" /></map></td></tr><tr><td><p class="figure">Figure 20 &mdash; Spatial Container</p></td></tr></table>
+
+<hr/>
+<h4>Basic_FM_Handover_View</h4>
+<table class="exchange">
+<tr><th>Entity</th><th><a href="../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr><tr><td><a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>R<br/>-</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>-<br/>R</td>
+</tr>
+</table>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22spatial-container%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/spatial-container.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

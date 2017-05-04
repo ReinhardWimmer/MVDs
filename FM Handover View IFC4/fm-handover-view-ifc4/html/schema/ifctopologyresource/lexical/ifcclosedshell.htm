@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcClosedShell</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 20 index3 3 index4 1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.2");
+//-->
+</script>
+
+<h4 class="num">IfcClosedShell</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p> </p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A closed shell is a shell of the dimensionality 2 which typically serves as a bound for a region in R3. A
+closed shell has no boundary, and has non-zero finite extent. If the shell has a domain with coordinate space R3, it divides that space into two connected
+regions, one finite and the other infinite. In this case, the topological normal of the shell is defined as being directed from the finite to the
+infinite region. <br><br> 
+The shell is represented by a collection of faces. The domain of the shell, if present, contains all those faces, together with their bounds.
+Associated with each face in the shell is a logical value which indicates whether the face normal agrees with (TRUE) or is opposed to (FALSE) the shell
+normal. The logical value can be applied directly as a BOOLEAN attribute of an oriented face, or be defaulted to TRUE if the shell boundary attribute member
+is a face without the orientation attribute. <br><br> 
+The combinatorial restrictions on closed shells and geometrical restrictions on their domains are designed to ensure that any domain associated
+with a closed shell is a closed, orientable manifold. The domain of a closed shell, if present, is a connected, closed, oriented 2-manifold. It is always
+topologically equivalent to an <i>H</i>-fold torus for some <i>H</i> &ge; 0. The number <i>H</i> is referred to as the
+surface genus of the shell. If a shell of genus <i>H</i> has a domain within coordinate space <i>R<sup>3</sup></i>, then the finite region of space inside
+it is topologically equivalent to a solid ball with <i>H</i> tunnels drilled through it.<br><br> 
+The Euler equation applies with <i>B</i>=0, because in this case there are no holes. As in the case of open shells, the surface genus <i>H</i>
+may not be known a priori, but shall be an integer &ge; 0. Thus a necessary, but not sufficient, condition
+for a well-formed closed shell is the following: 
+<blockquote><img src="../../../figures/ifcopenshell-math1.gif" width="240" height="18"></blockquote>
+</blockquote> 
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>closed_shell</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote> 
+
+<p class="spec-head">Informal Propositions:</p> 
+<ol> 
+<li>Every edge shall be referenced exactly twice by the loops of the face. </li> 
+<li>Each oriented edge shall be unique. </li> 
+<li>No edge shall be referenced by more than two faces. </li> 
+<li>Distinct faces of the shell do not intersect, but may share edges or vertices. </li> 
+<li>Distinct edges do not intersect but may share vertices. </li> 
+<li>Each face reference shall be unique. </li> 
+<li>The loops of the shell shall not be a mixture of poly loop and other loop types. Note: this is given, since only poly loop is defined as face bound definition.</li> 
+<li>The closed shell shall be an oriented arcwise connected 2-manifold.</li> 
+<li>The Euler equation shall be satisfied. Note: Please refer to ISO 10303-42 for the equation.</li> 
+</ol> 
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcClosedShell<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifctopologyresource/lexical/ifcconnectedfaceset.htm">IfcConnectedFaceSet</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcclosedshell%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcclosedshell.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

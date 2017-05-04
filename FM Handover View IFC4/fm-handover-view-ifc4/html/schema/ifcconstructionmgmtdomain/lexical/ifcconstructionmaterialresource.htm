@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcConstructionMaterialResource</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 3 index3 3 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.3.3.3");
+//-->
+</script>
+
+<h4 class="num">IfcConstructionMaterialResource</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresource.htm">IfcConstructionMaterialResource</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ResourceIdentifier</i> to <i>Identification</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongDescription</td><td></td><td></td><td>MODIFIED</td><td>Name changed from <i>ResourceGroup</i> to <i>LongDescription</i>. <br/>Type changed from <i>IfcLabel</i> to <i>IfcText</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usage</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ResourceConsumption</i> to <i>Usage</i>. <br/>Type changed from <i>IfcResourceConsumptionEnum</i> to <i>IfcResourceTime</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BaseCosts</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>BaseQuantity</i> to <i>BaseCosts</i>. <br/>Type changed from <i>IfcMeasureWithUnit</i> to <i>IfcAppliedValue</i>. <br/>Aggregation changed from <i>NONE</i> to <i>LIST</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BaseQuantity</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>Suppliers</i> to <i>BaseQuantity</i>. <br/>Type changed from <i>IfcActorSelect</i> to <i>IfcPhysicalQuantity</i>. <br/>Aggregation changed from <i>SET</i> to <i>NONE</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>UsageRatio</i> to <i>PredefinedType</i>. <br/>Type changed from <i>IfcRatioMeasure</i> to <i>IfcConstructionMaterialResourceTypeEnum</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcConstructionMaterialResource</span> identifies a material resource type in a construction project.</p> 
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attribute <i>Suppliers</i> has been deleted; use <a href="../../ifckernel/lexical/ifcrelassignstoresource.htm">IfcRelAssignsToResource</a> to assign an <a href="../../ifckernel/lexical/ifcactor.htm">IfcActor</a> to fulfill the role as a supplier.  The attribute <i>UsageRatio</i> has been deleted; use <i>BaseQuantityConsumed</i> and <i>BaseQuantityProduced</i> to indicate material usage.
+</blockquote>
+
+<p>Occurrences of <span class="self-ref">IfcConstructionMaterialResource</span> are consumed (wholly or partially), or occupied during a construction work task (<a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a>).</p> 
+
+<p>Similar to <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionproductresource.htm">IfcConstructionProductResource</a>, sometimes things such as 5000kg of gravel are already instantiated as an instance of an <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> subtype because it is a result of a work task (for example, &#145;transporting gravel&#146;). In this case, the instance of <span class="self-ref">IfcConstructionMaterialResource</span> can be associated with the product instance &#145;5000kg of gravel&#146; to provide more information for resource uses. Nevertheless, <span class="self-ref">IfcConstructionMaterialResource</span> should only be used to represent resource usage, but not product substances.</p> 
+
+<blockquote class="note">NOTE&nbsp; 
+This entity is not the same as <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>.  One one hand, 
+<span class="self-ref">IfcConstructionMaterialResource</span> represents usage of bulk materials 
+such as sand, gravels, nails and so on.  Physical manifestations can be instantiated from 
+<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> as well, depending on their uses in the system, and such an 
+<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> object can be assigned to the <span class="self-ref">IfcConstructionMaterialResource</span> 
+object via <a href="../../ifckernel/lexical/ifcrelassignstoresource.htm">IfcRelAssignsToResource</a>.  On the other hand, <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> is 
+about physical materials that a physical building element consists of, 
+possibly with detailed material layering information."
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>11</td><td>PredefinedType</td><td><a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetypeenum.htm">IfcConstructionMaterialResourceTypeEnum</a></td><td>? </td><td>
+Defines types of construction material resources.
+<blockquote class="change-ifc2x4">IFC4 New attribute.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresource.htm">IfcConstructionMaterialResource</a>&quot; type=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresource.htm">IfcConstructionMaterialResource</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresource.htm">IfcConstructionMaterialResource</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetypeenum.htm">IfcConstructionMaterialResourceTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcConstructionMaterialResource<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetypeenum.htm">IfcConstructionMaterialResourceTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR <br/>
+ (PredefinedType &lt;&gt; <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetypeenum.htm">IfcConstructionMaterialResourceTypeEnum</a>.USERDEFINED) OR <br/>
+ ((PredefinedType = <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetypeenum.htm">IfcConstructionMaterialResourceTypeEnum</a>.USERDEFINED) AND EXISTS (SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcconstructionmgmtdomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcconstructionmaterialresource%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcconstructionmaterialresource.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcEllipse</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 27 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.28");
+//-->
+</script>
+
+<h4 class="num">IfcEllipse</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcEllipse</span> is a curve consisting of a set of points whose distances to two fixed points add to the same
+constant.</p>
+<p>The inherited <i>SELF\IfcConic.Position.Location</i> is the center of the <span class="self-ref">IfcEllipse</span>, and the inherited
+S<i>ELF\IfcConic.Position.Position.P[1]</i> is the direction of the <i>SemiAxis1</i>.</p>
+<table summary="example" cellpadding="2" cellspacing="2">
+<tr>
+<td><img src="../../../figures/ifcellipse-layout1.gif" alt="ellipse" width="400" height="300" border="0"></td>
+<td style="vertical-align:bottom; text-align:left;">
+<p><span style="font-size:smaller">Definition of the <span class="self-ref">IfcEllipse</span> within the a three-dimensional position
+coordinate system is shown in Figure 179.</span></p>
+<p><span style=" font-size:smaller;">It is placed within the object coordinate system of an element of which it is a
+representation.</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 179 &mdash; Ellipse placement and parameterization</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<blockquote class="note">NOTE&nbsp; An elliptical arc segment is defined by using the <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with
+<i>BasisCurve</i></blockquote>
+<blockquote class="extDef">
+<p style=" font-size:inherit;">NOTE Definition according to ISO/CD 10303-42:1992<br>
+An ellipse is a conic section defined by the lengths of the semi-major and semi-minor diameters and the position
+(center or mid point of the line joining the foci) and orientation of the curve. Interpretation of the data shall be as
+follows:</p>
+<blockquote><code style="font-size:small;">C = position.location<br>
+x = position.p[1]<br>
+y = position.p[2]<br>
+z = position.p[3]<br>
+R1 = semi axis 1<br>
+R2 = semi axis 2</code></blockquote>
+<p style=" font-size:inherit;">and the ellipse is parameterized as:</p>
+<blockquote><img alt="formula" src="../../../figures/ifcellipse-math1.gif" width="220" height="22"></blockquote>
+<p style=" font-size:inherit;">The parameterization range is 0 &le; <i>u</i> &lt;&le; 2&pi; (0 &le; <i>u</i> &le; 360
+degree). In the placement coordinate system defined above, the ellipse is the equation <i>C</i> = 0, where</p>
+<blockquote>
+<p style=" font-size:inherit;"><img alt="formula" src="../../../figures/ifcellipse-math2.gif" width="193" height="24"></p>
+</blockquote>
+<p style=" font-size:inherit;">The positive sense of the ellipse at any point is in the tangent direction, T, to the
+curve at the point, where</p>
+<blockquote>
+<p style=" font-size:inherit;"><img alt="formula" src="../../../figures/ifcellipse-math3.gif" width="102" height="25"></p>
+</blockquote>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>ellipse</strong> defined in ISO
+10303-42</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>SemiAxis1</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The first radius of the ellipse which shall be positive. Placement.Axes[1] gives the direction of the SemiAxis1.</td><td>X</td></tr>
+<tr><td>3</td><td>SemiAxis2</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The second radius of the ellipse which shall be positive.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SemiAxis1&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SemiAxis2&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcEllipse<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>)<b>;</b><br/>
+&nbsp;&nbsp;SemiAxis1 : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;SemiAxis2 : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcellipse%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcellipse.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

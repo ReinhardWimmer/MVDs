@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcBuildingElement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.3");
+//-->
+</script>
+
+<h4 class="num">IfcBuildingElement</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things</p>
+
+<blockquote class="extDef">
+NOTE&nbsp; Definition from ISO 6707-1:<br>
+Major functional part of a building, examples are foundation, floor, roof, wall.</blockquote>
+
+<p>This <span class="self-ref">IfcBuildingElement</span> is a generalization of all elements that participate in a building system. Typical examples of <i><span class="self-ref">IfcBuildingElement</span> </i>'s are (among others):</p>
+<ul>
+ <li>building elements within a space separation systems </li>
+ <li>building elements within an enclosure system (such as a facade) </li>
+ <li>building elements within a fenestration system </li>
+ <li>building elements within a load bearing system </li>
+ <li>building elements within a foundation system </li>
+</ul>
+
+<blockquote class="example">EXAMPLE&nbsp; Building elements are walls, curtain wall, doors, columns, pile, and others.</blockquote>
+
+<p>The <span class="self-ref">IfcBuildingElement</span> is an abstract entity that cannot be instantiated. For arbitrary building elements, that cannot be expressed by a subtype of <span class="self-ref">IfcBuildingElement</span>, use <a href="../../ifcsharedbldgelements/lexical/ifcbuildingelementproxy.htm">IfcBuildingElementProxy</a>. 
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote><p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>MaxOneMaterialAssociation</td><td>There should be only a maximum of one material association assigned to an building element.
+<blockquote class="note">NOTE&nbsp; The material association can assign a single material, a set of materials, a set of material layers, or a set of material profiles by a single association relationship.</blockquote>
+<blockquote class="change-ifc2x4">FC2x4 CHANGE The where rule has been promoted from the subtype <a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>.</blockquote>
+</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcBuildingElement<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcsharedbldgelements/lexical/ifcbeam.htm">IfcBeam</a>, <a href="../../ifcsharedbldgelements/lexical/ifcbuildingelementproxy.htm">IfcBuildingElementProxy</a>, <a href="../../ifcsharedbldgelements/lexical/ifcchimney.htm">IfcChimney</a>, <a href="../../ifcsharedbldgelements/lexical/ifccolumn.htm">IfcColumn</a>, <a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>, <a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a>, <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcfooting.htm">IfcFooting</a>, <a href="../../ifcsharedbldgelements/lexical/ifcmember.htm">IfcMember</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcpile.htm">IfcPile</a>, <a href="../../ifcsharedbldgelements/lexical/ifcplate.htm">IfcPlate</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrailing.htm">IfcRailing</a>, <a href="../../ifcsharedbldgelements/lexical/ifcramp.htm">IfcRamp</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrampflight.htm">IfcRampFlight</a>, <a href="../../ifcsharedbldgelements/lexical/ifcroof.htm">IfcRoof</a>, <a href="../../ifcsharedbldgelements/lexical/ifcshadingdevice.htm">IfcShadingDevice</a>, <a href="../../ifcsharedbldgelements/lexical/ifcslab.htm">IfcSlab</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstair.htm">IfcStair</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstairflight.htm">IfcStairFlight</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;MaxOneMaterialAssociation : SIZEOF (QUERY(temp &lt;* SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.HasAssociations |<br/>
+  &#39;IFCPRODUCTEXTENSION.<a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>&#39; IN TYPEOF(temp)<br/>
+  )) &lt;= 1;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcbuildingelement%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcbuildingelement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

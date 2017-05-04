@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcProtectiveDeviceTypeEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 4 index3 2 index4 18 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.4.2.19");
+//-->
+</script>
+
+<h4 class="num">IfcProtectiveDeviceTypeEnum</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcelectricaldomain/lexical/ifcprotectivedevicetypeenum.htm">IfcProtectiveDeviceTypeEnum</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EARTHLEAKAGECIRCUITBREAKER</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EARTHINGSWITCH</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EARTHFAILUREDEVICE</td><td>X</td><td>X</td><td>DELETED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>The <span class="self-ref">IfcProtectiveDeviceTypeEnum</span> specifically defines the range of different breaker unit types that can be used in conjunction with protective device. Types may also be used as a reference to a complete protective device in circumstances where tripping units are not separately identified (typically expected to be the case during earlier stages of design). </p>
+
+<blockquote class="history">HISTORY&nbsp; New type in IFC2x2. Modified definition and usage in IFC4. </blockquote><p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>CIRCUITBREAKER</td><td>A mechanical switching device capable of making, carrying, and breaking currents under normal circuit conditions and also making, carrying for a specified time and breaking, current under specified abnormal circuit conditions such as those of short circuit.</td></tr><tr><td>EARTHLEAKAGECIRCUITBREAKER</td><td>A device that opens, closes, or isolates a circuit and has short circuit protection but no overload protection.  It attempts to break the circuit when there is a leakage of current from phase to earth, by measuring voltage on the earth conductor.</td></tr><tr><td>EARTHINGSWITCH</td><td>A safety device used to open or close a circuit when there is no current. Used to isolate a part of a circuit, a machine, a part of an overhead line or an underground line so that maintenance can be safely conducted.</td></tr><tr><td>FUSEDISCONNECTOR</td><td>A device that will electrically open the circuit after a period of prolonged, abnormal current flow.</td></tr><tr><td>RESIDUALCURRENTCIRCUITBREAKER</td><td>A device that opens, closes, or isolates a circuit and has short circuit and overload protection.  It attempts to break the circuit when there is a difference in current between any two phases.  May also be referred to as 'Ground Fault Interupter (GFI)' or 'Ground Fault Circuit Interuptor (GFCI)'</td></tr><tr><td>RESIDUALCURRENTSWITCH</td><td>A device that opens, closes or isolates a circuit and has no short circuit or overload protection.  May also be identified as a 'ground fault switch'.</td></tr><tr><td>VARISTOR</td><td>A high voltage surge protection device.</td></tr><tr><td>USERDEFINED</td><td>User-defined type.</td></tr><tr><td>NOTDEFINED</td><td>Undefined type.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcelectricaldomain/lexical/ifcprotectivedevicetypeenum.htm">IfcProtectiveDeviceTypeEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;circuitbreaker&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;earthleakagecircuitbreaker&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;earthingswitch&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;fusedisconnector&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;residualcurrentcircuitbreaker&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;residualcurrentswitch&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;varistor&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcProtectiveDeviceTypeEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;CIRCUITBREAKER, <br/>&nbsp;EARTHLEAKAGECIRCUITBREAKER, <br/>&nbsp;EARTHINGSWITCH, <br/>&nbsp;FUSEDISCONNECTOR, <br/>&nbsp;RESIDUALCURRENTCIRCUITBREAKER, <br/>&nbsp;RESIDUALCURRENTSWITCH, <br/>&nbsp;VARISTOR, <br/>&nbsp;USERDEFINED, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcelectricaldomain/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcprotectivedevicetypeenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcprotectivedevicetypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

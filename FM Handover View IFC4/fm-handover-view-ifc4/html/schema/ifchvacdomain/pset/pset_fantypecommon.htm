@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_FanTypeCommon</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 5 index3 4 index4 51 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.5.4.52");
+//-->
+</script>
+
+<h4 class="std">7.5.4.52 Pset_FanTypeCommon</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifchvacdomain/lexical/ifcfan.htm">IfcFan</a>
+</p><p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Reference</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>
+*</td><td>
+Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as "construction type". It should be provided as an alternative to the name of the "object type", if the software does not support object types.
+</td></tr>
+<tr><td>Status</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcproductextension/pset/penum_elementstatus.htm">PEnum_ElementStatus</a>*</td><td>
+Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as "New" - element designed as new addition, "Existing" - element exists and remains, "Demolish" - element existed but is to be demolished,  "Temporary" - element will exists only temporary (like a temporary support structure).
+</td></tr>
+<tr><td>MotorDriveType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_fanmotorconnectiontype.htm">PEnum_FanMotorConnectionType</a></td><td>
+Motor drive type:
+DIRECTDRIVE: Direct drive. 
+BELTDRIVE: Belt drive. 
+COUPLING: Coupling. 
+OTHER: Other type of motor drive. 
+UNKNOWN: Unknown motor drive type.
+</td></tr>
+<tr><td>CapacityControlType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_fancapacitycontroltype.htm">PEnum_FanCapacityControlType</a></td><td>
+InletVane: Control by adjusting inlet vane.
+VariableSpeedDrive: Control by variable speed drive. 
+BladePitchAngle: Control by adjusting blade pitch angle.
+TwoSpeed: Control by switch between high and low speed.
+DischargeDamper: Control by modulating discharge damper.
+</td></tr>
+<tr><td>OperationTemperatureRange</td><td>
+<span class="self-ref">P_BOUNDEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Allowable operation ambient air temperature range.
+</td></tr>
+<tr><td>NominalAirFlowRate</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+</td><td>
+Nominal air flow rate.
+</td></tr>
+<tr><td>NominalTotalPressure</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+Nominal total pressure rise across the fan.
+</td></tr>
+<tr><td>NominalStaticPressure</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+The static pressure within the air stream that the fan must overcome to insure designed circulation of air.
+</td></tr>
+<tr><td>NominalRotationSpeed</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcrotationalfrequencymeasure.htm">IfcRotationalFrequencyMeasure</a>
+</td><td>
+Nominal fan wheel speed.
+</td></tr>
+<tr><td>NominalPowerRate</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+Nominal fan power rate.
+</td></tr>
+<tr><td>OperationalCriteria</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifctimemeasure.htm">IfcTimeMeasure</a>
+</td><td>
+Time of operation at maximum operational ambient air temperature.
+</td></tr>
+<tr><td>PressureCurve</td><td>
+<span class="self-ref">P_TABLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+Pressure rise = f (flow rate).
+</td></tr>
+<tr><td>EfficiencyCurve</td><td>
+<span class="self-ref">P_TABLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+/
+<a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>
+</td><td>
+Fan efficiency =f (flow rate).
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_fantypecommon%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_fantypecommon.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCircle</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 16 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.17");
+//-->
+</script>
+
+<h4 class="num">IfcCircle</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcCircle</span> is a curve consisting of a set of points having equal distance from the center.</p>
+<blockquote class="note">NOTE&nbsp; A circular arc segment is defined by using the <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> with
+<i>BasisCurve</i> being an <span class="self-ref">IfcCircle</span>.</blockquote>
+
+<p>Figure 177 illustrates the definition of <span class="self-ref">IfcCircle</span> within a three-dimensional position
+coordinate system placed within the object coordinate system of an element.</p>
+
+<table summary="example" cellpadding="2" cellspacing="2">
+<tr>
+<td><img src="../../../figures/ifccircle-layout1.gif" alt="axis1 placement" width="400" height="300" border="0"></td>
+<td style="vertical-align:bottom; text-align:left;">
+</td>
+</tr>
+<tr><td><p class="figure">Figure 177 &mdash; Circle layout</p></td></tr>
+</table>
+<p>&nbsp;</p>
+
+<blockquote class="extDef">NOTE Definition according to ISO/CD 10303-42:1992<br>
+A circle is defined by a radius and the location and orientation of the circle. Interpretation of data should be as
+follows:
+<blockquote><code style="font-size:inherit">C = SELF\IfcConic.Position.Location<br>
+x = SELF\IfcConic.Position.P[1]<br>
+y = SELF\IfcConic.Position.P[2]<br>
+z = SELF\IfcConic.Position.P[3]<br>
+R = Radius</code></blockquote>
+<p style="font-size:inherit">and the circle is parameterized as</p>
+<blockquote>
+<blockquote><img alt="formula" src="../../../figures/ifccircle-math1.gif" width="205" height="22"></blockquote>
+</blockquote>
+<p style="font-size:inherit">The parameterization range is 0 &le; <i>u</i> &le; 2&pi; (0 &le; <i>u</i> &le; 360
+degree).<br>
+In the placement coordinate system defined above, the circle is the equation <i>C</i> = 0, where</p>
+<blockquote>
+<blockquote><img alt="formula" src="../../../figures/ifccircle-math2.gif" width="154" height="24"></blockquote>
+</blockquote>
+<p style="font-size:inherit">The positive sense of the circle at any point is in the tangent direction, <b>T</b>, to
+the curve at the point, where</p>
+<blockquote>
+<blockquote><img alt="formula" src="../../../figures/ifccircle-math3.gif" width="102" height="25"></blockquote>
+</blockquote>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>circle</strong> defined in ISO
+10303-42</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>Radius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The radius of the circle, which shall be greater than zero.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Radius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcCircle<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>)<b>;</b><br/>
+&nbsp;&nbsp;Radius : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifccircle%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifccircle.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

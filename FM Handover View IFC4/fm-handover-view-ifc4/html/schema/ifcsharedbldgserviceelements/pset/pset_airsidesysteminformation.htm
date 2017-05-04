@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_AirSideSystemInformation</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 4 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.4.1");
+//-->
+</script>
+
+<h4 class="std">6.2.4.1 Pset_AirSideSystemInformation</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<span class="self-ref">IfcSpace,IfcZone,IfcSpatialZone</span>
+</p><p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+</td><td>
+The name of the air side system.
+</td></tr>
+<tr><td>Description</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+</td><td>
+The description of the air side system.
+</td></tr>
+<tr><td>AirSideSystemType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcsharedbldgserviceelements/pset/penum_airsidesystemtype.htm">PEnum_AirSideSystemType</a></td><td>
+This enumeration specifies the basic types of possible air side systems (e.g., Constant Volume, Variable Volume, etc.).
+</td></tr>
+<tr><td>AirSideSystemDistributionType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcsharedbldgserviceelements/pset/penum_airsidesystemdistributiontype.htm">PEnum_AirSideSystemDistributionType</a></td><td>
+This enumeration defines the basic types of air side systems (e.g., SingleDuct, DualDuct, Multizone, etc.).
+</td></tr>
+<tr><td>TotalAirflow</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+</td><td>
+The total design supply air flowrate required for the system for either heating or cooling conditions, whichever is greater.
+</td></tr>
+<tr><td>EnergyGainTotal</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+The total amount of energy gains for the spaces served by the system during the peak cooling conditions, plus any system-level total energy gains.
+</td></tr>
+<tr><td>AirflowSensible</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+</td><td>
+The air flowrate required to satisfy the sensible peak loads.
+</td></tr>
+<tr><td>EnergyGainSensible</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+The sum of total energy gains for the spaces served by the system during the peak cooling conditions, plus any system-level sensible energy gains.
+</td></tr>
+<tr><td>EnergyLoss</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+The sum of energy losses for the spaces served by the system during the peak heating conditions.
+</td></tr>
+<tr><td>LightingDiversity</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>
+*</td><td>
+Lighting diversity.
+</td></tr>
+<tr><td>InfiltrationDiversitySummer</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>
+*</td><td>
+Diversity factor for Summer infiltration.
+</td></tr>
+<tr><td>InfiltrationDiversityWinter</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>
+*</td><td>
+Diversity factor for Winter infiltration.
+</td></tr>
+<tr><td>ApplianceDiversity</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>
+*</td><td>
+Diversity of appliance load.
+</td></tr>
+<tr><td>LoadSafetyFactor</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>
+*</td><td>
+Load safety factor.
+</td></tr>
+<tr><td>HeatingTemperatureDelta</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Heating temperature difference for calculating space air flow rates.
+</td></tr>
+<tr><td>CoolingTemperatureDelta</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Cooling temperature difference for calculating space air flow rates.
+</td></tr>
+<tr><td>Ventilation</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+</td><td>
+Required outside air ventilation.
+</td></tr>
+<tr><td>FanPower</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+Fan motor loads contributing to the cooling load.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_airsidesysteminformation%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_airsidesysteminformation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcRelSpaceBoundary1stLevel</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 40 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.41");
+//-->
+</script>
+
+<h4 class="num">IfcRelSpaceBoundary1stLevel</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The 1st level space boundary defines the physical or virtual delimiter of a space by the relationship <span class="self-ref">IfcRelSpaceBoundary1stLevel</span> to the surrounding elements. 1st level space boundaries are characterizeda by:</p>
+<ul>
+<li>1st level space boundaries are the boundaries of a space defined by the surfaces of building elements bounding this space (physical space boundaries) or by virtual surfaces provided by an adjacent space with no dividing wall.</li>
+<li>1st level space boundaries do not consider any change of material in the bounding building elements, or different spaces/zones behind a wall or slab (floor or ceiling).</li>
+<li>1st level space boundaries are differentiated in two ways: virtual or physical and internal,external, or undefined (internal and external) e.g. for a wall that is partially inside and outside.</li>
+<li>1st level space boundaries form a closed shell around the space (so long as the space is completely enclosed) and include overlapping boundaries representing openings (filled or not) in the building elements (see implementers agreement below).</li>
+</ul>
+<p>1st level space boundaries define a space by its boundary surfaces without taking anything on the other side of the bounding elements into account.</p>
+
+<blockquote class="note">
+NOTE&nbsp; 1st level space boundaries are used e.g. in quantity take-off and facility management as they describe the surfaces for finishes. They cannot be directly used for thermal analysis. However 1st level space boundaries can provide the input to preprocessors to thermal analysis software that take 1st level space boundaries and perform the necessary transformation into 2nd level space boundaries that are required for energy analysis.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<p class="use-head">Relationship Use Definitions</p>
+
+<p>As shown in Figure 82, the attribute <i>ParentBoundary</i> with inverse <i>InnerBoundaries</i> is provided to link the space boundaries of doors, windows, and openings to the parent boundary, such as of a wall or slab.</p>
+<blockquote class="note">NOTE&nbsp; The space boundary of the parent is not cut by the inner boundary - both overlap.</blockquote>
+
+<table border="0" cellpadding="2" cellspacing="2" summary="parent/inner boundaries">
+<tr><td><img src="../../../figures/ifcrelspaceboundary1stlevel-fig1.png"  alt="IfcRelSpaceBoundary1stLevel" height="550" width="600"></td></tr>
+<tr><td><p class="figure">Figure 82 &mdash; Space boundary first level relationships</p></td></tr>
+</table>
+
+<p class="use-head">Geometry Use Definitions</p>
+<p>See the definition at the supertype IfcRelSpaceBoundary for
+guidance on using the connection geometry for first level space
+boundaries.</p><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>ParentBoundary</td><td><a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a></td><td>? </td><td>
+Reference to the host, or parent, space boundary within which this inner boundary is defined.</td><td>X</td></tr>
+<tr><td></td><td><i>InnerBoundaries</i></td><td><a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a><br/>@ParentBoundary</td><td>S[0:?]</td><td>Reference to the inner boundaries of the space boundary. Inner boundaries are defined by the space boundaries of openings, doors and windows.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ParentBoundary&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcRelSpaceBoundary1stLevel<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcproductextension/lexical/ifcrelspaceboundary2ndlevel.htm">IfcRelSpaceBoundary2ndLevel</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>)<b>;</b><br/>
+&nbsp;&nbsp;ParentBoundary : <span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;InnerBoundaries : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcproductextension/lexical/ifcrelspaceboundary1stlevel.htm">IfcRelSpaceBoundary1stLevel</a> <span class="keyword">FOR</span> ParentBoundary;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcrelspaceboundary1stlevel%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcrelspaceboundary1stlevel.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

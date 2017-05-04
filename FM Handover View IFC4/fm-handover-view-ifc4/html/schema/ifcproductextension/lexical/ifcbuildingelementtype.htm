@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcBuildingElementType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.4");
+//-->
+</script>
+
+<h4 class="num">IfcBuildingElementType</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcBuildingElementType</span> provides the type information for <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a> occurrences.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The product representations are defined as representation maps (at the level of the supertype <a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a>, which gets assigned by an element occurrence instance through the <i>IfcShapeRepresentation.Item[1]</i> being an <a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>.
+</blockquote>
+
+<p>A building element type is used to define the common properties of a certain type of building element that are applied to all occurrences of that type. It is used to define a building element specification (i.e. the specific product information, that is common to all occurrences of that product type). Building element types (or the instantiable subtypes) may be exchanged without being already assigned to occurrences.</p>
+
+<p>The <span class="self-ref">IfcBuildingElementType</span> is an abstract type that cannot be instantiated. For arbitrary building element types, that cannot be expressed by a subtype of <i>IfcBuildingElementType </i>, use <a href="../../ifcsharedbldgelements/lexical/ifcbuildingelementproxytype.htm">IfcBuildingElementProxyType</a>. Occurrences of subtypes of the <span class="self-ref">IfcBuildingElementType</span> are represented by instances of the appropriate subtypes of <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote><p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcBuildingElementType<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcsharedbldgelements/lexical/ifcbeamtype.htm">IfcBeamType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcbuildingelementproxytype.htm">IfcBuildingElementProxyType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcchimneytype.htm">IfcChimneyType</a>, <a href="../../ifcsharedbldgelements/lexical/ifccolumntype.htm">IfcColumnType</a>, <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a>, <a href="../../ifcsharedbldgelements/lexical/ifccurtainwalltype.htm">IfcCurtainWallType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcfootingtype.htm">IfcFootingType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcmembertype.htm">IfcMemberType</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcpiletype.htm">IfcPileType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcplatetype.htm">IfcPlateType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrailingtype.htm">IfcRailingType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrampflighttype.htm">IfcRampFlightType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcramptype.htm">IfcRampType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcrooftype.htm">IfcRoofType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcshadingdevicetype.htm">IfcShadingDeviceType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcslabtype.htm">IfcSlabType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstairflighttype.htm">IfcStairFlightType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcstairtype.htm">IfcStairType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwalltype.htm">IfcWallType</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcbuildingelementtype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcbuildingelementtype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

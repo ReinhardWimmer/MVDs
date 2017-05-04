@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcLanguageId</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 6 index3 2 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.6.2.1");
+//-->
+</script>
+
+<h4 class="num">IfcLanguageId</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcexternalreferenceresource/lexical/ifclanguageid.htm">IfcLanguageId</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>The <span class="self-ref">IfcLanguageId</span> identifies the language in which a natural language text is expressed. It uses a language tag to identify the language.</p>
+
+<blockquote class="note">NOTE&nbsp; The tag shall comply to the Internet Engineering Task Force (IETF) language tag as expressed in RFC 5646. A conforming program shall support the "simple language" subtag and the "language-region" tag format.</blockquote>
+
+<blockquote class="example">
+EXAMPLE&nbsp; for simple language tags en (English), de (German), fr (France), or ja (Japanese), and for language-region tags en-US (English as used in United States), de-CH (German as used in German speaking part of Switzerland).
+</blockquote>
+
+<p>Type: <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></p>
+
+<blockquote class="note">
+NOTE&nbsp; See <a href="../../../bibliography.htm#RFC-5646">RFC 5646</a> for definition of language tag.
+</blockquote>
+<blockquote class="history">
+HISTORY&nbsp; New defined datatype in IFC4.
+</blockquote> <p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcexternalreferenceresource/lexical/ifclanguageid.htm">IfcLanguageId</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot;/&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcLanguageId = <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcexternalreferenceresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifclanguageid%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifclanguageid.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcProject</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 1 index3 3 index4 10 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.1.3.11");
+//-->
+</script>
+
+<h4 class="num">IfcProject</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifckernel/lexical/ifcproject.htm">IfcProject</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RepresentationContexts</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnitsInContext</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcProject</span> indicates the undertaking of some design, engineering, construction, or
+maintenance activities leading towards a product. The project establishes the context for information to be exchanged or shared, and it may represent a construction project but does not have to.  The <span class="self-ref">IfcProject</span>'s main purpose in an exchange structure is to provide the root instance and the context for all other information items included.</p>
+<p>The context provided by the <span class="self-ref">IfcProject</span> includes:</p>
+<ul>
+ <li>the default units</li>
+ <li>the geometric representation context for exchange structures including shape representations
+ <ul>
+  <li>the project coordinate system</li>
+  <li>the coordinate space dimension</li>
+  <li>the precision used within the geometric representations</li>
+  <li>optionally the indication of the true north</li>
+  <li>optionally the map conversion between the project coordinate system and the geospatial coordinate reference system.</li>
+ </ul>
+ </li>
+</ul>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attributes <i>RepresentationContexts</i> and <i>UnitsInContext</i> are made optional and are promoted to supertype <a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>.
+</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>There shall only be one project within the exchange context. This is enforced by the global rule <a href="../../ifckernel/lexical/ifcsingleprojectinstance.htm">IfcSingleProjectInstance</a>.</li>
+</ol><p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>HasName</td><td>The <i>Name</i> attribute has to be provided for <span class="self-ref">IfcProject</span>. It is the short name for the project.</td></tr>
+<tr><td>CorrectContext</td><td>If a <i>RepresentationContexts</i> relation is provided then there shall be no instance of <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a> directly included in the set of <i>RepresentationContexts</i>.</td></tr>
+<tr><td>NoDecomposition</td><td>The <span class="self-ref">IfcProject</span> represents the root of the any decomposition tree. It shall therefore not be used to decompose any other object definition.</td></tr>
+</table>
+
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifcproject.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcProject</h5><a id="project-units" />
+<p><b><u>Project Units</u></b></p>
+<p>The <a href="../../templates/project-units.htm">Project Units</a> concept template applies to this entity as shown in Table 1.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>HasUnits</b></th><th><b>DerivedUnitType</b></th><th><b>SIUnitType</b></th><th><b>SIUnitName</b></th><th><b>ConversionUnitType</b></th><th><b>ConversionUnitName</b></th></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">AREAUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">LENGTHUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">VOLUMEUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 1 &mdash; IfcProject Project Units</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-decomposition" />
+<p><b><u>Spatial Decomposition</u></b></p>
+<p>The <a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a> concept template applies to this entity as shown in Table 2.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>Site Contained in Project</td><td>Required if site is available (otherwise use IfcBuilding)</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Building Contained in Project</td><td>Required if site is not available</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 2 &mdash; IfcProject Spatial Decomposition</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="project-attributes" />
+<p><b><u>Project Attributes</u></b></p>
+<p>The <a href="../../templates/project-attributes.htm">Project Attributes</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="project-representation-context" />
+<p><b><u>Project Representation Context</u></b></p>
+<p>The <a href="../../templates/project-representation-context.htm">Project Representation Context</a> concept applies to this entity.</p><br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>&quot; type=&quot;ifc:<a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcProject<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;HasName : EXISTS(SELF\<a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>.Name);<br/>&nbsp;&nbsp;CorrectContext : NOT(EXISTS(SELF\<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>.RepresentationContexts)) OR<br/>
+(SIZEOF(QUERY(Temp &lt;* SELF\<a href="../../ifckernel/lexical/ifccontext.htm">IfcContext</a>.RepresentationContexts |<br/>
+ &#39;IFCREPRESENTATIONRESOURCE.<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>&#39; IN TYPEOF(Temp)<br/>
+  )) = 0);<br/>&nbsp;&nbsp;NoDecomposition : SIZEOF(SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.Decomposes) = 0;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifckernel/diagram_0012.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcproject%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcproject.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

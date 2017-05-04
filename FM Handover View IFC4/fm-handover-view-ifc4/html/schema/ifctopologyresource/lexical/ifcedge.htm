@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcEdge</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 20 index3 3 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.3.4");
+//-->
+</script>
+
+<h4 class="num">IfcEdge</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcEdge</span> defines two vertices being connected topologically. The geometric representation of the connection between the two vertices defaults to a straight line if no curve geometry is assigned using the subtype <a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>. The <span class="self-ref">IfcEdge</span> can therefore be used to exchange straight edges
+without an associated geometry provided by <a href="../../ifcgeometryresource/lexical/ifcline.htm">IfcLine</a> or <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> thought <i>IfcEdgeCurve.EdgeGeometry</i>.</p>
+<p>&nbsp;</p>
+<table>
+<tr><td><br><img src="../../../figures/ifcedge.png" alt="edge representation" border="0"></td>
+<td><blockquote class="example">EXAMPLE&nbsp; Figure 247 illustrates an example where the bounds of the <span class="self-ref">IfcEdge</span> are given by the <i>EdgeStart</i> and <i>EdgeEnd</i>; this also determines the direction of the edge. The location within a coordinate space is determined by the <a href="../../ifctopologyresource/lexical/ifcvertexpoint.htm">IfcVertexPoint</a> type for <i>EdgeStart</i> and <i>EdgeEnd</i>. Since no edge geometry is assigned, it defaults to a straight line agreeing to the direction sense.</blockquote></td>
+</tr>
+<tr><td><p class="figure">Figure 247 &mdash; Edge representation</p></td><td>&nbsp;</td></tr>
+</table>
+
+<p>&nbsp;</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+An edge is the topological construct corresponding to the connection of two
+vertices. More abstractly, it may stand for a logical relationship between two vertices. The domain of an edge, if
+present, is a finite, non-self-intersecting open curve in <i>R<sup>M</sup></i>, that is, a connected 1-dimensional
+manifold. The bounds of an edge are two vertices, which need not be distinct. The edge is oriented by choosing its traversal
+direction to run from the first to the second vertex. If the two vertices are the same, the edge is a self loop. The domain of the
+edge does not include its bounds, and 0 &le; &Xi; &le; &infin;. Associated with an edge may be a geometric curve to locate the
+edge in a coordinate space; this is represented by the edge curve subtype. The curve shall be finite and non-self-intersecting within 
+the domain of the edge. An edge is a graph, so its multiplicity M and graph genus <i>G<sup>e</sup></i> may be determined by the 
+graph traversal algorithm. Since <i>M</i> = <i>E</i> = 1, the Euler equation (1) reduces in the case to:
+<blockquote><img src="../../../figures/ifcedge-math1.gif" width="105" height="24"></blockquote>
+where <i>V</i> = 1 or 2, and <i>G<sup>e</sup></i> = 1 or 0. Specifically, the topological edge defining data shall satisfy:
+<ul>
+<li class="extDef">an edge has two vertices <br><img src="../../../figures/ifcedge-math2.gif" width="64" height="26"></li>
+<li class="extDef">the vertices need not be distinct <br><img src="../../../figures/ifcedge-math3.gif" width="88" height="26"></li>
+<li class="extDef">Equation shall hold <br><img src="../../../figures/ifcedge-math4.gif" width="120" height="26"></li>
+</ul>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>edge</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2.0</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The edge has dimensionality 1.</li>
+<li>The extent of an edge shall be finite and nonzero.</li>
+</ol><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>EdgeStart</td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a></td><td></td><td>
+Start point (vertex) of the edge.
+</td><td>X</td></tr>
+<tr><td>2</td><td>EdgeEnd</td><td><a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a></td><td></td><td>
+End point (vertex) of the edge. The same vertex can be used for both EdgeStart and EdgeEnd.
+</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EdgeStart&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EdgeEnd&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcEdge<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>, <a href="../../ifctopologyresource/lexical/ifcorientededge.htm">IfcOrientedEdge</a>, <a href="../../ifctopologyresource/lexical/ifcsubedge.htm">IfcSubedge</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>)<b>;</b><br/>
+&nbsp;&nbsp;EdgeStart : <a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>;<br/>
+&nbsp;&nbsp;EdgeEnd : <a href="../../ifctopologyresource/lexical/ifcvertex.htm">IfcVertex</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifctopologyresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcedge%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcedge.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

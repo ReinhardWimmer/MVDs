@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTopologyRepresentation</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 18 index3 3 index4 16 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.17");
+//-->
+</script>
+
+<h4 class="num">IfcTopologyRepresentation</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcTopologyRepresentation</span>
+represents the concept of a particular topological representation of a
+product or a product component within a representation context. This
+representation context does not need to be (but may be) a geometric
+representation context. Several representation types for shape
+representation are included as predefined types: </p>
+<table>
+  <tbody>
+    <tr>
+      <td><b>Vertex</b></td>
+      <td>topological vertex
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Edge</b></td>
+      <td>topological edge
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Path</b></td>
+      <td>topological path
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Face</b></td>
+      <td>topological face
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Shell</b></td>
+      <td>topological shell
+representation (with or without assigned geometry)</td>
+    </tr>
+    <tr>
+      <td><b>Undefined</b></td>
+      <td>no constraints imposed</td>
+    </tr>
+  </tbody>
+</table>
+<p>The representation type is
+given as a string value at the inherited attribute '<i>RepresentationType</i>'.<br>
+</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote><p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>WR21</td><td>Only topological representation items should be used.</td></tr>
+<tr><td>WR22</td><td>A representation type should be given to the topology representation.</td></tr>
+<tr><td>WR23</td><td>Checks the proper use of Items according to the RepresentationType.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcTopologyRepresentation<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcrepresentationresource/lexical/ifcshapemodel.htm">IfcShapeModel</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;WR21 : SIZEOF(QUERY(temp &lt;* SELF\<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>.Items | <br/>
+  NOT(&#39;IFCTOPOLOGYRESOURCE.<a href="../../ifctopologyresource/lexical/ifctopologicalrepresentationitem.htm">IfcTopologicalRepresentationItem</a>&#39; IN TYPEOF(temp))<br/>
+)) = 0<br/>
+<br/>
+;<br/>&nbsp;&nbsp;WR22 : EXISTS(SELF\<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>.RepresentationType);<br/>&nbsp;&nbsp;WR23 : <a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentationtypes.htm">IfcTopologyRepresentationTypes</a>(SELF\<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>.RepresentationType, SELF\<a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>.Items);<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctopologyrepresentation%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctopologyrepresentation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

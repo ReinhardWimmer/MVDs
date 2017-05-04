@@ -1,0 +1,169 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSurfaceCurveSweptAreaSolid</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 35 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.36");
+//-->
+</script>
+
+<h4 class="num">IfcSurfaceCurveSweptAreaSolid</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifcsurfacecurvesweptareasolid.htm">IfcSurfaceCurveSweptAreaSolid</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Position</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StartParam</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EndParam</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcSurfaceCurveSweptAreaSolid</span> is the result of sweeping an area along a directrix that lies on a
+reference surface. The swept area is provided by a subtype of <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>. The profile is placed
+by an implicit cartesian transformation operator at the start point of the sweep, where the profile normal agrees
+to the tangent of the directrix at this point, and the profile's x-axis agrees to the surface normal. At any point
+along the directrix, the swept profile origin lies on the directrix, the profile's normal points towards the tangent
+of the directrix, and the profile's x-axis is identical to the surface normal at this point.</p> 
+<blockquote class="note">
+NOTE&nbsp; The profile area's normal has to be identical to the tangent of the directrix at any given point. In case
+of a directrix having a linear segment at the start point, the segment has to be perpendicular to the profile at start.
+</blockquote>
+<p>The <i>Directrix</i> and the <i>ReferenceSurface</i> are positioned within the object coordinate system. The start of the sweeping operation is at the <i>StartParam</i>, the parameter value is provided based on the curve parameterization. If no <i>StartParam</i> is provided the start defaults to the begin of the directrix. The end of the sweeping operation is at the <i>EndParam</i>, the parameter value is provided based on the curve parameterization. If no <i>EndParam</i> is provided the end defaults to the end of the directrix. The geometric shape of the solid is not dependent upon the curve parameterization; the volume depends upon the area swept and the length of the <i>Directrix</i>.</p>
+<blockquote class="note">NOTE&nbsp; The <i>StartParam</i> and the <i>EndParam</i> are not normalized by default, they depend upon the parameterization of the curve. However using the <a href="../../ifcgeometryresource/lexical/ifcreparametrisedcompositecurvesegment.htm">IfcReparametrisedCompositeCurveSegment</a> within an <a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a> as the directrix allows to explicitly reparameterize the underlying sweeping curve. In case of a closed curve, such as <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a> or <a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>, as the directrix, <i>StartParam</i> and the <i>EndParam</i> shall not exceed the parametic range, they shall not be &gt; 360&deg;.</blockquote>
+<blockquote class="example">
+EXAMPLE&nbsp; The reference surface is any surface (plane, cylindric, composite) situated in 3D space and positioned in the object coordinate system. In most cases, it is a plane or a surface of extrusion. The directrix lies on the surface, in case of a plane it might be defined as a polyline or composite curve, in case of a cylindrical or other non-planer reference surface it might often be defined as a p-curve on this reference surface. </blockquote>
+<p>At any point of the directrix, a plane can be constructed. The origin of the position coordinate system of the implicit plane lies at the directrix. The Axis3 (the z-axis, or normal) of the position coordinate system is identical to the tangent of the directrix at this point, the Axis1 (the x axis, or u) of the position coordinate system is identical to the normal of the reference surface at this point. The Axis2 (the y axis, or v) is constructed.</p>
+
+<p>The resulting body of the swept solid is not repositioned if the inherited <i>Position</i> attribute is omitted. Otherwise the coordinate system established by the <i>Position</i> attribute is used to reposition the body relative to the object coordinate system.</p>
+<p>&nbsp;</p>
+<table border="0" cellpadding="2" cellspacing="2" summary="surface curve wept area solid">
+<tr>
+<td><img src="../../../figures/ifcsurfacecurvesweptareasolid_01.png" alt="surface curve wept area solid" width="600" height="450"></td>
+<td><blockquote class="example">EXAMPLE&nbsp; Figure 166 illustrates an example using a cylindrical reference surface and a p-curve for sweeping a rectangle. The <i>Postion</i> is not provided and therefore it does not reposition the resulting swept solid. Figure 167 shows the expected result.</blockquote>
+<blockquote class="note">NOTE&nbsp; The start of the directrix lies at the origin of the object coordinate system, as shown in the illustration,
+only by coincidence. The start of the directrix and thereby the start of the sweeping operation might be at any point within the object coordinate 
+system and only depends on the position of the directrix.</blockquote></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 166 &mdash; Surface curve wept area solid parameter</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="../../../figures/ifcsurfacecurvesweptareasolid_02.png" alt="surface curve wept area solid" width="600" height="450"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 167 &mdash; Surface curve wept area solid results</p>
+</td>
+</tr>
+</table>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A surface curve swept area solid is a type of swept area solid which is the result of sweeping a face along a <i>Directrix</i> lying on a <i>ReferenceSurface</i>. The orientation of the <i>SweptArea</i> is related to the direction of the surface normal.<br>
+<br>
+The <i>SweptArea</i> is required to be a curve bounded surface lying in the plane z = 0 and this is swept along the <i>Directrix</i> in such a way that the origin of the local coordinate system used to define the <i>SweptArea</i> is on the <i>Directrix</i> and the local x-axis is in the direction of the normal to the <i>ReferenceSurface</i> at the current point. The resulting solid has the property that the cross section of the surface by the normal plane to the <i>Directrix</i> at any point is a copy of the <i>SweptArea</i>.<br>
+<br>
+The orientation of the <i>SweptArea</i> as it sweeps along the <i>Directrix</i> is precisely defined by a Cartesian Transformation Operator 3D with attributes:
+<ul>
+<li class="extDef">Local origin as point (0., 0., 0),</li>
+<li class="extDef">Axis 1 as the normal N to the reference surface at the point of the directrix with parameter u.</li>
+<li class="extDef">Axis 3 as the direction of the tangent vector t at the point of the directrix with parameter u.<br>
+The remaining attributes are defaulted to define a corresponding transformation matrix T(u), which varies with the directrix parameter u.</li>
+</ul>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>surface_curve_swept_area_solid</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The <i>SweptArea</i> shall lie in the implicit plane z = 0.</li>
+<li>The <i>Directrix</i> shall lie on the <i>ReferenceSurface</i>.</li>
+</ol> 
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Directrix</td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a></td><td></td><td>
+The curve used to define the sweeping operation. The solid is generated by sweeping the <i>SELF\IfcSweptAreaSolid.SweptArea</i> along the <i>Directrix</i>.</td><td>X</td></tr>
+<tr><td>4</td><td>StartParam</td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a></td><td>? </td><td>
+The parameter value on the <i>Directrix</i> at which the sweeping operation commences. If no value is provided the start of the sweeping operation is at the start of the <i>Directrix</i>.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been changed to OPTIONAL with upward compatibility for file-based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>5</td><td>EndParam</td><td><a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a></td><td>? </td><td>
+The parameter value on the <i>Directrix</i> at which the sweeping operation ends. If no value is provided the end of the sweeping operation is at the end of the <i>Directrix</i>.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been changed to OPTIONAL with upward compatibility for file-based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>6</td><td>ReferenceSurface</td><td><a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a></td><td></td><td>
+The surface containing the <i>Directrix</i>.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>DirectrixBounded</td><td>If the values for <i>StartParam</i> or <i>EndParam</i> are omited, then the <i>Directrix</i> has to be a bounded or closed curve.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New WHERE rule.</blockquote></td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcsurfacecurvesweptareasolid.htm">IfcSurfaceCurveSweptAreaSolid</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcsurfacecurvesweptareasolid.htm">IfcSurfaceCurveSweptAreaSolid</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcsurfacecurvesweptareasolid.htm">IfcSurfaceCurveSweptAreaSolid</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Directrix&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ReferenceSurface&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;StartParam&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EndParam&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcSurfaceCurveSweptAreaSolid<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a>)<b>;</b><br/>
+&nbsp;&nbsp;Directrix : <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;<br/>
+&nbsp;&nbsp;StartParam : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;<br/>
+&nbsp;&nbsp;EndParam : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcparametervalue.htm">IfcParameterValue</a>;<br/>
+&nbsp;&nbsp;ReferenceSurface : <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;DirectrixBounded : (EXISTS(StartParam) AND EXISTS(EndParam)) OR <br/>
+(SIZEOF([&#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifcconic.htm">IfcConic</a>&#39;, &#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&#39;] * TYPEOF(Directrix)) = 1);<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcsurfacecurvesweptareasolid%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcsurfacecurvesweptareasolid.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDistributionControlElement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 3 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.3.4");
+//-->
+</script>
+
+<h4 class="num">IfcDistributionControlElement</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributioncontrolelement.htm">IfcDistributionControlElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ControlElementId</td><td>X</td><td></td><td>DELETED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributioncontrolelement.htm">IfcDistributionControlElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoverings</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The distribution element <span class="self-ref">IfcDistributionControlElement</span> defines occurrence elements of a building automation control system that are used to impart control over elements of a distribution system.</p>
+
+<p><span class="self-ref">IfcDistributionControlElement</span> defines elements of a building automation control system. These are typically used to control distribution system elements to maintain  variables such as temperature, humidity, pressure, flow, power, or lighting levels, through the modulation, staging or sequencing of mechanical or electrical devices. The three general functional categories of control elements are as follows:</p>
+
+<ul> 
+<li>Impart control over flow control elements (<a href="../../ifcsharedbldgserviceelements/lexical/ifcflowcontroller.htm">IfcFlowController</a>) in a distribution system such as dampers, valves, or relays, typically through the use of actuation (<a href="../../ifcbuildingcontrolsdomain/lexical/ifcactuator.htm">IfcActuator</a>).</li>
+<li>Sensing elements (<a href="../../ifcbuildingcontrolsdomain/lexical/ifcsensor.htm">IfcSensor</a>) that measure changes in the controlled variable such as temperature, humidity, pressure, or flow.</li>
+<li>Controllers (<a href="../../ifcbuildingcontrolsdomain/lexical/ifccontroller.htm">IfcController</a>) typically classified according to the control action they seek to perform and generally responsible for making decisions about the elements under control.</li>
+</ul>
+    
+<p>Since <span class="self-ref">IfcDistributionControlElement</span> and its subtypes typically relate to many different distribution flow elements (<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a>), the objectified relationship <a href="../../ifcsharedbldgserviceelements/lexical/ifcrelflowcontrolelements.htm">IfcRelFlowControlElements</a> has been provided to relate control and flow elements as required.</p>
+
+<p>The key distinction between <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a> and <span class="self-ref">IfcDistributionControlElement</span> is whether it is internal or external to the flow system, respectively. For example, the distinction between <a href="../../ifchvacdomain/lexical/ifcflowmeter.htm">IfcFlowMeter</a> (subtype of <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a> measuring a flow quantity) and <a href="../../ifcbuildingcontrolsdomain/lexical/ifcflowinstrument.htm">IfcFlowInstrument</a> (subtype of <span class="self-ref">IfcDistributionControlElement</span> measuring a flow quality), is based on this principal.  A physical device that connects within the flow system in which it measures (having inlet/outlet pipes for the measured substance) follows the <a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a> hierarchy (and therefore <a href="../../ifchvacdomain/lexical/ifcflowmeter.htm">IfcFlowMeter</a> which measures the flow internally).  Otherwise, if it monitors/controls but does not connect inline within the flow system (it is external or is a component of another device), then it follows the <span class="self-ref">IfcDistributionControlElement</span> hierarchy (and therefore <a href="../../ifcbuildingcontrolsdomain/lexical/ifcflowinstrument.htm">IfcFlowInstrument</a> which may display various attributes through connected sensors).</p>
+    
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attribute <i>ControlElementId</i> attribute deleted; replaced by classification usage. 
+Ports are now primarily defined using <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> to enable definition of ports at type definitions (both forward and backward compatible), provide a logical order, and reduce the number of relationship objects needed.  The relationship <a href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a> is still supported, however is now specific to dynamically connected ports.
+</blockquote>
+      
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td></td><td><i>AssignedToFlowElement</i></td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcrelflowcontrolelements.htm">IfcRelFlowControlElements</a><br/>@RelatedControlElements</td><td>S[0:1]</td><td>Reference through the relationship object to related distribution flow elements.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncontrolelement.htm">IfcDistributionControlElement</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncontrolelement.htm">IfcDistributionControlElement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributioncontrolelement.htm">IfcDistributionControlElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcDistributionControlElement<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcbuildingcontrolsdomain/lexical/ifcactuator.htm">IfcActuator</a>, <a href="../../ifcbuildingcontrolsdomain/lexical/ifcalarm.htm">IfcAlarm</a>, <a href="../../ifcbuildingcontrolsdomain/lexical/ifccontroller.htm">IfcController</a>, <a href="../../ifcbuildingcontrolsdomain/lexical/ifcflowinstrument.htm">IfcFlowInstrument</a>, <a href="../../ifcelectricaldomain/lexical/ifcprotectivedevicetrippingunit.htm">IfcProtectiveDeviceTrippingUnit</a>, <a href="../../ifcbuildingcontrolsdomain/lexical/ifcsensor.htm">IfcSensor</a>, <a href="../../ifcbuildingcontrolsdomain/lexical/ifcunitarycontrolelement.htm">IfcUnitaryControlElement</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;AssignedToFlowElement : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcsharedbldgserviceelements/lexical/ifcrelflowcontrolelements.htm">IfcRelFlowControlElements</a> <span class="keyword">FOR</span> RelatedControlElements;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcdistributioncontrolelement%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcdistributioncontrolelement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

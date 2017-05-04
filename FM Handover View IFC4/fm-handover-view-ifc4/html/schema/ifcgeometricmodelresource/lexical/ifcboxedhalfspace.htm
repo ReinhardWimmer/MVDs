@@ -1,0 +1,138 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcBoxedHalfSpace</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 6 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.7");
+//-->
+</script>
+
+<h4 class="num">IfcBoxedHalfSpace</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AgreementFlag</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcBoxedHalfSpace</span> is used (as its supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>) only within Boolean operations.
+It divides the domain into exactly two subsets, where the domain in question is that of the attribute
+<i>Enclosure</i>.</p>
+<p>The purpose of the attribute <i>Enclosure</i> is to provide a search box for the other operand in the Boolean
+operation. It shall be sufficiently large to fully enclose the resulting solid after the Boolean operation with the
+half space. It however does not alter the final result. The result of the Boolean operation would be the same, as if
+executed by the supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>. See Figure 141 below.</p>
+<table summary="boxed half space">
+<tr>
+<td><img src="../../../figures/ifcboxedhalfspace_01.png" alt="correct use of enclosure" border="0"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 141 &mdash; Boxed half space operands</p>
+</td>
+</tr>
+</table>
+<p>The <a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a> that provides the enclosure is given for the
+convenience of the receiving application to enable the use of size box comparison for efficiency (for example, to check
+first whether size boxes intersect, if not no calculations has to be done to check whether the solids of the entities
+intersect).</p>
+<table summary="boxed half space">
+<tr>
+<td width="600" valign="top" align="left"><img src="../../../figures/ifcboxedhalfspace-layout1.png" border="0" height="480"
+width="600" alt="boxed half space"></td>
+<td>The <i>Enclosure</i> therefore helps to prevent dealing with infinite-size related issues. The enclosure box is
+positioned within the object coordinate system, established by the <i>ObjectPlacement</i> of the element represented
+(for example, by <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>). Figure 142 shows the <i>Enclosure</i> box being sufficiently large to
+fully enclose the Boolean result.</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 142 &mdash; Boxed half space geometry</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This entity is a subtype of the half space solid which is trimmed by a surrounding rectangular box. The box has its
+edges parallel to the coordinate axes of the geometric coordinate system.<br>
+The purpose of the box is to facilitate CSG computations by producing a solid of finite size.</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>boxed_half_space</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.5.1</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Usage correct, position coordinate system for <i>Enclosure</i>
+is the object coordinate system.</blockquote>
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Enclosure</td><td><a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a></td><td></td><td>
+The box which bounds the resulting solid of the Boolean operation involving the half space solid for computational purposes only.
+</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>UnboundedSurface</td><td>The BaseSurface defining the half space shall not be a bounded surface.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcboxedhalfspace.htm">IfcBoxedHalfSpace</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Enclosure&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcBoxedHalfSpace<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>)<b>;</b><br/>
+&nbsp;&nbsp;Enclosure : <a href="../../ifcgeometricmodelresource/lexical/ifcboundingbox.htm">IfcBoundingBox</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;UnboundedSurface : NOT (&#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifccurveboundedplane.htm">IfcCurveBoundedPlane</a>&#39; IN TYPEOF(SELF\<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>.BaseSurface));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcboxedhalfspace%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcboxedhalfspace.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

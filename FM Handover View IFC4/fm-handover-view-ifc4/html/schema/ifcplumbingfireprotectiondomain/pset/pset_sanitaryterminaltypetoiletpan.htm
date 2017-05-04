@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_SanitaryTerminalTypeToiletPan</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 6 index3 4 index4 13 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.6.4.14");
+//-->
+</script>
+
+<h4 class="std">7.6.4.14 Pset_SanitaryTerminalTypeToiletPan</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcplumbingfireprotectiondomain/lexical/ifcsanitaryterminal.htm">IfcSanitaryTerminal</a>
+ / <span class="self-ref">TOILETPAN</span>
+</p><p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-2/index.htm">IFC4 Addendum 2</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcplumbingfireprotectiondomain/pset/pset_sanitaryterminaltypetoiletpan.htm">Pset_SanitaryTerminalTypeToiletPan</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color</td><td></td><td></td><td>DELETED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NominalLength</td><td></td><td></td><td>DELETED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NominalWidth</td><td></td><td></td><td>DELETED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NominalDepth</td><td></td><td></td><td>DELETED</td><td></td></tr>
+</table>
+<p></p>
+<p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>ToiletType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcplumbingfireprotectiondomain/pset/penum_toilettype.htm">PEnum_ToiletType</a></td><td>
+Enumeration that defines the types of toilet (water closet) arrangements that may be specified where:-
+
+BedPanWasher: Enclosed soil appliance in which bedpans and urinal bottles are emptied and cleansed.
+Chemical: Portable receptacle or soil appliance that receives and retains excrement in either an integral or a separate container, in which it is chemically treated and from which it has to be emptied periodically.
+CloseCoupled: 	Toilet suite in which a flushing cistern is connected directly to the water closet pan.
+LooseCoupled: 	Toilet arrangement in which a flushing cistern is connected to the water closet pan through a flushing pipe.
+SlopHopper: 	Hopper shaped soil appliance with a flushing rim and outlet similar to those of a toilet pan, into which human excrement is emptied for disposal.
+</td></tr>
+<tr><td>ToiletPanType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcplumbingfireprotectiondomain/pset/penum_toiletpantype.htm">PEnum_ToiletPanType</a></td><td>
+The property enumeration Pset_ToiletPanTypeEnum defines the types of toilet pan that may be specified within the property set Pset_Toilet:-
+
+Siphonic: 	Toilet pan in which excrement is removed by siphonage induced by the flushing water.
+Squat: 	Toilet pan with an elongated bowl installed with its top edge at or near floor level, so that the user has to squat.
+WashDown: 	Toilet pan in which excrement is removed by the momentum of the flushing water.
+WashOut: 	A washdown toilet pan in which excrement falls first into a shallow water filled bowl.
+</td></tr>
+<tr><td>PanMounting</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcplumbingfireprotectiondomain/pset/penum_sanitarymounting.htm">PEnum_SanitaryMounting</a></td><td>
+The property enumeration Pset_SanitaryMountingEnum defines the forms of mounting or fixing of the sanitary terminal that may be specified within property sets used to define sanitary terminals (WC’s, basins, sinks, etc.) where:-
+
+BackToWall: 	A pedestal mounted sanitary terminal that fits flush to the wall at the rear to cover its service connections.
+Pedestal: 	A floor mounted sanitary terminal that has an integral base.
+CounterTop: 	A sanitary terminal that is installed into a horizontal surface that is installed into a horizontal surface. Note: When applied to a wash hand basin, the term more normally used is ‘vanity’. See also Wash Hand Basin Type specification.
+WallHung: 	A sanitary terminal cantilevered clear of the floor.
+</td></tr>
+<tr><td>SpilloverLevel</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>
+</td><td>
+The level at which water spills out of the terminal.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_sanitaryterminaltypetoiletpan%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_sanitaryterminaltypetoiletpan.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

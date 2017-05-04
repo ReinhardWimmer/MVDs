@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcArbitraryOpenProfileDef</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 15 index3 3 index4 1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.2");
+//-->
+</script>
+
+<h4 class="num">IfcArbitraryOpenProfileDef</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The open profile <span class="self-ref">IfcArbitraryOpenProfileDef</span> defines an arbitrary two-dimensional open profile for the use within the swept surface geometry. It is given by an open boundary from which the surface can be constructed. </p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+  <li>The <i>Curve</i> has to be an open curve.</li>
+</ol>
+
+<p>Figure 218 illustrates the arbitrary open profile definition. The <i>Curve</i> is defined in the underlying coordinate system. The underlying coordinate system is defined by the swept surface that uses the profile definition. It is the xy plane of: </p>
+      <ul>
+        <li><i>IfcSweptSurface.Position</i></li>
+      </ul>
+<p>The <i>Curve</i> attribute defines a two dimensional open bounded curve.</p>
+
+<table>
+<tr><td><img src="../../../figures/ifcarbitraryprofiledef-layout3.gif" alt="arbitrary profile without boundaries" border="0" height="300" width="400"></td></tr>
+<tr><td><p class="figure">Figure 218 &mdash; Arbitrary open profile</p></td></tr>
+</table><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Curve</td><td><a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a></td><td></td><td>
+Open bounded curve defining the profile.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>WR11</td><td>The profile type is a .CURVE., an open profile can only be used to define a swept surface.
+<blockquote class="note">Note&nbsp; This does not apply to the subtype <i>IfcCentreLineProfileDef</i>.</blockquote></td></tr>
+<tr><td>WR12</td><td>The dimensionality of the curve shall be 2.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcprofileresource/lexical/ifcarbitraryopenprofiledef.htm">IfcArbitraryOpenProfileDef</a>&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcarbitraryopenprofiledef.htm">IfcArbitraryOpenProfileDef</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprofileresource/lexical/ifcarbitraryopenprofiledef.htm">IfcArbitraryOpenProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Curve&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcArbitraryOpenProfileDef<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcprofileresource/lexical/ifccenterlineprofiledef.htm">IfcCenterLineProfileDef</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>)<b>;</b><br/>
+&nbsp;&nbsp;Curve : <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;WR11 : (&#39;IFCPROFILERESOURCE.<a href="../../ifcprofileresource/lexical/ifccenterlineprofiledef.htm">IfcCenterLineProfileDef</a>&#39; IN TYPEOF(SELF)) OR <br/>
+ (SELF\<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>.ProfileType = <a href="../../ifcprofileresource/lexical/ifcprofiletypeenum.htm">IfcProfileTypeEnum</a>.CURVE);<br/>&nbsp;&nbsp;WR12 : Curve.Dim = 2;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcarbitraryopenprofiledef%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcarbitraryopenprofiledef.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_ValveTypeCommon</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 5 index3 4 index4 101 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.5.4.102");
+//-->
+</script>
+
+<h4 class="std">7.5.4.102 Pset_ValveTypeCommon</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifchvacdomain/lexical/ifcvalve.htm">IfcValve</a>
+</p><p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifchvacdomain/pset/pset_valvetypecommon.htm">Pset_ValveTypeCommon</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BodyMaterial</td><td></td><td></td><td>DELETED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-2/index.htm">IFC4 Addendum 2</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifchvacdomain/pset/pset_valvetypecommon.htm">Pset_ValveTypeCommon</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Reference</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>
+*</td><td>
+Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as "construction type". It should be provided as an alternative to the name of the "object type", if the software does not support object types.
+</td></tr>
+<tr><td>Status</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcproductextension/pset/penum_elementstatus.htm">PEnum_ElementStatus</a>*</td><td>
+Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as "New" - element designed as new addition, "Existing" - element exists and remains, "Demolish" - element existed but is to be demolished,  "Temporary" - element will exists only temporary (like a temporary support structure).
+</td></tr>
+<tr><td>ValvePattern</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_valvepattern.htm">PEnum_ValvePattern</a></td><td>
+The configuration of the ports of a valve according to either the linear route taken by a fluid flowing through the valve or by the number of ports where:
+
+SINGLEPORT: Valve that has a single entry port from the system that it serves, the exit port being to the surrounding environment.
+ANGLED_2_PORT: Valve in which the direction of flow is changed through 90 degrees.
+STRAIGHT_2_PORT: Valve in which the flow is straight through.
+STRAIGHT_3_PORT: Valve with three separate ports.
+CROSSOVER_4_PORT: Valve with 4 separate ports.
+</td></tr>
+<tr><td>ValveOperation</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_valveoperation.htm">PEnum_ValveOperation</a></td><td>
+The method of valve operation where:
+
+DROPWEIGHT: A valve that is closed by the action of a weighted lever being released, the weight normally being prevented from dropping by being held by a wire, the closure normally being made by the action of heat on a fusible link in the wire
+FLOAT: A valve that is opened and closed by the action of a float that rises and falls with water level. The float may be a ball attached to a lever or other mechanism
+HYDRAULIC: A valve that is opened and closed by hydraulic actuation
+LEVER: A valve that is opened and closed by the action of a lever rotating the gate within the valve.
+LOCKSHIELD: A valve that requires the use of a special lockshield key for opening and closing, the operating mechanism being protected by a shroud during normal operation.
+MOTORIZED: A valve that is opened and closed by the action of an electric motor on an actuator
+PNEUMATIC: A valve that is opened and closed by pneumatic actuation
+SOLENOID: A valve that is normally held open by a magnetic field in a coil acting on the gate but that is closed immediately if the electrical current generating the magnetic field is removed. 
+SPRING: A valve that is normally held in position by the pressure of a spring on a plate but that may be caused to open if the pressure of the fluid is sufficient to overcome the spring pressure. 
+THERMOSTATIC: A valve in which the ports are opened or closed to maintain a required predetermined temperature.
+WHEEL: A valve that is opened and closed by the action of a wheel moving the gate within the valve.
+</td></tr>
+<tr><td>ValveMechanism</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_valvemechanism.htm">PEnum_ValveMechanism</a></td><td>
+The mechanism by which the valve function is achieved where:
+
+BALL: Valve that has a ported ball that can be turned relative to the body seat ports.
+BUTTERFLY: Valve in which a streamlined disc pivots about a diametric axis.
+CONFIGUREDGATE: Screwdown valve in which the closing gate is shaped in a configured manner to have a more precise control of pressure and flow change across the valve.
+GLAND: Valve with a tapered seating, in which a rotatable plug is retained by means of a gland and gland packing.
+GLOBE: Screwdown valve that has a spherical body.
+LUBRICATEDPLUG: Plug valve in which a lubricant is injected under pressure between the plug face and the body.
+NEEDLE: Valve for regulating the flow in or from a pipe, in which a slender cone moves along the axis of flow to close against a fixed conical seat.
+PARALLELSLIDE: Screwdown valve that has a machined plate that slides in formed grooves to form a seal.
+PLUG: Valve that has a ported plug that can be turned relative to the body seat ports.
+WEDGEGATE: Screwdown valve that has a wedge shaped plate fitting into tapered guides to form a seal.
+</td></tr>
+<tr><td>Size</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>
+</td><td>
+The size of the connection to the valve (or to each connection for faucets, mixing valves, etc.).
+</td></tr>
+<tr><td>TestPressure</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+The maximum pressure to which the valve has been subjected under test.
+</td></tr>
+<tr><td>WorkingPressure</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+The normally expected maximum working pressure of the valve.
+</td></tr>
+<tr><td>FlowCoefficient</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a>
+</td><td>
+Flow coefficient (the quantity of fluid that passes through a fully open valve at unit pressure drop), typically expressed as the Kv or Cv value for the valve.
+</td></tr>
+<tr><td>CloseOffRating</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>
+</td><td>
+Close off rating.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_valvetypecommon%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_valvetypecommon.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

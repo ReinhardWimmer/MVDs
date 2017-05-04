@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcLibraryReference</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 6 index3 3 index4 9 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.6.3.10");
+//-->
+</script>
+
+<h4 class="num">IfcLibraryReference</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>IfcLabel</i> to <i>IfcURIReference</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ItemReference</i> to <i>Identification</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Language</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReferencedLibrary</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcLibraryReference</span> is a reference into a library of information by <i>Location</i> (provided as a URI). It also provides an optional inherited <i>Identification</i> key to allow more specific references to library sections or tables. The inherited <i>Name</i> attribute allows for a human interpretable identification of the library item. Also, general information on the library from which the reference is taken, is given by the <i>ReferencedLibrary</i> relation which identifies the relevant occurrence of <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>.</p>
+
+<p>The <i>ifcLibraryReference</i> additionally provides the capability to handle multilingual library entries. The <i>Language</i> attribute then holds the language tag for the language used by the strings kept in the <i>Name</i> and the <i>Description</i> attribute.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; <i>Description</i> and <i>Language</i> attribute added; <i>ReferencedLibrary</i> attribute added (reversing previous ReferenceIntoLibrary inverse relationship).
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>4</td><td>Description</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td><td>? </td><td>
+Additional description provided for the library reference.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New attribute added at the end of the attribute list.
+</blockquote></td><td>X</td></tr>
+<tr><td>5</td><td>Language</td><td><a href="../../ifcexternalreferenceresource/lexical/ifclanguageid.htm">IfcLanguageId</a></td><td>? </td><td>
+The language in which a library reference is expressed.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New attribute added at the end of the attribute list.
+</blockquote></td><td>X</td></tr>
+<tr><td>6</td><td>ReferencedLibrary</td><td><a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a></td><td>? </td><td>
+The library information that is being referenced.</td><td>X</td></tr>
+<tr><td></td><td><i>LibraryRefForObjects</i></td><td><a href="../../ifckernel/lexical/ifcrelassociateslibrary.htm">IfcRelAssociatesLibrary</a><br/>@RelatingLibrary</td><td>S[0:?]</td><td>The library reference with which objects are associated.
+<blockquote class="change-ifc2x4">
+  IFC4 CHANGE&nbsp; New inverse attribute.
+</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a>&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcexternalreference.htm">IfcExternalReference</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcexternalreferenceresource/lexical/ifclibraryreference.htm">IfcLibraryReference</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifcexternalreference.htm">IfcExternalReference</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ReferencedLibrary&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Description&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Language&quot; type=&quot;ifc:<a href="../../ifcexternalreferenceresource/lexical/ifclanguageid.htm">IfcLanguageId</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcLibraryReference<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcexternalreferenceresource/lexical/ifcexternalreference.htm">IfcExternalReference</a>)<b>;</b><br/>
+&nbsp;&nbsp;Description : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;<br/>
+&nbsp;&nbsp;Language : <span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifclanguageid.htm">IfcLanguageId</a>;<br/>
+&nbsp;&nbsp;ReferencedLibrary : <span class="keyword">OPTIONAL</span> <a href="../../ifcexternalreferenceresource/lexical/ifclibraryinformation.htm">IfcLibraryInformation</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;LibraryRefForObjects : <span class="keyword">SET</span> [0:?] <span class="keyword">OF</span> <a href="../../ifckernel/lexical/ifcrelassociateslibrary.htm">IfcRelAssociatesLibrary</a> <span class="keyword">FOR</span> RelatingLibrary;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcexternalreferenceresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifclibraryreference%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifclibraryreference.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

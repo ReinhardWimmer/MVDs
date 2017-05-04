@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>IfcSharedBldgServiceElements</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-6.htm#6.2");
+//-->
+</script>
+
+<h2 class="std">6.2 IfcSharedBldgServiceElements</h2>
+<h3 class="std">6.2.1 Schema Definition</h3>
+	<p>The <i>IfcSharedBldgServiceElements</i> schema in the interoperability 
+    layer defines basic concepts required for interoperability primarily between 
+    Building Service domain extensions, notably <i>IfcHvacDomain</i>, 
+    <i>IfcPlumbingFireProtectionDomain</i>, <i>IfcElectricalDomain</i> and 
+    <i>IfcBuildingControlsDomain</i>. This schema includes concepts such as 
+    basic type and occurrence definitions for flow and distribution systems 
+    and property sets for common building service scenarios such as fluid-flow properties, electrical properties, and space thermal properties.</p>
+
+<p>Figure 105 illustrates the concepts of type, occurrence and performance. Types are specializations of <a href="../ifcproductextension/lexical/ifcdistributionelementtype.htm">IfcDistributionElementType</a> while occurrences are specializations of <a href="../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>. A third theme, defined in the <i>IfcControlExtension</i> schema, relates to the performance characteristics of an occurrence using instances of the <a href="../ifccontrolextension/lexical/ifcperformancehistory.htm">IfcPerformanceHistory</a> entity.</p>
+<p>A type can have zero or many occurrences. Each occurrence can have many performance history entities associated with it, allowing data that is specific to a certain phase of the lifecycle to be captured and maintained throughout the life of the dataset.</p>
+
+<table>
+<tr> <td valign="top" align="center"><img src="../../figures/ifcdistributionport_conceptslide2.gif" alt="type, occurrence and performance history concepts" border="0"></td></tr>
+<tr><td><p class="figure">Figure 105 &mdash; Building service lifecycle</p></td> </tr>  
+</table>
+
+<p>The <i>IfcSharedBldgServiceElements</i> schema specializes building services concepts symmetrically for occurrences and types, with the <i>primary</i> functional role of the entity determining its classification into the following generic concepts: 
+<ul>
+<li><b>Distribution Chamber</b>: a formed volume used in a distribution system, such as a sump, trench or manhole.</li>
+<li><b>Energy Conversion Device</b>: a building systems device that converts energy from one form into another such as a boiler (combusting gas to heat water), chiller (using a refrigeration cycle to cool a liquid), or a cooling coil (using the phase-change characteristics of a refrigerant to cool air).</li>
+<li><b>Flow Controller</b>: a device that regulates flow within a distribution system, such as a valve in a piping system, modulating damper in an air distribution system, or electrical switch in an electrical distribution system.</li>
+<li><b>Flow Fitting</b>: a device that is used to interconnect flow segments or other fittings within a distribution system, such as a tee in a ducted system that branches flow into two directions, or a junction box in an electrical distribution system.</li>
+<li><b>Flow Moving Device</b>: a device that is used to produce a pressure differential in a distribution system, such as a pump, fan, or compressor.</li>
+<li><b>Flow Segment</b>: a section of a distribution system, such as a duct, pipe, or conduit.</li>
+<li><b>Flow Storage Device</b>: a device used for the temporary storage of a substance (solid, liquid, or gas) such as a tank, or the voltage potential induced by the induced electron flow (a battery).</li>
+<li><b>Flow Terminal</b>: acts as a terminus or beginning element in a distribution system such as a ceiling register in a ducted air distribution system, a sink in a waste-water system, or a light fixture in an electrical lighting system.</li>
+<li><b>Flow Treatment Device</b>: a device used to change the physical properties of the medium, such as an air, oil or water filter (used to remove particulates from the fluid), or a duct silencer (used to attenuate noise).</li>
+</ul>
+</p>
+
+<p>Refer to the domain schemas where types and occurrences are further elaborated using <i>PredefinedType</i> enumerations for examples of the range of supported concepts within these broad classifications. If a new type is needed within this classification, extend using the ElementType attribute. However, if a completely new concept is required that does not fit within this classification, use instances of the generic <a href="../ifcproductextension/lexical/ifcdistributionelementtype.htm">IfcDistributionElementType</a> and <a href="../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a> entities for the type/occurrence objects as needed. </p>
+
+<p>Occurrences in a distribution system are typically coupled together using instances of <a href="../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a>. This is also where concepts such as mass-flow properties are applied based on performance characteristics. Refer to the <a href="../ifcsharedbldgserviceelements/lexical/ifcdistributionport.htm">IfcDistributionPort</a> documentation within this schema for further elaboration on coupling together components in a distribution system and tracking the flow characteristics across the port boundaries. </p>
+
+<blockquote class="history">HISTORY  This schema has been significantly modified in IFC2x2. Refer to the change log and issues resolution database for details.</blockquote>
+<p><a href="../../annex/annex-d/ifcsharedbldgserviceelements/index.htm" ><img src="../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcsharedbldgserviceelements%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/ifcsharedbldgserviceelements.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

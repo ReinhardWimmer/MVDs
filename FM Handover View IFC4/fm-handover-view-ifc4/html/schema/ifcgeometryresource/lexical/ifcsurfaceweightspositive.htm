@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSurfaceWeightsPositive</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 4 index4 22 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.23");
+//-->
+</script>
+
+<h4 class="num">IfcSurfaceWeightsPositive</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<p><b><u>Function Definition</u></b></p>
+<p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+This function checks the weights associated with the control points of a
+rational b-spline surface and returns TRUE if they are all
+positive.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>surface_weights_positive</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New function in IFC4</blockquote></p>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="xsd"><code class="xsd"><p>
+<span class="keyword">FUNCTION</span> IfcSurfaceWeightsPositive<br/>
+
+( B: <a href="../../ifcgeometryresource/lexical/ifcrationalbsplinesurfacewithknots.htm">IfcRationalBSplineSurfaceWithKnots</a>) <br/>: BOOLEAN;<br/><br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;Result : BOOLEAN := TRUE;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;REPEAT i := 0 TO B\<a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a>.UUpper;<br/>&nbsp;&nbsp;&nbsp;&nbsp;REPEAT j := 0 TO B\<a href="../../ifcgeometryresource/lexical/ifcbsplinesurface.htm">IfcBSplineSurface</a>.VUpper;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF (B.Weights[i][j] &lt;= 0.0) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FALSE;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN(Result);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;END_REPEAT;<br/>&nbsp;&nbsp;RETURN(Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</code></div><p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcsurfaceweightspositive%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcsurfaceweightspositive.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

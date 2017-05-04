@@ -1,0 +1,169 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_CoolingTowerTypeCommon</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 5 index3 4 index4 27 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.5.4.28");
+//-->
+</script>
+
+<h4 class="std">7.5.4.28 Pset_CoolingTowerTypeCommon</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifchvacdomain/lexical/ifccoolingtower.htm">IfcCoolingTower</a>
+</p><p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Reference</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>
+*</td><td>
+Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as "construction type". It should be provided as an alternative to the name of the "object type", if the software does not support object types.
+</td></tr>
+<tr><td>Status</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifcproductextension/pset/penum_elementstatus.htm">PEnum_ElementStatus</a>*</td><td>
+Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as "New" - element designed as new addition, "Existing" - element exists and remains, "Demolish" - element existed but is to be demolished,  "Temporary" - element will exists only temporary (like a temporary support structure).
+</td></tr>
+<tr><td>NominalCapacity</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpowermeasure.htm">IfcPowerMeasure</a>
+</td><td>
+Nominal cooling tower capacity in terms of heat transfer rate of the cooling tower between air stream and water stream at nominal conditions.
+</td></tr>
+<tr><td>CircuitType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_coolingtowercircuittype.htm">PEnum_CoolingTowerCircuitType</a></td><td>
+OpenCircuit: Exposes water directly to the cooling atmosphere.
+CloseCircuit: The fluid is separated from the atmosphere by a heat exchanger.
+Wet: The air stream or the heat exchange surface is evaporatively cooled.
+Dry: No evaporation into the air stream.
+DryWet: A combination of a dry tower and a wet tower.
+</td></tr>
+<tr><td>FlowArrangement</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_coolingtowerflowarrangement.htm">PEnum_CoolingTowerFlowArrangement</a></td><td>
+CounterFlow: Air and water flow enter in different directions.
+CrossFlow: Air and water flow are perpendicular.
+ParallelFlow: air and water flow enter in same directions.
+</td></tr>
+<tr><td>SprayType</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_coolingtowerspraytype.htm">PEnum_CoolingTowerSprayType</a></td><td>
+SprayFilled: Water is sprayed into airflow.
+SplashTypeFill: water cascades over successive rows of splash bars.
+FilmTypeFill: water flows in a thin layer over closely spaced sheets.
+</td></tr>
+<tr><td>CapacityControl</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_coolingtowercapacitycontrol.htm">PEnum_CoolingTowerCapacityControl</a></td><td>
+FanCycling: Fan is cycled on and off to control duty.
+TwoSpeedFan: Fan is switched between low and high speed to control duty.
+VariableSpeedFan: Fan speed is varied to control duty.
+DampersControl: Dampers modulate the air flow to control duty.
+BypassValveControl: Bypass valve modulates the water flow to control duty.
+MultipleSeriesPumps: Turn on/off multiple series pump to control duty.
+TwoSpeedPump: Switch between high/low pump speed to control duty.
+VariableSpeedPump: vary pump speed to control duty.
+</td></tr>
+<tr><td>ControlStrategy</td><td>
+<span class="self-ref">P_ENUMERATEDVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+/
+ <a href="../../ifchvacdomain/pset/penum_coolingtowercontrolstrategy.htm">PEnum_CoolingTowerControlStrategy</a></td><td>
+FixedExitingWaterTemp: The capacity is controlled to maintain a fixed exiting water temperature.
+WetBulbTempReset: The set-point is reset based on the wet-bulb temperature.
+</td></tr>
+<tr><td>NumberOfCells</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>
+</td><td>
+Number of cells in one cooling tower unit.
+</td></tr>
+<tr><td>BasinReserveVolume</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumemeasure.htm">IfcVolumeMeasure</a>
+</td><td>
+Volume between operating and overflow levels in cooling tower basin.
+</td></tr>
+<tr><td>LiftElevationDifference</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>
+</td><td>
+Elevation difference between cooling tower sump and the top of the tower.
+</td></tr>
+<tr><td>WaterRequirement</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a>
+</td><td>
+Make-up water requirements.
+</td></tr>
+<tr><td>OperationTemperatureRange</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Allowable operation ambient air temperature range.
+</td></tr>
+<tr><td>AmbientDesignDryBulbTemperature</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Ambient design dry bulb temperature used for selecting the cooling tower.
+</td></tr>
+<tr><td>AmbientDesignWetBulbTemperature</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcthermodynamictemperaturemeasure.htm">IfcThermodynamicTemperatureMeasure</a>
+</td><td>
+Ambient design wet bulb temperature used for selecting the cooling tower.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_coolingtowertypecommon%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_coolingtowertypecommon.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

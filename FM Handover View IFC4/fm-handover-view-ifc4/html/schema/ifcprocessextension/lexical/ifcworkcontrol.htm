@@ -1,0 +1,133 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcWorkControl</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 3 index3 3 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.3.3.9");
+//-->
+</script>
+
+<h4 class="num">IfcWorkControl</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      An <span class="self-ref">IfcWorkControl</span> is an abstract supertype which captures information that is common to both <a href="../../ifcprocessextension/lexical/ifcworkplan.htm">IfcWorkPlan</a> and <a href="../../ifcprocessextension/lexical/ifcworkschedule.htm">IfcWorkSchedule</a>.
+    </p>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      CHANGE IFC4&nbsp; Corrected assignment of resources to work control in documentation. Assignment of tasks to work control updated based on changes of task time definitions and the introduction of a summary task. Identifier has been renamed (now Identification) and promoted to supertype <a href="../../ifckernel/lexical/ifccontrol.htm">IfcControl</a>
+    </blockquote>
+    <p>
+      A work control may have resources assigned to it. This is
+      handled by the <a href="../../ifckernel/lexical/ifcrelassignstocontrol.htm">IfcRelAssignsToControl</a> relationship.
+      A work control should also define a context that gives
+      further information about its usage. If no special context
+      information is required then the <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> instance
+      as a global context should be used instead. An explicit
+      link between the work control and the <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> via
+      <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> should then be provided.
+    </p>
+    <p>
+      The attribute <i>IfcWorkControl.Purpose</i> is used to
+      define the purpose of either a work schedule or a work
+      plan. In the case of <a href="../../ifcprocessextension/lexical/ifcworkplan.htm">IfcWorkPlan</a>, the purpose
+      attribute can be used to determine if the work plan is for
+      cost estimating, task scheduling or some other defined
+      purpose.
+    </p><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>7</td><td>CreationDate</td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a></td><td></td><td>
+    The date that the plan is created.</td><td>X</td></tr>
+<tr><td>8</td><td>Creators</td><td><a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a></td><td>? S[1:?]</td><td>
+    The authors of the work plan.</td><td>X</td></tr>
+<tr><td>9</td><td>Purpose</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+    A description of the purpose of the work schedule.</td><td>X</td></tr>
+<tr><td>10</td><td>Duration</td><td><a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a></td><td>? </td><td>
+    The total duration of the entire work schedule.</td><td>X</td></tr>
+<tr><td>11</td><td>TotalFloat</td><td><a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a></td><td>? </td><td>
+    The total time float of the entire work schedule.</td><td>X</td></tr>
+<tr><td>12</td><td>StartTime</td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a></td><td></td><td>
+    The start time of the schedule.</td><td>X</td></tr>
+<tr><td>13</td><td>FinishTime</td><td><a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a></td><td>? </td><td>
+    The finish time of the schedule.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcprocessextension/lexical/ifcworkcontrol.htm">IfcWorkControl</a>&quot; type=&quot;ifc:<a href="../../ifcprocessextension/lexical/ifcworkcontrol.htm">IfcWorkControl</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifccontrol.htm">IfcControl</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprocessextension/lexical/ifcworkcontrol.htm">IfcWorkControl</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifccontrol.htm">IfcControl</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Creators&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CreationDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Purpose&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Duration&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TotalFloat&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;StartTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FinishTime&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcWorkControl<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcprocessextension/lexical/ifcworkplan.htm">IfcWorkPlan</a>, <a href="../../ifcprocessextension/lexical/ifcworkschedule.htm">IfcWorkSchedule</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifccontrol.htm">IfcControl</a>)<b>;</b><br/>
+&nbsp;&nbsp;CreationDate : <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;<br/>
+&nbsp;&nbsp;Creators : <span class="keyword">OPTIONAL</span> <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>;<br/>
+&nbsp;&nbsp;Purpose : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;Duration : <span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;<br/>
+&nbsp;&nbsp;TotalFloat : <span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>;<br/>
+&nbsp;&nbsp;StartTime : <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;<br/>
+&nbsp;&nbsp;FinishTime : <span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdatetime.htm">IfcDateTime</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcprocessextension/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcworkcontrol%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcworkcontrol.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Basic_FM_Handover_View</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 1 index2 1 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-1.htm#");
+//-->
+</script>
+
+<h3><a id="basic_fm_handover_view" name="basic_fm_handover_view">1.1 Basic_FM_Handover_View</a></h3>
+<h1> Update of the IFC2x3 based FM Handover View to IFC4 Add2. </h1>
+<p> First Draft </p>
+<hr>
+<h2> General Information </h2>
+<p> New defined Concepts and Properties, according to FM Handover View. </p> <br>
+<p> Concepts can be found under <span class="self-ref">Operation Concepts</span> </p> <br>
+<p> Property Sets have the Prefix <i>POpe</i> for <q>Properties for Operation</q>. </p> 
+<hr>
+<h3> Questions and Comments </h3>
+<p> FMHOV uses Coordination View as a reference view. This could be handled by RV or DTV for IFC 4 if necessary. Needs to be checked! </p> <br>
+<p> How shall we handle the entity <i>Furniture, Fixture and Equipment</i> ? It is defined as <i>Any other furniture, fixture and equipment</i> </p> <br>
+<p> Space Boundaries are defined seperately for Door and Window. This should be covered by the 1st level Space Boundary concept, assigned to IfcSpace. Needs to be checked! </p> <br>
+<p> Properties for IfcSpace require a Space Cladding. This Property is not defined and is covered by other Properties, like wall covering, ... </p> <br>
+<p> <i> Building Service Element MEP </i> is represented by <i> IfcDistributionFlowElement </i> as an abstract entity of all HVAC components </p> <br>
+<p> Project Representation Context is not exactly what the FMHOV demands. Needs to be checked. </p> <br>
+<p> ERM export requirements do not comply with the concepts, parts of concepts are set to be mandatory for the export, while some parts are not. Decision: If the some parts of concepts are meant to be mandatory for the export, the export of the concept will be set to mandatory. </p> <br><p>By Reinhard Wimmer</p>
+  </body>
+</html>

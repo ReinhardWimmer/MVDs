@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCommunicationsApplianceTypeEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 4 index3 2 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.4.2.6");
+//-->
+</script>
+
+<h4 class="num">IfcCommunicationsApplianceTypeEnum</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcelectricaldomain/lexical/ifccommunicationsappliancetypeenum.htm">IfcCommunicationsApplianceTypeEnum</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+ 
+<p>Defines the range of different types of communications appliance that can be specified.</p> 
+
+<blockquote class="history">HISTORY&nbsp; New enumeration in IFC4.</blockquote> <p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>ANTENNA</td><td>A transducer designed to transmit or receive electromagnetic waves.</td></tr><tr><td>COMPUTER</td><td>A desktop, laptop, tablet, or other type of computer that can be moved from one place to another and connected to an electrical supply via a plugged outlet.</td></tr><tr><td>FAX</td><td>A machine that has the primary function of transmitting a facsimile copy of printed matter using a telephone line.</td></tr><tr><td>GATEWAY</td><td>A gateway connects multiple network segments with different protocols at all layers (layers 1-7) of the Open Systems Interconnection (OSI) model.</td></tr><tr><td>MODEM</td><td>A modem (from modulator-demodulator) is a device that modulates an analog carrier signal to encode digital information, and also demodulates such a carrier signal to decode the transmitted information.</td></tr><tr><td>NETWORKAPPLIANCE</td><td>A network appliance performs a dedicated function such as firewall protection, content filtering, load balancing, or equipment management.</td></tr><tr><td>NETWORKBRIDGE</td><td>A network bridge connects multiple network segments at the data link layer (layer 2) of the OSI model, and the term layer 2 switch is very often used interchangeably with bridge.</td></tr><tr><td>NETWORKHUB</td><td>A network hub connects multiple network segments at the physical layer (layer 1) of the OSI model.</td></tr><tr><td>PRINTER</td><td>A machine that has the primary function of printing text and/or graphics onto paper or other media.</td></tr><tr><td>REPEATER</td><td>A repeater is an electronic device that receives a signal and retransmits it at a higher level and/or higher power, or onto the other side of an obstruction, so that the signal can cover longer distances without degradation.</td></tr><tr><td>ROUTER</td><td>A router is a networking device whose software and hardware are usually tailored to the tasks of routing and forwarding information. For example, on the Internet, information is directed to various paths by routers.</td></tr><tr><td>SCANNER</td><td>A machine that has the primary function of scanning the content of printed matter and converting it to digital format that can be stored in a computer.</td></tr><tr><td>USERDEFINED</td><td>User-defined type.</td></tr><tr><td>NOTDEFINED</td><td>Undefined type.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcelectricaldomain/lexical/ifccommunicationsappliancetypeenum.htm">IfcCommunicationsApplianceTypeEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;antenna&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;computer&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;fax&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;gateway&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;modem&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;networkappliance&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;networkbridge&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;networkhub&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;printer&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;repeater&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;router&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;scanner&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcCommunicationsApplianceTypeEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;ANTENNA, <br/>&nbsp;COMPUTER, <br/>&nbsp;FAX, <br/>&nbsp;GATEWAY, <br/>&nbsp;MODEM, <br/>&nbsp;NETWORKAPPLIANCE, <br/>&nbsp;NETWORKBRIDGE, <br/>&nbsp;NETWORKHUB, <br/>&nbsp;PRINTER, <br/>&nbsp;REPEATER, <br/>&nbsp;ROUTER, <br/>&nbsp;SCANNER, <br/>&nbsp;USERDEFINED, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcelectricaldomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifccommunicationsappliancetypeenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifccommunicationsappliancetypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcPixelTexture</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 12 index3 3 index4 20 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.21");
+//-->
+</script>
+
+<h4 class="num">IfcPixelTexture</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpresentationappearanceresource/lexical/ifcpixeltexture.htm">IfcPixelTexture</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mode</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>TextureType</i> to <i>Mode</i>. <br/>Type changed from <i>IfcSurfaceTextureEnum</i> to <i>IfcIdentifier</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parameter</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>Width</i> to <i>Parameter</i>. <br/>Type changed from <i>IfcInteger</i> to <i>IfcIdentifier</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/>Aggregation changed from <i>NONE</i> to <i>LIST</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Width</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>Height</i> to <i>Width</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Height</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ColourComponents</i> to <i>Height</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ColourComponents</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>Pixel</i> to <i>ColourComponents</i>. <br/>Type changed from <i>BINARY (32)</i> to <i>IfcInteger</i>. <br/>Aggregation changed from <i>LIST</i> to <i>NONE</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pixel</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpresentationappearanceresource/lexical/ifcpixeltexture.htm">IfcPixelTexture</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RepeatS</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RepeatT</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pixel</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BINARY (32)</i> to <i>IfcBinary</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcPixelTexture</span> provides a 2D image-based texture map as an explicit array of pixel values (list of <i>Pixel</i> binary attributes). In contrary to the <a href="../../ifcpresentationappearanceresource/lexical/ifcimagetexture.htm">IfcImageTexture</a> the <span class="self-ref">IfcPixelTexture</span> holds a 2 dimensional list of pixel color
+(and opacity) directly, instead of referencing to an URL.</p>
+
+<p>The following definitions from ISO/IEC 19775-1 X3D Architecture and base components (<a href="http://www.web3d.org/x3d/specifications/">X3D Specification</a>) apply:</p>
+<ul style="list-style-type:disk;font-size:smaller">
+<li>The PixelTexture node defines a 2D image-based texture map as an explicit array of pixel values (image field) and parameters controlling tiling repetition of the texture onto geometry.</li>
+<li>Texture maps are defined in a 2D coordinate system (s, t) that ranges from 0.0 to 1.0 in both directions. The bottom edge of the pixel image corresponds to the S-axis of the texture map, and left edge of the pixel image corresponds to the T-axis of the texture map. The lower-left pixel of the pixel image corresponds to s=0.0, t=0.0, and the top-right pixel of the image corresponds to s = 1.0, t = 1.0.</li>
+<li>The Image field specifies a single uncompressed 2-dimensional pixel image. Image fields contain three integers representing the width, height and number of components in the image, followed by width&times;height hexadecimal values representing the pixels in the image. Pixel values are limited to 256 levels of intensity (that is, 0x00-0xFF hexadecimal).
+<ol>
+<li>A one-component image specifies one-byte hexadecimal value representing the intensity of the image. For example, 0xFF is full intensity in hexadecimal (255 in decimal), 0x00 is no intensity (0 in decimal).</li>
+<li>A two-component image specifies the intensity in the first
+(high) byte and the alpha opacity in the second (low) byte.</li>
+<li>Pixels in a three-component image specify the red component in the first (high) byte, followed by the green and blue components (for example, 0xFF0000 is red, 0x00FF00 is green, 0x0000FF is blue).</li>
+<li>Four-component images specify the alpha opacity byte after red/green/blue (e.g., 0x0000FF80 is semi-transparent blue). A value of 00 is completely transparent, FF is completely opaque, 80 is semi-transparent.</li>
+</ol>
+</li>
+<li style="list-style: none; display: inline"><font size="-1">Note that alpha equals (1.0 -transparency), if alpha and transparency each range from 0.0 to 1.0.</font></li>
+</ul>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>6</td><td>Width</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td></td><td>
+The number of pixels in width (S) direction.</td><td>X</td></tr>
+<tr><td>7</td><td>Height</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td></td><td>
+The number of pixels in height (T) direction.</td><td>X</td></tr>
+<tr><td>8</td><td>ColourComponents</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td></td><td>
+Indication whether the pixel values contain a 1, 2, 3, or 4 colour component.</td><td>X</td></tr>
+<tr><td>9</td><td>Pixel</td><td><a href="../../ifcmeasureresource/lexical/ifcbinary.htm">IfcBinary</a></td><td>L[1:?]</td><td>
+Flat list of hexadecimal values, each describing one pixel by 1, 2, 3, or 4 components.
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; The data type has been changed from STRING to BINARY.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>MinPixelInS</td><td>The minimum number of pixel in width (S coordinate) direction shall be 1.</td></tr>
+<tr><td>MinPixelInT</td><td>The minimum number of pixel in height (T coordinate) direction shall be 1.</td></tr>
+<tr><td>NumberOfColours</td><td>The number of color components shall be either 1, 2, 3, or 4.</td></tr>
+<tr><td>SizeOfPixelList</td><td>The list of pixel shall have exactly width*height members.</td></tr>
+<tr><td>PixelAsByteAndSameLength</td><td>The binary value provided for each <i>Pixel</i> shall be a multiple of 8 bits. And all pixel shall have the same binary length.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcpixeltexture.htm">IfcPixelTexture</a>&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcpixeltexture.htm">IfcPixelTexture</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcpixeltexture.htm">IfcPixelTexture</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Width&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Height&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ColourComponents&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Pixel&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;xs:hexBinary&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcPixelTexture<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacetexture.htm">IfcSurfaceTexture</a>)<b>;</b><br/>
+&nbsp;&nbsp;Width : <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>;<br/>
+&nbsp;&nbsp;Height : <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>;<br/>
+&nbsp;&nbsp;ColourComponents : <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>;<br/>
+&nbsp;&nbsp;Pixel : <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcbinary.htm">IfcBinary</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;MinPixelInS : Width &gt;= 1;<br/>&nbsp;&nbsp;MinPixelInT : Height &gt;= 1;<br/>&nbsp;&nbsp;NumberOfColours : {1 &lt;= ColourComponents &lt;= 4};<br/>&nbsp;&nbsp;SizeOfPixelList : SIZEOF(Pixel) = (Width * Height);<br/>&nbsp;&nbsp;PixelAsByteAndSameLength : SIZEOF(QUERY(temp&lt;* Pixel |<br/>
+ (BLENGTH(temp) MOD 8 = 0) AND<br/>
+ (BLENGTH(temp) = BLENGTH(Pixel[1]))<br/>
+)) = SIZEOF(Pixel);<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0009.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcpixeltexture%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcpixeltexture.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

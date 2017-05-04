@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcConnectionTypeEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 2 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.2.6");
+//-->
+</script>
+
+<h4 class="num">IfcConnectionTypeEnum</h4>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>This enumeration defines the different ways how path based elements (such as <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>) can
+connect, as shown in Figure 91.</p>
+<blockquote class="history">HISTORY&nbsp; New type in IFC2.0</blockquote>
+
+<p>The enumerated items shall be used in the following combinations:</p>
+<table>
+<tr>
+<td>
+<table class="gridtable">
+<tr>
+ <th width="260" valign="top" align="left">Connection type</th>
+ <th width="300" valign="top" align="left">Illustration</th>
+</tr>
+<tr>
+<tr>
+<td width="260" valign="top" align="left">
+<p>L-Shape Connection</p>
+<ul>
+<li>RelatingConnectionType: AtStart</li>
+<li>RelatedConnectionType: AtStart</li>
+</ul>
+</td>
+<td width="300"><img src="../../../figures/IfcConnectionTypeEnum-Fig03.gif" width="143" height="132" border="0"></td>
+</tr>
+<tr>
+<td width="260" valign="top" align="left">
+<p>L-Shape Connection</p>
+<ul>
+<li>RelatingConnectionType: AtEnd</li>
+<li>RelatedConnectionType: AtStart</li>
+</ul>
+</td>
+<td width="300"><img src="../../../figures/IfcConnectionTypeEnum-Fig01.gif" width="193" height="132" border="0"></td>
+</tr>
+<tr>
+<td width="260" valign="top" align="left">
+<p>T-Shape Connection</p>
+<ul>
+<li>RelatingConnectionType: AtPath</li>
+<li>RelatedConnectionType: AtStart</li>
+</ul>
+</td>
+<td width="300"><img src="../../../figures/IfcConnectionTypeEnum-Fig02.gif" width="145" height="133" border="0"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 91 &mdash; Connection types</p>
+</td>
+</tr>
+</table><p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>ATPATH</td><td>Connection along the path of the connected element.</td></tr><tr><td>ATSTART</td><td>Connection at the start of the connected element.</td></tr><tr><td>ATEND</td><td>Connection at the end of the connected element.</td></tr><tr><td>NOTDEFINED</td><td></td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;atpath&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;atstart&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;atend&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcConnectionTypeEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;ATPATH, <br/>&nbsp;ATSTART, <br/>&nbsp;ATEND, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcconnectiontypeenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcconnectiontypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

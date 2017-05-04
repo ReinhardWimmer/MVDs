@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTaperedSweptAreaProfiles</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 4 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.4.1");
+//-->
+</script>
+
+<h4 class="num">IfcTaperedSweptAreaProfiles</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<p><b><u>Function Definition</u></b></p>
+<p>
+ <p> This function checks whether the
+start and end profile in a tapered extrusion are topologically
+similar, i.e. whether both have the same number of vertices and
+edges.</p>
+<p>It returnes TRUE if:</p>
+<ul>
+<li>The start profile is defined by a paramterized profile
+definition and
+<ul>
+<li>the end profile is either a derived profile, using the start
+profile as its parent profile, or</li>
+<li>the end profile is besed on the same subtype of the
+paramterized profile definition as the start profile</li>
+</ul>
+</li>
+<li>The start profile is defined by an arbitrary bounded curve
+bounding a plane and
+<ul>
+<li>the end profile is a derived profile using the start profile
+as its parent profile</li>
+</ul>
+</li>
+</ul>
+<blockquote><small><font color="#0000FF">HISTORY  New function in
+IFC2x Edition 4.</font></small></blockquote></p>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="xsd"><code class="xsd"><p>
+<span class="keyword">FUNCTION</span> IfcTaperedSweptAreaProfiles<br/>
+
+(StartArea, EndArea : <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>)<br/> : LOGICAL;<br/><br/>LOCAL<br/>&nbsp;&nbsp;&nbsp;Result : LOGICAL := FALSE;<br/>END_LOCAL;<br/>&nbsp;&nbsp;&nbsp;<br/>IF ('IFCPROFILERESOURCE.<a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a>' IN TYPEOF(StartArea)) THEN<br/>&nbsp;&nbsp;&nbsp;IF ('IFCPROFILERESOURCE.<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>' IN TYPEOF(EndArea)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (StartArea :=: EndArea\<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>.ParentProfile);<br/>&nbsp;&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (TYPEOF(StartArea) = TYPEOF(EndArea));<br/>&nbsp;&nbsp;&nbsp;END_IF;<br/>ELSE<br/>&nbsp;&nbsp;&nbsp;IF ('IFCPROFILERESOURCE.<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>' IN TYPEOF(EndArea)) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := (StartArea :=: EndArea\<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>.ParentProfile);<br/>&nbsp;&nbsp;&nbsp;ELSE<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result := FALSE;<br/>&nbsp;&nbsp;&nbsp;END_IF;<br/>END_IF;<br/><br/>RETURN(Result);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</code></div><p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctaperedsweptareaprofiles%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctaperedsweptareaprofiles.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

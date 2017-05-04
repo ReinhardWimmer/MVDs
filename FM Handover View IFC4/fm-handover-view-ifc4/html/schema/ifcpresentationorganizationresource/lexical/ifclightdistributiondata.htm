@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcLightDistributionData</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 14 index3 3 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.14.3.1");
+//-->
+</script>
+
+<h4 class="num">IfcLightDistributionData</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcLightDistributionData</span> defines the luminous intensity of a light source given at a particular main plane angle. It is based on some standardized light distribution curves; the <i>MainPlaneAngle</i> is either the</p> 
+
+<ul> 
+<li>A angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_A</li> 
+<li>B angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_B</li> 
+<li>C angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_C</li> 
+</ul> 
+
+<p>For each <i>MainPlaneAngle</i> (considered as being the row of a table) a list of <i>SecondaryPlaneAngle'</i>s are given (considered to be the columns of a table). They are either the:</p> 
+
+<ul> 
+<li>&#945; angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_A</li> 
+<li>&#946; angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_B</li> 
+<li>&#947; angle; if the <a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributioncurveenum.htm">IfcLightDistributionCurveEnum</a> is set to TYPE_C</li> 
+</ul> 
+
+<p>For each pair of <i>MainPlaneAngle</i> and <i>SecondaryPlaneAngle</i> the <i>LuminousIntensity</i> is provided (the unit is given by the <a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a> referring to the LuminousIntensityDistributionUnit, normally cd/klm).</p> 
+
+<blockquote class="history"> 
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>MainPlaneAngle</td><td><a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a></td><td></td><td>
+The main plane angle (A, B or C angles, according to the light distribution curve chosen).</td><td>X</td></tr>
+<tr><td>2</td><td>SecondaryPlaneAngle</td><td><a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a></td><td>L[1:?]</td><td>
+<p>The list of secondary plane angles (the &#945;, &#946; or &#947; angles) according to the light distribution curve chosen.
+</p>
+<blockquote class="note">NOTE&nbsp; The <i>SecondaryPlaneAngle</i> and <i>LuminousIntensity</i> lists are corresponding lists.
+</blockquote></td><td>X</td></tr>
+<tr><td>3</td><td>LuminousIntensity</td><td><a href="../../ifcmeasureresource/lexical/ifcluminousintensitydistributionmeasure.htm">IfcLuminousIntensityDistributionMeasure</a></td><td>L[1:?]</td><td>
+The luminous intensity distribution measure for this pair of main and secondary plane angles according to the light distribution curve chosen.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondata.htm">IfcLightDistributionData</a>&quot; type=&quot;ifc:<a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondata.htm">IfcLightDistributionData</a>&quot; substitutionGroup=&quot;ifc:Entity&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcpresentationorganizationresource/lexical/ifclightdistributiondata.htm">IfcLightDistributionData</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:Entity&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MainPlaneAngle&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SecondaryPlaneAngle&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LuminousIntensity&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcluminousintensitydistributionmeasure.htm">IfcLuminousIntensityDistributionMeasure</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcLightDistributionData<b>;</b><br/>
+&nbsp;&nbsp;MainPlaneAngle : <a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a>;<br/>
+&nbsp;&nbsp;SecondaryPlaneAngle : <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcplaneanglemeasure.htm">IfcPlaneAngleMeasure</a>;<br/>
+&nbsp;&nbsp;LuminousIntensity : <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcluminousintensitydistributionmeasure.htm">IfcLuminousIntensityDistributionMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationorganizationresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifclightdistributiondata%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifclightdistributiondata.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Group Assignment</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.6.1");
+//-->
+</script>
+
+<h3 class="std">4.6.1 Group Assignment</h3>
+<p><a href="group-assignment.htm">Group Assignment</a> established an arbitrary collection of objects within a group. The grouping relationship does not apply any other meaning then grouping objects under some aspect. It is non-hierarchical, that is objects can be grouped into different logical groups, and it does not interfere with other relationship concepts, such as <i>ObjectAggregation</i>.</p>
+
+<p>The <a href="group-assignment.htm">Group Assignment</a> concept establish a given object as being the group collection for other objects. An <a href="../ifcproductextension/lexical/ifczone.htm">IfcZone</a> is a specific group object for collecting spaces, <a href="../ifcsharedbldgserviceelements/lexical/ifcdistributionsystem.htm">IfcDistributionSystem</a> is a specific group object for collecting distribution elements. Usually a grouping relationship is applied to group elements for a particular purpose or function. It usually implies the existence of a grouping relationship and the provision of some identity under which the group is characterized.</p>
+
+<ul>
+<li>Group collection is handled by an instance of <a href="../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a>, which assigns all group members to the <a href="../ifckernel/lexical/ifcgroup.htm">IfcGroup</a> being the collection.</li>
+<li>Objects included in group as collected items are linked by <i>IsGroupedBy</i> pointing to <a href="../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a></li>
+</ul>
+
+<blockquote class="note">NOTE&nbsp; The <a href="../ifckernel/lexical/ifcgroup.htm">IfcGroup</a> maybe not yet have a grouping relationship established, it then identifies an empty group.</blockquote>
+<blockquote class="example">EXAMPLE&nbsp; An air handler belonging to an air conditioning system is an example of such group assignment.</p><p class="fig-ref">Figure 19 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Group Assignment" src="./diagrams/group-assignment.png" usemap="#f19"><map name="f19"><area shape="rect" coords="8,8,176,224" href="../ifckernel/lexical/ifcgroup.htm" alt="IfcGroup" /><area shape="rect" coords="208,8,376,104" href="../ifckernel/lexical/ifcrelassignstogroup.htm" alt="IfcRelAssignsToGroup" /><area shape="rect" coords="408,8,576,248" href="../ifckernel/lexical/ifcproduct.htm" alt="IfcProduct" /></map></td></tr><tr><td><p class="figure">Figure 19 &mdash; Group Assignment</p></td></tr></table>
+
+<hr/>
+<h4>Basic_FM_Handover_View</h4>
+<table class="exchange">
+<tr><th>Entity</th><th><a href="../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr><tr><td><a href="../ifcproductextension/lexical/ifczone.htm">IfcZone</a></td><td>-<br/>R</td>
+</tr>
+</table>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22group-assignment%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/group-assignment.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

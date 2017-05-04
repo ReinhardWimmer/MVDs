@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Classification</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.4.1");
+//-->
+</script>
+
+<h3 class="std">4.4.1 Classification</h3>
+<p>Objects, type objects, properties, and some resource schema entities can be further described by associating references to external sources of information. 
+The source of information can be:
+</p>
+ 
+<ul>
+        
+<li>a classification system;</li>
+        
+<li>a dictionary server;</li>
+        
+<li>any external catalogue that classifies the object further;</li>
+        
+<li>a service that combine the above features.</li>
+      
+</ul>
+
+
+
+<p>An individual item within the external source of information can be selected. 
+It then applies the inherent meaning of the item to the object or property.</p><p class="fig-ref">Figure 14 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Classification" src="./diagrams/classification.png" usemap="#f14"><map name="f14"><area shape="rect" coords="8,8,176,152" href="../ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" /><area shape="rect" coords="208,8,376,92" href="../ifckernel/lexical/ifcrelassociatesclassification.htm" alt="IfcRelAssociatesClassification" /><area shape="rect" coords="408,8,576,20" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /><area shape="rect" coords="408,40,576,160" href="../ifcexternalreferenceresource/lexical/ifcclassificationreference.htm" alt="IfcClassificationReference" /><area shape="rect" coords="608,8,776,20" href="../ifcmeasureresource/lexical/ifcidentifier.htm" alt="IfcIdentifier" /><area shape="rect" coords="608,40,776,160" href="../ifcexternalreferenceresource/lexical/ifcclassification.htm" alt="IfcClassification" /><area shape="rect" coords="808,8,976,20" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /><area shape="rect" coords="808,40,976,52" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /><area shape="rect" coords="808,72,976,84" href="../ifcmeasureresource/lexical/ifcidentifier.htm" alt="IfcIdentifier" /></map></td></tr><tr><td><p class="figure">Figure 14 &mdash; Classification</p></td></tr></table>
+
+<hr/>
+<h4>Basic_FM_Handover_View</h4>
+<table class="exchange">
+<tr><th>Entity</th><th><a href="../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr><tr><td><a href="../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>-<br/>-</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcfurnishingelement.htm">IfcFurnishingElement</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>-<br/>-</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifczone.htm">IfcZone</a></td><td>-<br/>O</td>
+</tr>
+</table>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22classification%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/classification.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

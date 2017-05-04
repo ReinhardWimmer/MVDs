@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcFeatureElementSubtraction</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 18 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.19");
+//-->
+</script>
+
+<h4 class="num">IfcFeatureElementSubtraction</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcFeatureElementSubtraction</span> is specialization of
+the general feature element, that represents an existence dependent
+elements which modifies the shape and appearance of the associated
+master element. The <span class="self-ref">IfcFeatureElementSubtraction</span> offers the
+ability to handle shape modifiers as semantic objects within the
+IFC object model that subtract from the shape of the master
+element.</p>
+
+<blockquote class="note">
+NOTE&nbsp; A single subtraction feature
+such as the subtype <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> is assigned by a
+single subtraction relationship <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> to one
+occurrences of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>. It establishes a 1:1
+relationship between the opening and the element. An element may
+have several <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> relationships, enabling
+several voids.
+</blockquote>
+
+<p>The voiding relationship between a master element and a
+subtraction feature is geometrically resolved by a Boolean
+difference operation.</p>
+
+<p>The local placement for <span class="self-ref">IfcFeatureElementSubtraction</span> is
+defined in its supertype <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>. It is defined by the
+<a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>, which defines the local coordinate system
+that is referenced by all geometric representations. The local
+placement is always defined in relation to the local placement of
+the building element from which the feature element substration is
+substracted:</p>
+<ul>
+<li>The <i>PlacementRelTo</i> relationship of
+<a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a> shall point (if given) to the local
+placement of the same <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>, which is used in the
+<i>VoidsElements.RelatingElement</i> inverse attribute.</li>
+</ul>
+
+<blockquote class="history">
+  HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+<blockquote class="change-ifc2x2">
+  IFC2x2 CHANGE&nbsp;  The entity is introduced as an upward compatible extension of the IFC2x
+  platform. It is an intermediate abstract supertype without defining its own explicit attributes.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td></td><td><i>VoidsElements</i></td><td><a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a><br/>@RelatedOpeningElement</td><td></td><td>Reference to the Voids Relationship that uses this Opening Element to create a void within an Element. The Opening Element can only be used to create a single void within a single Element.
+</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>HasNoSubtraction</td><td>An feature subtraction (e.g. an opening element) can not have other openings to void itself. The inverse relationship <i>HasOpenings</i> shall therefore be NIL.</td></tr>
+<tr><td>IsNotFilling</td><td>An feature subtraction (e.g. an opening element) can not be a filling of another void. The inverse relationship <i>FillsVoids</i> shall therefore be NIL.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelement.htm">IfcFeatureElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelement.htm">IfcFeatureElement</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcFeatureElementSubtraction<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcvoidingfeature.htm">IfcVoidingFeature</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcfeatureelement.htm">IfcFeatureElement</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;VoidsElements : <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> <span class="keyword">FOR</span> RelatedOpeningElement;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;HasNoSubtraction : SIZEOF(SELF\<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>.HasOpenings) = 0;<br/>&nbsp;&nbsp;IsNotFilling : SIZEOF(SELF\<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>.FillsVoids) = 0;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcfeatureelementsubtraction%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcfeatureelementsubtraction.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

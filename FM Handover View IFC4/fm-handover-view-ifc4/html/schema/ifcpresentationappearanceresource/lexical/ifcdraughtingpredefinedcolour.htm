@@ -1,0 +1,173 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDraughtingPreDefinedColour</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 12 index3 3 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.9");
+//-->
+</script>
+
+<h4 class="num">IfcDraughtingPreDefinedColour</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpresentationappearanceresource/lexical/ifcdraughtingpredefinedcolour.htm">IfcDraughtingPreDefinedColour</a></td><td></td><td></td><td>MOVED</td><td>Schema changed from <i>IFCPRESENTATIONRESOURCE</i> to <i>IFCPRESENTATIONAPPEARANCERESOURCE</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The draughting pre defined colour is a pre defined colour for the purpose to identify a colour by name. Allowable names are:</p>
+<ul>
+<li>'black',</li>
+<li>'red',</li>
+<li>'green',</li>
+<li>'blue',</li>
+<li>'yellow',</li>
+<li>'magenta',</li>
+<li>'cyan',</li>
+<li>'white',</li>
+<li>'by layer'</li>
+</ul>
+
+<blockquote class="note">
+NOTE&nbsp; The <span class="self-ref">IfcDraughtingPreDefinedColour</span> is an entity that had been adopted from ISO 10303-202, Industrial automation systems and integration&mdash;Product data representation and exchange, Part 202: Application protocol: Associative draughting.
+</blockquote>
+
+<p>The following table states the RGB values associated with the names given by the <i>IfcDraughtingPreDefinedColour.</i></p>
+<blockquote>
+<table>
+<tbody>
+<tr>
+<td><b>Colour name</b></td>
+<td align="center"><b>Red</b></td>
+<td align="center"><b>Green</b></td>
+<td align="center"><b>Blue</b></td>
+</tr>
+<tr>
+<td>black</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>red</td>
+<td align="center">1.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>green</td>
+<td align="center">0</td>
+<td align="center">1.0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>blue</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td>yellow</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>magenta</td>
+<td align="center">1.0</td>
+<td align="center">0</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td>cyan</td>
+<td align="center">0</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td>white</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
+</tr>
+<tr valign="top">
+<td>by layer</td>
+<td align="left" colspan="3">colour values obtained from<br>
+<a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerwithstyle.htm">IfcPresentationLayerWithStyle</a>.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; Corresponding ISO 10303 name: draughting_pre_defined_colour. Please refer to ISO/IS 10303-202:1994 page 194 for the final definition of the formal standard.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The value 'by layer' shall only be inserted, if the geometric representation item using the colour definition has an association to <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerwithstyle.htm">IfcPresentationLayerWithStyle</a>, and if that instance of <a href="../../ifcpresentationorganizationresource/lexical/ifcpresentationlayerwithstyle.htm">IfcPresentationLayerWithStyle</a> has a valid colour definition for <a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>, <i>IfcSymbolStyle</i>, or <a href="../../ifcpresentationappearanceresource/lexical/ifcsurfacestyle.htm">IfcSurfaceStyle</a> (depending on what is applicable).</li>
+</ol><p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>PreDefinedColourNames</td><td>The inherited name for pre defined items shall only have the value of one of the following words.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcdraughtingpredefinedcolour.htm">IfcDraughtingPreDefinedColour</a>&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcdraughtingpredefinedcolour.htm">IfcDraughtingPreDefinedColour</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcpredefinedcolour.htm">IfcPreDefinedColour</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcdraughtingpredefinedcolour.htm">IfcDraughtingPreDefinedColour</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcpredefinedcolour.htm">IfcPreDefinedColour</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcDraughtingPreDefinedColour<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcpresentationappearanceresource/lexical/ifcpredefinedcolour.htm">IfcPreDefinedColour</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;PreDefinedColourNames : SELF\<a href="../../ifcpresentationappearanceresource/lexical/ifcpredefineditem.htm">IfcPreDefinedItem</a>.Name IN [&#39;black&#39;,&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;,&#39;yellow&#39;,<br/>
+     &#39;magenta&#39;,&#39;cyan&#39;,&#39;white&#39;,&#39;by layer&#39;];<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0011.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcdraughtingpredefinedcolour%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcdraughtingpredefinedcolour.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

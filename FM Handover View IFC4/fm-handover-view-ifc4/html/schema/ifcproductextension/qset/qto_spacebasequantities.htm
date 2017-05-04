@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Qto_SpaceBaseQuantities</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 5 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.5.6");
+//-->
+</script>
+
+<h4 class="std">5.4.5.6 Qto_SpaceBaseQuantities</h4>
+<p><span class="self-ref">QTO_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>
+</p><p><b><u>Quantities</u></b></p>
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th>
+<tr><td>Height</td><td>
+<span class="self-ref">Q_LENGTH</span>
+</td><td>
+Total height (from base slab without flooring to ceiling without suspended ceiling) for this space (measured from top of slab below to bottom of slab above). To be provided only if the space has a constant height.
+</td></tr>
+<tr><td>FinishCeilingHeight</td><td>
+<span class="self-ref">Q_LENGTH</span>
+</td><td>
+Height of the suspended ceiling (from top of flooring to the bottom of the suspended ceiling). To be provided only if the space has a suspended ceiling with constant height.
+</td></tr>
+<tr><td>FinishFloorHeight</td><td>
+<span class="self-ref">Q_LENGTH</span>
+</td><td>
+Height of the flooring (from base slab without flooring to the flooring height). To be provided only if the space has a constant flooring height.
+</td></tr>
+<tr><td>GrossPerimeter</td><td>
+<span class="self-ref">Q_LENGTH</span>
+</td><td>
+Gross perimeter at the floor level of this space. It all sides of the space, including those parts of the perimeter that are created by virtual boundaries and openings (like doors).
+</td></tr>
+<tr><td>NetPerimeter</td><td>
+<span class="self-ref">Q_LENGTH</span>
+</td><td>
+Net perimeter at the floor level of this space. It excludes those parts of the perimeter that are created by by virtual boundaries and openings (like doors). It is the measurement used for skirting boards and may includes the perimeter of internal fixed objects like columns.
+</td></tr>
+<tr><td>GrossFloorArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all floor areas covered by the space. It includes the area covered by elementsinside the space (columns, inner walls, etc.) and excludes the area covered by wall claddings. 
+</td></tr>
+<tr><td>NetFloorArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all usable floor areas covered by the space. It excludes the area covered  by elements inside the space (columns, inner walls, built-in's etc.), slab openings, or other protruding elements. Varying heights are not taking into account (i.e. no reduction for areas under a minimum headroom).
+</td></tr>
+<tr><td>GrossWallArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all wall (and other vertically bounding elements, like columns) areas bounded by the space. It includes the area covered by elements inside the wall area (doors, windows, other openings, etc.).
+</td></tr>
+<tr><td>NetWallArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all wall (and other vertically bounding elements, like columns) areas bounded by the space. It excludes the area covered by elements inside the wall area (doors, windows, other openings, etc.).
+</td></tr>
+<tr><td>GrossCeilingArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all ceiling areas of the space. It includes the area covered by elementsinside the space (columns, inner walls, etc.). The ceiling area is the real (and not the projected) area (e.g. in case of sloped ceilings).
+</td></tr>
+<tr><td>NetCeilingArea</td><td>
+<span class="self-ref">Q_AREA</span>
+</td><td>
+Sum of all ceiling areas of the space. It excludes the area covered by elementsinside the space (columns, inner walls, etc.). The ceiling area is the real (and not the projected) area (e.g. in case of sloped ceilings).
+</td></tr>
+<tr><td>GrossVolume</td><td>
+<span class="self-ref">Q_VOLUME</span>
+</td><td>
+Gross volume enclosed by the space, including the volume of construction elements inside the space.
+</td></tr>
+<tr><td>NetVolume</td><td>
+<span class="self-ref">Q_VOLUME</span>
+</td><td>
+Net volume enclosed by the space, excluding the volume of construction elements inside the space.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22qto_spacebasequantities%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/qto_spacebasequantities.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

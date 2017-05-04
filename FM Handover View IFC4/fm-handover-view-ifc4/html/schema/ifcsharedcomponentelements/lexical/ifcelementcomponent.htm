@@ -1,0 +1,99 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcElementComponent</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 3 index3 3 index4 4 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.3.3.5");
+//-->
+</script>
+
+<h4 class="num">IfcElementComponent</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>
+An element component is a representation for minor items included in, added to or connecting to or between
+   elements, which usually are not of interest from the overall building structure viewpoint.
+   However, these small parts may have vital and load carrying functions within the construction.
+   These items do not provide any actual space boundaries.
+   Typical examples of <span class="self-ref">IfcElementComponent</span>s include different kinds of fasteners and various accessories.
+</p>
+
+<p>One or several instances of subtypes of <span class="self-ref">IfcElementComponent</span> should always be accompanied by a defining instance of a respective subtype of <a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>.  The type object holds shape and material information.</p>
+
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2</blockquote>
+
+<p>It is often desirable to model a number of same-shaped element components by means of a single
+occurrence object, e.g. several bolts within a connection or a row of reinforcement elements.
+In this IFC release, this is possible by means of multiple mapped representation as documented below.</p>
+
+<p>To express the multiplicity of element components also on a higher semantic level,
+a <i>Qto_ElementComponentPatternQuantities</i> should be provided via <a href="../../ifckernel/lexical/ifcreldefinesbyproperties.htm">IfcRelDefinesByProperties</a>
+and contain the number of pieces which are placed by a single <span class="self-ref">IfcElementComponent</span> instance.</p>
+
+<p class="use-head"><b>Symbolic Representation</b></p>
+
+<p>A symbolic representation is defined for a row of components or several rows of
+components within a single instance of <span class="self-ref">IfcElementComponent</span>.  Such rows or arrays may
+contain possibly large numbers of individual pieces.  The product definition shape consists of
+an <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> with the attribute values</p>
+<ul>
+  <li><i>RepresentationIdentifier</i> : 'Row'</li>
+  <li><i>RepresentationType</i> : 'GeometricCurveSet'</li>
+</ul>
+<p>and one or several curves as geometric items.  The curves represent where reference points of
+the pieces are located.  For example, such reference points may be at the heads of mechanical fasteners
+or at the starting point of the extrusion axis of reinforcement bars.  In case of straight components
+(bolts, nails, staples, straight reinforcement bars, or similar), the local placement of the
+<span class="self-ref">IfcElementComponent</span> shall be located and oriented such that the local z axis is parallel with
+the axes of the components.  A <i>Qto_ElementComponentPatternQuantities</i> should denote the count
+of pieces in the row or array and their spacing.</p>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponent.htm">IfcElementComponent</a>&quot; type=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponent.htm">IfcElementComponent</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponent.htm">IfcElementComponent</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcElementComponent<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcsharedcomponentelements/lexical/ifcbuildingelementpart.htm">IfcBuildingElementPart</a>, <a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessory.htm">IfcDiscreteAccessory</a>, <a href="../../ifcsharedcomponentelements/lexical/ifcfastener.htm">IfcFastener</a>, <a href="../../ifcsharedcomponentelements/lexical/ifcmechanicalfastener.htm">IfcMechanicalFastener</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>, <a href="../../ifchvacdomain/lexical/ifcvibrationisolator.htm">IfcVibrationIsolator</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedcomponentelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcelementcomponent%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcelementcomponent.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

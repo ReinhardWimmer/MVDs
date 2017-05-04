@@ -1,0 +1,478 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../details-shim.css">
+    <script type="text/javascript" src="../details-shim.js"></script>
+    <title>Fundamental concepts and assumptions</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 3 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("toc-4.htm#");
+//-->
+</script>
+
+<h1 class="num" id="scope">Fundamental concepts and assumptions</h1>
+<p>This specification consists of a schema defining data types, along with common concepts indicating use of data types for particular scenarios. This chapter defines such common concepts, which are applied at entities having specific use.  Such concepts also form the basis of model views, which are supplementary specifications that adapt the scope and rules of this schema for targeted domains within the building industry.</p>
+
+<p>Each concept template defines a graph of entities and attributes, with constraints and parameters set for particular attributes and instance types. Various entities within this schema reference such concept templates and adapt them for particular use according to parameters.</p>
+
+<blockquote class="example">
+EXAMPLE&nbsp; The 'Ports' concept template defines distribution system connectivity for mechanical, electrical, and plumbing systems; a pipe segment defines an application of the 'Ports' concept, having one port as an inlet and another as an outlet.
+</blockquote>
+<p><b><u>Concept templates</u></b></p>
+<table class="gridtable">
+<tr><th>Template</th>
+<th>Basic_FM_Handover_View</th>
+</tr>
+<tr><td>
+<a href="../schema/templates/project-context.htm">Project Context</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/project-units.htm">Project Units</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/project-representation-context.htm">Project Representation Context</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-definition.htm">Object Definition</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/property-sets.htm">Property Sets</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/property-sets-for-objects.htm">Property Sets for Objects</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/quantity-sets.htm">Quantity Sets</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-attributes.htm">Object Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/object-occurrence-attributes.htm">Object Occurrence Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-element-attributes.htm">Spatial Element Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/site-attributes.htm">Site Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/building-attributes.htm">Building Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/storey-attributes.htm">Storey Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/space-attributes.htm">Space Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/element-occurrence-attributes.htm">Element Occurrence Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/door-attributes.htm">Door Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+&nbsp;
+<a href="../schema/templates/window-attributes.htm">Window Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/association.htm">Association</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/classification.htm">Classification</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/material-association.htm">Material Association</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/material-single.htm">Material Single</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/material-constituent-set.htm">Material Constituent Set</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-composition.htm">Object Composition</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/aggregation.htm">Aggregation</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-decomposition.htm">Spatial Decomposition</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-assignment.htm">Object Assignment</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/group-assignment.htm">Group Assignment</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/object-connectivity.htm">Object Connectivity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/spatial-structure.htm">Spatial Structure</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-container.htm">Spatial Container</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/spatial-containment.htm">Spatial Containment</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/space-boundaries.htm">Space Boundaries</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/space-boundaries-1st-level.htm">Space Boundaries 1st Level</a>
+</td>
+<td>X</td>
+</tr>
+</table>
+<p></p>
+<p>
+<p><b><u>Partial templates in use</u></b></p>
+<table class="gridtable">
+<tr><th>Template</th>
+<th>Basic_FM_Handover_View</th>
+</tr>
+<tr><td>
+<a href="../schema/templates/partial-templates.htm">Partial Templates</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/values.htm">Values</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/single-value.htm">Single Value</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/bounded-value.htm">Bounded Value</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/enumerated-value.htm">Enumerated Value</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/list-value.htm">List Value</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/table-value.htm">Table Value</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/reference-value-time-series.htm">Reference Value Time Series</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/quantities.htm">Quantities</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/length-quantity.htm">Length Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/area-quantity.htm">Area Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/volume-quantity.htm">Volume Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/weight-quantity.htm">Weight Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/count-quantity.htm">Count Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/time-quantity.htm">Time Quantity</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/material-definition.htm">Material Definition</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+&nbsp;
+<a href="../schema/templates/material.htm">Material</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+<a href="../schema/templates/operation-concepts.htm">Operation Concepts</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/project-attributes.htm">Project Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/covering-attributes.htm">Covering Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/covering-material.htm">Covering Material</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/door-typing.htm">Door Typing</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/furnishing-attributes.htm">Furnishing Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/furnishing-typing.htm">Furnishing Typing</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/zone-attributes.htm">Zone Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/system-attributes.htm">System Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/component-system-assignment.htm">Component System Assignment</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/system-services-spatial-elements.htm">System Services Spatial Elements</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/window-typing.htm">Window Typing</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/covering-typing.htm">Covering Typing</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/element-space-boundaries.htm">Element Space Boundaries</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/mep-attributes.htm">MEP Attributes</a>
+</td>
+<td>X</td>
+</tr>
+<tr><td>
+&nbsp;
+<a href="../schema/templates/mep-typing.htm">MEP Typing</a>
+</td>
+<td>X</td>
+</tr>
+</table>
+<p></p>
+<p>
+</p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22chapter-4%22" target="_blank" ><img src="../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../link/chapter-4.htm" target="_top" ><img src="../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

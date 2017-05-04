@@ -1,0 +1,167 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcReinforcingMesh</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 8 index3 3 index4 9 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.8.3.10");
+//-->
+</script>
+
+<h4 class="num">IfcReinforcingMesh</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralelementsdomain/lexical/ifcreinforcingmesh.htm">IfcReinforcingMesh</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongitudinalBarNominalDiameter</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransverseBarNominalDiameter</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongitudinalBarCrossSectionArea</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransverseBarCrossSectionArea</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongitudinalBarSpacing</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransverseBarSpacing</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralelementsdomain/lexical/ifcreinforcingmesh.htm">IfcReinforcingMesh</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoverings</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A reinforcing mesh is a series of longitudinal and transverse wires or bars of various gauges, arranged at right angles to each other and welded at all points of intersection; usually used for concrete slab reinforcement. It is also known as welded wire fabric. In scope are plane meshes as well as bent meshes.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; All attributes are optional now. Several attributes are deprecated; their information is now provided by <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a>.  Attribute <i>PredefinedType</i> added.
+</blockquote>
+
+<p class="use-head">Geometry Use Definition</p>
+
+<p>Placement and representation are defined at the supertype <a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponent.htm">IfcElementComponent</a>.</p>
+
+<p>The representation map of a mapped 'Outline' representation should contain a representation of type 'Curve3D' which holds an <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>.</p>
+
+<p>The representation map of a mapped 'Body' representation should contain a representation of type 'AdvancedSweptSolid' which holds multiple <a href="../../ifcgeometricmodelresource/lexical/ifcsweptdisksolid.htm">IfcSweptDiskSolid</a> (including subtype <a href="../../ifcgeometricmodelresource/lexical/ifcsweptdisksolidpolygonal.htm">IfcSweptDiskSolidPolygonal</a>).</p>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>MeshLength</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>MeshWidth</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>12</td><td>LongitudinalBarNominalDiameter</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>13</td><td>TransverseBarNominalDiameter</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>14</td><td>LongitudinalBarCrossSectionArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>15</td><td>TransverseBarCrossSectionArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>16</td><td>LongitudinalBarSpacing</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>17</td><td>TransverseBarSpacing</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Deprecated.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>18</td><td>PredefinedType</td><td><a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtypeenum.htm">IfcReinforcingMeshTypeEnum</a></td><td>? </td><td>
+Kind of mesh.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED.</td></tr>
+<tr><td>CorrectTypeAssigned</td><td>If this occurrence is defined by a type object, the latter has to be an <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a>.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmesh.htm">IfcReinforcingMesh</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmesh.htm">IfcReinforcingMesh</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmesh.htm">IfcReinforcingMesh</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MeshLength&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MeshWidth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongitudinalBarNominalDiameter&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TransverseBarNominalDiameter&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongitudinalBarCrossSectionArea&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TransverseBarCrossSectionArea&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongitudinalBarSpacing&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TransverseBarSpacing&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtypeenum.htm">IfcReinforcingMeshTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcReinforcingMesh<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;MeshLength : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;MeshWidth : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;LongitudinalBarNominalDiameter : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;TransverseBarNominalDiameter : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;LongitudinalBarCrossSectionArea : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>;<br/>
+&nbsp;&nbsp;TransverseBarCrossSectionArea : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>;<br/>
+&nbsp;&nbsp;LongitudinalBarSpacing : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;TransverseBarSpacing : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtypeenum.htm">IfcReinforcingMeshTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT EXISTS(PredefinedType) OR<br/>
+(PredefinedType &lt;&gt; <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtypeenum.htm">IfcReinforcingMeshTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtypeenum.htm">IfcReinforcingMeshTypeEnum</a>.USERDEFINED) AND EXISTS(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/>&nbsp;&nbsp;CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR<br/>
+(&#39;IFCSTRUCTURALELEMENTSDOMAIN.<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType))<br/>
+;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralelementsdomain/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcreinforcingmesh%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcreinforcingmesh.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

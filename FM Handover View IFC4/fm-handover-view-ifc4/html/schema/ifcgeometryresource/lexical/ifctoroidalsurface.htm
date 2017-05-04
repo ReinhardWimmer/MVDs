@@ -1,0 +1,123 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcToroidalSurface</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 56 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.57");
+//-->
+</script>
+
+<h4 class="num">IfcToroidalSurface</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-2/index.htm">IFC4 Addendum 2</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometryresource/lexical/ifctoroidalsurface.htm">IfcToroidalSurface</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcToroidalSurface</span> is a bounded elementary surface. It is constructed by completely revolving a circle around an axis line. The inherited <i>Position</i> attribute defines the
+<i>IfcAxisPlacement3D</i> and provides:</p>
+<ul>
+<li><i>SELF\IfcElementarySurface.Position</i>: The location and orientation of the axis system for the
+primitive.</li>
+<li><i>SELF\IfcElementarySurface.Position.Location</i>: The center of the toroidal surface.</li>
+<li><i>SELF\IfcElementarySurface.Position.Position[3]:</i> The axis of revolution of the toroidal surface</li>
+</ul>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+<p style="font-size:inherit">An <span class="self-ref">IfcToroidalSurface</span> is a type of elementary surface, which could be produced by revolving a circle about a  line in its plane. The radius of the circle being revolved is referred to here as the <i>MinorRadius</i> and the <i>MajorRadius</i> is the distance from the centre of this circle to the axis of revolution. A toroidal surface is defined by the major and minor radii and the position and orientation of the surface.</p>
+ <p style="font-size:inherit> The data is to be interpreted as follows:</p>
+ <blockquote style="font-size:inherit">
+C = Position.Location <br>
+x = Position.P[1] <br>
+y = Position.P[2] <br>
+z = Position.P[3] (axis of toroidal_surface) <br>     
+<i> R </i> = MajorRadius <br>  
+<i> r  </i> = MinorRadius <br>  
+ </blockquote>
+ <p style="font-size:inherit> and the surface is parametrised as </p>
+ <blockquote style="font-size:inherit"><i><b>&#963;</b>(u,v)</i> = <b>C</b> + <i>(R + r</i>cos <i>v</i>)((cos<i>u</i>)<b>x</b> + (sin <i>u</i>))<b>y</b>) + <i>r</i>(sin<i>v</i>))<b>z</b></blockquote>
+ <p style="font-size:inherit">where the parametrisation range is <i>0 &#8804; u, v &#8804; 360</i> degrees. <i>u</i> and <i>v</i> are angular parameters and when numerical values are specified they shall use the current units for plane angle measure.</p>
+ <p style="font-size:inherit">In the placement coordinate system defined above, the surface is represented by the equation <i>S</i> = 0, where </p>
+ <blockquote style="font-size:inherit"><i> S(x, y, z) = x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> -2R&#8730;(x<sup>2</sup>+y<sup>2</sup>) - r<sup>2</sup> + R<sup>2</sup>.</i></blockquote>
+ <p style="font-size:inherit">The positive direction of the normal to the surface at any point on the surface is given by</p>
+ <blockquote style="font-size:inherit"> <i> ( S<sub>x</sub>, S<sub>y</sub>, S<sub>z</sub> ). </i></blockquote>
+ <p style="font-size:inherit">The unit normal is given by </p>
+ <blockquote style="font-size:inherit"><b>N</b><i>(u,v)</i> = cos<i>v</i>((cos <i>u</i>)<b>x</b> + (sin <i>u</i>)<b>y</b>) + (sin <i>v</i>)<b>z</b>.</blockquote>
+ <p style="font-size:inherit">The sense of this normal is away from the nearest point on the circle of radius <i>R</i> with centre <b>C</b>. A manifold surface will be produced if the major radius is greater than the minor radius. If this condition is not fulfilled, the resulting surface will be self-intersecting. </p>
+</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>toroidal_surface</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4 Addendum 2.</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>MajorRadius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The major radius of the torus.</td><td>X</td></tr>
+<tr><td>3</td><td>MinorRadius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The minor radius of the torus.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>MajorLargerMinor</td><td>The attribute value of the MinorRadius shall be smaller then the value of the MajorRadius</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifctoroidalsurface.htm">IfcToroidalSurface</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctoroidalsurface.htm">IfcToroidalSurface</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifctoroidalsurface.htm">IfcToroidalSurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MajorRadius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MinorRadius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcToroidalSurface<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>)<b>;</b><br/>
+&nbsp;&nbsp;MajorRadius : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;MinorRadius : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;MajorLargerMinor : MinorRadius &lt; MajorRadius;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctoroidalsurface%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctoroidalsurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

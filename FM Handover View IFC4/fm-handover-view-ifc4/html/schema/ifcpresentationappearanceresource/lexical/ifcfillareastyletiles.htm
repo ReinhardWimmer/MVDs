@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcFillAreaStyleTiles</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 12 index3 3 index4 15 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.3.16");
+//-->
+</script>
+
+<h4 class="num">IfcFillAreaStyleTiles</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpresentationappearanceresource/lexical/ifcfillareastyletiles.htm">IfcFillAreaStyleTiles</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TilingPattern</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>IfcOneDirectionRepeatFactor</i> to <i>IfcVector</i>. <br/>Aggregation changed from <i>NONE</i> to <i>LIST</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiles</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>IfcFillAreaStyleTileShapeSelect</i> to <i>IfcStyledItem</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcFillAreaStyleTiles</span> defines the filling of an
+<a href="../../ifcpresentationdefinitionresource/lexical/ifcannotationfillarea.htm">IfcAnnotationFillArea</a> by recurring patterns of styled two dimensional
+geometry, called a tile. The recurrence pattern is determined by two vectors,
+that multiply the tile in regular form.</p>
+<p>The two vectors act as a two dimensional repeat factor that determins eight
+new positions for the tiles.</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO 10303-46:<br>
+The fill area style tiles defines a two dimensional tile to be used for the
+filling of annotation fill areas or other closed regions. The content of a tile
+is defined by the tile set, and the placement of each tile determined by the
+filling pattern which indicates how to place tiles next to each other. Tiles or
+parts of tiles outside of the annotation fill area or closed region shall be
+clipped at the of the area or region.</blockquote>
+<blockquote class="extDef">
+<p style="font-size:inherit"><i>I + k<sub>1</sub>* R<sub>1</sub> +
+k<sub>2</sub>* R<sub>2</sub></i>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>k<sub>1</sub>,k<sub>2</sub></i>= -1,0,1 ,
+<img src="../../../figures/ifcfillareastyletilesymbolwithstyle_fig1.gif" alt="formula"
+width="100" height="30" border="0" align="middle"></p>
+<p style="font-size:inherit">Figure 199 shows the use of a vector for hatch line
+distances</p>
+<table summary="figure" border="0">
+<tr>
+<td><img src="../../../figures/ifcfillareastyletiles_fig1.gif" width="420" height="390"
+alt="IfcFillAreaStyleTiles_Fig1.gif 12,9 KB"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 199 &mdash; two vectors as two direction repeat
+factor</p>
+</td>
+</tr>
+</table>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from
+<strong>fill_area_style_tiles</strong> defined in ISO10303-46</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; <i>TilingPattern</i>
+changed to list of two <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>, <i>Tiles</i> refer directly to
+<a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>.</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>TilingPattern</td><td><a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a></td><td>L[2:2]</td><td>
+A two direction repeat factor defining the shape and relative positioning of the tiles.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute type has changed to directly reference two <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>'s.</blockquote></td><td>X</td></tr>
+<tr><td>2</td><td>Tiles</td><td><a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a></td><td>S[1:?]</td><td>
+A set of constituents of the tile being a styled item that is used as the annotation symbol for tiling the filled area.
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The data type has been changed to <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>.</blockquote>
+<blockquote class="note">NOTE&nbsp; Only <i>IfcStyleItem</i>'s that refer to a compatible geometric representation item and presentation style shall be used.</blockquote></td><td>X</td></tr>
+<tr><td>3</td><td>TilingScale</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td><td></td><td>
+The scale factor applied to each tile as it is placed in the annotation fill area.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcfillareastyletiles.htm">IfcFillAreaStyleTiles</a>&quot; type=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcfillareastyletiles.htm">IfcFillAreaStyleTiles</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifcfillareastyletiles.htm">IfcFillAreaStyleTiles</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TilingPattern&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>&quot; minOccurs=&quot;2&quot; maxOccurs=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Tiles&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TilingScale&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcFillAreaStyleTiles<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcgeometricrepresentationitem.htm">IfcGeometricRepresentationItem</a>)<b>;</b><br/>
+&nbsp;&nbsp;TilingPattern : <span class="keyword">LIST</span> [2:2] OF <a href="../../ifcgeometryresource/lexical/ifcvector.htm">IfcVector</a>;<br/>
+&nbsp;&nbsp;Tiles : <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a>;<br/>
+&nbsp;&nbsp;TilingScale : <a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcfillareastyletiles%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcfillareastyletiles.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

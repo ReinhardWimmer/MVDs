@@ -1,0 +1,108 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Object Attributes</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.3");
+//-->
+</script>
+
+<h2 class="std">4.3 Object Attributes</h2>
+<p>
+
+All entities having semantic significance derive from <a href="../ifckernel/lexical/ifcroot.htm">IfcRoot</a>, where instances are identifiable within a data set using a
+
+ compressed globally unique identifier (IFC-GUID). This identifier must never change during the lifetime of an
+
+ object, which allows data to be merged, versioned, or referenced from other locations.
+
+</p>
+
+
+<p>
+
+Resource-level instances (not deriving from <a href="../ifckernel/lexical/ifcroot.htm">IfcRoot</a>) do not have any identity, such that two instances
+
+ having identical state are considered equal. For example, if an object has coordinates described by an
+
+ <a href="../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> instance, another object with the same coordinates may have a separate instance of
+
+ <a href="../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a> or share the same instance; such difference is a matter of data storage optimization
+
+ and does not imply any semantic relationship. This also implies that non-rooted instances may only exist if
+
+ referenced by at least one rooted instance through either a direct attribute or inverse attribute, or following
+
+ a chain of attribute references on instances.
+
+</p>
+
+
+<p>
+
+The distinction between rooted and non-rooted (resource-level) entities achieves several goals:
+
+</p>
+
+
+<ul class="ref">
+
+
+ <li>File size may be reduced by interning (sharing) non-rooted data instances;
+
+</li>
+
+
+ <li>Database retrieval may be more efficient by storing non-rooted data local to rooted data
+
+ instances;
+
+</li>
+
+
+ <li>Storage size may be reduced by avoiding IFC-GUID storage for items not requiring direct
+
+ retrieval;
+
+</li>
+
+
+ <li>Comparisons of differences may be done at a higher level where the context of such change is
+
+ apparent;
+
+</li>
+
+
+ <li>Implementations may treat non-rooted data instances as immutable for efficiency or simplified
+
+ usage.
+
+</li>
+
+
+</ul>
+
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22object-attributes%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/object-attributes.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

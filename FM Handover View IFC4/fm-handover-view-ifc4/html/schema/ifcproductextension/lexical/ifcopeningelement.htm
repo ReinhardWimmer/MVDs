@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcOpeningElement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 24 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.25");
+//-->
+</script>
+
+<h4 class="num">IfcOpeningElement</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoverings</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The opening element stands for opening, recess or chase, all reflecting voids. It represents a void within any element that has physical manifestation. Openings
+can be inserted into walls, slabs, beams, columns, or other elements.</p>
+<p>The IFC specification provides two entities for opening elements:</p>
+<ul>
+<li><a href="../../ifcproductextension/lexical/ifcopeningstandardcase.htm">IfcOpeningStandardCase</a> is used for all openings that have a constant profile along a linear extrusion. They are placed relative to the voided elements and the extrusion direction is perpendicular to the plane of the element (horizontally for walls, vertically for slabs). Only a single extrusion body is allowed. It cuts through the whole thickness of the voided element, i.e. it reflects a true opening.</li>
+<li><span class="self-ref">IfcOpeningElement</span> is used for all other occurrences of openings and in particular also for niches or recesses.</li>
+</ul>
+<blockquote class="note">
+NOTE&nbsp; View definitions or implementer agreements may restrict the types of elements which can be voided by an <span class="self-ref">IfcOpeningElement</span> or <a href="../../ifcproductextension/lexical/ifcopeningstandardcase.htm">IfcOpeningStandardCase</a></blockquote>
+
+<p>There are two different types of opening elements:</p>
+<ul>
+<li>an opening, where the thickness of the opening is greater or equal to the thickness of the element;</li>
+<li>a recess or niche, where the thickness of the recess is smaller than the thickness of the element.</li>
+</ul>
+<p>The attribute <i>PredefinedType</i> should be used to capture the differences,</p>
+<ul>
+<li>the attribute is set to OPENING for an opening or</li>
+<li>the attribute is set to RECESS for a recess or niche.</li>
+<li>If the value for <i>PredefinedType</i> is omitted, or the value is set to NOTDEFINED, no specific information of whether it is an opening or recess shall be assumed.</li>
+</ul>
+
+<p>An <span class="self-ref">IfcOpeningElement</span> has to be inserted into an <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> by using the <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> relationship. It may be filled by an <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>, <a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>, or another filling element by using the relationship <i>IfcRelFillsElements</i>. Depending on the type of the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> of the <span class="self-ref">IfcOpeningElement</span> the voiding relationship implies:</p>
+<ul>
+ <li> if the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>.<emRepresentationIdentifier</i> = 'Body', then the Body shape represntation of the opening has to be subtracted from the body shape representation of the voided element - implicit Boolean difference operation.</li>
+ <li> if the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>.<emRepresentationIdentifier</i> = 'Reference', then the Reference shape representation of the opening is not subtracted, it is provided in addition to the hole in the Body shape representation of the voided element.</li>
+</ul>
+<p>The <span class="self-ref">IfcOpeningElement</span> shall not participate in the containment relationship, i.e. it is not linked directly to the spatial structure of the project. It has a mandatory <i>VoidsElements</i> inverse relationship pointing to the <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> that is contained in the spatial structure.</p>
+<ul>
+<li>The inverse relationship <i>ContainedInStructure</i> shall be NIL.</li>
+</ul>
+
+<blockquote class="note">NOTE&nbsp; See <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a> for a diagram on how to apply spatial containment and the voiding relationship.</blockquote>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+
+<blockquote class="change-ifc2x">
+IFC2x CHANGE&nbsp; The intermediate ABSTRACT supertypes <a href="../../ifcproductextension/lexical/ifcfeatureelement.htm">IfcFeatureElement</a> and <i>IfcFeatureSubtraction</i> have been added.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attribute <i>PredefinedType</i> has been added at the end of attribute list. It should be used instead of the inherited attribute <i>ObjectType</i> from now on.
+</blockquote>
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>9</td><td>PredefinedType</td><td><a href="../../ifcproductextension/lexical/ifcopeningelementtypeenum.htm">IfcOpeningElementTypeEnum</a></td><td>? </td><td>
+Predefined generic type for an opening that is specified in an enumeration. There may be a property set given specificly for the predefined types.
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The attribute has been added at the end of the entity definition.</blockquote> </td><td>X</td></tr>
+<tr><td></td><td><i>HasFillings</i></td><td><a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a><br/>@RelatingOpeningElement</td><td>S[0:?]</td><td>Reference to the Filling Relationship that is used to assign Elements as Fillings for this Opening Element. The Opening Element can be filled with zero-to-many Elements.
+</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;HasFillings&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcopeningelementtypeenum.htm">IfcOpeningElementTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcOpeningElement<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcproductextension/lexical/ifcopeningstandardcase.htm">IfcOpeningStandardCase</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcfeatureelementsubtraction.htm">IfcFeatureElementSubtraction</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcopeningelementtypeenum.htm">IfcOpeningElementTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;HasFillings : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> <span class="keyword">FOR</span> RelatingOpeningElement;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcopeningelement%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcopeningelement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

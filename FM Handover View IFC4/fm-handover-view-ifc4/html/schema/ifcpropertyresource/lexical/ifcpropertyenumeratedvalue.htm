@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcPropertyEnumeratedValue</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 16 index3 3 index4 7 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.16.3.8");
+//-->
+</script>
+
+<h4 class="num">IfcPropertyEnumeratedValue</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpropertyresource/lexical/ifcpropertyenumeratedvalue.htm">IfcPropertyEnumeratedValue</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EnumerationValues</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpropertyresource/lexical/ifcpropertyenumeratedvalue.htm">IfcPropertyEnumeratedValue</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasConstraints</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasApprovals</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A property with an enumerated value, <span class="self-ref">IfcPropertyEnumeratedValue</span>, defines a property
+object which has a value assigned that is chosen from an enumeration. It defines a property - value combination for which
+the property <i>Name</i>, an optional <i>Description</i>, the optional <i>EnumerationValues</i>
+with measure type and optionally an <i>Unit</i> is given.</p>
+
+<blockquote class="note">
+NOTE&nbsp; Multiple choices from the property enumeration are supported.
+</blockquote>
+
+<p>The unit is handled by the <i>Unit</i> attribute, see Table 53 for an example of a enumerated property:</p>
+<ul>
+<li>If the <i>Unit</i> attribute is not given, then the unit is already implied by the type of <a href="../../ifcmeasureresource/lexical/ifcmeasurevalue.htm">IfcMeasureValue</a> or
+<a href="../../ifcmeasureresource/lexical/ifcderivedmeasurevalue.htm">IfcDerivedMeasureValue</a>. The associated unit can be found at the <a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a> globally defined at the project
+level (<i>IfcProject.UnitsInContext</i>).</li>
+<li>If the <i>Unit</i> attribute is given, then the unit assigned by the unit attribute overrides the globally assigned unit.</li>
+</ul>
+<p>More precisely: The <span class="self-ref">IfcPropertyEnumeratedValue</span> defines a property, which value is selected from a defined list of
+enumerators. The enumerators are stored in a dynamic enumeration of values including the type information from <a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a>
+(see <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a>). This enables applications to use an enumeration value as a property within a property set
+(<a href="../../ifckernel/lexical/ifcpropertyset.htm">IfcPropertySet</a>) including the allowed list of values. </p>
+
+<blockquote class="note">
+NOTE&nbsp; An <span class="self-ref">IfcPropertyEnumeratedValue</span> may be exchanged with no values assigned yet. In this case the <i>EnumerationValues</i> are set to NIL.
+</blockquote>
+
+<p>&nbsp;</p>
+<table>
+ <tr>
+  <td>
+   <table class="gridtable">
+    <tr valign="top">
+     <th width="15%">Name</th>
+     <th width="30%">Value<br> <span style="font-size:smaller">(EnumerationValue)</span></th>
+     <th width="25%">Type<br> <span style="font-size:smaller">(through&nbsp;IfcValue)</span></th>
+     <th width="30%">IfcPropertyEnumeration<br> <span style="font-size:smaller">(Name)</span></th>
+    </tr>
+    <tr>
+     <td>BladeAction</td>
+     <td>Opposed</td>
+     <td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td>
+     <td>DamperBladeActionEnum</td>
+    </tr>
+    <tr>
+     <td>BladeAction</td>
+     <td>Parallel</td>
+     <td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td>
+     <td>DamperBladeActionEnum</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><p class="table">Table 53 &mdash; Enumerated property with values, measure types and units</td>
+ </tr>
+</table>
+<p>&nbsp;</p>
+
+<p>The <span class="self-ref">IfcPropertyEnumeratedValue</span> refers to an <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a>, see Table 54 for an example:</p>
+<table>
+ <tr>
+  <td>
+   <table class="gridtable">
+    <tr valign="top">
+     <th width="30%"><b>Name</b></th>
+     <th width="30%"><b>EnumerationValues</b></th>
+     <th width="25%"><b>Type<br></b> <span style="font-size:smaller">(through IfcValue)</span></th>
+     <th width="15%"><b>Unit</b></th>
+    </tr>
+    <tr valign="top">
+     <td>DamperBladeActionEnum</td>
+     <td>(Parallel, Opposed, Other, Unset)</td>
+     <td><i>IfcString</i></td>
+     <td>-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><p class="table">Table 54 &mdash; Property enumeration with enumerators</td>
+ </tr>
+</table>
+</blockquote>
+
+<p>It is not mandatory to use an instance of <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a> to hold the applicable values for
+<span class="self-ref">IfcPropertyEnumeratedValue</span>, however this is the preferred way. A single instance of <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a> can be
+referenced by multiple instances of <span class="self-ref">IfcPropertyEnumeratedValue</span>.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+<blockquote class="change-ifc2x">
+IFC2x CHANGE&nbsp; Entity has been renamed from IfcEnumeratedProperty
+</blockquote>
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attribute <i>EnumerationValues</i> has been made OPTIONAL with upward
+compatibility for file based exchange.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>EnumerationValues</td><td><a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a></td><td>? L[1:?]</td><td>
+Enumeration values, which shall be listed in the referenced <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a>, if such a reference is provided.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been made optional with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>4</td><td>EnumerationReference</td><td><a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a></td><td>? </td><td>
+Enumeration from which a enumeration value has been selected. The referenced enumeration also establishes the unit of the enumeration value.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>WR21</td><td>Each value within the list of <i>EnumerationValues</i> shall be a member of the list of <i>EnumerationValues</i> at the referenced <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a> (provided that both, the <i>EnumerationValues</i> and <i>EnumerationReference</i>, are asserted).
+</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcpropertyresource/lexical/ifcpropertyenumeratedvalue.htm">IfcPropertyEnumeratedValue</a>&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpropertyenumeratedvalue.htm">IfcPropertyEnumeratedValue</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcsimpleproperty.htm">IfcSimpleProperty</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcpropertyresource/lexical/ifcpropertyenumeratedvalue.htm">IfcPropertyEnumeratedValue</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcsimpleproperty.htm">IfcSimpleProperty</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EnumerationValues&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;EnumerationReference&quot; type=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcPropertyEnumeratedValue<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcpropertyresource/lexical/ifcsimpleproperty.htm">IfcSimpleProperty</a>)<b>;</b><br/>
+&nbsp;&nbsp;EnumerationValues : <span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcmeasureresource/lexical/ifcvalue.htm">IfcValue</a>;<br/>
+&nbsp;&nbsp;EnumerationReference : <span class="keyword">OPTIONAL</span> <a href="../../ifcpropertyresource/lexical/ifcpropertyenumeration.htm">IfcPropertyEnumeration</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;WR21 : NOT(EXISTS(EnumerationReference)) <br/>
+OR  NOT(EXISTS(EnumerationValues)) <br/>
+OR  (SIZEOF(QUERY(temp &lt;* EnumerationValues |<br/>
+    temp IN EnumerationReference.EnumerationValues))<br/>
+    = SIZEOF(EnumerationValues));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcpropertyresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcpropertyenumeratedvalue%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcpropertyenumeratedvalue.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

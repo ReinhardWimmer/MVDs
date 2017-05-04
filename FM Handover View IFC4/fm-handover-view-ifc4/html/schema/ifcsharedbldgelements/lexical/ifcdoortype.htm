@@ -1,0 +1,204 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDoorType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 17 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.18");
+//-->
+</script>
+
+<h4 class="num">IfcDoorType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ParameterTakesPrecedence</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The element type <span class="self-ref">IfcDoorType</span> defines commonly shared information
+for occurrences of doors. The set of shared information may
+include:</p>
+<ul>
+<li>common properties within shared property sets</li>
+<li>common material information</li>
+<li>common operation type definitions</li>
+<li>common shape representations</li>
+</ul>
+<p>A door type defines the particular parameter of the lining and
+one (or several) panels through the
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a> and the
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a> as predefined property sets
+applicable to doors only.</p>
+<p>It is used to define a door specification, or door style (i.e.
+the specific product information that is common to all
+occurrences of that door type). Door types may be exchanged
+without being already assigned to occurrences.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The product representations are defined as representation maps (at the level of the supertype <a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a>, which gets assigned by an element occurrence instance through the <i>IfcShapeRepresentation.Item[1]</i> being an <a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>.
+</blockquote>
+
+<p>Occurrences of the <span class="self-ref">IfcDoorType</span> within building models are represented by instances of <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a> or <a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a>.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4. The entity <span class="self-ref">IfcDoorType</span> replaces the previous definition <a href="../../ifcarchitecturedomain/lexical/ifcdoorstyle.htm">IfcDoorStyle</a> (which is deprecated in IFC4).
+</blockquote>
+
+<p class="use-head">Operation type use definition</p>
+<p>The <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a> defines the general layout
+of the door type and its symbolic presentation. Depending on the
+enumerator, the appropriate instances of
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a> and <a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>
+are attached in the list of <i>HasPropertySets</i>. The
+<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a> mainly determines the hinge side
+(left hung, or right hung), the operation (swinging, sliding,
+folding, etc.) and the number of panels.</p>
+<blockquote class="note">NOTE&nbsp; There are different definitions in
+various countries on what a left opening or left hung or left
+swing door is (same for right). Therefore the IFC definition may
+derivate from the local standard and may need to be mapped
+appropriately.</blockquote>
+<p>See geometry use definitions at
+<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a> for the correct usage of opening
+symbols for different operation types.</p>
+<p class="use-head">Material Use Definition</p>
+<p>The material of the <span class="self-ref">IfcDoorType</span> is defined by the
+<a href="../../ifcmaterialresource/lexical/ifcmaterialconstituentset.htm">IfcMaterialConstituentSet</a> or as fall back by
+<a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> and attached by the
+<a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a><i>.RelatingMaterial</i>. It is
+accessible by the inverse <i>HasAssociations</i>
+relationship.</p>
+<p>The following keywords for
+<i>IfcMaterialConstituentSet.MaterialConstituents[n].Name</i>
+shall be used:</p>
+<ul>
+<li>'Lining' - to indicate that the material constituent applies
+to to the door lining</li>
+<li>'Framing' - to indicate that the material constituent applies
+to to the door framing, if not provided, the 'Lining' material
+information applied to frams as well</li>
+<li>'Glazing' - to indicate that the material constituent applies
+to to the glazing as well</li>
+</ul>
+<p>If the fall back single <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> is referenced, it
+applies to the lining and framing of the door.</p>
+
+
+<p class="use-head">Geometry Use Definitions</b></u>:</p>
+<p>The <span class="self-ref">IfcDoorType</span> may define the common shape of door
+occurrences. The common shape can be defined by</p>
+<ul>
+<li>applying shape parameters defined within the associated
+<a href="../../ifcarchitecturedomain/lexical/ifcdoorliningproperties.htm">IfcDoorLiningProperties</a> and <a href="../../ifcarchitecturedomain/lexical/ifcdoorpanelproperties.htm">IfcDoorPanelProperties</a>
+applied to the 'Profile' geometric representation. It is only
+applicable if the <span class="self-ref">IfcDoorType</span> has only occurrences of type
+<a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a> (See geometric use definition of
+<a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a> for further information).</li>
+<li>applying the <i>RepresentationMaps</i> attribute to refer to
+a list of <a href="../../ifcgeometryresource/lexical/ifcrepresentationmap.htm">IfcRepresentationMap</a>'s, that allow for multiple
+geometric representations (e.g. with
+<a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>'s having an
+<i>RepresentationIdentifier</i> 'Box', 'Profile', 'FootPrint', or
+'Body')
+
+<blockquote class="note">
+NOTE&nbsp; The product shape representations are
+defined as <i>RepresentationMaps</i> (attribute of the supertype
+<a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a>), which get assigned by an element
+occurrence instance through the
+<i>IfcShapeRepresentation.Item[n]</i> being an
+<a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>. See <a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a> for further
+information.</small></blockquote>
+<blockquote class="note">NOTE&nbsp; The values of attributes
+<i>RepresentationIdentifier</i> and <i>RepresentationType</i> of
+<a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> are restricted in the same way as
+those for <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a> and
+<a href="../../ifcsharedbldgelements/lexical/ifcdoorstandardcase.htm">IfcDoorStandardCase</a>
+</blockquote>
+
+</li>
+</ul><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a></td><td></td><td>
+Identifies the predefined types of a door element from which the type required may be set.</td><td>X</td></tr>
+<tr><td>11</td><td>OperationType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a></td><td></td><td>
+Type defining the general layout and operation of the door type in terms of the partitioning of panels and panel operations. </td><td>X</td></tr>
+<tr><td>12</td><td>ParameterTakesPrecedence</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td>? </td><td>
+The Boolean value reflects, whether the parameter given in the attached lining and panel properties exactly define the geometry (TRUE), or whether the attached style shape take precedence (FALSE). In the last case the parameter have only informative value. If not provided, no such information can be infered.</td><td>X</td></tr>
+<tr><td>13</td><td>UserDefinedOperationType</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Designator for the user defined operation type, shall only be provided, if the value of <i>OperationType</i> is set to USERDEFINED.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>The inherited attribute <i>ElementType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OperationType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ParameterTakesPrecedence&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedOperationType&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcDoorType<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcbuildingelementtype.htm">IfcBuildingElementType</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>;<br/>
+&nbsp;&nbsp;OperationType : <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeoperationenum.htm">IfcDoorTypeOperationEnum</a>;<br/>
+&nbsp;&nbsp;ParameterTakesPrecedence : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>;<br/>
+&nbsp;&nbsp;UserDefinedOperationType : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : (PredefinedType &lt;&gt; <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcsharedbldgelements/lexical/ifcdoortypeenum.htm">IfcDoorTypeEnum</a>.USERDEFINED) AND EXISTS(SELF\<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>.ElementType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcdoortype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcdoortype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

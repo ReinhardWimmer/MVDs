@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcMonthInYearNumber</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 5 index3 2 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.5.2.6");
+//-->
+</script>
+
+<h4 class="num">IfcMonthInYearNumber</h4>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p><span class="self-ref">IfcMonthInYearNumber</span> is
+an integer that defines the position of the specified month in a
+year. </p>
+
+<p>Calendar month numbers map to calendar month names as follows:</p>
+<ul>
+<li><b>1</b>: January</li>
+<li><b>2</b>: February</li>
+<li><b>3</b>: March</li>
+<li><b>4</b>: April</li>
+<li><b>5</b>: May</li>
+<li><b>6</b>: June</li>
+<li><b>7</b>: July</li>
+<li><b>8</b>: August</li>
+<li><b>9</b>: September</li>
+<li><b>10</b>: October</li>
+<li><b>11</b>: November</li>
+<li><b>12</b>: December</li>
+</ul>
+
+<p>Type: INTEGER</p>
+
+<blockquote class="note">
+NOTE&nbsp; See definition of <strong>calendar month</strong> as defined in ISO&nbsp;8601. 
+</blockquote>
+
+<blockquote class="note">
+HISTORY&nbsp; New type in IFC1.5.1.
+</blockquote><p></p>
+</section>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>ValidRange</td><td>The valid range for positioning a month in a year is min inclusive = 1 and max inclusive = 12.</td></tr>
+</table>
+
+<p></p>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcdatetimeresource/lexical/ifcmonthinyearnumber.htm">IfcMonthInYearNumber</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:long&quot;/&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcMonthInYearNumber = <span class="self-ref">INTEGER</span>;<br/>&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;ValidRange : {1 &lt;= SELF &lt;= 12}<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcdatetimeresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmonthinyearnumber%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmonthinyearnumber.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

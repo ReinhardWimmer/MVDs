@@ -1,0 +1,355 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCovering</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 11 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.12");
+//-->
+</script>
+
+<h4 class="num">IfcCovering</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td></td><td></td><td>MOVED</td><td>Schema changed from <i>IFCPRODUCTEXTENSION</i> to <i>IFCSHAREDBLDGELEMENTS</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A covering is an element which covers some part of another element and is fully dependent on that other element. The
+<span class="self-ref">IfcCovering</span> defines the occurrence of a covering type, that (if given) is expressed by the <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a>.</p>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO ISO 6707-1: final coverings and treatments of surfaces and their
+intersections.</blockquote>
+
+<p>Coverings are elements with relationships to the covered element and the space on the other side, they may contain openings,
+assigned by <a href="../../ifcproductextension/lexical/ifcrelvoidselement.htm">IfcRelVoidsElement</a>, material information, assigned by <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>, and others.</p>
+
+<blockquote class="example">
+EXAMPLE&nbsp; Coverings include wall claddings, floorings, suspended ceilings, moldings and skirting boards.
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; A more basic information about claddings, floorings, and ceilings of a space can be attached to <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>'s using the 
+Pset_SpaceCommon properties. Then only a name can be provided and the covering quantities would be interpreted from the space quantities.
+</blockquote>
+
+<p>Coverings can be assigned to</p>
+<ul>
+<li>a space represented by <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>
+<ul>
+<li>using the inverse relationship <i>CoversSpaces</i> pointing to <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>. The space is then accessible via
+<i>IfcRelCoversSpaces.RelatedSpace</i>. It defines to which space a covering is facing towards.</li>
+</ul>
+</li>
+<li>a space boundary represented by <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>
+<ul>
+<li>using the inverse relationship <i>ProvidesBoundaries</i> pointing to <i>IfcRelSpaceBoundary.</i> The space is then
+accessible via <i>IfcRelSpaceBoundary.RelatingSpace</i>.</li>
+</ul>
+</li>
+<li>a building element represented by <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>
+<ul>
+<li>using the inverse relationship <i>Covers</i> pointing to <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a>. The building element is then
+accessible via
+<i>IfcRelCoversBldgElements.RelatingBuildingElement</i>.</li>
+</ul>
+</li>
+</ul>
+
+<blockquote class="note">NOTE&nbsp; The mere containment relationship between an <span class="self-ref">IfcCovering</span> and an <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a> is created
+by using <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a></blockquote>
+<p>The following guideline shall apply:</p>
+<ul>
+<li>(default) if the space has coverings that may not have their own shape representation and no defined relationships to the building
+elements they cover, then the <span class="self-ref">IfcCovering</span> shall be assigned to <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a> using the <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>
+relationship,</li>
+<li>if the space has coverings that have an own shape representation and the space has defined space boundaries, then the
+covering, which relates to that space, shall be contained in the space using <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a>. It may be
+assigned to the space boundaries using the <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>.</li>
+<li>if the covering does not relate to a space, then the covering should be assigned to the building element or a distribution
+element using the <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> relationship.</li>
+</ul>
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.0.
+</blockquote>
+<blockquote class="change-ifc2x">
+IFC2x CHANGE&nbsp; The attribute <i>PredefinedType</i> is now optional and should only be inserted when no type information, given by <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a>, is assigned to the <span class="self-ref">IfcCovering</span> occurrence by <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>9</td><td>PredefinedType</td><td><a href="../../ifcsharedbldgelements/lexical/ifccoveringtypeenum.htm">IfcCoveringTypeEnum</a></td><td>? </td><td>
+Predefined types to define the particular type of the covering. There may be property set definitions available for each predefined type.
+<blockquote class="note">NOTE&nbsp; The <i>PredefinedType</i> shall only be used, if no <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a> is assigned, providing its own <i>IfcCoveringType.PredefinedType</i>.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>CoversSpaces</i></td><td><a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a><br/>@RelatedCoverings</td><td>S[0:1]</td><td>Reference to the objectified relationship that handles the relationship of the covering to the covered space.</td><td>X</td></tr>
+<tr><td></td><td><i>CoversElements</i></td><td><a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a><br/>@RelatedCoverings</td><td>S[0:1]</td><td>Reference to the objectified relationship that handles the relationship of the covering to the covered element.
+<blockquote class="change-ifc2x4">IFC4 CHANGE  Renamed into <i>CoversElements</i> for consistency.
+</blockquote>
+</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be given, if the <i>PredefinedType</i> is set to USERDEFINED.</td></tr>
+<tr><td>CorrectTypeAssigned</td><td>Either there is no covering type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a>.</td></tr>
+</table>
+
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifccovering.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcCovering</h5><a id="covering-attributes" />
+<p><b><u>Covering Attributes</u></b></p>
+<p>The <a href="../../templates/covering-attributes.htm">Covering Attributes</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="classification" />
+<p><b><u>Classification</u></b></p>
+<p>The <a href="../../templates/classification.htm">Classification</a> concept template applies to this entity as shown in Table 33.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 33 &mdash; IfcCovering Classification</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="covering-material" />
+<p><b><u>Covering Material</u></b></p>
+<p>The <a href="../../templates/covering-material.htm">Covering Material</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p><b><u>Property Sets for Objects</u></b></p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 34.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_coveringceiling.htm">Pset_CoveringCeiling</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Permeability</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TileLength</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TileWidth</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_coveringcommon.htm">Pset_CoveringCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>Status</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcproductextension/pset/penum_elementstatus.htm">PEnum_ElementStatus</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>AcousticRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FlammabilityRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FragilityRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Combustible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SurfaceSpreadOfFlame</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Finish</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ThermalTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcthermaltransmittancemeasure.htm">IfcThermalTransmittanceMeasure</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FireRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_coveringflooring.htm">Pset_CoveringFlooring</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HasNonSkidSurface</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HasAntiStaticSurface</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 34 &mdash; IfcCovering Property Sets for Objects</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td></td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-containment" />
+<p><b><u>Spatial Containment</u></b></p>
+<p>The <a href="../../templates/spatial-containment.htm">Spatial Containment</a> concept template applies to this entity as shown in Table 35.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Covering Contained in Space</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 35 &mdash; IfcCovering Spatial Containment</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p><b><u>Quantity Sets</u></b></p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 36.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_coveringbasequantities.htm">Qto_CoveringBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 36 &mdash; IfcCovering Quantity Sets</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="covering-typing" />
+<p><b><u>Covering Typing</u></b></p>
+<p>The <a href="../../templates/covering-typing.htm">Covering Typing</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifccoveringtypeenum.htm">IfcCoveringTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcCovering<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifccoveringtypeenum.htm">IfcCoveringTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;CoversSpaces : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a> <span class="keyword">FOR</span> RelatedCoverings;<br/>
+&nbsp;&nbsp;CoversElements : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> <span class="keyword">FOR</span> RelatedCoverings;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR <br/>
+ (PredefinedType &lt;&gt; <a href="../../ifcsharedbldgelements/lexical/ifccoveringtypeenum.htm">IfcCoveringTypeEnum</a>.USERDEFINED) OR <br/>
+ ((PredefinedType = <a href="../../ifcsharedbldgelements/lexical/ifccoveringtypeenum.htm">IfcCoveringTypeEnum</a>.USERDEFINED) AND EXISTS (SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/>&nbsp;&nbsp;CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR<br/>
+  (&#39;IFCSHAREDBLDGELEMENTS.<a href="../../ifcsharedbldgelements/lexical/ifccoveringtype.htm">IfcCoveringType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifccovering%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifccovering.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcAsset</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 4 index3 3 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.4.3.1");
+//-->
+</script>
+
+<h4 class="num">IfcAsset</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>AssetID</i> to <i>Identification</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OriginalValue</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CurrentValue</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TotalReplacementCost</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Owner</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResponsiblePerson</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IncorporationDate</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>IfcCalendarDate</i> to <i>IfcDate</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DepreciatedValue</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+ 
+<p>An asset is a uniquely identifiable grouping of elements acting as a single entity that has a financial value or that can be operated on as a single unit.</p> 
+ 
+<p>An asset is generally the level of granularity at which maintenance operations are undertaken. An asset is a group that can contain one or more elements. Whilst the financial value of a component or element can be defined, financial value is also defined for accounting purposes at the level of the asset.<br/>  <br/>There are a number of actors that can be associated with an asset, each actor having a role. Actors within the scope of the project are indicated using the <a href="../../ifckernel/lexical/ifcrelassignstoactor.htm">IfcRelAssignsToActor</a> relationship in which case roles should be defined through the <a href="../../ifcactorresource/lexical/ifcactorrole.htm">IfcActorRole</a> class; otherwise principal actors are identified as attributes of the class. In the existence of both, direct attributes take precedence.<br/>  <br/>There are a number of costs that can be associated with an asset, each cost having a role. These are specified through the <i>OriginalValue</i>, <i>CurrentValue</i>, <i>TotalReplacementCost</i> and <i>DepreciatedValue</i> attributes.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; All attributes made optional and date values changed to use <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>.
+</blockquote>
+  <p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>6</td><td>Identification</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td>? </td><td>
+A unique identification assigned to an asset that enables its differentiation from other assets.
+<blockquote class="note">NOTE&nbsp; The asset identifier is unique within the asset register. It differs from the globally unique id assigned to the instance of an entity populating a database.</blockquote></td><td>X</td></tr>
+<tr><td>7</td><td>OriginalValue</td><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>? </td><td>
+The cost value of the asset at the time of purchase.</td><td>X</td></tr>
+<tr><td>8</td><td>CurrentValue</td><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>? </td><td>
+The current cost value of the asset.</td><td>X</td></tr>
+<tr><td>9</td><td>TotalReplacementCost</td><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>? </td><td>
+The total cost of replacement of the asset.</td><td>X</td></tr>
+<tr><td>10</td><td>Owner</td><td><a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a></td><td>? </td><td>
+The name of the person or organization that 'owns' the asset.</td><td>X</td></tr>
+<tr><td>11</td><td>User</td><td><a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a></td><td>? </td><td>
+The name of the person or organization that 'uses' the asset.</td><td>X</td></tr>
+<tr><td>12</td><td>ResponsiblePerson</td><td><a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a></td><td>? </td><td>
+The person designated to be responsible for the asset.
+<blockquote class="note">NOTE&nbsp; In some regulations (for example, UK Health and Safety at Work Act, Electricity at Work Regulations), management of assets must have a person identified as being responsible and to whom regulatory, insurance and other organizations communicate. In places where there is not a legal requirement, the responsible person would be the asset manager but would not have a legal status.</blockquote></td><td>X</td></tr>
+<tr><td>13</td><td>IncorporationDate</td><td><a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a></td><td>? </td><td>
+The date on which an asset was incorporated into the works, installed, constructed, erected or completed.
+<blockquote class="note">NOTE&nbsp; This is the date on which an asset is considered to start depreciating.</blockquote>
+<blockquote class="history">IFC4 CHANGE&nbsp; Type changed from IfcDateTimeSelect.</blockquote>  
+</td><td>X</td></tr>
+<tr><td>14</td><td>DepreciatedValue</td><td><a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a></td><td>? </td><td>
+The current value of an asset within the accounting rules and procedures of an organization.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a>&quot; type=&quot;ifc:<a href="../../ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedfacilitieselements/lexical/ifcasset.htm">IfcAsset</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;OriginalValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;CurrentValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;TotalReplacementCost&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Owner&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;User&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ResponsiblePerson&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;DepreciatedValue&quot; type=&quot;ifc:<a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Identification&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;IncorporationDate&quot; type=&quot;ifc:<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcAsset<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>)<b>;</b><br/>
+&nbsp;&nbsp;Identification : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;<br/>
+&nbsp;&nbsp;OriginalValue : <span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;<br/>
+&nbsp;&nbsp;CurrentValue : <span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;<br/>
+&nbsp;&nbsp;TotalReplacementCost : <span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;<br/>
+&nbsp;&nbsp;Owner : <span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;<br/>
+&nbsp;&nbsp;User : <span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcactorselect.htm">IfcActorSelect</a>;<br/>
+&nbsp;&nbsp;ResponsiblePerson : <span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcperson.htm">IfcPerson</a>;<br/>
+&nbsp;&nbsp;IncorporationDate : <span class="keyword">OPTIONAL</span> <a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>;<br/>
+&nbsp;&nbsp;DepreciatedValue : <span class="keyword">OPTIONAL</span> <a href="../../ifccostresource/lexical/ifccostvalue.htm">IfcCostValue</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedfacilitieselements/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcasset%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcasset.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

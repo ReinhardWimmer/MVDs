@@ -1,0 +1,88 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcPhysicalSimpleQuantity</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 17 index3 2 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.17.2.3");
+//-->
+</script>
+
+<h4 class="num">IfcPhysicalSimpleQuantity</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The physical quantity, <span class="self-ref">IfcPhysicalSimpleQuantity</span>, is an entity that holds a single quantity measure value (as defined at the subtypes of <span class="self-ref">IfcPhysicalSimpleQuantity</span>) together with a semantic definition of the usage for the measure value.</p> 
+
+<blockquote class="example">
+EXAMPLE&nbsp; An element, like a wall, may have several area measures, like footprint area, left wall face area, right wall face area. These areas would be given by three instances of the area quantity subtype, with different <i>Name</i> string values.
+</blockquote>
+
+<p>A section "Quantity Use Definition" at individual entities as subtypes of <a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a> gives guidance to the usage of the <i>Name</i> attribute to characterize the individual quantities. If the <i>Unit</i> attribute is given, the value attribute (introduced at the level of subtypes of <span class="self-ref">IfcPhysicalSimpleQuantity</span>) are given as quantities of this unit, otherwise the global unit definitions (given by <a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a>) are used.</p>
+
+<blockquote class="history"> 
+HISTORY&nbsp; New entity in IFC2x2 Addendum 1.
+</blockquote>
+
+<blockquote class="change-ifc2x2"> 
+IFC2x2 ADDENDUM 1 CHANGE&nbsp; The abstract entity <span class="self-ref">IfcPhysicalSimpleQuantity</span> has been added. Upward compatibility for file based exchange is guaranteed.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Unit</td><td><a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a></td><td>? </td><td>
+Optional assignment of a unit. If no unit is given, then the global unit assignment, as established at the IfcProject, applies to the quantity measures.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcquantityresource/lexical/ifcphysicalsimplequantity.htm">IfcPhysicalSimpleQuantity</a>&quot; type=&quot;ifc:<a href="../../ifcquantityresource/lexical/ifcphysicalsimplequantity.htm">IfcPhysicalSimpleQuantity</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcquantityresource/lexical/ifcphysicalsimplequantity.htm">IfcPhysicalSimpleQuantity</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Unit&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcPhysicalSimpleQuantity<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcquantityresource/lexical/ifcquantityarea.htm">IfcQuantityArea</a>, <a href="../../ifcquantityresource/lexical/ifcquantitycount.htm">IfcQuantityCount</a>, <a href="../../ifcquantityresource/lexical/ifcquantitylength.htm">IfcQuantityLength</a>, <a href="../../ifcquantityresource/lexical/ifcquantitytime.htm">IfcQuantityTime</a>, <a href="../../ifcquantityresource/lexical/ifcquantityvolume.htm">IfcQuantityVolume</a>, <a href="../../ifcquantityresource/lexical/ifcquantityweight.htm">IfcQuantityWeight</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>)<b>;</b><br/>
+&nbsp;&nbsp;Unit : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcquantityresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcphysicalsimplequantity%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcphysicalsimplequantity.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

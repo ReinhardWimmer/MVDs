@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcFacetedBrep</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 15 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.16");
+//-->
+</script>
+
+<h4 class="num">IfcFacetedBrep</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      The <span class="self-ref">IfcFacetedBrep</span> is a manifold solid brep with the
+      restriction that all faces are planar and bounded polygons.
+    </p>
+    <p>
+      &nbsp;
+    </p>
+    <table summary="faceted brep" border="0">
+      <tr>
+        <td valign="top">
+          <img src="../../../figures/ifcfacetedbrep_01.png" alt=
+          "faceted brep instantiation" width="500" height="400">
+        </td>
+        <td valign="top">
+          <blockquote class="note">
+            NOTE&nbsp; Use of <span class="self-ref">IfcFacetedBrep</span> is restricted
+            for boundary representation models with planar surfaces
+            only. Those surfaces are implicitly represented by the
+            bounding polygons. The diagram shows the topological
+            and geometric representation items that are used for
+            faceted breps.<br>
+            <br>
+            Each <a href="../../ifcgeometryresource/lexical/ifccartesianpoint.htm">IfcCartesianPoint</a>, used within the
+            <span class="self-ref">IfcFacetedBrep</span> shall be referenced three times
+            by an <a href="../../ifctopologyresource/lexical/ifcpolyloop.htm">IfcPolyLoop</a> bounding a different
+            <a href="../../ifctopologyresource/lexical/ifcface.htm">IfcFace</a>.
+          </blockquote>
+        </td>
+      </tr>
+      <tr style="vertical-align:bottom">
+        <td>
+          <p class="figure">Figure 145 &mdash; Diagram showing the use of
+            <span class="self-ref">IfcFacetedBrep</span>
+          </p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <blockquote class="extDef">
+      NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+      A faceted B-rep is a simple form of boundary representation
+      model in which all faces are planar and all edges are
+      straight lines. Unlike the B-rep model, edges and vertices
+      are not represented explicitly in the model but are
+      implicitly available through the poly loop entity. A faceted
+      B-rep has to meet the same topological constraints as the
+      manifold solid B-rep.
+    </blockquote>
+    <blockquote class="extDef">
+      The faceted B-rep has been introduced in order to support the
+      larger number of systems that allow boundary type solid
+      representations with planar surfaces only.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; Entity adapted from
+      <strong>manifold_solid_brep</strong> defined in ISO 10303-42.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC1.0
+    </blockquote>
+    <p>
+      &nbsp;
+    </p>
+    <p class="spec-head">Informal Propositions:</p>
+    <ol>
+      <li>All the bounding loops of all the faces of all the shells
+      in the <span class="self-ref">IfcFacetedBrep</span> shall be of type
+      <a href="../../ifctopologyresource/lexical/ifcpolyloop.htm">IfcPolyLoop</a>.
+      </li>
+      <li>All vertices shall be referenced by all polyloops,
+      sharing the vertex. I.e., each Cartesian point shall be
+      references by at least three polyloops.
+      </li>
+    </ol><p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm">IfcFacetedBrep</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm">IfcFacetedBrep</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm">IfcFacetedBrep</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcFacetedBrep<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrepwithvoids.htm">IfcFacetedBrepWithVoids</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcfacetedbrep%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcfacetedbrep.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcRelCoversSpaces</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 32 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.33");
+//-->
+</script>
+
+<h4 class="num">IfcRelCoversSpaces</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a></td><td></td><td></td><td>MOVED</td><td>Schema changed from <i>IFCPRODUCTEXTENSION</i> to <i>IFCSHAREDBLDGELEMENTS</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RelatingSpace</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>RelatedSpace</i> to <i>RelatingSpace</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The objectified relationship, <i>IfcRelCoversSpace</i>,
+relates a space object to one or many coverings, which faces (or is
+assigned to) the space.</p>
+<blockquote class="note">NOTE&nbsp; Particularly floorings,
+ceilings and wall coverings, such as claddings or tiling are often
+considered as space coverings, rather then wall or slab coverings.
+In some life cycle phases, such as the operation phase, the
+relationship is always made to the space.</blockquote>
+<p>The IFC specification provides two relationships:</p>
+<ul>
+<li><a href="../../ifcsharedbldgelements/lexical/ifcrelcoversbldgelements.htm">IfcRelCoversBldgElements</a> to assign coverings to
+elements.
+<blockquote class="note">NOTE&nbsp; This relationship is now
+deprecated and replaced by <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</blockquote>
+</li>
+<li><span class="self-ref">IfcRelCoversSpaces</span> to assign coverings to spaces<br>
+<blockquote class="note">NOTE&nbsp; This relationship is now
+deprecated and replaced by
+<a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a>.</blockquote>
+</li>
+</ul>
+<p>Whether the relationship between the covering and the space, or
+between the covering and the element, is regarded as primary, has
+to be determined within the context of a model view definition.</p>
+<blockquote class="history">HISTORY&nbsp; New entity in
+IFC2x3.</blockquote>
+<blockquote class="deprecated">DEPRECATION&nbsp; The relationship
+<i>IfcRelCoversSpace</i> shall not be used anymore, use
+<a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> instead.</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>5</td><td>RelatingSpace</td><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td></td><td>
+Relationship to the space object that is covered.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute name has been changed from <i>RelatedSpace</i> to <i>RelatingSpace</i> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>6</td><td>RelatedCoverings</td><td><a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td>S[1:?]</td><td>
+Relationship to the set of coverings covering that cover surfaces of this space.
+</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatingSpace&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RelatedCoverings&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcRelCoversSpaces<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a>)<b>;</b><br/>
+&nbsp;&nbsp;RelatingSpace : <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>;<br/>
+&nbsp;&nbsp;RelatedCoverings : <span class="keyword">SET</span> [1:?] <span class="keyword">OF</span> <a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcrelcoversspaces%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcrelcoversspaces.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

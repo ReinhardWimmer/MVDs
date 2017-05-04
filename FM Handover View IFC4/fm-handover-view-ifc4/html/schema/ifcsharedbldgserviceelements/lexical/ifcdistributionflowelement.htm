@@ -1,0 +1,241 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDistributionFlowElement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 3 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.3.6");
+//-->
+</script>
+
+<h4 class="num">IfcDistributionFlowElement</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoverings</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The distribution element <span class="self-ref">IfcDistributionFlowElement</span> defines occurrence elements of a distribution system that facilitate the distribution of energy or matter, such as air, water or power.</p>
+    
+<blockquote class="example">
+EXAMPLE&nbsp; Examples of distribution flow elements are ducts, pipes, wires, fittings, and equipment.
+</blockquote> 
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2.0.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Ports are now primarily defined using <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> to enable definition of ports at type definitions (both forward and backward compatible), provide a logical order, and reduce the number of relationship objects needed.  The relationship <a href="../../ifcproductextension/lexical/ifcrelconnectsporttoelement.htm">IfcRelConnectsPortToElement</a> is still supported, however is now specific to dynamically connected ports.
+</blockquote>
+
+  
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td></td><td><i>HasControlElements</i></td><td><a href="../../ifcsharedbldgserviceelements/lexical/ifcrelflowcontrolelements.htm">IfcRelFlowControlElements</a><br/>@RelatingFlowElement</td><td>S[0:1]</td><td>Reference to the relationship object that relates control elements.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifcdistributionflowelement.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcDistributionFlowElement</h5><a id="mep-attributes" />
+<p><b><u>MEP Attributes</u></b></p>
+<p>The <a href="../../templates/mep-attributes.htm">MEP Attributes</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="mep-typing" />
+<p><b><u>MEP Typing</u></b></p>
+<p>The <a href="../../templates/mep-typing.htm">MEP Typing</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="classification" />
+<p><b><u>Classification</u></b></p>
+<p>The <a href="../../templates/classification.htm">Classification</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="material-constituent-set" />
+<p><b><u>Material Constituent Set</u></b></p>
+<p>The <a href="../../templates/material-constituent-set.htm">Material Constituent Set</a> concept applies to this entity.</p>Choosed Material Constituent Set to be able to define the different materials of an HVAC component.
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p><b><u>Property Sets for Objects</u></b></p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 45.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedcomponentelements/pset/pset_elementcomponentcommon.htm">Pset_ElementComponentCommon</a></td><td></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlobalTradeItemNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 45 &mdash; IfcDistributionFlowElement Property Sets for Objects</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-containment" />
+<p><b><u>Spatial Containment</u></b></p>
+<p>The <a href="../../templates/spatial-containment.htm">Spatial Containment</a> concept template applies to this entity as shown in Table 46.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>MEP Contained in Space</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 46 &mdash; IfcDistributionFlowElement Spatial Containment</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcDistributionFlowElement<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionchamberelement.htm">IfcDistributionChamberElement</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcenergyconversiondevice.htm">IfcEnergyConversionDevice</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowcontroller.htm">IfcFlowController</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowfitting.htm">IfcFlowFitting</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowmovingdevice.htm">IfcFlowMovingDevice</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowsegment.htm">IfcFlowSegment</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowstoragedevice.htm">IfcFlowStorageDevice</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowterminal.htm">IfcFlowTerminal</a>, <a href="../../ifcsharedbldgserviceelements/lexical/ifcflowtreatmentdevice.htm">IfcFlowTreatmentDevice</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcdistributionelement.htm">IfcDistributionElement</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;HasControlElements : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcsharedbldgserviceelements/lexical/ifcrelflowcontrolelements.htm">IfcRelFlowControlElements</a> <span class="keyword">FOR</span> RelatingFlowElement;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcdistributionflowelement%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcdistributionflowelement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

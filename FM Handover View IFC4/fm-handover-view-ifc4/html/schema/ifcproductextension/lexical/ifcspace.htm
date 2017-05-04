@@ -1,0 +1,380 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSpace</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 44 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.45");
+//-->
+</script>
+
+<h4 class="num">IfcSpace</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompositionType</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>MODIFIED</td><td>Name changed from <i>InteriorOrExteriorSpace</i> to <i>PredefinedType</i>. <br/>Type changed from <i>IfcInternalOrExternalEnum</i> to <i>IfcSpaceTypeEnum</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.</p>
+<p>A space is associated to a building storey (or in case of exterior spaces to a site). A space may span over several connected spaces. Therefore a space group provides for a collection of spaces included in a storey. A space can also be decomposed in parts, where each part defines a partial space. This is defined by the <i>CompositionType</i> attribute of the supertype <a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a> which is interpreted as
+follow:</p>
+<ul>
+<li>COMPLEX = space group</li>
+<li>ELEMENT = space</li>
+<li>PARTIAL = partial space</li>
+</ul>
+<blockquote class="note">
+NOTE&nbsp; View definitions and implementation agreements may restrict spaces with <i>CompositionType</i>=ELEMENT to be non-overlapping.</blockquote>
+<p>The <span class="self-ref">IfcSpace</span> is used to build the spatial structure of a
+building (that serves as the primary project breakdown and is
+required to be hierarchical). The spatial structure elements are
+linked together by using the objectified relationship
+<a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</p>
+<p>Figure 88 shows the <span class="self-ref">IfcSpace</span> as part of the spatial structure. It also serves as the spatial container for space related elements.</p>
+
+<blockquote class="note">NOTE&nbsp; Detailed requirements on mandatory element containment and placement structure relationships are given in view definitions and implementer agreements.</blockquote>
+
+
+
+<table summary="spatial structure" cellpadding="2" cellspacing="2">
+
+<tr><td align="left" valign="top"><img src="../../../figures/ifcspace-spatialstructure.png" alt="spatial structure" border="0" height="350" width="800"></td></tr>
+
+<tr><td><p class="figure">Figure 88 &mdash; Space composition</p></td></tr>
+
+</table>
+
+
+
+<p>The following guidelines should apply for using the <i>Name</i>, <i>Description</i>, <i>LongName</i> and <i>ObjectType</i> attributes.</p>
+<ul>
+<li><i>Name</i> holds the unique name (or space number) from the plan.</li>
+<li><i>Description</i> holds any additional information field the user may have specified, there are no further recommendations.</li>
+<li><i>LongName</i> holds the full name of the space, it is often used in addition to the <i>Name</i>, if a number is assigned to the room, then the descriptive name is exchanged as <i>LongName</i>.</li>
+<li><i>ObjectType</i> holds the space type, i.e. usually the functional category of the space .</li>
+</ul>
+<blockquote class="note">NOTE&nbsp; In cases of inconsistency between the geometric representation of the <span class="self-ref">IfcSpace</span> and the combined geometric representations of the surrounding <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>, the geometric representation of the space should take priority over the geometric representation of the surrounding space boundaries.</blockquote>
+
+<p>Figure 89 describes the heights and elevations of the <span class="self-ref">IfcSpace</span>.</p>
+<ul>
+ <li>elevation of the space (top of construction slab) equals elevation of storey: provided by <i>IfcBuildingStorey.Elevation</i> relative to em>IfcBuilding.ElevationOfRefHeight</i></li>
+<li>elevation of the space flooring (top of flooring on top of slab): provided by <i>IfcSpace.ElevationWithFlooring</i> relative to <i>IfcBuilding.ElevationOfRefHeight</i></li>
+<li>height of space (top of slab below to bottom of slab above): provided by BaseQuantity with Name="Height"</li>
+<li>floor height of space (top of slab below to top of flooring): provided by BaseQuantity with Name="FinishFloorHeight"</li>
+<li>net height of space (top of flooring to bottom of suspended ceiling): provided by BaseQuantity with Name="FinishCeilingHeight"</li>
+</ul>
+
+<table summary="attributes" cellpadding="2" cellspacing="2">
+<tr><td align="left" valign="top"><img src="../../../figures/ifcspace_heights.png" alt="space heights" border="0"
+height="400" width="450"></td></tr>
+<tr><td><p class="figure">Figure 89 &mdash; Space elevations</p></td></tr>
+</table>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.0
+</blockquote>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a></td><td>? </td><td>
+Predefined generic types for a space that are specified in an enumeration. There might be property sets defined specifically for each predefined type.
+
+<blockquote class="note">NOTE&nbsp; Previous use had been to indicates whether the <span class="self-ref">IfcSpace</span> is an interior space by value INTERNAL, or an exterior space by value EXTERNAL. This use is now deprecated, the property 'IsExternal' at 'Pset_SpaceCommon' should be used instead.</blockquote>
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attribute has been renamed from <i>ExteriorOrInteriorSpace</i> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>ElevationWithFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Level of flooring of this space; the average shall be taken, if the space ground surface is sloping or if there are level differences within this space. </td><td>X</td></tr>
+<tr><td></td><td><i>HasCoverings</i></td><td><a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a><br/>@RelatingSpace</td><td>S[0:?]</td><td>Reference to <a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a> by virtue of the objectified relationship <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a>. It defines the concept of a space having coverings assigned. Those coverings may represent different flooring, or tiling areas.
+
+<blockquote class="note">NOTE&nbsp; Coverings are often managed by the space, and not by the building element, which they cover.</blockquote>
+<blockquote class="change-ifc2x3">IFC2x Edition3 CHANGE&nbsp; New inverse relationship. Upward compatibility for file based exchange is guaranteed.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>BoundedBy</i></td><td><a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a><br/>@RelatingSpace</td><td>S[0:?]</td><td>Reference to a set of <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a>'s that defines the physical or virtual delimitation of that space against physical or virtual boundaries.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED. </td></tr>
+<tr><td>CorrectTypeAssigned</td><td>Either there is no space type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a>. </td></tr>
+</table>
+
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifcspace.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcSpace</h5><p> FM Handover View requires an atrtibute to declare if the space is interior or exterior. This can be defiens in the PSets. </p><a id="space-attributes" />
+<p><b><u>Space Attributes</u></b></p>
+<p>The <a href="../../templates/space-attributes.htm">Space Attributes</a> concept applies to this entity.</p><p> FM Handover View defines an attribute IsExternal, this is a property now PSet_SpaceCommon/IsExternal </p>
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="classification" />
+<p><b><u>Classification</u></b></p>
+<p>The <a href="../../templates/classification.htm">Classification</a> concept template applies to this entity as shown in Table 21.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classifiaction reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 21 &mdash; IfcSpace Classification</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p><b><u>Quantity Sets</u></b></p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 22.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcproductextension/qset/qto_spacebasequantities.htm">Qto_SpaceBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>FinishCeilingHeight</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>NetPerimeter</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossFloorArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetFloorArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossWallArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetWallArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossCeilingArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetCeilingArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 22 &mdash; IfcSpace Quantity Sets</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p><b><u>Property Sets for Objects</u></b></p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 23.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_spacecommon.htm">Pset_SpaceCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GrossPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>NetPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>PubliclyAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HandicapAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_spacecoveringrequirements.htm">Pset_SpaceCoveringRequirements</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CeilingCovering</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Molding</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedCeiling</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 23 &mdash; IfcSpace Property Sets for Objects</td></tr></table>
+
+<p> Cladding? </p>
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-container" />
+<p><b><u>Spatial Container</u></b></p>
+<p>The <a href="../../templates/spatial-container.htm">Spatial Container</a> concept template applies to this entity as shown in Table 24.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></td><td>Element Contained in Space</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td>Covering Contained in Space (If not defined by properties)</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></td><td>Window Contained in Space (If not defined by space boundary assignment)</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a></td><td>Door Contained in Space (If not defined by space boundary assignment)</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 24 &mdash; IfcSpace Spatial Container</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="space-boundaries-1st-level" />
+<p><b><u>Space Boundaries 1st Level</u></b></p>
+<p>The <a href="../../templates/space-boundaries-1st-level.htm">Space Boundaries 1st Level</a> concept template applies to this entity as shown in Table 25.<table>
+<tr><td>
+</td></tr>
+<tr><td><p class="table">Table 25 &mdash; IfcSpace Space Boundaries 1st Level</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-decomposition" />
+<p><b><u>Spatial Decomposition</u></b></p>
+<p>The <a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a> concept template applies to this entity as shown in Table 26.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>&nbsp;</td><td>Space as part of the building structure.</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 26 &mdash; IfcSpace Spatial Decomposition</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ElevationWithFlooring&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcSpace<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>;<br/>
+&nbsp;&nbsp;ElevationWithFlooring : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;HasCoverings : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcsharedbldgelements/lexical/ifcrelcoversspaces.htm">IfcRelCoversSpaces</a> <span class="keyword">FOR</span> RelatingSpace;<br/>
+&nbsp;&nbsp;BoundedBy : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcproductextension/lexical/ifcrelspaceboundary.htm">IfcRelSpaceBoundary</a> <span class="keyword">FOR</span> RelatingSpace;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR<br/>
+ (PredefinedType &lt;&gt; <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>.USERDEFINED) OR<br/>
+ ((PredefinedType = <a href="../../ifcproductextension/lexical/ifcspacetypeenum.htm">IfcSpaceTypeEnum</a>.USERDEFINED) AND EXISTS (SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/>&nbsp;&nbsp;CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR<br/>
+  (&#39;IFCPRODUCTEXTENSION.<a href="../../ifcproductextension/lexical/ifcspacetype.htm">IfcSpaceType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcspace%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcspace.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

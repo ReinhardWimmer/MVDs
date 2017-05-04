@@ -1,0 +1,153 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcAxis2Placement3D</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.3");
+//-->
+</script>
+
+<h4 class="num">IfcAxis2Placement3D</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      The <span class="self-ref">IfcAxis2Placement3D</span> provides location and orientations to
+      place items in a three-dimensional space. The attribute
+      <i>Axis</i> defines the Z direction, <i>RefDirection</i>
+      the X direction. The Y direction is derived.
+    </p>
+    <blockquote class="note">
+      NOTE&nbsp; The <i>RefDirection</i> does not have to be
+      orthogonal to <i>Axis</i>.
+    </blockquote>
+    <p>
+      If the attribute values for <i>Axis</i> and
+      <i>RefDirection</i> are not given, the placement defaults to
+      P[1] (x-axis) as [1.,0.,0.], P[2] (y-axis) as [0.,1.,0.] and
+      P[3] (z-axis) as [0.,0.,1.].
+    </p>
+    <table>
+      <tr>
+        <td>
+          <img src="../../../figures/ifcaxis2placement3d-layout1.gif" alt=
+          "axis2 placement 2D" border="0" height="300" width="400">
+        </td>
+        <td style="vertical-align:bottom">
+          <blockquote class="note">
+            Figure 175 illustrates the definition of the
+            <span class="self-ref">IfcAxis2Placement3D</span> within the three-dimensional
+            coordinate system.
+          </blockquote>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 175 &mdash; Axis2 placement 3D</p>
+        </td>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <blockquote class="extDef">
+      NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+      The location and orientation in three dimensional space of
+      three mutually perpendicular axes. An axis2_placement_3D is
+      defined in terms of a point (inherited from placement
+      supertype) and two (ideally orthogonal) axes. It can be used
+      to locate and orientate a non axi-symmetric object in space
+      and to define a placement coordinate system. The entity
+      includes a point which forms the origin of the placement
+      coordinate system. Two direction vectors are required to
+      complete the definition of the placement coordinate system.
+      The axis is the placement Z axis direction and the
+      ref_direction is an approximation to the placement X axis
+      direction.
+    </blockquote>
+    <blockquote class="note">
+      NOTE&nbsp; Entity adapted from
+      <strong>axis2_placement_3d</strong> defined in ISO10303-42.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC1.5.
+    </blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>Axis</td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a></td><td>? </td><td>
+The exact direction of the local Z Axis.</td><td>X</td></tr>
+<tr><td>3</td><td>RefDirection</td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a></td><td>? </td><td>
+The direction used to determine the direction of the local X Axis. If necessary an adjustment is made to maintain orthogonality to the Axis direction. If Axis and/or RefDirection is omitted, these directions are taken from the geometric coordinate system.</td><td>X</td></tr>
+<tr><td></td><td>P<br/>:=IfcBuildAxes(Axis, RefDirection)</td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a></td><td>L[3:3]</td><td>The normalized directions of the placement X Axis (P[1]) and the placement Y Axis (P[2]) and the placement Z Axis (P[3]).</td>
+<td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>LocationIs3D</td><td>The dimensionality of the placement location shall be 3.</td></tr>
+<tr><td>AxisIs3D</td><td>The Axis when given should only reference a three-dimensional IfcDirection.</td></tr>
+<tr><td>RefDirIs3D</td><td>The RefDirection when given should only reference a three-dimensional IfcDirection.</td></tr>
+<tr><td>AxisToRefDirPosition</td><td>The <i>Axis</i> and <i>RefDirection</i> shall not be parallel or anti-parallel.</td></tr>
+<tr><td>AxisAndRefDirProvision</td><td>Either both, <i>Axis</i> and <i>RefDirection</i> are not given and therefore defaulted, or both shall be given.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Axis&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;RefDirection&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcAxis2Placement3D<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>)<b>;</b><br/>
+&nbsp;&nbsp;Axis : <span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;<br/>
+&nbsp;&nbsp;RefDirection : <span class="keyword">OPTIONAL</span> <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>;<br/>
+&nbsp;<span class="keyword">DERIVE</span><br/>
+&nbsp;&nbsp;P : <span class="keyword">LIST</span> [3:3] OF <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a> := IfcBuildAxes(Axis, RefDirection);<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;LocationIs3D : SELF\<a href="../../ifcgeometryresource/lexical/ifcplacement.htm">IfcPlacement</a>.Location.Dim = 3;<br/>&nbsp;&nbsp;AxisIs3D : (NOT (EXISTS (Axis))) OR (Axis.Dim = 3);<br/>&nbsp;&nbsp;RefDirIs3D : (NOT (EXISTS (RefDirection))) OR (RefDirection.Dim = 3);<br/>&nbsp;&nbsp;AxisToRefDirPosition : (NOT (EXISTS (Axis))) OR (NOT (EXISTS (RefDirection))) OR (<a href="../../ifcgeometryresource/lexical/ifccrossproduct.htm">IfcCrossProduct</a>(Axis,RefDirection).Magnitude &gt; 0.0);<br/>&nbsp;&nbsp;AxisAndRefDirProvision : NOT ((EXISTS (Axis)) XOR (EXISTS (RefDirection)));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcaxis2placement3d%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcaxis2placement3d.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

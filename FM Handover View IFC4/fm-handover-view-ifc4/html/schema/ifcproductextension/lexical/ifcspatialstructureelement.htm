@@ -1,0 +1,121 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSpatialStructureElement</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 48 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.49");
+//-->
+</script>
+
+<h4 class="num">IfcSpatialStructureElement</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A spatial structure element is the generalization of all spatial elements that might be used to define a spatial structure. That spatial structure is often used to provide a project structure to organize a building project.</p>
+<p>A spatial project structure might define as many levels of decomposition as necessary for the building project. Elements within the spatial project structure are:</p>
+<ul>
+ <li>site as <a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></li>
+ <li>building as <a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></li>
+ <li>storey as <a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></li>
+ <li>space as <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></li>
+</ul>
+<p>or aggregations or parts thereof. The composition type declares an element to be either an element itself, or an aggregation (complex) or a decomposition (part). The interpretation of these types is given at each subtype of <span class="self-ref">IfcSpatialStructureElement</span>.</p>
+<p>The <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> is defined as an 1-to-many relationship and used to establish the relationship between exactly two levels within the spatial project structure. Finally the highest level of the spatial structure is assigned to <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> using the <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>.</p>
+
+<p>The subtypes of <span class="self-ref">IfcSpatialStructureElement</span> relate to other elements and systems by establishing the following relationships:</p>
+<ul>
+ <li><b>Containment of elements</b> : <a href="../../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> by inverse attribute <i>ContainsElements</i>, used to assign any element, like
+building elements, MEP elements, etc. to the spatial structure element in which they are primarily contained.</li>
+ <li><b>Reference of elements</b> : <a href="../../ifcproductextension/lexical/ifcrelreferencedinspatialstructure.htm">IfcRelReferencedInSpatialStructure</a> by inverse attribute <i>ReferencesElements</i>, used to reference any element, like building elements, MEP elements, etc. in spatial structure elements, other then the one, where it is contained.</li>
+ <li><b>Reference of systems</b> : <a href="../../ifcproductextension/lexical/ifcrelservicesbuildings.htm">IfcRelServicesBuildings</a> by inverse attribute <i>ServicedBySystems</i>, used to reference a sytem, like a building service or electrical distribution system, a zonal system, or a structural analysis system, that is assigned to this spatial structure element.</li>
+</ul>
+<p>The subtypes of <span class="self-ref">IfcSpatialStructureElement</span> relate to each other by using the <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> relationship to build the project spatial structure. Figure 89 shows the use of <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> to establish a spatial structure including site, building, building section and storey. More information is provided at the level of the subtypes.</p>
+
+<table cellpadding="2" cellspacing="2" summary="spatial structure">
+<tr valign="top"><td align="left" valign="top"><img src="../../../figures/ifcspatialstructureelement-spatialstructure.png" alt="fig1" border="0" height="701" width="551"></td></tr>
+<tr><td><p class="figure">Figure 89 &mdash; Spatial structure element composition</p></td></tr>
+</table>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The spatial project structure, established by the <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>, shall be acyclic.</li>
+<li>A site should not be (directly or indirectly) associated to a building, storey or space.</li>
+<li>A building should not be (directly or indirectly) associated to a storey or space.</li>
+<li>A storey should not be (directly or indirectly) associated to a space.</li>
+</ol>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>9</td><td>CompositionType</td><td><a href="../../ifcproductextension/lexical/ifcelementcompositionenum.htm">IfcElementCompositionEnum</a></td><td>? </td><td>
+Denotes, whether the predefined spatial structure element represents itself, or an aggregate (complex) or a part (part). The interpretation is given separately for each subtype of spatial structure element. If no <i>CompositionType</i> is asserted, the dafault value 'ELEMENT' applies.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>WR41</td><td>All spatial structure elements shall be associated (using the IfcRelAggregates relationship) with another spatial structure element, or with IfcProject.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CompositionType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementcompositionenum.htm">IfcElementCompositionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcSpatialStructureElement<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a>, <a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a>, <a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>, <a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcspatialelement.htm">IfcSpatialElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;CompositionType : <span class="keyword">OPTIONAL</span> <a href="../../ifcproductextension/lexical/ifcelementcompositionenum.htm">IfcElementCompositionEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;WR41 : (HIINDEX(SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.Decomposes) = 1) <br/>
+AND<br/>
+(&#39;IFCKERNEL.<a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.Decomposes[1])) <br/>
+AND<br/>
+((&#39;IFCKERNEL.<a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>&#39; IN TYPEOF (SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.Decomposes[1].RelatingObject)) OR<br/>
+ (&#39;IFCPRODUCTEXTENSION.<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&#39; IN TYPEOF (SELF\<a href="../../ifckernel/lexical/ifcobjectdefinition.htm">IfcObjectDefinition</a>.Decomposes[1].RelatingObject))<br/>
+);<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcspatialstructureelement%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcspatialstructureelement.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

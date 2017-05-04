@@ -1,0 +1,147 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcMaterialProperties</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 10 index3 3 index4 15 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.10.3.16");
+//-->
+</script>
+
+<h4 class="num">IfcMaterialProperties</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcmaterialresource/lexical/ifcmaterialproperties.htm">IfcMaterialProperties</a></td><td></td><td></td><td>MODIFIED</td><td>Schema changed from <i>IFCMATERIALPROPERTYRESOURCE</i> to <i>IFCMATERIALRESOURCE</i>. <br/>Instantiation changed from <i>ABSTRACT</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>Material</i> to <i>Name</i>. <br/>Type changed from <i>IfcMaterial</i> to <i>IfcIdentifier</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Properties</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Material</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      The <span class="self-ref">IfcMaterialProperties</span> assigns a set of material properties to associated material definitions. The set may be
+      identified by a <i>Name</i> and a <i>Description</i>. The <a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a> (instantiable subtypes) is used to express
+      the individual material properties by name, description, value and unit.
+    </p>
+    <blockquote class="note">
+      NOTE&nbsp; The set of material properties can be assigned to an individual <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>, a set or composite of
+      materials (<a href="../../ifcmaterialresource/lexical/ifcmaterialconstituent.htm">IfcMaterialConstituent</a>, <a href="../../ifcmaterialresource/lexical/ifcmaterialconstituentset.htm">IfcMaterialConstituentSet</a>), or set or individual
+      material layer (<a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>, <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>), or a set or individual
+      material profile (<a href="../../ifcmaterialresource/lexical/ifcmaterialprofile.htm">IfcMaterialProfile</a>, <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>)
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; Entity made non-abstract. The subtypes IfcMechanicalMaterialProperties, IfcThermalMaterialProperties,
+      IfcHygroscopicMaterialProperties, IfcGeneralMaterialProperties, IfcOpticalMaterialProperties, IfcWaterProperties, IfcFuelProperties,
+      IfcProductsOfCombustionProperties, IfcExtendedMaterialProperties have been deleted, use <span class="self-ref">IfcMaterialProperties</span> instead.
+    </blockquote>
+    <p>
+      &nbsp;
+    </p>
+<!--
+    <p class="use-head">
+      Property use definitions
+    </p>
+    <p>
+      The following sets of material property definitions are part
+      of this IFC release. They are direct instantiations of
+      <i>IfcProperties</i> with the <i>Name</i> attribute
+      holding the property set name.
+    </p>
+
+<ul>
+<li><b>(All Types)</b>
+<ul class="inner">
+<li><a href="../../ifcmaterialresource/pset/pset_materialcombustion.htm">Pset_MaterialCombustion</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialcommon.htm">Pset_MaterialCommon</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialenergy.htm">Pset_MaterialEnergy</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialfuel.htm">Pset_MaterialFuel</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialhygroscopic.htm">Pset_MaterialHygroscopic</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialmechanical.htm">Pset_MaterialMechanical</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialoptical.htm">Pset_MaterialOptical</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialthermal.htm">Pset_MaterialThermal</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialwater.htm">Pset_MaterialWater</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+</ul>
+</li>
+<li><b>Concrete</b>
+<ul class="inner">
+<li><a href="../../ifcmaterialresource/pset/pset_materialconcrete.htm">Pset_MaterialConcrete</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+</ul>
+</li>
+<li><b>Steel</b>
+<ul class="inner">
+<li><a href="../../ifcmaterialresource/pset/pset_materialsteel.htm">Pset_MaterialSteel</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+</ul>
+</li>
+<li><b>Wood</b>
+<ul class="inner">
+<li><a href="../../ifcmaterialresource/pset/pset_materialwood.htm">Pset_MaterialWood</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialwoodbasedbeam.htm">Pset_MaterialWoodBasedBeam</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+<li><a href="../../ifcmaterialresource/pset/pset_materialwoodbasedpanel.htm">Pset_MaterialWoodBasedPanel</a> (<a href="../../ifckernel/lexical/ifcpropertysettemplatetypeenum.htm">occurrence driven</a>)</li>
+</ul>
+</li>
+</ul>
+
+--!><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>4</td><td>Material</td><td><a href="../../ifcmaterialresource/lexical/ifcmaterialdefinition.htm">IfcMaterialDefinition</a></td><td></td><td>
+Reference to the material definition to which the set of properties is assigned.
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The datatype has been changed to supertype <a href="../../ifcmaterialresource/lexical/ifcmaterialdefinition.htm">IfcMaterialDefinition</a>.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcmaterialresource/lexical/ifcmaterialproperties.htm">IfcMaterialProperties</a>&quot; type=&quot;ifc:<a href="../../ifcmaterialresource/lexical/ifcmaterialproperties.htm">IfcMaterialProperties</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcmaterialresource/lexical/ifcmaterialproperties.htm">IfcMaterialProperties</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcMaterialProperties<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcpropertyresource/lexical/ifcextendedproperties.htm">IfcExtendedProperties</a>)<b>;</b><br/>
+&nbsp;&nbsp;Material : <a href="../../ifcmaterialresource/lexical/ifcmaterialdefinition.htm">IfcMaterialDefinition</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcmaterialresource/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmaterialproperties%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmaterialproperties.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

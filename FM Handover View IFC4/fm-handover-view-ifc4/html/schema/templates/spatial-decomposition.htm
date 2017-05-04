@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Spatial Decomposition</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.5.1.1");
+//-->
+</script>
+
+<h4 class="std">4.5.1.1 Spatial Decomposition</h4>
+<p>Provision of a spatial structure of the project by aggregating spatial elements. The spatial structure is a hierarchical tree of spatial elements ultimately assigned to the project. Decomposition refers to the relationship to a lower level element (e.g. this storey has spaces).</p>
+
+<blockquote class="note">NOTE&nbsp; The link between the project and the highest level spatial element is provided by this concept through <a href="../ifcproductextension/lexical/ifcrelcontainedinspatialstructure.htm">IfcRelContainedInSpatialStructure</a> and not through declaration using <a href="../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a>. This is a known anomaly intruduced to maintain compatibility with earlier versions of this standard.</blockquote>
+
+<p>The order of spatial structure elements being included in the concept for builing projects are from low to high level: <a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a>, <a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a>, <a href="../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a>, <a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a> and <a href="../ifckernel/lexical/ifcproject.htm">IfcProject</a> with <a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>, <a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a> and <a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a> being optional levels. Therefore an spatial structure element can only be part of an element at the same or higher level.</p>
+
+<p>In addition a more general hierarchical tree of spatial elements can be created by using <a href="../ifcproductextension/lexical/ifcspatialzone.htm">IfcSpatialZone</a>, from low to high: <a href="../ifcproductextension/lexical/ifcspatialzone.htm">IfcSpatialZone</a>, <a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>, and <a href="../ifckernel/lexical/ifcproject.htm">IfcProject</a>, with <a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a> being an optional level.</i></p>
+
+<blockquote class="note">NOTE&nbsp; The more general hiearchical tree has been introduced as an intermediate solution and stub for further extensions to support infrastructure works.</blockquote><p class="fig-ref">Figure 18 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Spatial Decomposition" src="./diagrams/spatial-decomposition.png" usemap="#f18"><map name="f18"><area shape="rect" coords="8,8,176,152" href="../ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" /><area shape="rect" coords="208,8,376,92" href="../ifckernel/lexical/ifcrelaggregates.htm" alt="IfcRelAggregates" /><area shape="rect" coords="408,8,576,296" href="../ifcproductextension/lexical/ifcspatialelement.htm" alt="IfcSpatialElement" /><area shape="rect" coords="608,8,776,20" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /></map></td></tr><tr><td><p class="figure">Figure 18 &mdash; Spatial Decomposition</p></td></tr></table>
+
+<hr/>
+<h4>Basic_FM_Handover_View</h4>
+<table class="exchange">
+<tr><th>Entity</th><th><a href="../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr><tr><td><a href="../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>-<br/>-</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifckernel/lexical/ifcproject.htm">IfcProject</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>-<br/>R</td>
+</tr>
+</table>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22spatial-decomposition%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/spatial-decomposition.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

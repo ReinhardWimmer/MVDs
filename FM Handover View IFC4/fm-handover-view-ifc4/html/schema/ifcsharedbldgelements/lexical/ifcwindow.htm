@@ -1,0 +1,501 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcWindow</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 49 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.50");
+//-->
+</script>
+
+<h4 class="num">IfcWindow</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PartitioningType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserDefinedPartitioningType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The window is a building element that is predominately used to provide natural light and fresh air. It includes vertical opening but also horizontal opening such as skylights or light domes. It includes constructions with swinging, pivoting, sliding, or revolving panels and fixed panels. A window consists of a lining and one or several panels.</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO 6707-1<br> 
+Construction for closing a vertical or near vertical opening in a wall or pitched roof that will admit light and may admit fresh air.</blockquote>
+
+<p>The <span class="self-ref">IfcWindow</span> defines a particular occurrence of a window inserted in the spatial context of a project. A window
+can:</p>
+<ul>
+<li>be inserted into an <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> using the <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> relationship, then the <span class="self-ref">IfcWindow</span> has an inverse attribute <i>FillsVoids</i> provided,</li>
+<li>be part of an element assembly, often an <a href="../../ifcsharedbldgelements/lexical/ifccurtainwall.htm">IfcCurtainWall</a>, using the <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a> relationship, then the inverse attribute <i>Decomposes</i> is provided.</li>
+<li>or be a "free standing" window, then the <span class="self-ref">IfcWindow</span> has no inverse attributes <i>FillsVoids</i> or <i>Decomposes</i> provided.</li>
+</ul>
+<blockquote class="note">NOTE&nbsp; View definitions or implementer agreements may restrict the relationship to only include one window (or door) into one opening.</blockquote>
+
+<p>There are two entities for window occurrences:</p>
+<ul>
+<li><a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a> used for all occurrences of windows, that have a 'Profile' shape representation defined to
+which a set of shape parameters for lining and framing properties apply. Additionally it requires the provision of an <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> that references one <a href="../../ifcarchitecturedomain/lexical/ifcwindowliningproperties.htm">IfcWindowLiningProperties</a> and on to many <a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a>. </li>
+<li><span class="self-ref">IfcWindow</span> used for all other occurrences of windows, particularly for windows having only 'Brep', or 'SurfaceModel'
+geometry without applying shape parameters.</li>
+</ul>
+<p>The actual parameter of the window and/or its shape is defined at the <span class="self-ref">IfcWindow</span> as the occurrence definition (or project
+instance), or by the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> as the specific definition (or project type). The following parameters are given:</p>
+<ul>
+<li>at the <span class="self-ref">IfcWindow</span> or <a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a> for occurrence specific parameters. The <span class="self-ref">IfcWindow</span> specifies:</li>
+<li style="list-style: none">
+<ul>
+<li>the window width and height</li>
+<li>the window opening direction (by the y-axis of the
+<i>ObjectPlacement</i>)<br>
+<br></li>
+</ul>
+</li>
+<li>at the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> to
+which the <span class="self-ref">IfcWindow</span> is related by the inverse relationship
+<i>IsDefinedBy</i> pointing to <a href="../../ifckernel/lexical/ifcreldefinesbytype.htm">IfcRelDefinesByType</a>, for
+type parameters common to all occurrences of the same type.</li>
+<li style="list-style: none">
+<ul>
+<li>the partitioning type (single panel, double panel, tripel
+panel, more panels)</li>
+<li>the operation type (swing, tilt and turn, pivot revolve,
+fixed case ment, etc.)</li>
+<li>the window panel hinge side (by using two different styles
+for right and left opening windows)</li>
+<li>the construction material type</li>
+<li>the particular attributes for the lining by the
+<a href="../../ifcarchitecturedomain/lexical/ifcwindowliningproperties.htm">IfcWindowLiningProperties</a></li>
+<li>the particular attributes for the panels by the 
+<a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a><br></li>
+</ul>
+</li>
+</ul>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; The attributes <i>PredefinedType</i> and <i>OperationType</i> are added, the applicable type object has been changed to <a href="../../ifcsharedbldgelements/lexical/ifcdoortype.htm">IfcDoorType</a>.</blockquote>
+
+<p class="use-head">Parameteric Representation using parameters at 
+<a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a></p>
+
+<p>The parameters, which define the shape of the
+<span class="self-ref">IfcWindow</span>, are given at the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> and the
+property sets, which are included in the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a>.
+The <span class="self-ref">IfcWindow</span> only defines the local placement. The overall size of the <span class="self-ref">IfcWindow</span> to
+be used to apply the lining or panel parameter provided by the
+<a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> is determined by the IfcShapeRepresentation
+with the RepresentationIdentifier = 'Profile'. Only in case of an
+<span class="self-ref">IfcWindow</span> inserted into an <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> using
+the <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a> relatioship, having a horizontal
+extrusion (along the y-axis of the <a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a>), the overall
+size is determined by the extrusion profile of the
+<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>.</p>
+
+
+
+<p>Figure 104 illustrates the insertion of a window into the <a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a> by creating an instance of
+<span class="self-ref">IfcWindow</span> with <i>PartitioningType = DoublePanelHorizontal</i>. The parameters <i>OverallHeight</i> and <i>OverallWidth</i> show the extent of the window in the positive Z and X axis of the local placement of the window. The lining and the transom are created by the given parameters.</p>
+
+
+
+<table>
+<tr><td><img src="../../../figures/ifcwindow-layout1.gif" alt="window 1" border="0" height="299" width="356"></td></tr>
+<tr><td><p class="figure">Figure 104 &mdash; Window placement</p></td></tr>
+</table>
+
+
+
+<p>Figure 105 illustrates the final window (DoublePanelHorizontal) with first panel having <i>PanelPosition = TOP</i>, <i>OperationType = BOTTOMHUNG</i> and second panel having <i>PanelPosition = BOTTOM</i> and <i>OperationType = TILTANDTURNLEFTHAND</i>.</p>
+
+
+
+<table>
+<tr><td><img src="../../../figures/ifcwindow-layout2.gif" alt="window 2" border="0" height="299" width="356"></td></tr>
+<tr><td><p class="figure">Figure 105 &mdash; Window planes</p></td></tr>
+</table>
+
+
+
+<p class="use-head">Window opening operation by window type</p>
+
+<p>The parameters that defines the shape of the <span class="self-ref">IfcWindow</span>,
+are given at the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> and the property sets,
+which are included in the <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a>. The
+<span class="self-ref">IfcWindow</span> only defines the local placement which
+determines the opening direction of the window. The overall
+layout of the <span class="self-ref">IfcWindow</span> is determined by
+its <i>IfcWindowType.PartitioningType</i>. Each window panel has
+its own operation type, provided by
+<i>IfcWindowPanelProperties.OperationType</i>. All window panels
+are assumed to open into the same direction (if relevant for the
+particular window panel operation. The hindge side (whether a
+window opens to the left or to the right) is determined by the
+<a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a><i>.OperationType</i>.</p>
+<blockquote class="note">NOTE&nbsp;  There are different conventions in
+different countries on how to show the symbolic presentation of
+the window panel operation (the "triangles"). Either as seen from
+the exterior, or from the interior side. The following figures
+show the symbolics from the exterior side (the convention as used
+predominately in Europe).</blockquote>
+
+<p>Figure 106 illustrates window operation types.</p>
+
+
+
+<table><tr><td><table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr valign="top">
+<td align="left" valign="top"><small><img alt="fig 1" src=
+"../../../figures/ifcwindow-fig01.gif" height="121" width=
+"301"><br></small></td>
+<td align="left" valign="top">
+<p><small>The window panel (for side hung windows) opens always
+into the direction of the positive Y axis of the local placement.
+The determination of whether the window opens to the left or to
+the right is done at
+<i>IfcWindowPanelProperties.OperationType</i>. Here it is a left
+side opening window given by <i>OperationType</i> =
+SideHungLeftHand.</small></p>
+</td>
+</tr>
+<tr>
+<td><small><img alt="fig 2" src="../../../figures/ifcwindow-fig02.gif"
+height="121" width="301"><br></small></td>
+<td valign="top">
+<p><small>If the window should open to the other side, then the
+local placement has to be changed. It is still a left hung
+window, given by <i>IfcWindowPanelProperties.OperationType</i>
+= SideHungLeftHand.</small></p>
+</td>
+</tr>
+<tr>
+<td><img alt="fig 3" src="../../../figures/ifcwindow-fig03.gif" height=
+"121" width="301"></td>
+<td valign="top">
+<p><small>If the window panel (for side hung windows) opens to
+the right, a separate window panel style needs to be used (here
+<i>IfcWindowPanelProperties.OperationType</i>
+= SideHungRightHand) and it always opens into the direction of
+the positive Y axis of the local placement. </small></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" valign="top"><small><img alt="fig 4" src=
+"../../../figures/ifcwindow-fig04.gif" height="121" width=
+"301"><br></small></td>
+<td align="left" valign="top">
+<p><small>If the window should open to the other side, then the
+local placement has to be changed. It is still a right hung
+window, given by <i>IfcWindowPanelProperties.OperationType</i>
+= </small><small>SideHungRightHand.</small></p>
+<small>.</small></td>
+</tr>
+</tbody>
+</table>
+
+</td></tr>
+<tr><td><p class="figure">Figure 106 &mdash; Window operations</p></td></tr>
+</table>
+
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>9</td><td>OverallHeight</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Overall measure of the height, it reflects the Z Dimension of a bounding box, enclosing the window opening. If omitted, the <i>OverallHeight</i> should be taken from the geometric representation of the <i>IfcOpening</i> in which the window is inserted. 
+
+<blockquote class="note">NOTE&nbsp; The body of the window might be taller then the window opening (for example in cases where the window lining includes a casing). In these cases the <i>OverallHeight</i> shall still be given as the window opening height, and not as the total height of the window lining.</blockquote></td><td>X</td></tr>
+<tr><td>10</td><td>OverallWidth</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+Overall measure of the width, it reflects the X Dimension of a bounding box, enclosing the window opening. If omitted, the <i>OverallWidth</i> should be taken from the geometric representation of the <i>IfcOpening</i> in which the window is inserted. 
+
+<blockquote class="note">NOTE&nbsp; The body of the window might be wider then the window opening (for example in cases where the window lining includes a casing). In these cases the <i>OverallWidth</i> shall still be given as the window opening width, and not as the total width of the window lining.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>PredefinedType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcwindowtypeenum.htm">IfcWindowTypeEnum</a></td><td>? </td><td>
+Predefined generic type for a window that is specified in an enumeration. There may be a property set given specificly for the predefined types.
+<blockquote class="note">NOTE&nbsp; The <i>PredefinedType</i> shall only be used, if no <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> is assigned, providing its own <i>IfcWindowType.PredefinedType</i>.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE  The attribute has been added at the end of the entity definition.</blockquote> </td><td>X</td></tr>
+<tr><td>12</td><td>PartitioningType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcwindowtypepartitioningenum.htm">IfcWindowTypePartitioningEnum</a></td><td>? </td><td>
+Type defining the general layout of the window in terms of the partitioning of panels. 
+<blockquote class="note">NOTE&nbsp; The <i>PartitioningType</i> shall only be used, if no type object <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> is assigned, providing its own <i>IfcWindowType.PartitioningType</i>.
+  </blockquote>
+  <blockquote class="change-ifc2x4">IFC4 CHANGE  The attribute has been added at the end of the entity definition.</blockquote> </td><td>X</td></tr>
+<tr><td>13</td><td>UserDefinedPartitioningType</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Designator for the user defined partitioning type, shall only be provided, if the value of <i>PartitioningType</i> is set to USERDEFINED.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectStyleAssigned</td><td>Either there is no door type object associated, i.e. the <i>IsTypedBy</i> inverse relationship is not provided, or the associated type object has to be of type <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a>.
+<blockquote class="note">NOTEnbsp; The deprecated type <a href="../../ifcarchitecturedomain/lexical/ifcwindowstyle.htm">IfcWindowStyle</a> is still included for backward compatibility reasons.</blockquote></td></tr>
+</table>
+
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifcwindow.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcWindow</h5><a id="window-attributes" />
+<p><b><u>Window Attributes</u></b></p>
+<p>The <a href="../../templates/window-attributes.htm">Window Attributes</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p><b><u>Quantity Sets</u></b></p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 41.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_windowbasequantities.htm">Qto_WindowBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>Height</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>Area</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 41 &mdash; IfcWindow Quantity Sets</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-containment" />
+<p><b><u>Spatial Containment</u></b></p>
+<p>The <a href="../../templates/spatial-containment.htm">Spatial Containment</a> concept template applies to this entity as shown in Table 42.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>Window Contained in Building Storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Window Contained in Space</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 42 &mdash; IfcWindow Spatial Containment</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="window-typing" />
+<p><b><u>Window Typing</u></b></p>
+<p>The <a href="../../templates/window-typing.htm">Window Typing</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="element-space-boundaries" />
+<p><b><u>Element Space Boundaries</u></b></p>
+<p>The <a href="../../templates/element-space-boundaries.htm">Element Space Boundaries</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="classification" />
+<p><b><u>Classification</u></b></p>
+<p>The <a href="../../templates/classification.htm">Classification</a> concept applies to this entity.</p><table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="material-constituent-set" />
+<p><b><u>Material Constituent Set</u></b></p>
+<p>The <a href="../../templates/material-constituent-set.htm">Material Constituent Set</a> concept template applies to this entity as shown in Table 43.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>ConstituentName</b></th><th><b>Description</b></th></tr>
+<tr><td>base material</td><td>name of the material</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 43 &mdash; IfcWindow Material Constituent Set</td></tr></table>
+
+ERM: base material for the window. Choosed to use constituent set, to be able to define each part of the window.
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>O</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p><b><u>Property Sets for Objects</u></b></p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 44.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_windowcommon.htm">Pset_WindowCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 44 &mdash; IfcWindow Property Sets for Objects</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OverallHeight&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;OverallWidth&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindowtypeenum.htm">IfcWindowTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PartitioningType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindowtypepartitioningenum.htm">IfcWindowTypePartitioningEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedPartitioningType&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcWindow<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcbuildingelement.htm">IfcBuildingElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;OverallHeight : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;OverallWidth : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcwindowtypeenum.htm">IfcWindowTypeEnum</a>;<br/>
+&nbsp;&nbsp;PartitioningType : <span class="keyword">OPTIONAL</span> <a href="../../ifcsharedbldgelements/lexical/ifcwindowtypepartitioningenum.htm">IfcWindowTypePartitioningEnum</a>;<br/>
+&nbsp;&nbsp;UserDefinedPartitioningType : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectStyleAssigned : (SIZEOF(IsTypedBy) = 0) <br/>
+OR (&#39;IFCSHAREDBLDGELEMENTS.<a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcwindow%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcwindow.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

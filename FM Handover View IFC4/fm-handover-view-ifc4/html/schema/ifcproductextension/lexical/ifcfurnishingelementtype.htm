@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcFurnishingElementType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 20 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.21");
+//-->
+</script>
+
+<h4 class="num">IfcFurnishingElementType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcfurnishingelementtype.htm">IfcFurnishingElementType</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ApplicableOccurrence</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>IfcLabel</i> to <i>IfcIdentifier</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcFurnishingElementType</span> defines a list of commonly shared
+property set definitions of an element and an optional set of
+product representations. It is used to define an element
+specification (the specific product information, that is
+common to all occurrences of that product type).</p>
+
+<blockquote class="note">
+NOTE&nbsp; The product representations are defined
+as representation maps (at the level of the supertype
+<a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a>, which gets assigned by an element
+occurrence instance through the
+<i>IfcShapeRepresentation.Item[1]</i> being an
+<a href="../../ifcgeometryresource/lexical/ifcmappeditem.htm">IfcMappedItem</a>.
+</blockquote>
+
+<p>A furnishing element type is used to define the common
+properties of a certain type of a furnishing element that may be
+applied to many instances of that feature type to assign a
+specific style. Furnishing element types (or the instantiable
+subtypes) may be exchanged without being already assigned to
+occurrences.</p>
+<p>The occurrences of the <span class="self-ref">IfcFurnishingElementType</span> are
+represented by instances of <a href="../../ifcproductextension/lexical/ifcfurnishingelement.htm">IfcFurnishingElement</a> (or its
+subtypes).</p>
+
+<blockquote class="history">
+HISTORY New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x3">
+IFC2x3 CHANGE&nbsp; The entity has been
+made non-abstract
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The entity is marked as deprecated for instantiation - will be made ABSTRACT after IFC4.
+</blockquote><p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcfurnishingelementtype.htm">IfcFurnishingElementType</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcfurnishingelementtype.htm">IfcFurnishingElementType</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcfurnishingelementtype.htm">IfcFurnishingElementType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcFurnishingElementType<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcsharedfacilitieselements/lexical/ifcfurnituretype.htm">IfcFurnitureType</a>, <a href="../../ifcsharedfacilitieselements/lexical/ifcsystemfurnitureelementtype.htm">IfcSystemFurnitureElementType</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcfurnishingelementtype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcfurnishingelementtype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

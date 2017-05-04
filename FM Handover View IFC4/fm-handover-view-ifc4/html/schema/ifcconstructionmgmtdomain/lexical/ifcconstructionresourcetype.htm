@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcConstructionResourceType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 3 index3 3 index4 7 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.3.3.8");
+//-->
+</script>
+
+<h4 class="num">IfcConstructionResourceType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcconstructionmgmtdomain/lexical/ifcconstructionresourcetype.htm">IfcConstructionResourceType</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcConstructionResourceType</span> is an abstract generalization of the different resource types used in construction projects, mainly labor, material, equipment and product resource types, plus subcontracted resource types and aggregations such as a crew resource type.</p> 
+
+<p>A resource type represents a model of "use of something" and does not necessarily correspond to a specific type of object such as a person or vehicle, but represents possible usages of such objects such as general labor or an equipment fleet.  A resource type can either represent usage in general (consumption attributes defined but no task type assignment) or a task-specific resource type (production attributes defined and having an <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> assignment).</p>
+
+<p>A construction resource type captures common productivities and cost rates for applying resources to particular task types.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<p class="use-head">Composition use definition</p>
+<p>Resource types may be decomposed into nested resource types indicating productivities when applying the resource to specific task types using the <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> relationship where <i>IfcRelNests.RelatingObject</i> refers to the general resource type and <i>IfcRelNests.RelatedObjects</i> refers to one or more task-specific productivities.  For example, an <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetype.htm">IfcLaborResourceType</a> may be defined for "Carpenter" which may have a nested <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetype.htm">IfcLaborResourceType</a> for "Carpenter - Wall Framing" and another nested <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetype.htm">IfcLaborResourceType</a> for "Carpenter - Drywall", each of which may have productivities based according to specific task types (<a href="../../ifcprocessextension/lexical/ifctasktype.htm">IfcTaskType</a>).</p> 
+
+<p class="use-head">Assignment use definition</p>
+<p>Resource types may be assigned to process types (<a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a> subtypes) using the <a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> relationship as shown in Figure 124.  Such relationship indicates that the resource type applies to the process type for the use indicated (e.g. <i>IfcTaskType.PredefinedType</i>).  Such relationship enables a scenario of placing an <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> of a particular <a href="../../ifckernel/lexical/ifctypeproduct.htm">IfcTypeProduct</a>, querying for a set of <a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a> process types for constructing such product (e.g. <i>IfcTaskTypeEnum.CONSTRUCTION</i>), querying each <a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a> for a set of <a href="../../ifckernel/lexical/ifctyperesource.htm">IfcTypeResource</a> resource types for carrying out the process, and finally choosing an <a href="../../ifckernel/lexical/ifctypeprocess.htm">IfcTypeProcess</a> and <a href="../../ifckernel/lexical/ifctyperesource.htm">IfcTypeResource</a> combination resulting in the shortest time for instantiated <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> occurrence(s) and/or lowest-cost for instantiated <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresource.htm">IfcConstructionResource</a> occurrence(s).</p>
+<table>
+<tr><td><img alt="Assignment Use Definition" src="../../../figures/ifcconstructionresourcetype-assignment.png"></td></tr>
+<tr><td><p class="figure">Figure 124 &mdash; Construction resource type assignment</p></td></tr>
+</table><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>BaseCosts</td><td><a href="../../ifccostresource/lexical/ifcappliedvalue.htm">IfcAppliedValue</a></td><td>? L[1:?]</td><td>
+Indicates the unit costs and environmental impacts for which accrued amounts should be calculated.  Such unit costs may be split into <i>Name</i> designations (e.g. 'Standard', 'Overtime'), and may contain a hierarchy of cost values that apply at different dates (using <i>IfcCostValue.ApplicableDate</i> and <i>IfcCostValue.FixedUntilDate</i>).
+
+<p></p></td><td>X</td></tr>
+<tr><td>11</td><td>BaseQuantity</td><td><a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a></td><td>? </td><td>
+Identifies the quantity for which the <i>BaseQuantityProduced</i> applies.  The <i>Name</i> of the <a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a> identifies the quantity definition being measured, e.g. "GrossVolume".  For production-based resources (e.g. carpentry labor), this value refers to quantities on <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>(s) to which the assigned <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> is assigned.  For duration-based resources (e.g. safety inspector, fuel for equipment), this value refers to quantities that may be assigned to occurrences of the assigned <a href="../../ifcprocessextension/lexical/ifctasktype.htm">IfcTaskType</a>.
+
+<p></p></td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresourcetype.htm">IfcConstructionResourceType</a>&quot; type=&quot;ifc:<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresourcetype.htm">IfcConstructionResourceType</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifctyperesource.htm">IfcTypeResource</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionresourcetype.htm">IfcConstructionResourceType</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifctyperesource.htm">IfcTypeResource</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BaseCosts&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifccostresource/lexical/ifcappliedvalue.htm">IfcAppliedValue</a>&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifccostresource/lexical/ifcappliedvalue.htm">IfcAppliedValue</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;list&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BaseQuantity&quot; type=&quot;ifc:<a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcConstructionResourceType<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionequipmentresourcetype.htm">IfcConstructionEquipmentResourceType</a>, <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionmaterialresourcetype.htm">IfcConstructionMaterialResourceType</a>, <a href="../../ifcconstructionmgmtdomain/lexical/ifcconstructionproductresourcetype.htm">IfcConstructionProductResourceType</a>, <a href="../../ifcconstructionmgmtdomain/lexical/ifccrewresourcetype.htm">IfcCrewResourceType</a>, <a href="../../ifcconstructionmgmtdomain/lexical/ifclaborresourcetype.htm">IfcLaborResourceType</a>, <a href="../../ifcconstructionmgmtdomain/lexical/ifcsubcontractresourcetype.htm">IfcSubContractResourceType</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifctyperesource.htm">IfcTypeResource</a>)<b>;</b><br/>
+&nbsp;&nbsp;BaseCosts : <span class="keyword">OPTIONAL</span> <span class="keyword">LIST</span> [1:?] <span class="keyword">OF</span> <a href="../../ifccostresource/lexical/ifcappliedvalue.htm">IfcAppliedValue</a>;<br/>
+&nbsp;&nbsp;BaseQuantity : <span class="keyword">OPTIONAL</span> <a href="../../ifcquantityresource/lexical/ifcphysicalquantity.htm">IfcPhysicalQuantity</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcconstructionmgmtdomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcconstructionresourcetype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcconstructionresourcetype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

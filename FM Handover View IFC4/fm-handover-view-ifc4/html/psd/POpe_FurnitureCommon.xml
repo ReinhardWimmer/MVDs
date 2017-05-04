@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<PropertySetDef xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ifdguid="371ff609e39f4869a72473eeffa99d3e" templatetype="PSET_TYPEDRIVENOVERRIDE" xsi:noNamespaceSchemaLocation="http://buildingSMART-tech.org/xml/psd/PSD_IFC4.xsd">
+  <IfcVersion version="IFC4" />
+  <Name>POpe_FurnitureCommon</Name>
+  <Definition>&lt;p&gt; Properties according to FM Handover View. &lt;/p&gt;</Definition>
+  <Applicability />
+  <ApplicableClasses>
+    <ClassName>IfcFurnishingElement</ClassName>
+    <ClassName>IfcFurniture</ClassName>
+  </ApplicableClasses>
+  <ApplicableTypeValue>IfcFurnishingElement,IfcFurniture</ApplicableTypeValue>
+  <PropertyDefs>
+    <PropertyDef ifdguid="a2324622abf3435baa17549cfb9959b7">
+      <Name>FurnitureLength</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure" />
+        </TypePropertySingleValue>
+      </PropertyType>
+      <NameAliases />
+      <DefinitionAliases />
+    </PropertyDef>
+    <PropertyDef ifdguid="622b49d800b24bd186284721a76f37cb">
+      <Name>FurnitureDepth</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure" />
+        </TypePropertySingleValue>
+      </PropertyType>
+      <NameAliases />
+      <DefinitionAliases />
+    </PropertyDef>
+    <PropertyDef ifdguid="99ebed0fb77745f1b489435f94b6d37a">
+      <Name>FurnitureHeight</Name>
+      <PropertyType>
+        <TypePropertySingleValue>
+          <DataType type="IfcPositiveLengthMeasure" />
+        </TypePropertySingleValue>
+      </PropertyType>
+      <NameAliases />
+      <DefinitionAliases />
+    </PropertyDef>
+  </PropertyDefs>
+  <PsetDefinitionAliases />
+</PropertySetDef>

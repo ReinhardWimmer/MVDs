@@ -1,0 +1,326 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSite</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 43 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.44");
+//-->
+</script>
+
+<h4 class="num">IfcSite</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CompositionType</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A site is a defined area of land, possibly covered with water, on which the project construction is to be completed. A site may be used to erect, retrofit
+or turn down building(s), or for other construction related developments.</p>
+
+<blockquote class="note">NOTE&nbsp; Term according to ISO6707-1 vocabulary "area of land or water where construction work or other development is undertaken".</blockquote>
+ 
+<p>A site may include a definition of the single geographic reference point for this site (global position using WGS84 with <i>Longitude</i>, <i>Latitude</i> and <i>Elevation</i>). The precision is provided up to millionth of a second and it provides an absolute placement in relation to the real world as used in exchange with geospational information systems. If asserted, the <i>Longitude</i>, <i>Latitude</i> and <i>Elevation</i> establish the point in WGS84 where the point 0.,0.,0. of the <i>LocalPlacement</i> of <span class="self-ref">IfcSite</span> is situated.</p>
+
+<p>The geometrical placement of the site, defined by the <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>, shall be always relative to the spatial structure element, in which this site is included, or absolute, i.e. to the world coordinate system, as established by the geometric representation context of the project. The world coordinate system, established at the <i>IfcProject.RepresentationContexts</i>, may include a definition of the true north within the XY plane of the world coordinate system, if provided, it can be obtained at <i>IfcGeometricRepresentationContext.TrueNorth</i>.</p>
+
+<p>A project may span over several connected or disconnected sites. Therefore site complex provides for a collection of sites included in a project. A site
+can also be decomposed in parts, where each part defines a site section. This is defined by the composition type attribute of the supertype <i>IfcSpatialStructureElements</i> which is interpreted as follow:</p>
+<ul>
+<li>COMPLEX = site complex</li>
+<li>ELEMENT = site</li>
+<li>PARTIAL = site section</li>
+</ul>
+<p>The <span class="self-ref">IfcSite</span> is used to build the spatial structure of a
+building (that serves as the primary project breakdown and is 
+required to be hierarchical). </p>
+
+
+<p>Figure 86 shows the <span class="self-ref">IfcSite</span> as part of the spatial structure. In addition to the logical spatial structure, also the placement hierarchy is shown. In this example the spatial structure hierarchy and the placement hierarchy are identical.</p>
+
+<blockquote class="note">NOTE&nbsp; Detailed requirements on mandatory element containment and placement structure relationships are given in view definitions and implementer agreements.</blockquote>
+
+
+<table summary="Spatial and placement structure">
+ 
+<tr>
+  <td valign="top"><img src="../../../figures/ifcsite-spatialstructure.png" 
+   alt="IfcSite as part of a spatial structure" width="800" height="420" border="0">
+  </td>
+  </tr>
+ 
+<tr>
+  <td><p class="figure">Figure 86 &mdash; Site composition</p>
+  </td>
+ </tr>
+
+</table>
+
+
+
+<p>Figure 87 describes the heights and elevations of the <span class="self-ref">IfcSite</span>. It is used to provide the geographic longitude, latitude, and height above sea
+level for the origin of the site. The origin of the site is the local placement.</p>
+<p>The provision of longitude, latitude, height at the <span class="self-ref">IfcSite</span> for georeferencing is provided for upward compatibility reasons. It requires a
+single instance of <span class="self-ref">IfcSite</span> and WGS84 as coordinate reference system.</p>
+<p>For exact georeferencing (or referencing to any other geographic coordinate system other than WSG84) the entities <a href="../../ifcrepresentationresource/lexical/ifccoordinatereferencesystem.htm">IfcCoordinateReferenceSystem</a> and
+<a href="../../ifcrepresentationresource/lexical/ifcmapconversion.htm">IfcMapConversion</a> have to be used to define an exact mapping of the project engineering coordinate system to the geographic (or map) coordinate
+system.</p>
+<ul>
+<li><small>reference height of site is provided by: <i>IfcSite.RefElevation</i>, it is given according to the height datum used at this location.</small></li>
+<li><small>the reference height of each building situated at the site is given againt the same height datum used at this location.</small></li>
+<li><small>the elevations of each storey belonging to each building are given as local height relative to the reference height of the building.</small></li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="2" summary="attribute use">
+<tbody>
+<tr valign="top">
+<td align="left" valign="top"><img src="../../../figures/ifcsite_heights.png" alt=
+"building heights" border="0" height="400" width="500">&nbsp;</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 87 &mdash; Site elevations</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote class="history">HISTORY &nbsp;New entity in IFC1.0.</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>RefLatitude</td><td><a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a></td><td>? </td><td>
+World Latitude at reference point (most likely defined in legal description). Defined as integer values for degrees, minutes, seconds, and, optionally, millionths of seconds with respect to the world geodetic system WGS84.
+<blockquote class="note">NOTE&nbsp; Latitudes are measured relative to the geodetic equator, north of the equator by positive values - from 0 till +90,   south of the equator by negative values - from 0 till  -90.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>RefLongitude</td><td><a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a></td><td>? </td><td>
+World Longitude at reference point (most likely defined in legal description). Defined as integer values for degrees, minutes, seconds, and, optionally, millionths of seconds with respect to the world geodetic system WGS84.
+<blockquote class="note">NOTE&nbsp; Longitudes are measured relative to the geodetic zero meridian, nominally the same as the Greenwich prime meridian: longitudes west of the zero meridian have negative values - from 0 till -180, longitudes east of the zero meridian have positive values - from 0 till -180.</blockquote>
+<blockquote class="example">EXAMPLE&nbsp; Chicago Harbor Light has according to WGS84 a longitude -87.35.40 (or 87.35.40W) and a latitude 41.53.30 (or 41.53.30N).</blockquote></td><td>X</td></tr>
+<tr><td>12</td><td>RefElevation</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Datum elevation relative to sea level.
+</td><td>X</td></tr>
+<tr><td>13</td><td>LandTitleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+The land title number (designation of the site within a regional system).</td><td>X</td></tr>
+<tr><td>14</td><td>SiteAddress</td><td><a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a></td><td>? </td><td>
+Address given to the site for postal purposes.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<p><a href="../../../annex/annex-d/basic_fm_handover_view/ifcsite.htm"><img style="border: 0px" src="../../../img/diagram.png" />&nbsp;Instance diagram</a></p><hr />
+<h5>IfcSite</h5><a id="site-attributes" />
+<p><b><u>Site Attributes</u></b></p>
+<p>The <a href="../../templates/site-attributes.htm">Site Attributes</a> concept template applies to this entity as shown in Table 16.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>LongName</b></th><th><b>Name</b></th><th><b>Latitude</b></th><th><b>Longitude</b></th><th><b>Elevation</b></th><th><b>HasAddress</b></th><th><b>Description</b></th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a></td><td>Site address is required if there is no Building Address</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 16 &mdash; IfcSite Site Attributes</td></tr></table>
+
+<p> According to FM Handover View, the Attributes RefLongitude, RefLatittude and RefElevation should be optional.</p>
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="classification" />
+<p><b><u>Classification</u></b></p>
+<p>The <a href="../../templates/classification.htm">Classification</a> concept template applies to this entity as shown in Table 17.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 17 &mdash; IfcSite Classification</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td></td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="quantity-sets" />
+<p><b><u>Quantity Sets</u></b></p>
+<p>The <a href="../../templates/quantity-sets.htm">Quantity Sets</a> concept template applies to this entity as shown in Table 18.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcproductextension/qset/qto_sitebasequantities.htm">Qto_SiteBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>GrossPerimeter</td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossArea</td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 18 &mdash; IfcSite Quantity Sets</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td></td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="property-sets-for-objects" />
+<p><b><u>Property Sets for Objects</u></b></p>
+<p>The <a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a> concept template applies to this entity as shown in Table 19.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_sitecommon.htm">Pset_SiteCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BuildableArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SiteCoverageRatio</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FloorAreaRatio</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BuildingHeightLimit</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>TotalArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+</table></td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 19 &mdash; IfcSite Property Sets for Objects</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td></td>
+</tr>
+</table>
+
+<br/><br/>
+
+<a id="spatial-decomposition" />
+<p><b><u>Spatial Decomposition</u></b></p>
+<p>The <a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a> concept template applies to this entity as shown in Table 20.<table>
+<tr><td>
+<table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a></td><td>Site contained in project.</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Building Contained in Site</td></tr>
+</table>
+</td></tr>
+<tr><td><p class="table">Table 20 &mdash; IfcSite Spatial Decomposition</td></tr></table>
+
+<table class="exchange">
+<tr>
+<th>Exchange</th>
+<th><a href="../../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr>
+<tr>
+<td>Import</td>
+<td></td>
+</tr>
+<tr>
+<td>Export</td>
+<td>R</td>
+</tr>
+</table>
+
+<br/><br/>
+
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;SiteAddress&quot; type=&quot;ifc:<a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RefLatitude&quot; type=&quot;ifc:List-<a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RefLongitude&quot; type=&quot;ifc:List-<a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RefElevation&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LandTitleNumber&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcSite<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcspatialstructureelement.htm">IfcSpatialStructureElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;RefLatitude : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a>;<br/>
+&nbsp;&nbsp;RefLongitude : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifccompoundplaneanglemeasure.htm">IfcCompoundPlaneAngleMeasure</a>;<br/>
+&nbsp;&nbsp;RefElevation : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+&nbsp;&nbsp;LandTitleNumber : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;SiteAddress : <span class="keyword">OPTIONAL</span> <a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcsite%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcsite.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

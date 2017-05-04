@@ -1,0 +1,322 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcDiscreteAccessoryType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 3 index3 3 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.3.3.4");
+//-->
+</script>
+
+<h4 class="num">IfcDiscreteAccessoryType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytype.htm">IfcDiscreteAccessoryType</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ApplicableOccurrence</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>IfcLabel</i> to <i>IfcIdentifier</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The element component type <b>IfcDiscreteAccessoryType</b> defines commonly shared information for occurrences of discrete accessorys. The set of shared information may include: <ul>
+<li>common properties with shared property sets</li>
+<li>common representations</li>
+<li>common materials</li>
+<li>common composition of elements</li>
+</ul><p>It is used to define a discrete accessory type specification indicating the specific product information that is common to all occurrences of that product type. 
+The <b>IfcDiscreteAccessoryType</b> may be declared within <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> or <a href="../../ifckernel/lexical/ifcprojectlibrary.htm">IfcProjectLibrary</a> using <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> and may be exchanged with or without occurrences of the type. Occurrences of <b>IfcDiscreteAccessoryType</b> are represented by instances of <a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessory.htm">IfcDiscreteAccessory</a>.</p>
+
+  <blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<p class="use-head">Type Use Definition</p>
+    <p>
+      The exact type information of the
+      <span class="self-ref">IfcDiscreteAccessoryType</span> is given in the
+      <i>PredefinedType</i> attribute, possibly in combination with the
+      <i>ElementType</i> attribute inherited from
+      <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>. Standard <i>ElementType</i> designations are
+      provided for guideline below. The list is not exhaustive and
+      the list of definitions may be extended based on local
+      agreements.
+    </p>
+    <p>
+      Corbels as separate components:
+    </p>
+    <ul>
+      <li>
+        <b>'Hidden steel corbel'</b>: Corbel system made from steel
+        components embedded into the master element.
+      </li>
+      <li>
+        <b>'Visible steel corbel'</b>: Corbel system made from
+        steel components protruding from the master element.
+      </li>
+      <li>
+        <b>'Visible concrete corbel'</b>: Corbel system made as a
+        separate precast concrete component added to the master
+        element.
+      </li>
+    </ul>
+    <p>
+      Connecting accessories, for example for sandwich wall panels:
+    </p>
+    <ul>
+      <li>
+        <b>'Diagonal truss connector'</b>: A fixing device in truss
+        form with diagonal cross bars holding two precast conrete
+        panels together in a sandwich wall panel.
+      </li>
+      <li>
+        <b>'Ladder truss connector'</b>: A fixing device in truss
+        form with straight cross bars in ladder form holding two
+        precast conrete panels together in a sandwich wall panel.
+      </li>
+      <li>
+        <b>'Panel suspender'</b>: A straight fixing device holding
+        two precast conrete panels together in a sandwich wall
+        panel.
+      </li>
+    </ul>
+    <p>
+      Electrical accessories for precast concrete elements:
+    </p>
+    <ul>
+      <li>
+        <b>'Protective plug'</b>: Protective plug used in element
+        for protecting electrical accessories during manufacturing,
+        transportation and assembly.
+      </li>
+    </ul>
+    <p>
+      Fixing parts:
+    </p>
+    <ul>
+      <li>
+        <b>'Standard fixing plate'</b>: Standard fixing plate.
+      </li>
+      <li>
+        <b>'Edge fixing plate'</b>: Fixing plate attached to the
+        edge of an element.
+      </li>
+      <li>
+        <b>'Corner fixing plate'</b>: Fixing plate attached to the
+        corner of an element.
+      </li>
+      <li>
+        <b>'Slab fixing plate'</b>: Fixing plate for slabs.
+      </li>
+  <li>
+    <b>'Channel fixing'</b>: Fixing channels, often realized as cast-in channels.
+  </li>
+  <li>
+    <b>'Balcony hinge'</b>: Accessory supporting and fixing balconies.
+  </li>
+  <li>
+    <b>'Frame shoe'</b>: Fixing shoe for frames.
+  </li>
+      <li>
+        <b>'Thermo frame'</b>: Thermo frame.
+      </li>
+      <li>
+        <b>'Column shoe'</b>: Fixing shoe for columns.
+      </li>
+      <li>
+        <b>'Wall shoe'</b>: Fixing shoe for walls.
+      </li>
+      <li>
+        <b>'Fixing socket'</b>: Fixing socket.
+      </li>
+    </ul>
+    <p>
+      Joint accessories:
+    </p>
+    <ul>
+      <li>
+        <b>'Neoprene bearing plate'</b>: Rubber plate used as a
+        bearing in, for example, joints between column corbels and
+        beams.
+      </li>
+      <li>
+        <b>'Working joint reinforcement'</b>: Reinforcement
+        accessory used in working joints.
+      </li>
+      <li>
+        <b>'Expansion joint reinforcement'</b>: Reinforcement
+        accessory used in expansion joints.
+      </li>
+      <li>
+        <b>'Ribbed steel bar extension'</b>: Extension accessory
+        made of a ribbed (reinforcement) bar used in joints.
+      </li>
+      <li>
+        <b>'Steel pin bolt'</b>: Pin bolt used to join together,
+        for example, columns and beams.
+      </li>
+      <li>
+        <b>'Concrete dowel'</b>: Dowel pin used in joints.
+      </li>
+      <li>
+        <b>'Concrete groove'</b>: A groove made in a joint.
+      </li>
+      <li>
+        <b>'Steel plate'</b>: A steel plate used as an accessory in
+        a joint.
+      </li>
+      <li>
+        <b>'Wire loop'</b>: A joint connector accessory made from a
+        wire loop.
+      </li>
+      <li>
+        <b>'Steel loop'</b>: A joint connector accessory made from
+        a steel bar loop.
+      </li>
+      <li>
+        <b>'Sealing strip'</b>: A strip sealing the joint.
+      </li>
+      <li>
+        <b>'Sealing compound'</b>: Sealing compound protecting and
+        sealing the joint.
+      </li>
+    </ul>
+    <p>
+      Lifting accessories:
+    </p>
+    <ul>
+      <li>
+        <b>'Wire lifting hook'</b>: A lifting aid in the form of a
+        wire loop.
+      </li>
+      <li>
+        <b>'Steel lifting hook'</b>: A lifting aid in the form of a
+        steel bar loop.
+      </li>
+      <li>
+        <b>'Lifting socket'</b>: A lifting aid in the form of a
+        socket.
+      </li>
+      <li>
+        <b>'Steel lifting anchor'</b>: A lifting aid in the form of
+        a steel lifting anchor.
+      </li>
+      <li>
+        <b>'Lifting hole'</b>: A lifting aid in the form of a hole.
+      </li>
+    </ul>
+    <p>
+      Accessories mainly used in the building services domain:
+    </p>
+    <ul>
+      <li>
+        <b>'Antivibration'</b> : An isolating device to prevent
+        other elements to be effected by vibrations.
+      </li>
+      <li>
+        <b>'Drop rod'</b> : A length of material providing a
+        hanging support to a bracket. Note that a drop rod is
+        considered to include nuts and washers required for
+        securing.
+      </li>
+      <li>
+        <b>'Duct foot'</b> : A base support used to receive a
+        vertical pipe .
+      </li>
+      <li>
+        <b>'Framing'</b> : A frame placed around a penetration to
+        prevent scraping against the building surface or structure.
+      </li>
+      <li>
+        <b>'Grommet'</b> : An element placed within a penetration
+        that seals the penetration for a particular reason.
+      </li>
+      <li>
+        <b>'Rack'</b> : A set of shelving for the purposes of
+        storage that may be freestanding or bolted to a structure.
+      </li>
+      <li>
+        <b>'Safety part'</b> : A part, typically installed in
+        vertical shafts at each level, to ensure safety from
+        falling when entering the shaft.
+      </li>
+      <li>
+        <b>'Sleeve'</b> : A thin barrier placed between a
+        penetration and a penetrating element.
+      </li>
+      <li>
+        <b>'Support section'</b> : A section of material that is
+        used as an intermediate support upon which multiple
+        brackets can be mounted.
+      </li>
+    </ul>
+
+
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytypeenum.htm">IfcDiscreteAccessoryTypeEnum</a></td><td></td><td>
+Subtype of discrete accessory</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>The inherited attribute <i>ElementType</i> shall be provided if the <i>PredefinedType</i> is set to USERDEFINED.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytype.htm">IfcDiscreteAccessoryType</a>&quot; type=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytype.htm">IfcDiscreteAccessoryType</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytype.htm">IfcDiscreteAccessoryType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytypeenum.htm">IfcDiscreteAccessoryTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcDiscreteAccessoryType<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytypeenum.htm">IfcDiscreteAccessoryTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : (PredefinedType &lt;&gt; <a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytypeenum.htm">IfcDiscreteAccessoryTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcsharedcomponentelements/lexical/ifcdiscreteaccessorytypeenum.htm">IfcDiscreteAccessoryTypeEnum</a>.USERDEFINED) AND EXISTS(SELF\<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>.ElementType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedcomponentelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcdiscreteaccessorytype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcdiscreteaccessorytype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTrimmedCurve</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 57 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.58");
+//-->
+</script>
+
+<h4 class="num">IfcTrimmedCurve</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SenseAgreement</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>An <span class="self-ref">IfcTrimmedCurve</span> is a bounded curve that is trimmed at both ends. The trimming points may be provided by
+a Cartesian point or by a parameter value, based on the parameterization of the <i>BasisCurve</i>. The
+<i>SenseAgreement</i> attribute indicates whether the direction of the <span class="self-ref">IfcTrimmedCurve</span> agrees with or is
+opposed to the direction of the <i>BasisCurve</i>.</p>
+<blockquote class="note">NOTE&nbsp; In case of the <i>BasisCurve</i> being a closed curve, such as an
+<a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a> or <a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>, the <i>SenseAgreement</i> affects the geometric shape of the
+<span class="self-ref">IfcTrimmedCurve</span>.</blockquote>
+<table summary="illustration">
+<tbody>
+<tr>
+<td><img src="../../../figures/ifctrimmedcurve_parameterization.png" alt="curve parameterization" border="0" height="500" width=
+"700"></td>
+</tr>
+<tr><td><p class="figure">Figure 187 &mdash; Trimmed curve parameterization</p></td></tr>
+</tbody>
+</table>
+
+<p>Figure 187 shows the four arcs (dashed blue and green lines with arrow showing different orientations) that
+can be defined by the same <i>BasisCurve</i> (of type <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>) and the same trimming points (given by
+Cartesian points and parameter values) by using different assignments to <i>Trim1</i> and <i>Trim2</i> and
+<i>SenseAgreement</i>.</p>
+<blockquote class="note">NOTE&nbsp; Since the <i>BasisCurve</i> is closed (type <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>), the exception of
+the informal proposition IP3 applies, i.e. the sense flag is not required to be consistent with the parameter values of
+<i>Trim1</i> and <i>Trim1</i>, so the rule (sense = parameter 1 &lt; parameter 2) may not be
+fulfilled.</blockquote>
+<blockquote class="extDef">
+<p style="font-size:inherit">NOTE Definition according to ISO/CD 10303-42:1992<br>
+A trimmed curve is a bounded curve which is created by taking a selected portion, between two identified points, of the
+associated basis curve. The basis curve itself is unaltered and more than one trimmed curve may reference the same
+basis curve. Trimming points for the curve may be identified by:</p>
+<ul style="font-size:inherit">
+<li style="font-size:inherit">parametric value</li>
+<li style="font-size:inherit">geometric position</li>
+<li style="font-size:inherit">both of the above</li>
+</ul>
+<p style="font-size:inherit">At least one of these shall be specified at each end of the curve. The
+<i>SenseAgreement</i> makes it possible to unambiguously define any segment of a closed curve such as a circle. The
+combinations of sense and ordered end points make it possible to define four distinct directed segments connecting two
+different points on a circle or other closed curve. For this purpose cyclic properties of the parameter range are
+assumed; for example, 370 degrees is equivalent to 10 degrees.</p>
+<p style="font-size:inherit">The <span class="self-ref">IfcTrimmedCurve</span> has a parameterization which is inherited from the particular
+basis curve reference. More precisely the parameter s of the trimmed curve is derived from the parameter of the basis
+curve as follows:</p>
+<ul style="font-size:inherit">
+<li style="font-size:inherit">if <i>SenseAgreement</i> is TRUE: <i>s = t - t<sub>1</sub></i></li>
+<li style="font-size:inherit">if <i>SenseAgreement</i> is FALSE: <i>s = t<sub>2</sub> - t</i></li>
+</ul>
+<p style="font-size:inherit">In the above equations t<sub>1</sub> is the value given by <i>Trim1</i> or the parameter
+value corresponding to point 1 and t<sub>2</sub> is the value given by <i>Trim2</i> or the parameter value
+corresponding to point 2. The resultant <span class="self-ref">IfcTrimmedCurve</span> has a parameter ranging from 0 at the first trimming
+point to |t<sub>2</sub> - t<sub>1</sub>| at the second trimming point.</p>
+<blockquote class="note">NOTE&nbsp; In case of a closed curve, it may be necessary to increment t1 or t2 by the
+parametric length for consistency with the sense flag.</blockquote>
+</blockquote>
+<blockquote class="note">NOTE Entity adapted from <strong>trimmed_curve</strong> defined in ISO 10303-42</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.0</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>Where both the parameter value and the Cartesian point exist for <i>Trim1</i> and <i>Trim2</i> they shall be
+consistent. (i.e., the <i>BasisCurve</i> evaluated at the parameter value shall coincide with the specified
+point).</li>
+<li>When a Cartesian point is specified by <i>Trim1</i> or by <i>Trim2</i> it shall lie on the
+<i>BasisCurve</i>.</li>
+<li>Except the case of a closed <i>BasisCurve</i> where both parameter 1 and parameter 2 exist, they shall be
+consistent with the sense flag, i.e., (sense = parameter 1 &lt; parameter 2). Or, for every open curve where both
+parameter 1 and parameter 2 exist, they shall be consistent with the <i>SenseAgreement</i>, i.e.,
+<i>SenseAgreement</i> = (parameter 1 &lt; parameter 2).</li>
+<li>If both parameter 1 and parameter 2 exist, then parameter 1 &lt;&gt; parameter 2. For a closed base curve, e.g.
+<a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a> or <a href="../../ifcgeometryresource/lexical/ifcellipse.htm">IfcEllipse</a>, this also applies to the cyclic properties, as 360' is equal to 0',
+parameter 1 = 360' and parameter 2 = 0' are treated as being equal and therefore violating this proposition.</li>
+<li>When a parameter value is specified by <i>Trim1</i> or <i>Trim2</i> it shall lie within the parametric range of
+the <i>BasisCurve</i>.</li>
+</ol><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>BasisCurve</td><td><a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a></td><td></td><td>
+The curve to be trimmed. For curves with multiple representations any parameter values given as Trim1 or Trim2 refer to the master representation of the BasisCurve only.</td><td>X</td></tr>
+<tr><td>2</td><td>Trim1</td><td><a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a></td><td>S[1:2]</td><td>
+The first trimming point which may be specified as a Cartesian point, as a real parameter or both.</td><td>X</td></tr>
+<tr><td>3</td><td>Trim2</td><td><a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a></td><td>S[1:2]</td><td>
+The second trimming point which may be specified as a Cartesian point, as a real parameter or both.</td><td>X</td></tr>
+<tr><td>4</td><td>SenseAgreement</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td><td>
+Flag to indicate whether the direction of the trimmed curve agrees with or is opposed to the direction of the basis curve.</td><td>X</td></tr>
+<tr><td>5</td><td>MasterRepresentation</td><td><a href="../../ifcgeometryresource/lexical/ifctrimmingpreference.htm">IfcTrimmingPreference</a></td><td></td><td>
+Where both parameter and point are present at either end of the curve this indicates the preferred form.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>Trim1ValuesConsistent</td><td>Either a single value is specified for Trim1, or the two trimming values are of different type (point and parameter)</td></tr>
+<tr><td>Trim2ValuesConsistent</td><td>Either a single value is specified for Trim2, or the two trimming values are of different type (point and parameter)</td></tr>
+<tr><td>NoTrimOfBoundedCurves</td><td>Already bounded curves shall not be trimmed.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;BasisCurve&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Trim1&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>&quot; maxOccurs=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Trim2&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>&quot; maxOccurs=&quot;2&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;SenseAgreement&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MasterRepresentation&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifctrimmingpreference.htm">IfcTrimmingPreference</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcTrimmedCurve<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>)<b>;</b><br/>
+&nbsp;&nbsp;BasisCurve : <a href="../../ifcgeometryresource/lexical/ifccurve.htm">IfcCurve</a>;<br/>
+&nbsp;&nbsp;Trim1 : <span class="keyword">SET</span> [1:2] OF <a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>;<br/>
+&nbsp;&nbsp;Trim2 : <span class="keyword">SET</span> [1:2] OF <a href="../../ifcgeometryresource/lexical/ifctrimmingselect.htm">IfcTrimmingSelect</a>;<br/>
+&nbsp;&nbsp;SenseAgreement : <a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>;<br/>
+&nbsp;&nbsp;MasterRepresentation : <a href="../../ifcgeometryresource/lexical/ifctrimmingpreference.htm">IfcTrimmingPreference</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;Trim1ValuesConsistent : (HIINDEX(Trim1) = 1) OR (TYPEOF(Trim1[1]) &lt;&gt; TYPEOF(Trim1[2]));<br/>&nbsp;&nbsp;Trim2ValuesConsistent : (HIINDEX(Trim2) = 1) OR (TYPEOF(Trim2[1]) &lt;&gt; TYPEOF(Trim2[2]));<br/>&nbsp;&nbsp;NoTrimOfBoundedCurves : NOT(&#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&#39; IN TYPEOF(BasisCurve));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0006.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctrimmedcurve%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctrimmedcurve.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

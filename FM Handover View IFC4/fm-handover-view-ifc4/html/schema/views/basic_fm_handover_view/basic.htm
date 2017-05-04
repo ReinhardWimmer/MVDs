@@ -1,0 +1,415 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>BASIC</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 1 index2 1 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-1.htm#1.1.1.0");
+//-->
+</script>
+
+<h4><a id="basic" name="basic">1.1.1 BASIC</a></h4>
+<p class="std">
+<p></p>
+<h4>Data Requirements for IFC formats</h4>
+<table class="exchange">
+<tr><th colspan="5"><img src="../../../img/mvd-basic.png" />&nbsp; BASIC</th></tr>
+<tr><th>Entity/Concept</th><th>Attributes</th><th>Constraints</th><th>I</th><th>E</th></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/building-attributes.htm">Building Attributes</a></td><td>LongName<br/>Name<br/>CompositionType<br/>ElevationOfRefHeight<br/>ElevationOfTerrain<br/>BuildingAddress</td><td><table class="gridtable">
+<tr><th><b>LongName</b></th><th><b>Name</b></th><th><b>HasAddress</b></th><th><b>AddressLines</b></th><th><b>Town</b></th><th><b>PostalCode</b></th><th><b>Country</b></th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td><a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a></td><td>Required if there is no Site Address</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_buildingcommon.htm">Pset_BuildingCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>YearOfConstruction</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsLandmarked</td><td><a href="../../ifcmeasureresource/lexical/ifclogical.htm">IfcLogical</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/storey-attributes.htm">Storey Attributes</a></td><td>LongName<br/>Name<br/>CompositionType<br/>Elevation</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcproductextension/qset/qto_buildingstoreybasequantities.htm">Qto_BuildingStoreyBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>NetHeigtht</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a></td><td>IsDecomposedBy</td><td><table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>&nbsp;</td><td>Space Contained in Building Storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>&nbsp;</td><td>Building Storey Contained in Building</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-container.htm">Spatial Container</a></td><td>ContainsElements</td><td><table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></td><td>Elements Contained in Building Storey</td></tr>
+</table>
+</td><td>R</td><td>-</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/covering-attributes.htm">Covering Attributes</a></td><td>Name<br/>Description<br/>PredefinedType</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/covering-material.htm">Covering Material</a></td><td>HasAssociations</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>ContainedInStructure</td><td><table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Covering Contained in Space</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_coveringbasequantities.htm">Qto_CoveringBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/covering-typing.htm">Covering Typing</a></td><td>IsTypedBy</td><td></td><td>-</td><td>O</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcsharedbldgserviceelements/lexical/ifcdistributionflowelement.htm">IfcDistributionFlowElement</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/mep-attributes.htm">MEP Attributes</a></td><td>Name<br/>Description</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/mep-typing.htm">MEP Typing</a></td><td>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/material-constituent-set.htm">Material Constituent Set</a></td><td>HasAssociations</td><td></td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedcomponentelements/pset/pset_elementcomponentcommon.htm">Pset_ElementComponentCommon</a></td><td></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlobalTradeItemNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>ContainedInStructure</td><td><table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>MEP Contained in Space</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/door-attributes.htm">Door Attributes</a></td><td>Tag<br/>OverallHeight<br/>OverallWidth<br/>OperationType<br/>UserDefinedOperationType<br/>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/door-typing.htm">Door Typing</a></td><td>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/material-single.htm">Material Single</a></td><td>HasAssociations</td><td></td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_doorcommon.htm">Pset_DoorCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>Status</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcproductextension/pset/penum_elementstatus.htm">PEnum_ElementStatus</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FireRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>AcousticRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SecurityRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>DurabilityRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HygrothermalRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>WaterTightnessRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>MechanicalLoadRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>WindLoadRating</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Infiltration</td><td><a href="../../ifcmeasureresource/lexical/ifcvolumetricflowratemeasure.htm">IfcVolumetricFlowRateMeasure</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ThermalTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcthermaltransmittancemeasure.htm">IfcThermalTransmittanceMeasure</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlazingAreaFraction</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HandicapAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FireExit</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HasDrive</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SelfClosing</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SmokeStop</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_doorwindowglazingtype.htm">Pset_DoorWindowGlazingType</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlassLayers</td><td><a href="../../ifcmeasureresource/lexical/ifccountmeasure.htm">IfcCountMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlassThickness1</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlassThickness2</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlassThickness3</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FillGas</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlassColor</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsTempered</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsLaminated</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsCoated</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsWired</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>VisibleLightReflectance</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>VisibleLightTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SolarAbsorption</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SolarReflectance</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SolarTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SolarHeatGainTransmittance</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ShadingCoefficient</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ThermalTransmittanceSummer</td><td><a href="../../ifcmeasureresource/lexical/ifcthermaltransmittancemeasure.htm">IfcThermalTransmittanceMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ThermalTransmittanceWinter</td><td><a href="../../ifcmeasureresource/lexical/ifcthermaltransmittancemeasure.htm">IfcThermalTransmittanceMeasure</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufactureroccurrence.htm">Pset_ManufacturerOccurrence</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>AcquisitionDate</td><td><a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BarCode</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SerialNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BatchReference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlobalTradeItemNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_doorbasequantities.htm">Qto_DoorBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>Height</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>Area</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>ContainedInStructure</td><td><table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>Door Contained in Building Storey (Fall back, if space containment is not possible, requires provision of space boundaries)</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Door Contained in Space</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/element-space-boundaries.htm">Element Space Boundaries</a></td><td>ProvidesBoundaries</td><td></td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcfurnishingelement.htm">IfcFurnishingElement</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/furnishing-attributes.htm">Furnishing Attributes</a></td><td>Name<br/>Description</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/furnishing-typing.htm">Furnishing Typing</a></td><td>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/material-single.htm">Material Single</a></td><td>HasAssociations</td><td></td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pope_furniturecommon.htm">POpe_FurnitureCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FurnitureLength</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FurnitureDepth</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>FurnitureHeight</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufactureroccurrence.htm">Pset_ManufacturerOccurrence</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>AcquisitionDate</td><td><a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BarCode</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>SerialNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>BatchReference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GlobalTradeItemNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td></tr>
+<tr><td><a href="../../templates/enumerated-value.htm">Enumerated Value</a></td><td>AssemblyPlace</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td><a href="../../ifcsharedfacilitieselements/pset/penum_assemblyplace.htm">PEnum_AssemblyPlace</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>ContainedInStructure</td><td><table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Furniture Contained in Space.</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/project-units.htm">Project Units</a></td><td>UnitsInContext<br/>Phase<br/>ObjectType<br/>LongName</td><td><table class="gridtable">
+<tr><th><b>HasUnits</b></th><th><b>DerivedUnitType</b></th><th><b>SIUnitType</b></th><th><b>SIUnitName</b></th><th><b>ConversionUnitType</b></th><th><b>ConversionUnitName</b></th></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">AREAUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">LENGTHUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+<tr><td><a href="../../ifcmeasureresource/lexical/ifcunitassignment.htm">IfcUnitAssignment</a></td><td></td><td><a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">VOLUMEUNIT</a></td><td></td><td></td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a></td><td>IsDecomposedBy</td><td><table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>Site Contained in Project</td><td>Required if site is available (otherwise use IfcBuilding)</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Building Contained in Project</td><td>Required if site is not available</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/project-attributes.htm">Project Attributes</a></td><td>GlobalId<br/>Name<br/>Description</td><td></td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/site-attributes.htm">Site Attributes</a></td><td>LongName<br/>Name<br/>CompositionType<br/>LandTitleNumber<br/>RefLatitude<br/>RefLongitude<br/>RefElevation<br/>SiteAddress</td><td><table class="gridtable">
+<tr><th><b>LongName</b></th><th><b>Name</b></th><th><b>Latitude</b></th><th><b>Longitude</b></th><th><b>Elevation</b></th><th><b>HasAddress</b></th><th><b>Description</b></th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><a href="../../ifcactorresource/lexical/ifcpostaladdress.htm">IfcPostalAddress</a></td><td>Site address is required if there is no Building Address</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a></td><td>IsDecomposedBy</td><td><table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a></td><td>Site contained in project.</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>Building Contained in Site</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/space-attributes.htm">Space Attributes</a></td><td>LongName<br/>Name<br/>CompositionType<br/>ElevationWithFlooring<br/>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classifiaction reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcproductextension/qset/qto_spacebasequantities.htm">Qto_SpaceBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>FinishCeilingHeight</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>NetPerimeter</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossFloorArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetFloorArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossWallArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetWallArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>GrossCeilingArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>NetCeilingArea</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_spacecommon.htm">Pset_SpaceCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GrossPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>NetPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>PubliclyAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HandicapAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_spacecoveringrequirements.htm">Pset_SpaceCoveringRequirements</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>CeilingCovering</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Molding</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedFlooring</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ConcealedCeiling</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-container.htm">Spatial Container</a></td><td>ContainsElements</td><td><table class="gridtable">
+<tr><th><b>Type</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a></td><td>Element Contained in Space</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td>Covering Contained in Space (If not defined by properties)</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></td><td>Window Contained in Space (If not defined by space boundary assignment)</td></tr>
+<tr><td><a href="../../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a></td><td>Door Contained in Space (If not defined by space boundary assignment)</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/space-boundaries-1st-level.htm">Space Boundaries 1st Level</a></td><td>BoundedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-decomposition.htm">Spatial Decomposition</a></td><td>IsDecomposedBy</td><td><table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>SpatialElementName</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>&nbsp;</td><td>Space as part of the building structure.</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/system-attributes.htm">System Attributes</a></td><td>Name<br/>Description</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pope_systemcommon.htm">POpe_SystemCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/component-system-assignment.htm">Component System Assignment</a></td><td>HasAssignments</td><td><table class="gridtable">
+<tr><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a></td><td>Components Assigned to Systems.</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsystem.htm">IfcSystem</a></td><td>Subsystems Assigned to Systems.</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/system-services-spatial-elements.htm">System Services Spatial Elements</a></td><td>ServicesBuildings</td><td><table class="gridtable">
+<tr><th><b>Building Structure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>System Assigned to Storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>System Assigned to Building</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>System Assigned to Site</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/window-attributes.htm">Window Attributes</a></td><td>Tag<br/>OverallHeight<br/>OverallWidth<br/>PartitioningType<br/>UserDefinedPartitioningType<br/>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/quantity-sets.htm">Quantity Sets</a></td><td>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>QsetName</b></th><th><b>Quantities</b></th></tr>
+<tr><td><a href="../../ifcsharedbldgelements/qset/qto_windowbasequantities.htm">Qto_WindowBaseQuantities</a></td><td><table class="gridtable"><tr><th>Template</th><th>QuantityName</th><th>LengthValue</th><th>AreaValue</th><th>VolumeValue</th><th>WeightValue</th><th>CountValue</th><th>TimeValue</th></tr>
+<tr><td><a href="../../templates/length-quantity.htm">Length Quantity</a></td><td>Height</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/area-quantity.htm">Area Quantity</a></td><td>Area</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/spatial-containment.htm">Spatial Containment</a></td><td>ContainedInStructure</td><td><table class="gridtable">
+<tr><th><b>RelatingStructure</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>Window Contained in Building Storey</td></tr>
+<tr><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Window Contained in Space</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/window-typing.htm">Window Typing</a></td><td>IsTypedBy</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/element-space-boundaries.htm">Element Space Boundaries</a></td><td>ProvidesBoundaries</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td></td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/material-constituent-set.htm">Material Constituent Set</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>ConstituentName</b></th><th><b>Description</b></th></tr>
+<tr><td>base material</td><td>name of the material</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedbldgelements/pset/pset_windowcommon.htm">Pset_WindowCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcsharedfacilitieselements/pset/pset_manufacturertypeinformation.htm">Pset_ManufacturerTypeInformation</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th><th>UpperValue</th><th>LowerValue</th><th>SetValue</th><th>Reference</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ArticleNumber</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelReference</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ModelLabel</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Manufacturer</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>ProductionYear</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td></td><td></td><td></td><td></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+<tr><td colspan="5"><b><a href="../../ifcproductextension/lexical/ifczone.htm">IfcZone</a></b></td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/zone-attributes.htm">Zone Attributes</a></td><td>Name<br/>Description</td><td></td><td>-</td><td>R</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/classification.htm">Classification</a></td><td>HasAssociations</td><td><table class="gridtable">
+<tr><th><b>Name</b></th><th><b>Source</b></th><th><b>ClassificationName</b></th><th><b>Tokens</b></th></tr>
+<tr><td>Classification Reference</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/property-sets-for-objects.htm">Property Sets for Objects</a></td><td>PredefinedType<br/>IsDefinedBy</td><td><table class="gridtable">
+<tr><th><b>PredefinedType</b></th><th><b>PsetName</b></th><th><b>Properties</b></th></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pset_zonecommon.htm">Pset_ZoneCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>IsExternal</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>GrossPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>NetPlannedArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>PubliclyAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>HandicapAccessible</td><td><a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a></td></tr>
+</table></td></tr>
+<tr><td>&nbsp;</td><td><a href="../../ifcproductextension/pset/pope_systemcommon.htm">POpe_SystemCommon</a></td><td><table class="gridtable"><tr><th>Template</th><th>PropertyName</th><th>Value</th></tr>
+<tr><td><a href="../../templates/single-value.htm">Single Value</a></td><td>Reference</td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a></td></tr>
+</table></td></tr>
+</table>
+</td><td>-</td><td>O</td></tr>
+<tr><td>&nbsp;&nbsp;<a href="../../templates/group-assignment.htm">Group Assignment</a></td><td>IsGroupedBy</td><td><table class="gridtable">
+<tr><th><b>IsGrouped</b></th><th><b>RelatedObjects</b></th><th><b>Description</b></th></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a></td><td><a href="../../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>Spaces Assigned to Zone.</td></tr>
+<tr><td><a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a></td><td><a href="../../ifcproductextension/lexical/ifczone.htm">IfcZone</a></td><td>Subzones Assigned to Zone.</td></tr>
+</table>
+</td><td>-</td><td>R</td></tr>
+</table>
+</p>

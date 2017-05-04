@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>Pset_Warranty</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 4 index3 4 index4 16 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.4.4.17");
+//-->
+</script>
+
+<h4 class="std">6.4.4.17 Pset_Warranty</h4>
+<p><span class="self-ref">PSET_TYPEDRIVENOVERRIDE</span>
+/
+<a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>
+</p><p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-2/index.htm">IFC4 Addendum 2</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedfacilitieselements/pset/pset_warranty.htm">Pset_Warranty</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WarrantyPeriod</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>IfcTimeMeasure</i> to <i>IfcDuration</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PointOfContact</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed from <i>P_REFERENCEVALUE</i> to <i>P_SINGLEVALUE</i>. <br/>Type changed from <i>IfcOrganization</i> to <i>IfcLabel</i>. <br/></td></tr>
+</table>
+<p></p>
+<p><b><u>Properties</u></b></p>
+
+<table class="gridtable">
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>WarrantyIdentifier</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>
+</td><td>
+The identifier assigned to a warranty.
+</td></tr>
+<tr><td>WarrantyStartDate</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>
+</td><td>
+The date on which the warranty commences.
+</td></tr>
+<tr><td>WarrantyEndDate</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcdatetimeresource/lexical/ifcdate.htm">IfcDate</a>
+</td><td>
+The date on which the warranty expires.
+</td></tr>
+<tr><td>IsExtendedWarranty</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifcboolean.htm">IfcBoolean</a>
+</td><td>
+Indication of whether this is an extended warranty whose duration is greater than that normally assigned to an artefact (=TRUE) or not (= FALSE).
+</td></tr>
+<tr><td>WarrantyPeriod</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcdatetimeresource/lexical/ifcduration.htm">IfcDuration</a>
+</td><td>
+The time duration during which a manufacturer or supplier guarantees or warrants the performance of an artefact.
+</td></tr>
+<tr><td>WarrantyContent</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>
+</td><td>
+The content of the warranty.
+</td></tr>
+<tr><td>PointOfContact</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>
+</td><td>
+The organization that should be contacted for action under the terms of the warranty. Note that the role of the organization (manufacturer, supplier, installer etc.) is determined by the IfcActorRole attribute of IfcOrganization.
+</td></tr>
+<tr><td>Exclusions</td><td>
+<span class="self-ref">P_SINGLEVALUE</span>
+/
+<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>
+</td><td>
+Items, conditions or actions that may be excluded from the warranty or that may cause the warranty to become void.
+</td></tr>
+</table>
+<p></p>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22pset_warranty%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/pset_warranty.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

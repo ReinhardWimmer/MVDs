@@ -1,0 +1,154 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcGeometricRepresentationSubContext</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 18 index3 3 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.4");
+//-->
+</script>
+
+<h4 class="num">IfcGeometricRepresentationSubContext</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precision</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>REAL</i> to <i>IfcReal</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoordinateOperation</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precision</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>REAL</i> to <i>IfcReal</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcGeometricRepresentationSubContext</span> defines the context that applies to several shape representations of a product being a sub context, sharing the <i>WorldCoordinateSystem</i>, <i>CoordinateSpaceDimension</i>, <i>Precision</i> and <i>TrueNorth</i> attributes with the parent <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>.</p>
+
+<p>The <span class="self-ref">IfcGeometricRepresentationSubContext</span> is used to define semantically distinguished representation types for different information content, dependent on the representation view and the target scale. It can be used to control the level of detail of the shape representation that is most applicable to this geometric representation context. In addition the sub context is used to control the later appearance of the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> within a plot view.</p>
+
+<blockquote class="note">
+NOTE&nbsp; If the <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a> using this sub context has<i> IfcStyledItem</i>'s assigned to the <i>Items</i>, the presentation style information (e.g. <a href="../../ifcpresentationappearanceresource/lexical/ifccurvestyle.htm">IfcCurveStyle</a>, <a href="../../ifcpresentationappearanceresource/lexical/ifctextstyle.htm">IfcTextStyle</a>) associated with the <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> is given in target plot dimensions. For example, a line thickness (<i>IfcCurveStyle.CurveWidth</i>) is given by a thickness measure relating to the thickness for a plot within the (range of) target scale.
+</blockquote>
+
+<p>Each <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a> can then have several instances of subtypes of <a href="../../ifcrepresentationresource/lexical/ifcrepresentation.htm">IfcRepresentation</a>, each being assigned to a different <span class="self-ref">IfcGeometricRepresentationSubContext</span>). The applicable values for the inherited <i>ContextIdentifier</i> attribute shall be identical to the <i>RepresentationIdentifier</i> attrubute defined at <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>.</p>
+
+<blockquote class="note">
+NOTE&nbsp; The provision of a model view (<i>IfcGeometricRepresentationContext.ContextType</i> = 'Model') is mandatory. Instances of <span class="self-ref">IfcGeometricRepresentationSubContext</span> relate to it as its <i>ParentContext</i>.
+</blockquote>
+
+<blockquote class="example">
+EXAMPLE&nbsp; Instances of <span class="self-ref">IfcGeometricRepresentationSubContext</span> can be used to handle the multi-view blocks or macros, which are used in CAD programs to store several scale and/or view dependent geometric representations of the same object. The application can then choose the most appropriate representation for showing the geometric shape of the product, depending on the target view and scale.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>7</td><td>ParentContext</td><td><a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a></td><td></td><td>
+Parent context from which the sub context derives its world coordinate system, precision, space coordinate dimension and true north.</td><td>X</td></tr>
+<tr><td>8</td><td>TargetScale</td><td><a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a></td><td>? </td><td>
+The target <font color="#ff0000">plot</font> scale of the representation 
+to which this representation context applies.
+<blockquote class="note">NOTE&nbsp; Scale indicates the target plot scale for
+the representation sub context, all annotation styles are given in plot
+dimensions according to this target plot scale.<br>
+If multiple instances of <span class="self-ref">IfcGeometricRepresentationSubContext</span>
+are given having the same <i>TargetView</i> value, the target plot scale 
+applies up to the next smaller scale, or up to unlimited small scale.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Scale 1:100 (given as 0.01 within <i>TargetScale</i>)
+is bigger then 1:200 (given as 0.005 within <i>TargetScale</i>).</blockquote></td><td>X</td></tr>
+<tr><td>9</td><td>TargetView</td><td><a href="../../ifcrepresentationresource/lexical/ifcgeometricprojectionenum.htm">IfcGeometricProjectionEnum</a></td><td></td><td>
+Target view of the representation to which this representation context applies.</td><td>X</td></tr>
+<tr><td>10</td><td>UserDefinedTargetView</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+User defined target view, this attribute value shall be given, if the TargetView attribute is set to USERDEFINED.</td><td>X</td></tr>
+<tr><td></td><td>WorldCoordinateSystem<br/>:=ParentContext.WorldCoordinateSystem</td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement.htm">IfcAxis2Placement</a></td><td></td><td></td>
+<td>X</td></tr>
+<tr><td></td><td>CoordinateSpaceDimension<br/>:=ParentContext.CoordinateSpaceDimension</td><td><a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a></td><td></td><td></td>
+<td>X</td></tr>
+<tr><td></td><td>TrueNorth<br/>:=NVL(ParentContext.TrueNorth, IfcConvertDirectionInto2D(SELF\IfcGeometricRepresentationContext.WorldCoordinateSystem.P[2]))</td><td><a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a></td><td></td><td></td>
+<td>X</td></tr>
+<tr><td></td><td>Precision<br/>:=NVL(ParentContext.Precision,1.E-5)</td><td><a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a></td><td></td><td></td>
+<td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>ParentNoSub</td><td>The parent context shall not be another geometric representation sub context.</td></tr>
+<tr><td>UserTargetProvided</td><td>The attribute <i>UserDefinedTargetView</i> shall be given, if the attribute <i>TargetView</i> is set to USERDEFINED.</td></tr>
+<tr><td>NoCoordOperation</td><td>An <a href="../../ifcrepresentationresource/lexical/ifccoordinateoperation.htm">IfcCoordinateOperation</a> shall not be provided to a geometric representation sub context, only to the parent geometric representation context.
+<blockquote class="note">NOTE&nbsp; The coordinate operation is used to define the coordinate transformation of the project engineering coordinate system to a geographic coordinate reference system.</blockquote></td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>-temp&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:restriction base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&lt;xs:element name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>-temp&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TargetScale&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TargetView&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcgeometricprojectionenum.htm">IfcGeometricProjectionEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;UserDefinedTargetView&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcGeometricRepresentationSubContext<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>)<b>;</b><br/>
+&nbsp;&nbsp;ParentContext : <a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>;<br/>
+&nbsp;&nbsp;TargetScale : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositiveratiomeasure.htm">IfcPositiveRatioMeasure</a>;<br/>
+&nbsp;&nbsp;TargetView : <a href="../../ifcrepresentationresource/lexical/ifcgeometricprojectionenum.htm">IfcGeometricProjectionEnum</a>;<br/>
+&nbsp;&nbsp;UserDefinedTargetView : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;<span class="keyword">DERIVE</span><br/>
+&nbsp;&nbsp;<span class="keyword">SELF</span>\IfcGeometricRepresentationContext.WorldCoordinateSystem : <a href="../../ifcgeometryresource/lexical/ifcaxis2placement.htm">IfcAxis2Placement</a> := ParentContext.WorldCoordinateSystem;<br/>
+&nbsp;&nbsp;<span class="keyword">SELF</span>\IfcGeometricRepresentationContext.CoordinateSpaceDimension : <a href="../../ifcgeometryresource/lexical/ifcdimensioncount.htm">IfcDimensionCount</a> := ParentContext.CoordinateSpaceDimension;<br/>
+&nbsp;&nbsp;<span class="keyword">SELF</span>\IfcGeometricRepresentationContext.TrueNorth : <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a> := NVL(ParentContext.TrueNorth, IfcConvertDirectionInto2D(SELF\IfcGeometricRepresentationContext.WorldCoordinateSystem.P[2]));<br/>
+&nbsp;&nbsp;<span class="keyword">SELF</span>\IfcGeometricRepresentationContext.Precision : <a href="../../ifcmeasureresource/lexical/ifcreal.htm">IfcReal</a> := NVL(ParentContext.Precision,1.E-5);<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;ParentNoSub : NOT(&#39;IFCREPRESENTATIONRESOURCE.<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationsubcontext.htm">IfcGeometricRepresentationSubContext</a>&#39; IN TYPEOF(ParentContext));<br/>&nbsp;&nbsp;UserTargetProvided :  (TargetView &lt;&gt; <a href="../../ifcrepresentationresource/lexical/ifcgeometricprojectionenum.htm">IfcGeometricProjectionEnum</a>.USERDEFINED) OR <br/>
+((TargetView =  <a href="../../ifcrepresentationresource/lexical/ifcgeometricprojectionenum.htm">IfcGeometricProjectionEnum</a>.USERDEFINED) AND EXISTS(UserDefinedTargetView)) ;<br/>&nbsp;&nbsp;NoCoordOperation : SIZEOF(SELF\<a href="../../ifcrepresentationresource/lexical/ifcgeometricrepresentationcontext.htm">IfcGeometricRepresentationContext</a>.HasCoordinateOperation) = 0;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcgeometricrepresentationsubcontext%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcgeometricrepresentationsubcontext.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

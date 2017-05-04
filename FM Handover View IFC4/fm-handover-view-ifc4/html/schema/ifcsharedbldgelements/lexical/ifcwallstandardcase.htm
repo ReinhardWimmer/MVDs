@@ -1,0 +1,123 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcWallStandardCase</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 47 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.48");
+//-->
+</script>
+
+<h4 class="num">IfcWallStandardCase</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcWallStandardCase</span> defines a wall with certain
+constraints for the provision of parameters and with certain
+constraints for the geometric representation. The
+<span class="self-ref">IfcWallStandardCase</span> handles all cases of walls, that are
+extruded vertically:</p>
+<ul>
+<li>along the positive z axis of the wall object coordinate system,
+and</li>
+<li>along the positve z axis of the global (world) coordinate
+system</li>
+</ul>
+<p>and have a single thickness along the path for each wall layer,
+i.e.:</p>
+<ul>
+<li>parallel sides for straight walls</li>
+<li>co-centric sides for curved walls.</li>
+</ul>
+<p>and have either:</p>
+<ul>
+<li>a straight line axis (straight wall), or</li>
+<li>a circular arc axis (round wall).</li>
+</ul>
+<p>and shall not have</p>
+<ul>
+<li>aggregated components, that is, parts aggregated to a wall by <a href="../../ifckernel/lexical/ifcrelaggregates.htm">IfcRelAggregates</a></li>
+<li>shape representation for 'Body' not being an extrusion, or clipped extrusion</li>
+</ul>
+<p>The following parameter have to be provided:</p>
+<ul>
+<li>Wall height, taken from the depth of extrusion, provided by the geometric representation.</li>
+<li>Wall thickness, taken from the material layer set usage, attached to the wall</li>
+<li>Wall offset from axis, taken from the material layer set usage, attached to the wall</li>
+</ul>
+<p>The <span class="self-ref">IfcWallStandardCase</span> requires the provision of the wall axis either a straight line that is parallel to the x-axis of the object coordinate system, or a circular arc where the tangent at start is parallel to the x-axis of the object coordinate system. The direction of the wall axis shall be the positive direction of
+that x-axis.</p>
+<p>The material of the wall is defined by the <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a> and is attached by the <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a> objectified relationship. It is
+accessible by the inverse <i>HasAssociations</i> relationship. The material layer set usage has to be given (enforced by where rule).</p>
+
+<p>An 'Axis' and a 'Body' shape representation has to be provided, and it is invalid to exchange a 'Tessellation', 'SurfaceModel', 'Brep' or 'MappedRepresentation' representation for the 'Body' shape representation of the <span class="self-ref">IfcWallStandardCase</span>.
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+
+
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>HasMaterialLayerSetUsage</td><td>A valid instance of <span class="self-ref">IfcWallStandardCase</span> relies on the provision of an <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcWallStandardCase<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;HasMaterialLayerSetUsage : SIZEOF (QUERY(temp &lt;* USEDIN(SELF, &#39;IFCKERNEL.<a href="../../ifckernel/lexical/ifcrelassociates.htm">IfcRelAssociates</a>.RELATEDOBJECTS&#39;) |<br/>
+              (&#39;IFCPRODUCTEXTENSION.<a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a>&#39; IN TYPEOF(temp)) AND<br/>
+              (&#39;IFCMATERIALRESOURCE.<a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>&#39; IN TYPEOF(temp.RelatingMaterial))<br/>
+              )) = 1;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcwallstandardcase%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcwallstandardcase.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcStructuralLoadGroup</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 7 index3 3 index4 15 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.16");
+//-->
+</script>
+
+<h4 class="num">IfcStructuralLoadGroup</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralloadgroup.htm">IfcStructuralLoadGroup</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The entity <span class="self-ref">IfcStructuralLoadGroup</span> is used to structure the
+physical impacts.  By using the grouping features inherited from <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>, instances of
+<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a> (or its subclasses) and of <span class="self-ref">IfcStructuralLoadGroup</span> can be used to
+define load groups, load cases and load combinations.  (See also <a href="../../ifcstructuralanalysisdomain/lexical/ifcloadgrouptypeenum.htm">IfcLoadGroupTypeEnum</a>.)</p>
+
+<blockquote class="note">
+NOTE&nbsp; Important functionality for the description of a load-bearing system
+is derived from the existing IFC entity <a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>.  This class provides, via the relationship
+class <a href="../../ifckernel/lexical/ifcrelassignstogroup.htm">IfcRelAssignsToGroup</a>, the needed grouping mechanism.  In this way, instances of
+<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a> belonging to a specific load group can be unambiguously determined.
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; The relationship class <a href="../../ifckernel/lexical/ifcrelassignstogroupbyfactor.htm">IfcRelAssignsToGroupByFactor</a> is
+used to group load cases into load combinations.  The factor provided in this assignment relationship
+is to applied together with the optional <i>IfcStructuralLoadGroup.Coefficient</i>.  Unlike this
+coefficient which always affects the load group, the <i>IfcRelAssignsToGroupByFactor.Factor</i> is
+specific for a load case&mdash;load combination pair.  As many instances of
+<a href="../../ifckernel/lexical/ifcrelassignstogroupbyfactor.htm">IfcRelAssignsToGroupByFactor</a> are used within one load combination as there are different
+<i>Factor</i>s to be applied to load cases in the load combination.
+On the other hand, a load case may appear in more than one load combination
+and can have a different <i>Factor</i> in each assignment by <a href="../../ifckernel/lexical/ifcrelassignstogroupbyfactor.htm">IfcRelAssignsToGroupByFactor</a>.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Subtype <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadcase.htm">IfcStructuralLoadCase</a> added.  Informal propositions and WHERE rule added.
+Predefined type LOAD_COMBINATION_GROUP made obsolete and removed.
+</blockquote>
+
+<p class="spec-head">Informal Propositions:</p>
+
+<ol>
+  <li>Load groups of type LOAD_GROUP shall only contain instances of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>.</li>
+  <li>Load groups of type LOAD_CASE shall always be instantiated from the subtype <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadcase.htm">IfcStructuralLoadCase</a>,
+      not directly from the generic type <span class="self-ref">IfcStructuralLoadGroup</span> itself.</li>
+  <li>Instances of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadcase.htm">IfcStructuralLoadCase</a> shall only contain instances of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>
+      or/ and instances of <span class="self-ref">IfcStructuralLoadGroup</span> of type LOAD_GROUP.</li>
+  <li>Load groups of type LOAD_COMBINATION shall only contain instances of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadcase.htm">IfcStructuralLoadCase</a>.</li>
+</ol><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>6</td><td>PredefinedType</td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcloadgrouptypeenum.htm">IfcLoadGroupTypeEnum</a></td><td></td><td>
+Selects a predefined type for the load group.  It can be differentiated between load groups, load cases, load combinations, or userdefined grouping levels.
+</td><td>X</td></tr>
+<tr><td>7</td><td>ActionType</td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcactiontypeenum.htm">IfcActionTypeEnum</a></td><td></td><td>
+Type of actions in the group. Normally needed if 'PredefinedType' specifies a LOAD_CASE.</td><td>X</td></tr>
+<tr><td>8</td><td>ActionSource</td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcactionsourcetypeenum.htm">IfcActionSourceTypeEnum</a></td><td></td><td>
+Source of actions in the group. Normally needed if 'PredefinedType' specifies a LOAD_CASE.</td><td>X</td></tr>
+<tr><td>9</td><td>Coefficient</td><td><a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a></td><td>? </td><td>
+Load factor. If omitted, a factor is not yet known or not specified. A load factor of 1.0 shall be explicitly exported as Coefficient = 1.0.</td><td>X</td></tr>
+<tr><td>10</td><td>Purpose</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Description of the purpose of this instance. Among else, possible values of the Purpose of load combinations are 'SLS', 'ULS', 'ALS' to indicate serviceability, ultimate, or accidental limit state.</td><td>X</td></tr>
+<tr><td></td><td><i>SourceOfResultGroup</i></td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralresultgroup.htm">IfcStructuralResultGroup</a><br/>@ResultForLoadGroup</td><td>S[0:1]</td><td>Results which were computed using this load group.</td><td>X</td></tr>
+<tr><td></td><td><i>LoadGroupFor</i></td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a><br/>@LoadedBy</td><td>S[0:?]</td><td>Analysis models in which this load group is used.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>HasObjectType</td><td>The attribute ObjectType shall be given if the predefined type, action type, or action source is set to USERDEFINED.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadgroup.htm">IfcStructuralLoadGroup</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadgroup.htm">IfcStructuralLoadGroup</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadgroup.htm">IfcStructuralLoadGroup</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcloadgrouptypeenum.htm">IfcLoadGroupTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActionType&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcactiontypeenum.htm">IfcActionTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ActionSource&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcactionsourcetypeenum.htm">IfcActionSourceTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Coefficient&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Purpose&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcStructuralLoadGroup<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralloadcase.htm">IfcStructuralLoadCase</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcgroup.htm">IfcGroup</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <a href="../../ifcstructuralanalysisdomain/lexical/ifcloadgrouptypeenum.htm">IfcLoadGroupTypeEnum</a>;<br/>
+&nbsp;&nbsp;ActionType : <a href="../../ifcstructuralanalysisdomain/lexical/ifcactiontypeenum.htm">IfcActionTypeEnum</a>;<br/>
+&nbsp;&nbsp;ActionSource : <a href="../../ifcstructuralanalysisdomain/lexical/ifcactionsourcetypeenum.htm">IfcActionSourceTypeEnum</a>;<br/>
+&nbsp;&nbsp;Coefficient : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcratiomeasure.htm">IfcRatioMeasure</a>;<br/>
+&nbsp;&nbsp;Purpose : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;SourceOfResultGroup : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralresultgroup.htm">IfcStructuralResultGroup</a> <span class="keyword">FOR</span> ResultForLoadGroup;<br/>
+&nbsp;&nbsp;LoadGroupFor : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a> <span class="keyword">FOR</span> LoadedBy;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;HasObjectType : (<br/>
+  (PredefinedType &lt;&gt; <a href="../../ifcstructuralanalysisdomain/lexical/ifcloadgrouptypeenum.htm">IfcLoadGroupTypeEnum</a>.USERDEFINED) AND<br/>
+  (ActionType &lt;&gt; <a href="../../ifcstructuralanalysisdomain/lexical/ifcactiontypeenum.htm">IfcActionTypeEnum</a>.USERDEFINED) AND<br/>
+  (ActionSource &lt;&gt; <a href="../../ifcstructuralanalysisdomain/lexical/ifcactionsourcetypeenum.htm">IfcActionSourceTypeEnum</a>.USERDEFINED)<br/>
+) OR EXISTS(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType);<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcstructuralloadgroup%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcstructuralloadgroup.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

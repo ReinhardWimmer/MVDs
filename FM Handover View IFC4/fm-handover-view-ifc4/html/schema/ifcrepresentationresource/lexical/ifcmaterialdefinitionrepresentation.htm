@@ -1,0 +1,138 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcMaterialDefinitionRepresentation</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 18 index3 3 index4 5 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.18.3.6");
+//-->
+</script>
+
+<h4 class="num">IfcMaterialDefinitionRepresentation</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>
+ <span class="self-ref">IfcMaterialDefinitionRepresentation</span> defines presentation information relating to <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>. It
+ allows for multiple presentations of the same material for different geometric representation contexts.
+</p>
+<blockquote class="note">
+ NOTE&nbsp; The <span class="self-ref">IfcMaterialDefinitionRepresentation</span> is currently only used to define presentation information to
+ material used at element occurrences, defined as subtypes of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>, or at element types, defined as subtypes
+ of <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>. The <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a> is assigned to the subtype of <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>, or <a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>
+ using the <a href="../../ifcproductextension/lexical/ifcrelassociatesmaterial.htm">IfcRelAssociatesMaterial</a> relationship (eventually via other material related entities
+ <a href="../../ifcmaterialresource/lexical/ifcmateriallayersetusage.htm">IfcMaterialLayerSetUsage</a>, <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>, <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>, or
+ <a href="../../ifcmaterialresource/lexical/ifcmaterialprofilesetusage.htm">IfcMaterialProfileSetUsage</a>, <a href="../../ifcmaterialresource/lexical/ifcmaterialprofileset.htm">IfcMaterialProfileSet</a>, <a href="../../ifcmaterialresource/lexical/ifcmaterialprofile.htm">IfcMaterialProfile</a>).
+</blockquote>
+<p>
+ The <span class="self-ref">IfcMaterialDefinitionRepresentation</span> can apply
+</p>
+<ul>
+ <li>different presentation styles for different representation contexts, for example, a different style for
+  sketch view, model view or plan view, or for different target scales,
+ </li>
+ <li>for each representation context is can apply curve style, fill area style (hatching), symbol, text and surface style.
+ </li>
+</ul>
+<blockquote class="history">
+ HISTORY&nbsp; New entity in IFC2x3.
+</blockquote>
+<blockquote class="change-ifc2x3">
+ IFC2x3 CHANGE&nbsp; The entity <span class="self-ref">IfcMaterialDefinitionRepresentation</span> has been added.
+ Upward compatibility for file based exchange is guaranteed.
+</blockquote>
+<blockquote class="change-ifc2x4">
+ IFC4 CHANGE&nbsp; The assignment of curve, surface and other styles to an <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> has been simplified
+ by <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleassignmentselect.htm">IfcStyleAssignmentSelect</a>. The use of intermediate <a href="../../ifcpresentationappearanceresource/lexical/ifcpresentationstyleassignment.htm">IfcPresentationStyleAssignment</a> is deprecated.
+</blockquote>
+<p>&nbsp;</p>
+<p class="use-head">
+ Use definition
+</p>
+
+    <table border="0" cellpadding="0" cellspacing="0" summary=
+    "use diagram">
+      <tr>
+        <td valign="top">
+          <img src=
+          "../../../figures/ifcmaterialdefinitionrepresentation_01.png" alt=
+          "use diagram" border="0">
+        </td>
+	<td>As shown in Figure 243, the presentation assignment can be
+      specific to a representation context by adding one and more
+      <a href="../../ifcrepresentationresource/lexical/ifcstyledrepresentation.htm">IfcStyledRepresentation</a>'s. Each of them includes a
+      single <a href="../../ifcpresentationappearanceresource/lexical/ifcstyleditem.htm">IfcStyledItem</a> with exactly zero or one style
+      for either curve, fill area, surface, text or symbol style
+      that is applicable.</td>
+      </tr>
+      <tr>
+        <td>
+          <p class="figure">Figure 243 &mdash; Material definition representation</p>
+        </td>
+	<td>&nbsp;</td>
+      </tr>
+    </table><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>4</td><td>RepresentedMaterial</td><td><a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a></td><td></td><td>
+Reference to the material to which the representation applies.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>OnlyStyledRepresentations</td><td>Only representations of type <a href="../../ifcrepresentationresource/lexical/ifcstyledrepresentation.htm">IfcStyledRepresentation</a> should be used to represent material through the <i>IfcMaterialRepresentation</i>.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcmaterialdefinitionrepresentation.htm">IfcMaterialDefinitionRepresentation</a>&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcmaterialdefinitionrepresentation.htm">IfcMaterialDefinitionRepresentation</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcrepresentationresource/lexical/ifcmaterialdefinitionrepresentation.htm">IfcMaterialDefinitionRepresentation</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcMaterialDefinitionRepresentation<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a>)<b>;</b><br/>
+&nbsp;&nbsp;RepresentedMaterial : <a href="../../ifcmaterialresource/lexical/ifcmaterial.htm">IfcMaterial</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;OnlyStyledRepresentations : SIZEOF(QUERY(temp &lt;* Representations | <br/>
+  (NOT(&#39;IFCREPRESENTATIONRESOURCE.<a href="../../ifcrepresentationresource/lexical/ifcstyledrepresentation.htm">IfcStyledRepresentation</a>&#39; IN TYPEOF(temp)))<br/>
+)) = 0;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcrepresentationresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmaterialdefinitionrepresentation%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmaterialdefinitionrepresentation.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

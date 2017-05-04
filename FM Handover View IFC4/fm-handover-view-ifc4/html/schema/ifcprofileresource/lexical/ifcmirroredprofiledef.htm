@@ -1,0 +1,142 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcMirroredProfileDef</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 15 index3 3 index4 13 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.14");
+//-->
+</script>
+
+<h4 class="num">IfcMirroredProfileDef</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcMirroredProfileDef</span> defines the profile by mirroring the parent profile about the y axis of the parent profile coordinate system. That is, left and right of the parent profile are swapped.</p>
+
+<p>Notes:</p>
+
+<p><span class="self-ref">IfcMirroredProfileDef</span> is primarily useful together with
+<a href="../../ifcprofileresource/lexical/ifccshapeprofiledef.htm">IfcCShapeProfileDef</a>, <a href="../../ifcprofileresource/lexical/ifclshapeprofiledef.htm">IfcLShapeProfileDef</a>,
+<a href="../../ifcprofileresource/lexical/ifcushapeprofiledef.htm">IfcUShapeProfileDef</a>, or <a href="../../ifcprofileresource/lexical/ifczshapeprofiledef.htm">IfcZShapeProfileDef</a> as
+parent profile but can be used with other parent profile types as well.</p>
+
+<p>Mirroring of an <a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a> is performed after
+translation and rotation according to its <i>Position</i> attribute.
+For example, if the parent profile's <i>Position</i> offsets it by half
+of its width to the right, then the mirrored profile will be offset by
+half of its width to the left.</p>
+
+<p>Mirroring about the x axis, i.e. swapping top and bottom, can be
+achieved by mirroring about the y axis coupled with 180 degree rotation
+about the z axis.
+In general, rotation happens in a containing object such as
+<a href="../../ifcgeometricmodelresource/lexical/ifcsweptareasolid.htm">IfcSweptAreaSolid</a>, i.e. after mirroring by <span class="self-ref">IfcMirroredProfileDef</span>
+was performed.
+If the parent profile is an <a href="../../ifcprofileresource/lexical/ifcparameterizedprofiledef.htm">IfcParameterizedProfileDef</a>, rotation
+can alternatively happen already in the parent profile by means of its
+<i>Position</i> attribute, i.e. before mirroring by <span class="self-ref">IfcMirroredProfileDef</span>
+was performed.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td></td><td>Operator<br/>:=
+IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+IfcCartesianTransformationOperator(
+    -- Axis1
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcDirection([-1., 0.]),
+    -- Axis2
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcDirection([ 0., 1.]),
+    -- LocalOrigin
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcPoint() || IfcCartesianPoint([0., 0.]),
+    -- Scale
+    1.) ||
+IfcCartesianTransformationOperator2D()</td><td><a href="../../ifcgeometryresource/lexical/ifccartesiantransformationoperator2d.htm">IfcCartesianTransformationOperator2D</a></td><td></td><td></td>
+<td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>-temp&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:restriction base=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ParentProfile&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&lt;xs:element name=&quot;<a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>-temp&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcMirroredProfileDef<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcprofileresource/lexical/ifcderivedprofiledef.htm">IfcDerivedProfileDef</a>)<b>;</b><br/>
+&nbsp;<span class="keyword">DERIVE</span><br/>
+&nbsp;&nbsp;<span class="keyword">SELF</span>\IfcDerivedProfileDef.Operator : <a href="../../ifcgeometryresource/lexical/ifccartesiantransformationoperator2d.htm">IfcCartesianTransformationOperator2D</a> := 
+IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+IfcCartesianTransformationOperator(
+    -- Axis1
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcDirection([-1., 0.]),
+    -- Axis2
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcDirection([ 0., 1.]),
+    -- LocalOrigin
+    IfcRepresentationItem() || IfcGeometricRepresentationItem() ||
+    IfcPoint() || IfcCartesianPoint([0., 0.]),
+    -- Scale
+    1.) ||
+IfcCartesianTransformationOperator2D();<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmirroredprofiledef%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmirroredprofiledef.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

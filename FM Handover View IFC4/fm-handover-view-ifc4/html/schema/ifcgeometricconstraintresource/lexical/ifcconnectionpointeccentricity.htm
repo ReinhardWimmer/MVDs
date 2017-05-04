@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcConnectionPointEccentricity</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 7 index3 3 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.7.3.3");
+//-->
+</script>
+
+<h4 class="num">IfcConnectionPointEccentricity</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcConnectionPointEccentricity</span> is used to describe the geometric constraints that facilitate the physical connection of two objects at a point or vertex point with associated point coordinates. There is a physical distance, or eccentricity, etween the connection points of both object. The eccentricity can be either given by:</p>
+<ul>
+<li>providing the <i>PointOnRelatingElement</i> and the <i>PointOnRelatedElement</i>, where both point coordinates are not identical within a common parent coordinate system (latestly within the world coordinate system),</li>
+<li>providing the <i>PointOnRelatingElement</i> and the three distance measures, <i>EccentricityInX</i>, <i>EccentricityInY</i>, and <i>EccentricityInZ</i> (or only <i>EccentricityInX</i>, and <i>EccentricityInY</i> if the
+underlying coordinate system is two-dimensional), or</li>
+<li>providing both.</li>
+</ul>
+
+<blockquote class="note">
+NOTE  If both, <i>PointOnRelatedElement</i>, and <i>EccentricityInX</i>, <i>EccentricityInY</i>, (<i>EccentricityInZ</i>) are provided, the values should be consistent. In case of any non-consistency, the calculated distance between <i>PointOnRelatingElement</i> and <i>PointOnRelatedElement</i> takes precedence.
+</blockquote>
+
+<p>The <a href="../../ifcgeometryresource/lexical/ifcpoint.htm">IfcPoint</a> (or the <a href="../../ifctopologyresource/lexical/ifcvertexpoint.htm">IfcVertexPoint</a> with an associated <a href="../../ifcgeometryresource/lexical/ifcpoint.htm">IfcPoint</a>) at the <i>PointOnRelatingElement</i> attribute defines the point where the basic geometry items of the connected elements connects. The point coordinates are provided within the local coordinate system of the <i>RelatingElement</i>, as specified at the <a href="../../ifckernel/lexical/ifcrelconnects.htm">IfcRelConnects</a> subtype that utilizes the <a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointgeometry.htm">IfcConnectionPointGeometry</a>. Optionally, the same point coordinates can also be provided within the local coordinate system of the <i>RelatedElement</i> by using the <i>PointOnRelatedElement</i> attribute, otherwise the distance to the point at the RelatedElement has to be given by the three eccentricity values.</p>
+
+<p>The explicit values for <i>EccentricityInX</i>, <i>EccentricityInY</i>, and <i>EccentricityInZ</i> are always
+measured in the following direction and coordinate system (defining when the value is positive or negative):</p>
+<ul>
+<li>from the <i>PointOnRelatedElement</i> to <i>PointOnRelatingElement</i> within the coordinate system of the <i>RelatingElement</i>.</li>
+<li>in addition: when used to specify connections in structural analysis models, the <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralmember.htm">IfcStructuralMember</a> is to be used as the <i>RelatingElement</i> of the relationship object utilizing <span class="self-ref">IfcConnectionPointEccentricity</span>, and the <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralconnection.htm">IfcStructuralConnection</a> is the <i>RelatedElement</i>.</li>
+</ul>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x3.
+</blockquote>
+
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>EccentricityInX</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Distance in x direction between the two points (or vertex points) engaged in the point connection.</td><td>X</td></tr>
+<tr><td>4</td><td>EccentricityInY</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Distance in y direction between the two points (or vertex points) engaged in the point connection.</td><td>X</td></tr>
+<tr><td>5</td><td>EccentricityInZ</td><td><a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a></td><td>? </td><td>
+Distance in z direction between the two points (or vertex points) engaged in the point connection.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointeccentricity.htm">IfcConnectionPointEccentricity</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointeccentricity.htm">IfcConnectionPointEccentricity</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointgeometry.htm">IfcConnectionPointGeometry</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointeccentricity.htm">IfcConnectionPointEccentricity</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointgeometry.htm">IfcConnectionPointGeometry</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EccentricityInX&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EccentricityInY&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;EccentricityInZ&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcConnectionPointEccentricity<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricconstraintresource/lexical/ifcconnectionpointgeometry.htm">IfcConnectionPointGeometry</a>)<b>;</b><br/>
+&nbsp;&nbsp;EccentricityInX : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+&nbsp;&nbsp;EccentricityInY : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+&nbsp;&nbsp;EccentricityInZ : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclengthmeasure.htm">IfcLengthMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricconstraintresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcconnectionpointeccentricity%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcconnectionpointeccentricity.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

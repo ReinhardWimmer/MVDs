@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcUnitEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 11 index3 2 index4 106 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.11.2.107");
+//-->
+</script>
+
+<h4 class="num">IfcUnitEnum</h4>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p><span class="self-ref">IfcUnitEnum</span> is an enumeration type for allowed unit types of <a href="../../ifcmeasureresource/lexical/ifcnamedunit.htm">IfcNamedUnit</a>.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New type in IFC1.5.1.
+</blockquote><p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>ABSORBEDDOSEUNIT</td><td></td></tr><tr><td>AMOUNTOFSUBSTANCEUNIT</td><td></td></tr><tr><td>AREAUNIT</td><td></td></tr><tr><td>DOSEEQUIVALENTUNIT</td><td></td></tr><tr><td>ELECTRICCAPACITANCEUNIT</td><td></td></tr><tr><td>ELECTRICCHARGEUNIT</td><td></td></tr><tr><td>ELECTRICCONDUCTANCEUNIT</td><td></td></tr><tr><td>ELECTRICCURRENTUNIT</td><td></td></tr><tr><td>ELECTRICRESISTANCEUNIT</td><td></td></tr><tr><td>ELECTRICVOLTAGEUNIT</td><td></td></tr><tr><td>ENERGYUNIT</td><td></td></tr><tr><td>FORCEUNIT</td><td></td></tr><tr><td>FREQUENCYUNIT</td><td></td></tr><tr><td>ILLUMINANCEUNIT</td><td></td></tr><tr><td>INDUCTANCEUNIT</td><td></td></tr><tr><td>LENGTHUNIT</td><td></td></tr><tr><td>LUMINOUSFLUXUNIT</td><td></td></tr><tr><td>LUMINOUSINTENSITYUNIT</td><td></td></tr><tr><td>MAGNETICFLUXDENSITYUNIT</td><td></td></tr><tr><td>MAGNETICFLUXUNIT</td><td></td></tr><tr><td>MASSUNIT</td><td></td></tr><tr><td>PLANEANGLEUNIT</td><td></td></tr><tr><td>POWERUNIT</td><td></td></tr><tr><td>PRESSUREUNIT</td><td></td></tr><tr><td>RADIOACTIVITYUNIT</td><td></td></tr><tr><td>SOLIDANGLEUNIT</td><td></td></tr><tr><td>THERMODYNAMICTEMPERATUREUNIT</td><td></td></tr><tr><td>TIMEUNIT</td><td></td></tr><tr><td>VOLUMEUNIT</td><td></td></tr><tr><td>USERDEFINED</td><td>User defined unit type. The type of unit is only implied by its name or the usage context.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcmeasureresource/lexical/ifcunitenum.htm">IfcUnitEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;absorbeddoseunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;amountofsubstanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;areaunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;doseequivalentunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electriccapacitanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electricchargeunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electricconductanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electriccurrentunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electricresistanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;electricvoltageunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;energyunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;forceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;frequencyunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;illuminanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;inductanceunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;lengthunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;luminousfluxunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;luminousintensityunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;magneticfluxdensityunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;magneticfluxunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;massunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;planeangleunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;powerunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;pressureunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;radioactivityunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;solidangleunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;thermodynamictemperatureunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;timeunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;volumeunit&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcUnitEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;ABSORBEDDOSEUNIT, <br/>&nbsp;AMOUNTOFSUBSTANCEUNIT, <br/>&nbsp;AREAUNIT, <br/>&nbsp;DOSEEQUIVALENTUNIT, <br/>&nbsp;ELECTRICCAPACITANCEUNIT, <br/>&nbsp;ELECTRICCHARGEUNIT, <br/>&nbsp;ELECTRICCONDUCTANCEUNIT, <br/>&nbsp;ELECTRICCURRENTUNIT, <br/>&nbsp;ELECTRICRESISTANCEUNIT, <br/>&nbsp;ELECTRICVOLTAGEUNIT, <br/>&nbsp;ENERGYUNIT, <br/>&nbsp;FORCEUNIT, <br/>&nbsp;FREQUENCYUNIT, <br/>&nbsp;ILLUMINANCEUNIT, <br/>&nbsp;INDUCTANCEUNIT, <br/>&nbsp;LENGTHUNIT, <br/>&nbsp;LUMINOUSFLUXUNIT, <br/>&nbsp;LUMINOUSINTENSITYUNIT, <br/>&nbsp;MAGNETICFLUXDENSITYUNIT, <br/>&nbsp;MAGNETICFLUXUNIT, <br/>&nbsp;MASSUNIT, <br/>&nbsp;PLANEANGLEUNIT, <br/>&nbsp;POWERUNIT, <br/>&nbsp;PRESSUREUNIT, <br/>&nbsp;RADIOACTIVITYUNIT, <br/>&nbsp;SOLIDANGLEUNIT, <br/>&nbsp;THERMODYNAMICTEMPERATUREUNIT, <br/>&nbsp;TIMEUNIT, <br/>&nbsp;VOLUMEUNIT, <br/>&nbsp;USERDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcmeasureresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcunitenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcunitenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

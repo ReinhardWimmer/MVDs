@@ -1,0 +1,94 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Material Association</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.4.2");
+//-->
+</script>
+
+<h3 class="std">4.4.2 Material Association</h3>
+<p>
+
+Any product or product type can have associated materials indicating the physical composition of an object.
+
+</p>     
+
+<blockquote class="example">EXAMPLE&nbsp; 
+
+An object can be comprised of a single material or a set of materials with a particular layout. Several
+
+ examples include:
+
+
+<ul>
+
+        
+<li class="small">a slab may have an associated layer of concrete;
+
+ </li>
+
+        
+<li class="small">a beam may have an associated I-Shape profile of steel;</li>
+
+        
+<li class="small">a door may have associated constituents for framing and glazing;</li>
+<li class="small">a port may have an associated profile and/or material flowing through it such as hot water.
+
+</li>
+
+      
+</ul>
+
+
+
+</blockquote>
+
+<p>Materials can have representations for surface styles indicating colors, textures, and light reflectance for 3D
+
+ rendering. Materials can have representations for fill styles indicating colors, tiles, and hatch patterns for
+
+ 2D rendering. Materials can have properties such as density, elasticity, thermal resistance, and others as
+
+ defined in this specification. Materials can also be classified according to a referenced industry standard.
+
+</p>
+
+ 
+
+
+
+<blockquote class="example">EXAMPLE&nbsp; Material information can also be given at object type, defining the common material data for all
+ occurrences of the same type. It is then accessible by the inverse 
+<i>IsTypedBy</i> relationship pointing
+ via <i>HasAssociations</i> and via
+ <i>IfcRelAssociatesMaterial.RelatingMaterial</i> to
+the material information. If both are 
+given, then the material directly assigned to object occurrence 
+overrides the material assigned to object type.
+</blockquote><p class="fig-ref">Figure 15 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Material Association" src="./diagrams/material-association.png" usemap="#f15"><map name="f15"><area shape="rect" coords="8,8,176,152" href="../ifckernel/lexical/ifcobjectdefinition.htm" alt="IfcObjectDefinition" /><area shape="rect" coords="208,8,376,92" href="../ifcproductextension/lexical/ifcrelassociatesmaterial.htm" alt="IfcRelAssociatesMaterial" /></map></td></tr><tr><td><p class="figure">Figure 15 &mdash; Material Association</p></td></tr></table>
+
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22material-association%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/material-association.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

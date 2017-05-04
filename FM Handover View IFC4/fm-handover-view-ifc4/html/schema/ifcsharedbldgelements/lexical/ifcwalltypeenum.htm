@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcWallTypeEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 2 index4 20 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.2.21");
+//-->
+</script>
+
+<h4 class="num">IfcWallTypeEnum</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcwalltypeenum.htm">IfcWallTypeEnum</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVABLE</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PARAPET</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PARTITIONING</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SOLIDWALL</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>This enumeration defines the different types of walls that can further specify an <a href="../../ifcsharedbldgelements/lexical/ifcwall.htm">IfcWall</a> or <a href="../../ifcsharedbldgelements/lexical/ifcwalltype.htm">IfcWallType</a>.</p>
+<blockquote class="history">HISTORY&nbsp; New enumeration in
+IFC2x2.</blockquote>
+<blockquote class="change-ifc2x2">IFC2x2 CHANGE&nbsp; The
+enumerator <i>POLYGON</i> has been changed to
+<i>POLYGONAL</i>.</blockquote>
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; The
+enumerators <i>ELEMENTEDWALL</i> and <i>PLUMBINGWALL</i> have
+been added.</blockquote>
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New
+enumerators MOVABLE, PARAPET, PARTITIONING, and SOLIDWALL have been
+added.<br>
+IFC4 DEPRECATION&nbsp; The enumerators STANDARD, POLYGONAL and
+ELEMENTEDWALL are deprecated and shall no longer be
+used.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; The potentially misleading term
+<i>SHEAR</i> shall not impose a particular resistance against
+shear forces, but a particular shape.</blockquote><p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>MOVABLE</td><td>A movable wall that is either movable, such as folding wall or a sliding wall, or can be easily removed as a removable partitioning or mounting wall. Movable walls do normally not define space boundaries and often belong to the furnishing system.</td></tr><tr><td>PARAPET</td><td>A wall-like barrier to protect human occupants from falling, or to prevent the spread of fires. Often designed at the edge of balconies, terraces or roofs.</td></tr><tr><td>PARTITIONING</td><td>A wall designed to partition spaces that often has a light-weight, sandwich-like construction (e.g. using gypsum board). Partitioning walls are normally non load bearing.</td></tr><tr><td>PLUMBINGWALL</td><td>A pier, or enclosure, or encasement, normally used to enclose plumbing in sanitary rooms. Such walls often do not extent to the ceiling.</td></tr><tr><td>SHEAR</td><td>A wall designed to withstand shear loads. Such shear walls are often designed having a non-rectangular cross section along the wall path. Also called retaining walls or supporting walls they are used to protect against soil layers behind.</td></tr><tr><td>SOLIDWALL</td><td>A massive wall construction for the wall core being the single layer or having multiple layers attached. Such walls are often masonry or concrete walls (both cast in-situ or precast) that are load bearing and fire protecting.</td></tr><tr><td>STANDARD</td><td>A standard wall, extruded vertically with a constant thickness along the wall path. <blockquote class="deprecated">The value is deprecated, it is expressed by choosing the subtype <em>IfcWallStandardCase</em>.</td></tr><tr><td>POLYGONAL</td><td>A polygonal wall, extruded vertically, where the wall thickness varies along the wall path.</td></tr><tr><td>ELEMENTEDWALL</td><td>A stud wall framed with studs and faced with sheetings, sidings, wallboard, or plasterwork. <blockquote class="deprecated">The value is deprecated, it is
+expressed by choosing the subtype <em>IfcWallElementedCase</em>.</td></tr><tr><td>USERDEFINED</td><td>User-defined wall element.</td></tr><tr><td>NOTDEFINED</td><td>Undefined wall element.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwalltypeenum.htm">IfcWallTypeEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;movable&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;parapet&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;partitioning&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;plumbingwall&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;shear&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;solidwall&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;standard&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;polygonal&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;elementedwall&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcWallTypeEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;MOVABLE, <br/>&nbsp;PARAPET, <br/>&nbsp;PARTITIONING, <br/>&nbsp;PLUMBINGWALL, <br/>&nbsp;SHEAR, <br/>&nbsp;SOLIDWALL, <br/>&nbsp;STANDARD, <br/>&nbsp;POLYGONAL, <br/>&nbsp;ELEMENTEDWALL, <br/>&nbsp;USERDEFINED, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcwalltypeenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcwalltypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

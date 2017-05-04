@@ -1,0 +1,211 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcStructuralActivity</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 7 index3 3 index4 4 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.5");
+//-->
+</script>
+
+<h4 class="num">IfcStructuralActivity</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The abstract entity <span class="self-ref">IfcStructuralActivity</span> combines the definition of actions (such as forces, displacements, etc.) and reactions (support reactions, internal forces, deflections, etc.) which are specified by using the basic load definitions from the <i>IfcStructuralLoadResource</i>.</p>
+
+<p>The differentiation between actions and reactions is realized by instantiating objects either from subclasses of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a> or <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a> respectively.  They inherit commonly needed attributes from the abstract superclass <span class="self-ref">IfcStructuralActivity</span>, notably the relationship which connects actions or reactions with connections, analysis members, or elements (subtypes of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a> or <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a>).</p>
+
+<blockquote class="note">
+NOTE&nbsp; Instances of <span class="self-ref">IfcStructuralActivity</span> which are connected with an <a href="../../ifcproductextension/lexical/ifcelement.htm">IfcElement</a> are subject to agreements outside the scope of this specification.</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; The semantics of <span class="self-ref">IfcStructuralActivity</span> are only fully defined
+if an activity instance is connected with exactly one structural item.  The inverse attribute
+<i>AssignedToStructuralItem</i> can only be empty in incomplete models or in conceptual models
+which are not yet ready for analysis.</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Cardinality of attribute
+<i>AssignedToStructuralItem</i> relaxed from 1 to 0..1 in order to allow for schema-compliant
+incomplete models as well as conceptual models without load&mdash;item relationships.</blockquote>
+
+<p><b><u>Coordinate Systems</u></b>:</p>
+
+<p>The following coordinate systems are distinguished:</p>
+
+<ul>
+  <li>The so-called global coordinate system is the coordinate system shared by all items and activities which are grouped in a common <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a>.  This coordinate system is established by an <i>ObjectPlacement</i>.  (This coordinate system is not necessarily the same as the <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a>'s world coordinate system.)</li>
+  <li>The so-called local coordinate system is a coordinate system local to a structural item (connection or member).  This coordinate system is established by a <i>Representation</i> in conjunction with further use definitions and attributes of subtypes of <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a>.</li>
+</ul>
+
+<p>Representation items in topology representations are always given within the <i>ObjectPlacement</i>, i.e. in so-called global coordinates (global with respect to the <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a> to which this activity belongs).</i>
+
+<p>Locations of the load objects in the <i>AppliedLoad</i> attribute (if of type <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a>) are always given in local coordinates.</p>
+
+<p>Directions of the load objects in the <i>AppliedLoad</i> attribute refer to global or local coordinates according to the <i>GlobalOrLocal</i> attribute.</p>
+
+<p>The <i>ObjectPlacement</i> and <i>Representation</i> are sometimes not explicitly instantiated; instead they may be implied as described below.  Global and local coordinate systems are then determined in the same way as with explicit placement and representation.</p>
+
+<p><b><u>Topology Use Definitions</u></b>:</p>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which are connected with a structural item of same dimensionality, i.e.</p>
+<ul>
+  <li>a point action or reaction connected with a point item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointconnection.htm">IfcStructuralPointConnection</a>),</li>
+  <li>a curve action or reaction connected with a curve item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveconnection.htm">IfcStructuralCurveConnection</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a>), or</li>
+  <li>a surface action or reaction connected with a surface item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceconnection.htm">IfcStructuralSurfaceConnection</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>) and which acts on the entire surface of the item and is not specified by isocontours</li>
+</ul>
+<p>shall not have an <i>ObjectPlacement</i> nor a <i>Representation</i>.  It is implied that the placement and representation of the <span class="self-ref">IfcStructuralActivity</span> is the same as the ones of the <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralitem.htm">IfcStructuralItem</a>.</p>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which are connected with</p>
+<ul>
+  <li>a curve item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveconnection.htm">IfcStructuralCurveConnection</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurvemember.htm">IfcStructuralCurveMember</a>) and act on a point of the item</li>, or
+  <li>a surface item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceconnection.htm">IfcStructuralSurfaceConnection</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>) and act on a point or on a curve or on a part of the surface of the item</li>
+</ul>
+<p>shall have a topology representation as specified below.  It includes a placement and a product representation. The <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a> shall be given by an item in a <i>Representation</i> of type <a href="../../ifcrepresentationresource/lexical/ifctopologyrepresentation.htm">IfcTopologyRepresentation</a>.</p>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which are connected with</p>
+<ul>
+  <li>a surface item (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfaceconnection.htm">IfcStructuralSurfaceConnection</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralsurfacemember.htm">IfcStructuralSurfaceMember</a>) and are specified by isocontours</li>
+</ul>
+<p>shall have a shape representation as specified below.  It includes a placement and a product representation. The <a href="../../ifcrepresentationresource/lexical/ifcproductrepresentation.htm">IfcProductRepresentation</a> shall be given by items in a <i>Representation</i> of type <a href="../../ifcrepresentationresource/lexical/ifcshaperepresentation.htm">IfcShapeRepresentation</a>.  Shape representation and topology representation may be combined.</p>
+
+<p><b>Local Placement</b></p>
+
+<p>The local placement for <span class="self-ref">IfcStructuralActivity</span> is defined in its supertype <a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>.  It is defined by the <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>, which establishes a global coordinate system which shall be common to all items and activities in an <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralanalysismodel.htm">IfcStructuralAnalysisModel</a>.</p>
+
+<p><b>Topology Representation</b></p>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which act on parts of a surface item shall have a topology representation given by a face with underlying surface geometry, <a href="../../ifctopologyresource/lexical/ifcfacesurface.htm">IfcFaceSurface</a>, which should be the single item of <i>IfcTopologyRepresentation.Items</i>.  The surface establishes a local coordinate system of the activity:</p>
+<ul>
+  <li>The origin of surface parameters u,v is the origin of the local coordinate system.</li>
+  <li>The local x and y directions follow the tangents on the surface and are in parallel with and directed like u and v respectively.</li>
+  <li>The local z direction is in parallel with and directed like the surface normal.</li>
+</ul>
+<blockquote>
+  <ul>
+    <li><i>RepresentationIdentifier</i>: 'Reference'</li>
+    <li><i>RepresentationType</i>: 'Face'</li>
+  </ul>
+</blockquote>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which act on a curve on a surface item shall have a topology representation given by an edge (<a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a> or subtype), which should be the single item of <i>IfcTopologyRepresentation.Items</i>.  The curve geometry shall be compatible with the surface geometry of the connected item.  In conjunction with this surface, the curve establishes a local coordinate system of the activity:</p>
+<ul>
+  <li>The origin of the curve parameter u is the origin of the local coordinate system.</li>
+  <li>The local x direction follows the tangent on the curve and is directed like u.</li>
+  <li>The local z direction is in parallel with and directed like the surface normal of the connected surface item.</li>
+  <li>The local x,y,z directions form a right-handed Cartesian coordinate system.</li>
+</ul>
+<blockquote>
+  <ul>
+    <li><i>RepresentationIdentifier</i>: 'Reference'</li>
+    <li><i>RepresentationType</i>: 'Edge'</li>
+  </ul>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; While an <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a> (or <a href="../../ifctopologyresource/lexical/ifcorientededge.htm">IfcOrientedEdge</a> with underlying <a href="../../ifctopologyresource/lexical/ifcedge.htm">IfcEdge</a>) does not provide an explicit underlying curve geometry, it may be used to imply an underlying straight line as reference curve with the origin of the curve parameter at the start vertex point.</blockquote>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which act on a single point on a curve or surface item shall have a topology representation given by an <a href="../../ifctopologyresource/lexical/ifcvertexpoint.htm">IfcVertexPoint</a>, which should be the single item of <i>IfcTopologyRepresentation.Items</i>.  The point geometry shall be compatible with the curve or surface geometry of the connected item.  The local coordinate system of the activity is oriented by the curve or surface geometry of the connected item as described above for activities with edge or face topology.</p>
+<blockquote>
+  <ul>
+    <li><i>RepresentationIdentifier</i>: 'Reference'</li>
+    <li><i>RepresentationType</i>: 'Vertex'</li>
+  </ul>
+</blockquote>
+
+<p><b>Shape Representation</b></p>
+
+<p>Instances of <span class="self-ref">IfcStructuralActivity</span> which act on a surface item and are specified by isocontours (level sets) shall have a shape representation given by a set of curves on a surface, <i>IfcPCurve</i>.  The basis surface shall comply with or preferably be identical with the surface of the structural item to which the activity is connected.  The representation identifier and type of this geometric representation is:</p>
+<blockquote>
+  <ul>
+    <li><i>RepresentationIdentifier</i>: 'Level set'</li>
+    <li><i>RepresentationType</i>: 'GeometricCurveSet'</li>
+  </ul>
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>8</td><td>AppliedLoad</td><td><a href="../../ifcstructuralloadresource/lexical/ifcstructuralload.htm">IfcStructuralLoad</a></td><td></td><td>
+Load or result resource object which defines the load type, direction, and load values.
+
+<p>In case of activities which are variably distributed over curves or surfaces, <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a> is used which provides a list of load samples and their locations within the load distribution, measured in local coordinates of the curve or surface on which this activity acts.  The contents of this load or result distribution may be further restricted by definitions at subtypes of <span class="self-ref">IfcStructuralActivity</span>.</p></td><td>X</td></tr>
+<tr><td>9</td><td>GlobalOrLocal</td><td><a href="../../ifcrepresentationresource/lexical/ifcglobalorlocalenum.htm">IfcGlobalOrLocalEnum</a></td><td></td><td>
+Indicates whether the load directions refer to the global coordinate system (global to
+the analysis model, i.e. as established by <i>IfcStructuralAnalysisModel.SharedPlacement</i>)
+or to the local coordinate system (local to the activity or connected item, as established by
+an explicit or implied representation and its parameter space).
+
+<blockquote class="note">NOTE, the informal definition of
+<i>IfcRepresentationResource.IfcGlobalOrLocalEnum</i> doe s not distinguish between
+&quot;global coordinate system&quot; and &quot;world coordinate system&quot;.
+On the other hand, this distinction is necessary in the <i>IfcStructuralAnalysisDomain</i>
+where the shared &quot;global&quot; coordinate system of an analysis model may very well
+not be the same as the project-wide world coordinate system.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; In the scope of <i>IfcStructuralActivity.GlobalOrLocal</i>,
+the meaning of GLOBAL_COORDS is therefore not to be taken as world coordinate system
+but as the analysis model specific shared coordinate system.  In contrast, LOCAL_COORDS
+is to be taken as coordinates which are local to individual structural items and activities,
+as established by subclass-specific geometry use definitions.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>AssignedToStructuralItem</i></td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm">IfcRelConnectsStructuralActivity</a><br/>@RelatedStructuralActivity</td><td>S[0:1]</td><td>Reference to the <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm">IfcRelConnectsStructuralActivity</a> relationship by which activities are connected with structural items.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;AppliedLoad&quot; type=&quot;ifc:<a href="../../ifcstructuralloadresource/lexical/ifcstructuralload.htm">IfcStructuralLoad</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;GlobalOrLocal&quot; type=&quot;ifc:<a href="../../ifcrepresentationresource/lexical/ifcglobalorlocalenum.htm">IfcGlobalOrLocalEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcStructuralActivity<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>, <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralreaction.htm">IfcStructuralReaction</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcproduct.htm">IfcProduct</a>)<b>;</b><br/>
+&nbsp;&nbsp;AppliedLoad : <a href="../../ifcstructuralloadresource/lexical/ifcstructuralload.htm">IfcStructuralLoad</a>;<br/>
+&nbsp;&nbsp;GlobalOrLocal : <a href="../../ifcrepresentationresource/lexical/ifcglobalorlocalenum.htm">IfcGlobalOrLocalEnum</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;AssignedToStructuralItem : <span class="keyword">SET</span> [0:1] OF <a href="../../ifcstructuralanalysisdomain/lexical/ifcrelconnectsstructuralactivity.htm">IfcRelConnectsStructuralActivity</a> <span class="keyword">FOR</span> RelatedStructuralActivity;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcstructuralactivity%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcstructuralactivity.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

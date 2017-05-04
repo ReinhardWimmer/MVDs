@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcProcess</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 1 index3 3 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.1.3.9");
+//-->
+</script>
+
+<h4 class="num">IfcProcess</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p><span class="self-ref">IfcProcess</span> is defined as one individual activity or event, that is ordered in time, that has sequence relationships with other processes, which transforms input in output, and may connect to other other processes through input output relationships. An <span class="self-ref">IfcProcess</span> can be an activity (or task), or an event. It takes usually place in building construction with the intent of designing, costing, acquiring, constructing, or maintaining products or other and
+similar tasks or procedures. Figure 54 illustrates process relationships.</p>
+
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO9000:<br> 
+A process is a set of activities that are interrelated or that interact with one another. Processes use resources to transform inputs 
+into outputs. Processes are interconnected because the output from one process becomes the input for another process. In effect,
+processes are "glued" together by means of such input output relationships.</blockquote>
+
+<table summary="">
+<tr valign="top">
+<td><img src="../../../figures/ifcprocess_icon_fig.png" alt="icon diagram"
+border="0"></td>
+</tr>
+<tr valign="top">
+<td>
+<p class="figure">Figure 54 &mdash; Process relationships and the ICON process diagram.</p>
+</td>
+</tr>
+</table>
+
+<p>Process information relates to other objects by establishing the following relationships:</p>
+<ul>
+<li><b>Nesting of processes</b> : <a href="../../ifckernel/lexical/ifcrelnests.htm">IfcRelNests</a> - A process can contain sub processes and thereby be nested.</li>
+<li><b>Sequencing of processes</b> : <a href="../../ifcprocessextension/lexical/ifcrelsequence.htm">IfcRelSequence</a> - Processes can be placed in sequence (including overlapping for parallel tasks), and have predecessors and successors.</li>
+<li><b>Assigning process to schedules</b> : <a href="../../ifckernel/lexical/ifcrelassignstocontrol.htm">IfcRelAssignsToControl</a> - Activities such as tasks, and predominately summary tasks, are assigned to a work schedule.</li>
+<li><b>Having a product assigned to the process as input</b> :
+<a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> - Products can be assigned as input to a process, such as for construction process planning.</li>
+<li><b>Having a product assigned to the process as output</b> :
+<a href="../../ifckernel/lexical/ifcrelassignstoproduct.htm">IfcRelAssignsToProduct</a> - Products can be assigned as output to a process, such as for construction process planning.</li>
+<li><b>Having a control assigned to the process as process control</b> : <a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> - Items that act as a
+control onto the process can be assigned to a process, such as for cost management (a cost item assigned to a work task).</li>
+<li><b>Having a resource assigned to the process as consumed by the process</b> : <a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> - Items that act
+as a mechanism to a process, such as labor, material and equipment in cost calculations.</li>
+</ul>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC1.0.
+</blockquote>
+
+<blockquote class="change-ifc2x">
+IFC2x CHANGE&nbsp; The attribute <i>Productivity</i> has been removed.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The attribute <i>Identification</i> has been promoted from subtypes <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a> and others.
+</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>6</td><td>Identification</td><td><a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a></td><td>? </td><td>
+    An identifying designation given to a process or activity.
+    It is the identifier at the occurrence level. 
+    <blockquote class="change-ifc2x4">IFC4 CHANGE  Attribute promoted from subtypes.</blockquote></td><td>X</td></tr>
+<tr><td>7</td><td>LongDescription</td><td><a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a></td><td>? </td><td>
+An extended description or narrative that may be provided.
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; New attribute.</blockquote></td><td>X</td></tr>
+<tr><td></td><td><i>IsPredecessorTo</i></td><td><a href="../../ifcprocessextension/lexical/ifcrelsequence.htm">IfcRelSequence</a><br/>@RelatingProcess</td><td>S[0:?]</td><td>Dependency between two activities, it refers to the subsequent activity for which this activity is the predecessor. The link between two activities can include a link type and a lag time. </td><td>X</td></tr>
+<tr><td></td><td><i>IsSuccessorFrom</i></td><td><a href="../../ifcprocessextension/lexical/ifcrelsequence.htm">IfcRelSequence</a><br/>@RelatedProcess</td><td>S[0:?]</td><td>Dependency between two activities, it refers to the previous activity for which this activity is the successor. The link between two activities can include a link type and a lag time. </td><td>X</td></tr>
+<tr><td></td><td><i>OperatesOn</i></td><td><a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a><br/>@RelatingProcess</td><td>S[0:?]</td><td>Set of relationships to other objects, e.g. products, processes, controls, resources or actors, that are operated on by the process.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>&quot; type=&quot;ifc:<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Identification&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;LongDescription&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcProcess<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcprocessextension/lexical/ifcevent.htm">IfcEvent</a>, <a href="../../ifcprocessextension/lexical/ifcprocedure.htm">IfcProcedure</a>, <a href="../../ifcprocessextension/lexical/ifctask.htm">IfcTask</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>)<b>;</b><br/>
+&nbsp;&nbsp;Identification : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcidentifier.htm">IfcIdentifier</a>;<br/>
+&nbsp;&nbsp;LongDescription : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifctext.htm">IfcText</a>;<br/>
+&nbsp;<span class="keyword">INVERSE</span><br/>
+&nbsp;&nbsp;IsPredecessorTo : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcprocessextension/lexical/ifcrelsequence.htm">IfcRelSequence</a> <span class="keyword">FOR</span> RelatingProcess;<br/>
+&nbsp;&nbsp;IsSuccessorFrom : <span class="keyword">SET</span> [0:?] OF <a href="../../ifcprocessextension/lexical/ifcrelsequence.htm">IfcRelSequence</a> <span class="keyword">FOR</span> RelatedProcess;<br/>
+&nbsp;&nbsp;OperatesOn : <span class="keyword">SET</span> [0:?] OF <a href="../../ifckernel/lexical/ifcrelassignstoprocess.htm">IfcRelAssignsToProcess</a> <span class="keyword">FOR</span> RelatingProcess;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifckernel/diagram_0009.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcprocess%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcprocess.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

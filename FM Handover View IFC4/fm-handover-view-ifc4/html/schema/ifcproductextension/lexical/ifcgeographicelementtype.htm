@@ -1,0 +1,148 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcGeographicElementType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 4 index3 3 index4 22 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.4.3.23");
+//-->
+</script>
+
+<h4 class="num">IfcGeographicElementType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcproductextension/lexical/ifcgeographicelementtype.htm">IfcGeographicElementType</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      An <span class="self-ref">IfcGeographicElementType</span> is used to define an
+      element specification of a geographic element (i.e. the
+      specific product information, that is common to all
+      occurrences of that product type). Geographic element types
+      include for different types of element that may be used to
+      represent information within a geographical landscape
+      external to a building. Within the world of geographic
+      information they are referred to generally as 'features'.
+      <span class="self-ref">IfcGeographicElementType</span>'s include:
+    </p>
+    <ul>
+      <li>point features such as seating, bus shelters, signage, trees;
+      </li>
+      <li>linear features such as layby's;
+      </li>
+      <li>area features such as ponds, lakes, woods and forests;
+      </li>
+      <li>drainage such as catchment, reserver or outfall.</li>
+    </ul>
+    <p>
+      The specification of the specific types are given by the
+      inherited attribute <i>IfcElementType.ElementType</i> given
+      as an <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>.
+    </p>
+    <p>
+      Geographic element types are frequently identified in feature
+      catalogs that are produced for particular purposes. The
+      <span class="self-ref">IfcGeographicElementType</span> entity enables the continued
+      use of existing feature catalogs through capture of their
+      identity and attributes.
+    </p>
+    <p>
+      Information from feature catalogs might be captured in
+      various ways:
+    </p>
+    <ul>
+      <li>via property sets, some of which will be specifically
+      defined within the IFC property set catalog whilst others
+      will be created for local use; this is the form of capture
+      that is expected to be most widely used
+      </li>
+      <li>through use of the IFC classification model whereby
+      features might be identified through an
+      <a href="../../ifcexternalreferenceresource/lexical/ifcclassificationreference.htm">IfcClassificationReference</a> with additional
+      description; in which case, any further attributes required
+      would still need to be captured in property sets.
+      </li>
+    </ul>
+    <blockquote class="note">
+      NOTE&nbsp; This is due to the range of choices of element type
+      thyat are available and their expression in different
+      languages. It is not considered possible to create a
+      reasonably full list of types within an enumeration. It is
+      suggested that selection of the relevant type be drawn from
+      an available 'feature catalog'.
+    </blockquote>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC4.
+    </blockquote>
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcproductextension/lexical/ifcgeographicelementtypeenum.htm">IfcGeographicElementTypeEnum</a></td><td></td><td>
+Predefined types to define the particular type of the geographic element. There may be property set definitions available for each predefined type.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>The inherited attribute <i>ElementType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED. </td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcproductextension/lexical/ifcgeographicelementtype.htm">IfcGeographicElementType</a>&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcgeographicelementtype.htm">IfcGeographicElementType</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcproductextension/lexical/ifcgeographicelementtype.htm">IfcGeographicElementType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcgeographicelementtypeenum.htm">IfcGeographicElementTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcGeographicElementType<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <a href="../../ifcproductextension/lexical/ifcgeographicelementtypeenum.htm">IfcGeographicElementTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : (PredefinedType &lt;&gt; <a href="../../ifcproductextension/lexical/ifcgeographicelementtypeenum.htm">IfcGeographicElementTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcproductextension/lexical/ifcgeographicelementtypeenum.htm">IfcGeographicElementTypeEnum</a>.USERDEFINED) AND EXISTS(SELF\<a href="../../ifcproductextension/lexical/ifcelementtype.htm">IfcElementType</a>.ElementType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcproductextension/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcgeographicelementtype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcgeographicelementtype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

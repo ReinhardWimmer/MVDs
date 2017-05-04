@@ -1,0 +1,167 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcRightCircularCylinder</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 30 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.31");
+//-->
+</script>
+
+<h4 class="num">IfcRightCircularCylinder</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcRightCircularCylinder</span> is a Construction Solid Geometry (CSG) 3D primitive. It is a solid with a
+circular base and top. The cylindrical surface between if formed by points at a fixed distance from the axis of the
+cylinder. The inherited <i>Position</i> attribute defines the <i>IfcAxisPlacement3D</i> and provides:</p>
+<ul>
+<li><i>SELF\IfcCsgPrimitive3D.Position</i>: The location and orientation of the axis system for the primitive.</li>
+<li><i>SELF\IfcCsgPrimitive3D.Position.Location</i>: The center of the circular area being the bottom face of the
+cylinder.</li>
+<li><i>SELF\IfcCsgPrimitive3D.Position.Position[3]:</i> The z axis provides the center axis and the height is
+measured from the origin along the positive direction of the z axis.</li>
+</ul>
+<p>Figure 160 illustrates geometric parameters of the cylinder. The cylinder is positioned within its own placement
+coordiante system. The origin is the center of the bottom circular disk, that lies in the XY plane. The center of the
+top circular disk is on the positive z axis at [0, 0, <i>Height</i>].</p>
+<table summary="geometry">
+<tr>
+<td><img alt="cylinder" src="../../../figures/ifcrightcircularcylinder-layout1.png" height="300" width="400"></td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 160 &mdash; Right circular cylinder geometry</p>
+</td>
+</tr>
+</table>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+A right circular cylinder is a CSG primitive in the form of a solid cylinder of finite height. It is defined by an axis
+point at the centre of one planar circular face, an axis, a height, and a radius. The faces are perpendicular to the
+axis and are circular discs with the specified radius. The height is the distance from the first circular face centre
+in the positive direction of the axis to the second circular face centre.</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>right_circular_cylinder</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x3.</blockquote>
+<p class="use-head">Texture use definition</p>
+<p>On the circular side, textures are aligned facing upright with origin at the back (+Y direction) revolving
+counter-clockwise. Textures are stretched or repeated to the extent of the circumference according to RepeatS. Textures
+are stretched or repeated to the extent of the <i>Height</i> according to RepeatT.</p>
+<p>On the top and bottom faces, textures are aligned facing front-to-back, with the center of the circle aligned to the
+center of the texture.</p>
+<p>Figure 161 illustrates default texture mapping with a clamped texture (RepeatS=False and RepeatT=False). The image
+on the left shows the texture where the S axis points to the right and the T axis points up. The image on the right
+shows the texture applied to the geometry where the X axis points back to the right, the Y axis points back to the
+left, and the Z axis points up.</p>
+<table summary="texture" class="gridtable">
+<tr>
+<td><img alt="texture" src="../../../figures/ifcrightcircularcylinder-texture.png"></td>
+</tr>
+<tr>
+<td>
+<table summary="texture" width="512" class="gridtable">
+<tr>
+<th>Side</th>
+<th>Normal</th>
+<th>Origin&nbsp;X</th>
+<th>Origin&nbsp;Y</th>
+<th>Origin&nbsp;Z</th>
+<th>S&nbsp;Axis</th>
+<th>T&nbsp;Axis</th>
+</tr>
+<tr>
+<td>Side</td>
+<td>+Y</td>
+<td>0</td>
+<td>+Radius</td>
+<td>0</td>
+<td>-X</td>
+<td>+Z</td>
+</tr>
+<tr>
+<td>Bottom</td>
+<td>-Z</td>
+<td>-Radius</td>
+<td>+Radius</td>
+<td>0</td>
+<td>+X</td>
+<td>-Y</td>
+</tr>
+<tr>
+<td>Top</td>
+<td>+Z</td>
+<td>-Radius</td>
+<td>-Radius</td>
+<td>+Height</td>
+<td>+X</td>
+<td>+Y</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 161 &mdash; Right circular cylinder textures</p>
+</td>
+</tr>
+</table><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>Height</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The distance between the planar circular faces of the cylinder.</td><td>X</td></tr>
+<tr><td>3</td><td>Radius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The radius of the cylinder.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcrightcircularcylinder.htm">IfcRightCircularCylinder</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcrightcircularcylinder.htm">IfcRightCircularCylinder</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcrightcircularcylinder.htm">IfcRightCircularCylinder</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Height&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Radius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcRightCircularCylinder<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifccsgprimitive3d.htm">IfcCsgPrimitive3D</a>)<b>;</b><br/>
+&nbsp;&nbsp;Height : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;Radius : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcrightcircularcylinder%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcrightcircularcylinder.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcMetric</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 3 index3 3 index4 1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.3.3.2");
+//-->
+</script>
+
+<h4 class="num">IfcMetric</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcconstraintresource/lexical/ifcmetric.htm">IfcMetric</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreationTime</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>IfcDateTimeSelect</i> to <i>IfcDateTime</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReferencePath</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcconstraintresource/lexical/ifcmetric.htm">IfcMetric</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataValue</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PropertiesForConstraint</td><td></td><td></td><td>ADDED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConstrainedResources</td><td></td><td></td><td>DELETED</td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConstrainedObjects</td><td></td><td></td><td>DELETED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+    <p>
+      An <span class="self-ref">IfcMetric</span> is used to capture quantitative
+      resultant metrics that can be applied to objectives.
+    </p>
+    <p>
+      <span class="self-ref">IfcMetric</span> is a subtype of <a href="../../ifcconstraintresource/lexical/ifcconstraint.htm">IfcConstraint</a> and
+      may be associated with any subtype of <a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>
+      through the <a href="../../ifccontrolextension/lexical/ifcrelassociatesconstraint.htm">IfcRelAssociatesConstraint</a> relationship
+      in the <i>IfcControlExtension</i> schema, or may be
+      associated with <a href="../../ifcpropertyresource/lexical/ifcproperty.htm">IfcProperty</a> by
+      <a href="../../ifcconstraintresource/lexical/ifcresourceconstraintrelationship.htm">IfcResourceConstraintRelationship</a>.
+    </p>
+    <p>
+      The aim of <span class="self-ref">IfcMetric</span> is to capture the quantitative
+      aspects of a constraint.
+    </p>
+
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2.0.
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; ReferencePath attribute added for indicating the value to be constrained along a path of attribute references.
+    </bloclquote>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>8</td><td>Benchmark</td><td><a href="../../ifcconstraintresource/lexical/ifcbenchmarkenum.htm">IfcBenchmarkEnum</a></td><td></td><td>
+Enumeration that identifies the type of benchmark data.
+</td><td>X</td></tr>
+<tr><td>9</td><td>ValueSource</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+Reference source for data values. 
+
+If <i>DataValue</i> refers to an <a href="../../ifcutilityresource/lexical/ifctable.htm">IfcTable</a>, this attribute identifies the relevent column identified by <a href="../../ifcutilityresource/lexical/ifctablecolumn.htm">IfcTableColumn</a>.<i>Identifier</i>.
+</td><td>X</td></tr>
+<tr><td>10</td><td>DataValue</td><td><a href="../../ifcconstraintresource/lexical/ifcmetricvalueselect.htm">IfcMetricValueSelect</a></td><td>? </td><td>
+The value to be compared on associated objects. A null value indicates comparison to null.
+<blockquote class="change-ifc4">IFC4 ADD1 CHANGE&nbsp;  This attribute is now optional.</blockquote>
+</td><td>X</td></tr>
+<tr><td>11</td><td>ReferencePath</td><td><a href="../../ifcconstraintresource/lexical/ifcreference.htm">IfcReference</a></td><td>? </td><td>
+Optional path to an attribute to be constrained on associated objects.
+If provided, the metric may be validated by resolving the path to the current value on associated object(s), and comparing such value with <i>DataValue</i> according to the <i>Benchmark</i>.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcconstraintresource/lexical/ifcmetric.htm">IfcMetric</a>&quot; type=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcmetric.htm">IfcMetric</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcconstraint.htm">IfcConstraint</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcconstraintresource/lexical/ifcmetric.htm">IfcMetric</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcconstraint.htm">IfcConstraint</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;DataValue&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:group ref=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcmetricvalueselect.htm">IfcMetricValueSelect</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;ReferencePath&quot; type=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcreference.htm">IfcReference</a>&quot; nillable=&quot;true&quot; minOccurs=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Benchmark&quot; type=&quot;ifc:<a href="../../ifcconstraintresource/lexical/ifcbenchmarkenum.htm">IfcBenchmarkEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ValueSource&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcMetric<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcconstraintresource/lexical/ifcconstraint.htm">IfcConstraint</a>)<b>;</b><br/>
+&nbsp;&nbsp;Benchmark : <a href="../../ifcconstraintresource/lexical/ifcbenchmarkenum.htm">IfcBenchmarkEnum</a>;<br/>
+&nbsp;&nbsp;ValueSource : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;&nbsp;DataValue : <span class="keyword">OPTIONAL</span> <a href="../../ifcconstraintresource/lexical/ifcmetricvalueselect.htm">IfcMetricValueSelect</a>;<br/>
+&nbsp;&nbsp;ReferencePath : <span class="keyword">OPTIONAL</span> <a href="../../ifcconstraintresource/lexical/ifcreference.htm">IfcReference</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcconstraintresource/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmetric%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmetric.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

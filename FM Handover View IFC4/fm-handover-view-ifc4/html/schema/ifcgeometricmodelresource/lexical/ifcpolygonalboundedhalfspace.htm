@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcPolygonalBoundedHalfSpace</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 24 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.25");
+//-->
+</script>
+
+<h4 class="num">IfcPolygonalBoundedHalfSpace</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometricmodelresource/lexical/ifcpolygonalboundedhalfspace.htm">IfcPolygonalBoundedHalfSpace</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AgreementFlag</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The polygonal bounded half space is a special subtype of a half space solid, where the material of the half space
+used in Boolean expressions is bounded by a polygonal boundary. The base surface of the half space is positioned by its
+normal relative to the object coordinate system (as defined at the supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>),&nbsp;and its
+polygonal (with or without arc segments) boundary is defined in the XY plane of the position coordinate system
+established by the <i>Position</i> attribute, the subtraction body is extruded perpendicular to the XY plane of the
+position coordinate system, that is, into the direction of the positive Z axis defined by the <i>Position</i>
+attribute.</p>
+<p>The boundary is defined by a 2 dimensional polyline (or 2 dimensional composite curve, consisting of straight
+segments and circular arc segments) within the XY plane of the position coordinate system. The side of the surface
+which is in the half space is determined by the surface normal and the agreement flag. If the agreement flag is TRUE,
+then the subset is the one the normal points away from. If the agreement flag is FALSE, then the subset is the one the
+normal points into.</p>
+<blockquote class="note">NOTE&nbsp; A polygonal bounded half space is not a subtype of <a href="../../ifcgeometricmodelresource/lexical/ifcsolidmodel.htm">IfcSolidModel</a>, half
+space solids are only useful as operands in Boolean expressions.</blockquote>
+<p>Figure 149 illustrates a polygonal bounded half space.</p>
+<table border="0" cellpadding="2" cellspacing="2" summary="illustration">
+<tr>
+<td width="650"><img src="../../../figures/ifcpolygonalboundedhalfspace-layout1.png" border=
+"0" height="480" width="640" alt="polygonal bounded halfspace"></td>
+<td>
+<ul>
+<li class="small">Black coordinates indicate the object coordinate system (usually provided by <a href="../../ifcgeometricconstraintresource/lexical/ifclocalplacement.htm">IfcLocalPlacement</a>).</li>
+<li class="small">Green coordinates indicate the position coordinate system; the <i>PolygonalBoundary</i> is given within this
+coordinate system. It is provided by <i>IfcPolygonalBoundedHalfSpace.Position</i>. This coordinate system is relative
+to the object coordinate system. The extrusion direction of the subtraction body is the positive Z axis.</li>
+<li class="small">Red coordinates indicate the normal of the plane. It is provided by the <i>BaseSurface</i>
+(<i>IfcSurface.Position</i>). This normal is also relative to the object coordinate system.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<p class="figure">Figure 149 &mdash; Polygonal half space geometry</p>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>
+The polygonal bounded half space is used to limit the volume of the half space in Boolean difference expressions. Only
+the part that is defined by a theoretical intersection between the half space solid and an extruded area solid, defined
+by extruding the polygonal boundary, is used for Boolean expressions.</p>
+<p>
+The <i>PolygonalBoundary</i> defines the 2D polyline which bounds the effectiveness of the half space in Boolean
+expressions. The <i>BaseSurface</i> is defined by a plane, and the normal of the plane together with the
+<i>AgreementFlag</i> defines the side of the material of the half space.</p>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x.</blockquote>
+<p class="spec-head">Informal Propositions:</p>
+<ol>
+<li>The <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> or the <a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a> providing the <i>PolygonalBoundary</i> shall be closed.</li>
+<li>If the <i>PolygonalBoundary</i> is given by an <a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a>, it shall only have
+<a href="../../ifcgeometryresource/lexical/ifccompositecurvesegment.htm">IfcCompositeCurveSegment</a>'s of type <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>, or <a href="../../ifcgeometryresource/lexical/ifctrimmedcurve.htm">IfcTrimmedCurve</a> (having a
+<i>BasisCurve</i> of type <a href="../../ifcgeometryresource/lexical/ifcline.htm">IfcLine</a>, or <a href="../../ifcgeometryresource/lexical/ifccircle.htm">IfcCircle</a>)</li>
+<li>The <i>BaseSurface</i> defined at supertype <a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a> shall be of type <a href="../../ifcgeometryresource/lexical/ifcplane.htm">IfcPlane</a></li>
+<li>The normal of the plane, being the <i>BaseSurface</i>, shall not be perpendicular to the z-axis of the position coordinate system</li>
+</ol><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Position</td><td><a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a></td><td></td><td>
+<p>Definition of the position coordinate system for the bounding polyline <STRIKE>and the base surface</STRIKE>.</p></td><td>X</td></tr>
+<tr><td>4</td><td>PolygonalBoundary</td><td><a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a></td><td></td><td>
+Two-dimensional <strike>polyline</strike> bounded curve, defined in the xy plane of the position coordinate system.
+<blockquote class="change-ifc2x3">IFC2x3 CHANGE&nbsp; The attribute type has been changed from <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> to its supertype <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a> with upward compatibility for file based exchange.</blockquote></td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>BoundaryDim</td><td>The bounding polyline should have the dimensionality of 2.</td></tr>
+<tr><td>BoundaryType</td><td>Only bounded curves of type <a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a>, or <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a> are valid boundaries.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcpolygonalboundedhalfspace.htm">IfcPolygonalBoundedHalfSpace</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcpolygonalboundedhalfspace.htm">IfcPolygonalBoundedHalfSpace</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcpolygonalboundedhalfspace.htm">IfcPolygonalBoundedHalfSpace</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Position&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;PolygonalBoundary&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcPolygonalBoundedHalfSpace<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifchalfspacesolid.htm">IfcHalfSpaceSolid</a>)<b>;</b><br/>
+&nbsp;&nbsp;Position : <a href="../../ifcgeometryresource/lexical/ifcaxis2placement3d.htm">IfcAxis2Placement3D</a>;<br/>
+&nbsp;&nbsp;PolygonalBoundary : <a href="../../ifcgeometryresource/lexical/ifcboundedcurve.htm">IfcBoundedCurve</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;BoundaryDim : PolygonalBoundary.Dim = 2;<br/>&nbsp;&nbsp;BoundaryType : SIZEOF(TYPEOF(PolygonalBoundary) * [<br/>
+  &#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>&#39;, <br/>
+  &#39;IFCGEOMETRYRESOURCE.<a href="../../ifcgeometryresource/lexical/ifccompositecurve.htm">IfcCompositeCurve</a>&#39;]<br/>
+) = 1;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcpolygonalboundedhalfspace%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcpolygonalboundedhalfspace.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

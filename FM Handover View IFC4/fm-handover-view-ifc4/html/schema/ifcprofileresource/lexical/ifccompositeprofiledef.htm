@@ -1,0 +1,140 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCompositeProfileDef</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 15 index3 3 index4 7 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.15.3.8");
+//-->
+</script>
+
+<h4 class="num">IfcCompositeProfileDef</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcCompositeProfileDef</span>
+defines the profile by composition of other profiles. The composition
+is given by a set of at least two other profile definitions. Any
+profile definition (except for another composite profile) can be used
+to construct the composite. </p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x.
+</blockquote>
+
+<p>Figure 314 illustrates the composite profile definition. The <span class="self-ref">IfcCompositeProfileDef</span> does not define an own position coordinate system, it is directly defined in the underlying coordinate system. The underlying coordinate system is defined by the swept surface or swept area solid that uses the profile definition. It is the xy plane of either:</p>
+      <ul>
+        <li><i>IfcSweptSurface.Position</i></li>
+        <li><i>IfcSweptAreaSolid.Position</i></li>
+      </ul>
+<p>Or in case of sectioned spines it is the xy plane of each list member of <i>IfcSectionedSpine.CrossSectionPositions</i>. The <span class="self-ref">IfcCompositeProfileDef</span> is defined using other profile definitions. Those other profile definitions are directly inserted into the underlying coordinate system.</p>
+      <ul>
+        <li>In case of parameterized profile definitions, the <i>Position</i> attribute of those standard profiles is used to place the profiles relatively to each other.</li>
+        <li>In case of arbitrary profile definitions, each Cartesian coordinate is given directly within the underlying coordinate system.</li>
+      </ul>
+
+<blockquote class="note">
+NOTE&nbsp; The black coordinate axes show the underlying coordinate system of the swept surface or swept area solid.
+</blockquote>
+
+<table>
+<tr><td style="vertical-align: top; text-align: left; width: 400px;"><img src="../../../figures/ifccompositeprofiledef-layout1.gif" alt="composite" border="0" height="300" width="400"></td></tr>
+<tr><td><p class="figure">Figure 314</p></td></tr>
+</table>
+
+<p class="use-head">Twin profiles special case</p>
+
+<p>If twin profiles are modeled by profile composition, the base profile should
+only be specified once. It is then included into the composite profile directly
+and additionally indirectly via <a href="../../ifcprofileresource/lexical/ifcmirroredprofiledef.htm">IfcMirroredProfileDef</a>. For example, a
+double angle made of two L100x10 with 10mm air gap between them, i.e. a
+_|&nbsp;|_ shape, can be modeled as</p>
+
+<blockquote><code>
+single_L : IfcLShapeProfileDef := IfcLShapeProfileDef(AREA, 'L100X100X10',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IfcAxis2Placement2D(IfcCartesianPoint(((.100+.010)/2., .0)), ?),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.100, .100, .010, .012, ?, 0., ?, ?);<br>
+&nbsp;<br>
+double_L : IfcCompositeProfileDef := IfcCompositeProfileDef(AREA, 'double angle',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(single_L, IfcMirroredProfileDef(AREA, ?, single_L, ?)), 'twin profile');
+</code></blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>3</td><td>Profiles</td><td><a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a></td><td>S[2:?]</td><td>
+The profiles which are used to define the composite profile.</td><td>X</td></tr>
+<tr><td>4</td><td>Label</td><td><a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a></td><td>? </td><td>
+The name by which the composition may be referred to. The actual meaning of the name has to be defined in the context of applications.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>InvariantProfileType</td><td>Either all profiles are areas or all profiles are curves.</td></tr>
+<tr><td>NoRecursion</td><td>A composite profile should not include another composite profile, i.e. no recursive definitions should be allowed.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcprofileresource/lexical/ifccompositeprofiledef.htm">IfcCompositeProfileDef</a>&quot; type=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifccompositeprofiledef.htm">IfcCompositeProfileDef</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprofileresource/lexical/ifccompositeprofiledef.htm">IfcCompositeProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Profiles&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element ref=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot; minOccurs=&quot;2&quot; maxOccurs=&quot;unbounded&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:itemType&quot; fixed=&quot;ifc:<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:cType&quot; fixed=&quot;set&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute ref=&quot;ifc:arraySize&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:complexType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Label&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcCompositeProfileDef<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>)<b>;</b><br/>
+&nbsp;&nbsp;Profiles : <span class="keyword">SET</span> [2:?] <span class="keyword">OF</span> <a href="../../ifcprofileresource/lexical/ifcprofiledef.htm">IfcProfileDef</a>;<br/>
+&nbsp;&nbsp;Label : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifclabel.htm">IfcLabel</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;InvariantProfileType : SIZEOF(QUERY(temp &lt;* Profiles | temp.ProfileType &lt;&gt; Profiles[1].ProfileType)) = 0;<br/>&nbsp;&nbsp;NoRecursion : SIZEOF(QUERY(temp &lt;* Profiles | &#39;IFCPROFILERESOURCE.<a href="../../ifcprofileresource/lexical/ifccompositeprofiledef.htm">IfcCompositeProfileDef</a>&#39; IN TYPEOF(temp))) = 0;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcprofileresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifccompositeprofiledef%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifccompositeprofiledef.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

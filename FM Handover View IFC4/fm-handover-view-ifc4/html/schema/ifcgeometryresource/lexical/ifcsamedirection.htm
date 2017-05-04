@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcSameDirection</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 4 index4 18 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.19");
+//-->
+</script>
+
+<h4 class="num">IfcSameDirection</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<p><b><u>Function Definition</u></b></p>
+<p>
+<p>The function compares two <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>'s and ensures that they are the same (with an epsilon precision factor).</p>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x2</blockquote></p>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="xsd"><code class="xsd"><p>
+<span class="keyword">FUNCTION</span> IfcSameDirection<br/>
+
+	(dir1, dir2 : <a href="../../ifcgeometryresource/lexical/ifcdirection.htm">IfcDirection</a>; Epsilon : REAL)<br/>	: LOGICAL;<br/>&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir1x : REAL := dir1.DirectionRatios[1];<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir1y : REAL := dir1.DirectionRatios[2];<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir1z : REAL := 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir2x : REAL := dir2.DirectionRatios[1];<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir2y : REAL := dir2.DirectionRatios[2];<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir2z : REAL := 0;<br/>&nbsp;&nbsp;END_LOCAL;<br/><br/>&nbsp;&nbsp;IF (SIZEOF(dir1.DirectionRatios) &gt; 2) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir1z := dir1.DirectionRatios[3];<br/>&nbsp;&nbsp;END_IF;<br/><br/>&nbsp;&nbsp;IF (SIZEOF(dir2.DirectionRatios) &gt; 2) THEN<br/>&nbsp;&nbsp;&nbsp;&nbsp;dir2z := dir2.DirectionRatios[3];<br/>&nbsp;&nbsp;END_IF;<br/>&nbsp;&nbsp;<br/>&nbsp;&nbsp;RETURN (<a href="../../ifcgeometryresource/lexical/ifcsamevalue.htm">IfcSameValue</a>(dir1x,dir2x,Epsilon) AND<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../ifcgeometryresource/lexical/ifcsamevalue.htm">IfcSameValue</a>(dir1y,dir2y,Epsilon) AND<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../ifcgeometryresource/lexical/ifcsamevalue.htm">IfcSameValue</a>(dir1z,dir2z,Epsilon));<br/>
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</code></div><p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcsamedirection%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcsamedirection.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcWindowStandardCase</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 50 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.51");
+//-->
+</script>
+
+<h4 class="num">IfcWindowStandardCase</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The standard window,
+<span class="self-ref">IfcWindowStandardCase</span>, defines a window with certain
+constraints for the provision of operation types, opening
+directions, frame and lining parameters, construction types and
+with certain constraints for the geometric representation. The
+<span class="self-ref">IfcWindowStandardCase</span> handles all cases of windows,
+that:</p>
+<ul>
+<li>are inserted into an opening, represented by
+<a href="../../ifcproductextension/lexical/ifcopeningelement.htm">IfcOpeningElement</a>, using the <a href="../../ifcproductextension/lexical/ifcrelfillselement.htm">IfcRelFillsElement</a>
+relationship</li>
+<li>have a local placement relative to this opening, and with the
+y-axis of the placement pointing into the opening direction</li>
+<li>have a profile geometry, represented by
+<i>IfcShapeRepresentation.RepresentationIdentifier</i>="Profile"
+as a closed curve to which the window parameter apply. The
+profile represents a rectangle within the xz plane of the local
+placement</li>
+<li>have a reference to an <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a> to define the
+opening direction and the operation type (swinging, sliding,
+folding, etc.) of the window. The attribute <i>OperationType</i>
+shall be provided and not being UNDEFINED, and the attribute
+<i>ParameterTakesPrecedence</i> shall be "TRUE".</li>
+<li>have a single <a href="../../ifcarchitecturedomain/lexical/ifcwindowliningproperties.htm">IfcWindowLiningProperties</a> and a set of
+<a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a> instances included in the set of
+<i>HasPropertySets</i> at <a href="../../ifcsharedbldgelements/lexical/ifcwindowtype.htm">IfcWindowType</a></li>
+</ul>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote>
+
+<p>The geometric representation of <span class="self-ref">IfcWindowStandardCase</span>
+is defined using the following multiple shape representations for
+its definition:</p>
+<ul>
+<li><u>Profile</u>: a three-dimensional closed curve within a
+particular shape representation. The profile is used to apply the
+parameter of the parametric window representation. The profile
+around the edges of the opening is used to apply the window
+lining and window panel shape parameter.</li>
+<li><u>Body</u>: A SweptSolid, SurfaceModel, or
+Brep Representation or a CSG additionally defining the 3D shape
+of the standard window in addition to the parametric
+representation by applying the <a href="../../ifcarchitecturedomain/lexical/ifcwindowliningproperties.htm">IfcWindowLiningProperties</a>
+and an the <a href="../../ifcarchitecturedomain/lexical/ifcwindowpanelproperties.htm">IfcWindowPanelProperties</a> to the Profile
+representation.</li>
+</ul><p></p>
+</section>
+<section>
+<h5 class="num">Definitions applying to Basic_FM_Handover_View</h5>
+<hr />
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcwindowstandardcase.htm">IfcWindowStandardCase</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcWindowStandardCase<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcwindowstandardcase%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcwindowstandardcase.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

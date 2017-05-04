@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcManifoldSolidBrep</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 8 index3 3 index4 23 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.8.3.24");
+//-->
+</script>
+
+<h4 class="num">IfcManifoldSolidBrep</h4>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcManifoldSolidBrep</span> is a solid represented as a collection of connected surfaces that delimit the
+solid from the surrounding non-solid.</p>
+<p>Instances of type <span class="self-ref">IfcManifoldSolidBrep</span> shall be of type <a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm">IfcFacetedBrep</a>, using only <a href="../../ifctopologyresource/lexical/ifcpolyloop.htm">IfcPolyLoop</a>
+for the bounds of <a href="../../ifctopologyresource/lexical/ifcfacebound.htm">IfcFaceBound</a>, or of type <a href="../../ifcgeometricmodelresource/lexical/ifcadvancedbrep.htm">IfcAdvancedBrep</a>, using only <a href="../../ifctopologyresource/lexical/ifcadvancedface.htm">IfcAdvancedFace</a> for the
+face geometry, and <a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a> for the edges.</p>
+<blockquote class="extDef">
+<p style="font-size:inherit">NOTE Definition according to ISO/CD 10303-42:1992<br>
+A manifold solid b-rep is a finite, arcwise connected volume bounded by one or more surfaces, each of which is a
+connected, oriented, finite, closed 2-manifold. There is no restriction on the genus of the volume, nor on the number
+of voids within the volume.</p>
+<p style="font-size:inherit">The Boundary Representation (B-rep) of a manifold solid utilizes a graph of edges and
+vertices embedded in a connected, oriented, finite, closed two manifold surface. The embedded graph divides the surface
+into arcwise connected areas known as faces. The edges and vertices, therefore, form the boundaries of the face and the
+domain of a face does not include its boundaries. The embedded graph may be disconnected and may be a pseudo graph. The
+graph is labeled; that is, each entity in the graph has a unique identity. The geometric surface definition used to
+specify the geometry of a face shall be 2-manifold embeddable in the plane within the domain of the face. In other
+words, it shall be connected, oriented, finite, non-self-intersecting, and of surface genus 0.</p>
+<p style="font-size:inherit">Faces do not intersect except along their boundaries. Each edge along the boundary of a
+face is shared by at most one other face in the assemblage. The assemblage of edges in the B-rep do not intersect
+except at their boundaries (i.e., vertices). The geometry curve definition used to specify the geometry of an edge
+shall be arcwise connected and shall not self intersect or overlap within the domain of the edge. The geometry of an
+edge shall be consistent with the geometry of the faces of which it forms a partial bound. The geometry used to define
+a vertex shall be consistent with the geometry of the faces and edges of which it forms a partial bound.</p>
+<p style="font-size:inherit">The geometry used to define a vertex shall be consistent with the geometry of the faces
+and edges of which it forms a partial bound.</p>
+<p style="font-size:inherit">A B-rep is represented by one or more closed shells which shall be disjoint. One shell,
+the outer, shall completely enclose all the other shells and no other shell may enclose a shell. The facility to define
+a B-rep with one or more internal voids is provided by a subtype. The following version of the Euler formula shall be
+satisfied,</p>
+<blockquote><img src="../../../figures/ifcmanifoldsolidbrep-math1.gif" width="236" alt="math" height="25"></blockquote>
+<p style="font-size:inherit">where V, E, F, L<sub>l</sub> and S are the numbers of unique vertices, edges, faces, loop
+uses and shells in the model and G<sup>s</sup> is the sum of the genus of the shells.</p>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>manifold_solid_brep</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY: New entity in IFC Release 1.0</blockquote>
+<p>&nbsp;</p>
+<p><u>Informal proposition</u>:</p>
+<ol>
+<li>The dimensionality of a manifold solid brep shall be 3.</li>
+<li>The extent of the manifold solid brep shall be finite and non-zero.</li>
+<li>All elements of the manifold solid brep shall have defined associated geometry.</li>
+<li>The shell normals shall agree with the B-rep normal and point away from the solid represented by the B-rep.</li>
+<li>Each face shall be referenced only once by the shells of the manifold solid brep.</li>
+<li>The Euler equation shall be satisfied for the boundary representation, where the genus term "shell term" us the sum
+of the genus values for the shells of the brep.</li>
+</ol><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>1</td><td>Outer</td><td><a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a></td><td></td><td>
+A closed shell defining the exterior boundary of the solid. The shell normal shall point away from the interior of the solid.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>&quot; type=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcsolidmodel.htm">IfcSolidModel</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometricmodelresource/lexical/ifcmanifoldsolidbrep.htm">IfcManifoldSolidBrep</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometricmodelresource/lexical/ifcsolidmodel.htm">IfcSolidModel</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element name=&quot;Outer&quot; type=&quot;ifc:<a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcManifoldSolidBrep<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcgeometricmodelresource/lexical/ifcadvancedbrep.htm">IfcAdvancedBrep</a>, <a href="../../ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm">IfcFacetedBrep</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometricmodelresource/lexical/ifcsolidmodel.htm">IfcSolidModel</a>)<b>;</b><br/>
+&nbsp;&nbsp;Outer : <a href="../../ifctopologyresource/lexical/ifcclosedshell.htm">IfcClosedShell</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometricmodelresource/diagram_0007.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcmanifoldsolidbrep%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcmanifoldsolidbrep.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

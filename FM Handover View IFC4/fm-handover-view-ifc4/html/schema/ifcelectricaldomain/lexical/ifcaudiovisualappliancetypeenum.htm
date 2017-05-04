@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcAudioVisualApplianceTypeEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 4 index3 2 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.4.2.1");
+//-->
+</script>
+
+<h4 class="num">IfcAudioVisualApplianceTypeEnum</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcelectricaldomain/lexical/ifcaudiovisualappliancetypeenum.htm">IfcAudioVisualApplianceTypeEnum</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+ 
+<p>Defines the range of different types of audio-video devices that can be specified.</p> 
+<blockquote class="history">HISTORY&nbsp; New enumeration in IFC4.</blockquote> <p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>AMPLIFIER</td><td>A device that receives an audio signal and amplifies it to play through speakers.</td></tr><tr><td>CAMERA</td><td>A device that records images, either as a still photograph or as moving images known as videos or movies.  Note that a camera may operate with light from the visible spectrum or from other parts of the electromagnetic spectrum such as infrared or ultraviolet.</td></tr><tr><td>DISPLAY</td><td>An electronic device that represents information in visual form such as a flat-panel display or television.</td></tr><tr><td>MICROPHONE</td><td>An acoustic-to-electric transducer or sensor that converts sound into an electrical signal.  Microphones types in use include electromagnetic induction (dynamic microphones), capacitance change (condenser microphones) or piezoelectric generation to produce the signal from mechanical vibration.</td></tr><tr><td>PLAYER</td><td>A device that plays audio and/or video content directly or to another device, having fixed or removable storage media.</td></tr><tr><td>PROJECTOR</td><td>An apparatus for projecting a picture on a screen. Whether the device is an overhead, slide projector, or a film projector, it is usually referred to as simply a projector.</td></tr><tr><td>RECEIVER</td><td>A device that receives audio and/or video signals, switches sources, and amplifies signals to play through speakers.</td></tr><tr><td>SPEAKER</td><td>A loudspeaker, speaker, or speaker system is an electroacoustical transducer that converts an electrical signal to sound.</td></tr><tr><td>SWITCHER</td><td>A device that receives audio and/or video signals, switches sources, and transmits signals to downstream devices.</td></tr><tr><td>TELEPHONE</td><td>A telecommunications device that is used to transmit and receive sound, and optionally video.</td></tr><tr><td>TUNER</td><td>An electronic receiver that detects, demodulates, and amplifies transmitted signals.</td></tr><tr><td>USERDEFINED</td><td>User-defined type.</td></tr><tr><td>NOTDEFINED</td><td>Undefined type.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcelectricaldomain/lexical/ifcaudiovisualappliancetypeenum.htm">IfcAudioVisualApplianceTypeEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;amplifier&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;camera&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;display&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;microphone&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;player&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;projector&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;receiver&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;speaker&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;switcher&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;telephone&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;tuner&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;userdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcAudioVisualApplianceTypeEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;AMPLIFIER, <br/>&nbsp;CAMERA, <br/>&nbsp;DISPLAY, <br/>&nbsp;MICROPHONE, <br/>&nbsp;PLAYER, <br/>&nbsp;PROJECTOR, <br/>&nbsp;RECEIVER, <br/>&nbsp;SPEAKER, <br/>&nbsp;SWITCHER, <br/>&nbsp;TELEPHONE, <br/>&nbsp;TUNER, <br/>&nbsp;USERDEFINED, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcelectricaldomain/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcaudiovisualappliancetypeenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcaudiovisualappliancetypeenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

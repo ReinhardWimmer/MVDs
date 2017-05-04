@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcProcedure</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 5 index2 3 index3 3 index4 2 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-5.htm#5.3.3.3");
+//-->
+</script>
+
+<h4 class="num">IfcProcedure</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcprocessextension/lexical/ifcprocedure.htm">IfcProcedure</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification</td><td></td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ProcedureID</i> to <i>Identification</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongDescription</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>ProcedureType</i> to <i>LongDescription</i>. <br/>Type changed from <i>IfcProcedureTypeEnum</i> to <i>IfcText</i>. <br/>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td>X</td><td>X</td><td>MODIFIED</td><td>Name changed from <i>UserDefinedProcedureType</i> to <i>PredefinedType</i>. <br/>Type changed from <i>IfcLabel</i> to <i>IfcProcedureTypeEnum</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+   <p>
+      An <span class="self-ref">IfcProcedure</span> is a
+      logical set of actions to be taken in response to an event
+      or to cause an event to occur.
+    </p>
+    <blockquote class="history">
+      HISTORY&nbsp; New entity in IFC2x2
+    </blockquote>
+    <blockquote class="change-ifc2x4">
+      IFC4 CHANGE&nbsp; <i>ProcedureType</i> renamed to <i>PredefinedType</i> and made optional (upward compatible).  Where rules WR1 and WR2 have been removed.
+    </blockquote>
+    <p class="use-head">Use definitions</p>
+    <p>
+      <span class="self-ref">IfcProcedure</span> is used to capture information about
+      stepped processes such as calibration, start/stop
+      procedures for equipment items, designated actions to take
+      in the event of an emergency etc. A procedure is not a
+      task, but may describe a set of tasks and their order of
+      occurrence in response to or to cause an event.
+    </p>
+     
+    <p>As shown in Figure 11, <span class="self-ref">IfcProcedure</span> does not restrict anything but
+    describes specific steps of how something should happen.
+    While a procedure does control/restrict in the sense of
+    indicating "this is how the task should be performed" by
+    nature of describing inner detail, this is not different than
+    parts of a product indicating "this is how the parts should
+    be assembled". Consequently, it doesn't restrict the outer
+    item as a whole but provides inner detail of the item.</p>
+<table>
+<tr><td><img src="../../../figures/ifcprocedure_example.png" alt="procedure example" border="0"></td></tr>
+<tr><td><p class="figure">Figure 60 &mdash; Procedure relationships</p></td></tr>
+</table>
+    </p><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>8</td><td>PredefinedType</td><td><a href="../../ifcprocessextension/lexical/ifcproceduretypeenum.htm">IfcProcedureTypeEnum</a></td><td>? </td><td>
+    Identifies the predefined types of a procedure from which 
+    the type required may be set.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>HasName</td><td>The Name attribute should be inserted to describe the task name.</td></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset, or the inherited attribute <i>ObjectType</i> must be asserted when the value of <i>PredefinedType</i> is set to <i>USERDEFINED</i>.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcprocessextension/lexical/ifcprocedure.htm">IfcProcedure</a>&quot; type=&quot;ifc:<a href="../../ifcprocessextension/lexical/ifcprocedure.htm">IfcProcedure</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcprocessextension/lexical/ifcprocedure.htm">IfcProcedure</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcprocessextension/lexical/ifcproceduretypeenum.htm">IfcProcedureTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcProcedure<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifckernel/lexical/ifcprocess.htm">IfcProcess</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcprocessextension/lexical/ifcproceduretypeenum.htm">IfcProcedureTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;HasName : EXISTS(SELF\<a href="../../ifckernel/lexical/ifcroot.htm">IfcRoot</a>.Name);<br/>&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType &lt;&gt; <a href="../../ifcprocessextension/lexical/ifcproceduretypeenum.htm">IfcProcedureTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcprocessextension/lexical/ifcproceduretypeenum.htm">IfcProcedureTypeEnum</a>.USERDEFINED) AND EXISTS(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcprocessextension/diagram_0001.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcprocedure%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcprocedure.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

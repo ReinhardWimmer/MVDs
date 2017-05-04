@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcAssociatedSurface</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 4 index4 0 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.4.1");
+//-->
+</script>
+
+<h4 class="num">IfcAssociatedSurface</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<p><b><u>Function Definition</u></b></p>
+<p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO/CD 10303-42:1992<br>
+The associated surface function determines the unique surface which is associated with the pcurve. It is required by the propositions which apply to surface curve and its subtypes.</blockquote>
+
+<blockquote class="note">NOTE&nbsp; Function adapted from <strong>associated_surface</strong> defined in ISO 10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New function in IFC4 Addendum 2</blockquote></p>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="xsd"><code class="xsd"><p>
+<span class="keyword">FUNCTION</span> IfcAssociatedSurface<br/>
+
+(Arg : <a href="../../ifcgeometryresource/lexical/ifcpcurve.htm">IfcPcurve</a>) : <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;<br/><br/>&nbsp;&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp; Surf : <a href="../../ifcgeometryresource/lexical/ifcsurface.htm">IfcSurface</a>;<br/>&nbsp;&nbsp;&nbsp;END_LOCAL;<br/>&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;Surf := Arg\<a href="../../ifcgeometryresource/lexical/ifcpcurve.htm">IfcPcurve</a>.BasisSurface;<br/>&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;RETURN(Surf);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</code></div><p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcassociatedsurface%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcassociatedsurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

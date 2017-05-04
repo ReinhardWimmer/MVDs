@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcLoopHeadToTail</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 20 index3 4 index4 1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.20.4.2");
+//-->
+</script>
+
+<h4 class="num">IfcLoopHeadToTail</h4>
+<section>
+<h5 class="num">Semantic definitions at the function</h5>
+<p><b><u>Function Definition</u></b></p>
+<p>
+<p>This function returns TRUE if for the edges of the input edge loop the end vertex of each edge is the same as the start vertex of its successor.</p>
+
+<blockquote class="history">HISTORY&nbsp; New function in IFC2x2</blockquote></p>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="xsd"><code class="xsd"><p>
+<span class="keyword">FUNCTION</span> IfcLoopHeadToTail<br/>
+
+(ALoop : <a href="../../ifctopologyresource/lexical/ifcedgeloop.htm">IfcEdgeLoop</a>) : LOGICAL;<br/>&nbsp;&nbsp;&nbsp;LOCAL<br/>&nbsp;&nbsp;&nbsp;&nbsp; N : INTEGER;<br/>&nbsp;&nbsp;&nbsp;&nbsp; P : LOGICAL := TRUE;<br/>&nbsp;&nbsp;&nbsp;END_LOCAL;<br/>&nbsp;&nbsp;&nbsp;&nbsp; <br/>&nbsp;&nbsp;&nbsp;&nbsp; N := SIZEOF (ALoop.EdgeList);<br/>&nbsp;&nbsp;&nbsp;&nbsp; REPEAT i := 2 TO N;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P := P AND (ALoop.EdgeList[i-1].EdgeEnd :=:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALoop.EdgeList[i].EdgeStart);<br/>&nbsp;&nbsp;&nbsp;&nbsp; END_REPEAT;&nbsp;&nbsp;&nbsp;&nbsp; <br/>&nbsp;&nbsp;&nbsp;&nbsp; RETURN (P);
+<br/>
+
+<span class="keyword">END_FUNCTION</span>;
+
+</p>
+
+</code></div><p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcloopheadtotail%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcloopheadtotail.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

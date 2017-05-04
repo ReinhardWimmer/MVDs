@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTextFontName</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 12 index3 2 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.12.2.9");
+//-->
+</script>
+
+<h4 class="num">IfcTextFontName</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcpresentationappearanceresource/lexical/ifctextfontname.htm">IfcTextFontName</a></td><td></td><td></td><td>MOVED</td><td>Schema changed from <i>IFCPRESENTATIONRESOURCE</i> to <i>IFCPRESENTATIONAPPEARANCERESOURCE</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>The <span class="self-ref">IfcTextFontName</span> is a list of font family names and/or generic family name.</p>
+
+<blockquote class="extDef">
+  NOTE&nbsp; Definition according to Cascading Style Sheets, level 1<br>
+  Values of <strong>&lt;family-name&gt;</strong>: 
+  The name of a font family of choice. For example, "gill" and "helvetica" are font families.<br>
+  Values of <strong>&lt;generic-family&gt;</strong>:
+  In the example above, the last value is a generic family name. The following generic families are defined:
+    <ul>
+      <li class="small">'serif' (Example: Times)</li>
+      <li class="small">'sans-serif' (Example: Helvetica)</li>
+      <li class="small">'cursive' (Example: Zapf-Chancery)</li>
+      <li class="small">'fantasy' (Example: Western)</li>
+      <li class="small">'monospace' (Example: Courier)</li>
+    </ul>
+  <br>It is encouraged to offer a generic font family as a last alternative.
+</blockquote>
+
+<blockquote class="note">
+NOTE&nbsp; Type adopted from <strong>font-family</strong> defined in <a href="../../../bibliography.htm#CSS1">CSS-1</a>.
+</blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New type in IFC2x2 Add2.
+</blockquote><p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcpresentationappearanceresource/lexical/ifctextfontname.htm">IfcTextFontName</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:normalizedString&quot;/&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcTextFontName = <span class="self-ref">STRING</span>;<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcpresentationappearanceresource/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctextfontname%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctextfontname.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

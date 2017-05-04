@@ -1,0 +1,198 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcRelConnectsPathElements</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 1 index3 3 index4 30 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.1.3.31");
+//-->
+</script>
+
+<h4 class="num">IfcRelConnectsPathElements</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcrelconnectspathelements.htm">IfcRelConnectsPathElements</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RelatingPriorities</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>INTEGER</i> to <i>NUMBER</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RelatedPriorities</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>INTEGER</i> to <i>NUMBER</i>. <br/></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcsharedbldgelements/lexical/ifcrelconnectspathelements.htm">IfcRelConnectsPathElements</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RelatingPriorities</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>NUMBER</i> to <i>IfcInteger</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RelatedPriorities</td><td>X</td><td>X</td><td>MODIFIED</td><td>Type changed from <i>NUMBER</i> to <i>IfcInteger</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The <span class="self-ref">IfcRelConnectsPathElements</span> relationship provides the connectivity information between two elements, which have path information.</p>
+
+<p>The objectified relationship provides the additional information required to describe the connection between two path based elements that might have single or multiple layers of material. The connection type specifies where at the path based element a connection is given (at the start, in the middle or at the end).</p>
+
+<p>The connection is described by a connection geometry, given within the object coordinate systems of the <i>RelatingElement</i> and of the <i>RelatedElement</i>. In case of <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> as the <i>RelatingElement</i> and <i>RelatedElement</i> the connection geometry is provided by the subtype <a href="../../ifcgeometricconstraintresource/lexical/ifcconnectioncurvegeometry.htm">IfcConnectionCurveGeometry</a>. Both curves indicate the so called "end cap", i.e. the curve that trims the wall outer  edges (being parallel along the wall axis) at the end.</p>
+
+<table cellpadding="2" cellspacing="2">
+ <tr valign="top">
+  <td valign="top" align="left" width="410"><img src="../../../figures/ifcrelconnectspathelements-fig1.png"
+   alt="wall connection" width="400" height="300" border="0">
+  </td>
+  <td>Figure 99 shows the application of <span class="self-ref">IfcRelConnectsPathElements</span> with the <i>ConnectionGeometry</i> of type  <a href="../../ifcgeometricconstraintresource/lexical/ifcconnectioncurvegeometry.htm">IfcConnectionCurveGeometry</a>. The example shows the connection relationship between two instances of <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a> using the
+ <span class="self-ref">IfcRelConnectsPathElements</span> relationship. The <i>ConnectionCurveGeometry</i> defines the <i>CurveOnReleatingElement</i> and
+ <i>CurveOnRelatedElement</i>, both are of type <a href="../../ifcgeometryresource/lexical/ifcpolyline.htm">IfcPolyline</a>.</td>
+ </tr>
+ <tr>
+  <td>
+   <p class="figure">Figure 99 &mdash; Path connection geometry</p>
+  </td>
+  <td>
+  </td>
+ </tr>
+</table>
+<table cellpadding="2" cellspacing="2">
+ <tr valign="top">
+  <td valign="top" align="left" width="410"><img src="../../../figures/ifcrelconnectspathelements-fig3.png"
+   alt="wall connection" width="400" height="260" border="0">
+  </td>
+  <td valign="top" align="left">&nbsp;<img src="../../../figures/ifcrelconnectspathelements-fig2.png" 
+   alt="wall connection" width="320" height="200" border="0">
+  </td>
+ </tr>
+ <tr valign="top">
+  <td valign="top" align="left" width="410">
+   <p class="figure">Figure 100 &mdash; Path connection T-Type</p>
+  </td>
+  <td valign="top" align="left" width="400">
+   <p class="figure">Figure 101 &mdash; Path connection L-Type</p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td valign="top" align="left" width="410">
+   <p>Figure 100 illustrates using the <span class="self-ref">IfcRelConnectsPathElements</span> for a "T" type connection between two instances of <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>.</p>
+  </td>
+  <td valign="top" align="left" width="400">
+   <p>Figure 101 illustrates using the <span class="self-ref">IfcRelConnectsPathElements</span> for a "L" type connection between two instances of <a href="../../ifcsharedbldgelements/lexical/ifcwallstandardcase.htm">IfcWallStandardCase</a>.</p>
+  </td>
+ </tr> 
+</table>
+
+<blockquote class="note">NOTE&nbsp; The two wall axes connect in each case.</blockquote>
+
+<p>&nbsp;</p>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC1.5.</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; The data type of <i>RelatingPriorities</i> and <i>RelatedPriorities</i> are restricted to a range o [0..100] to be a normalized 
+ratio measure.</blockquote>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>8</td><td>RelatingPriorities</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td>L[0:?]</td><td>
+Overriding priorities at this connection. It overrides the standard priority given at the wall layer provided by <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>.<i>Priority</i>. The list of <i>RelatingProperties</i> corresponds to the list of <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>.<i>MaterialLayers</i> of the element referenced by <i>RelatingObject</i>.
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Data type changed to NUMBER and usage to hold a normalized ratio measure [0..1].
+</blockquote></td><td>X</td></tr>
+<tr><td>9</td><td>RelatedPriorities</td><td><a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a></td><td>L[0:?]</td><td>
+Overriding priorities at this connection. It overrides the standard priority given at the wall layer provided by <a href="../../ifcmaterialresource/lexical/ifcmateriallayer.htm">IfcMaterialLayer</a>.<i>Priority</i>. The list of <i>RelatedProperties</i> corresponds to the list of <a href="../../ifcmaterialresource/lexical/ifcmateriallayerset.htm">IfcMaterialLayerSet</a>.<i>MaterialLayers</i> of the element referenced by <i>RelatedObject</i>.
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Data type changed to NUMBER and usage to hold a normalized ratio measure [0..1].
+</blockquote></td><td>X</td></tr>
+<tr><td>10</td><td>RelatedConnectionType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a></td><td></td><td>
+Indication of the connection type in relation to the path of the <i>RelatingObject</i>.
+</td><td>X</td></tr>
+<tr><td>11</td><td>RelatingConnectionType</td><td><a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a></td><td></td><td>
+Indication of the connection type in relation to the path of the <i>RelatingObject</i>.
+</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>NormalizedRelatingPriorities</td><td>The <i>RelatingProperties</i> shall all be given as a normalized integer range [0..100], where 0 is the lowest and 100 the highest priority of the material layers.</td></tr>
+<tr><td>NormalizedRelatedPriorities</td><td>The <i>RelatedProperties</i> shall all be given as a normalized integer range [0..100], where 0 is the lowest and 100 the highest priority of the material layers.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcrelconnectspathelements.htm">IfcRelConnectsPathElements</a>&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcrelconnectspathelements.htm">IfcRelConnectsPathElements</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcsharedbldgelements/lexical/ifcrelconnectspathelements.htm">IfcRelConnectsPathElements</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RelatingPriorities&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RelatedPriorities&quot; use=&quot;optional&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:list itemType=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minLength value=&quot;0&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:attribute&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RelatedConnectionType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;RelatingConnectionType&quot; type=&quot;ifc:<a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcRelConnectsPathElements<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcproductextension/lexical/ifcrelconnectselements.htm">IfcRelConnectsElements</a>)<b>;</b><br/>
+&nbsp;&nbsp;RelatingPriorities : <span class="keyword">LIST</span> [0:?] OF <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>;<br/>
+&nbsp;&nbsp;RelatedPriorities : <span class="keyword">LIST</span> [0:?] OF <a href="../../ifcmeasureresource/lexical/ifcinteger.htm">IfcInteger</a>;<br/>
+&nbsp;&nbsp;RelatedConnectionType : <a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a>;<br/>
+&nbsp;&nbsp;RelatingConnectionType : <a href="../../ifcsharedbldgelements/lexical/ifcconnectiontypeenum.htm">IfcConnectionTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;NormalizedRelatingPriorities : (SIZEOF(RelatingPriorities) = 0)<br/>
+OR<br/>
+(SIZEOF (QUERY (temp &lt;* RelatingPriorities<br/>
+  | {0 &lt;= temp &lt;= 100}<br/>
+  )) = SIZEOF(RelatingPriorities));<br/>&nbsp;&nbsp;NormalizedRelatedPriorities : (SIZEOF(RelatedPriorities) = 0)<br/>
+OR<br/>
+(SIZEOF (QUERY (temp &lt;* RelatedPriorities<br/>
+  | {0 &lt;= temp &lt;= 100}<br/>
+  )) = SIZEOF(RelatedPriorities));<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgelements/diagram_0005.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcrelconnectspathelements%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcrelconnectspathelements.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

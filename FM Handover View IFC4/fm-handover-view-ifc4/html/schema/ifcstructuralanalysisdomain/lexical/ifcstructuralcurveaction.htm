@@ -1,0 +1,158 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcStructuralCurveAction</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 7 index3 3 index4 7 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.7.3.8");
+//-->
+</script>
+
+<h4 class="num">IfcStructuralCurveAction</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm">IfcStructuralCurveAction</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm">IfcStructuralCurveAction</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DestabilizingLoad</td><td></td><td></td><td>MODIFIED</td><td>Type changed from <i>BOOLEAN</i> to <i>IfcBoolean</i>. <br/></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A structural curve action defines an action which is distributed over a curve.
+A curve action may be connected with a curve member or curve connection, or
+surface member or surface connection.</p>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC4.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Former entity <i>IfcStructuralLinearActionVarying</i> from IFC2x2 has been removed and are replaced by this entity.
+</blockquote>
+
+<p><b><u>Coordinate Systems</u></b>:</p>
+
+<p>See definitions at <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>.</p>
+
+<p><b><u>Topology Use Definitions</u></b>:</p>
+
+<p>Standard Case:<br>
+If connected with a curve item, instances of <span class="self-ref">IfcStructuralCurveAction</span> shall not have an
+<i>ObjectPlacement</i> nor a <i>Representation</i>.  It is implied that the placement and
+representation of the <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> is the same as the ones of the member or
+connection.</p>
+
+<p>Special Case 1:<br>
+If connected with a surface item, instances of <span class="self-ref">IfcStructuralCurveAction</span> shall have an
+<i>ObjectPlacement</i> and <i>Representation</i>, containing an <a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>.  See
+<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> for further definitions.</p>
+
+<p>Special Case 2:<br>
+If not connected with a structural item (which may happen in an incomplete or conceptual model),
+a curve action should have an <i>ObjectPlacement</i> and <i>Representation</i>, containing an
+<a href="../../ifctopologyresource/lexical/ifcedgecurve.htm">IfcEdgeCurve</a>.  See <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a> for further definitions.</p>
+
+<p class="spec-head">Informal Propositions:</p>
+
+<ol>
+  <li>If the curve action is of the predefined type CONST, SINUS, or PARABOLA,
+      <i>SELF\IfcStructuralActivity.AppliedLoad</i> must not be of type
+      <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a>.  In case of SINUS and PARABOLA, the load item
+      defines the maximum of the load at the centre of the load distribution.</li>
+  <li>If the curve action is of the predefined type LINEAR,
+      <i>SELF\IfcStructuralActivity.AppliedLoad</i> shall be of type
+      <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a> and shall contain two items.</li>
+  <li>If the curve action is of the predefined type POLYGONAL,
+      <i>SELF\IfcStructuralActivity.AppliedLoad</i> shall be of type
+      <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a> and shall contain three or more items.</li>
+  <li>If the curve action is of the predefined type DISCRETE,
+      <i>SELF\IfcStructuralActivity.AppliedLoad</i> shall be of type
+      <a href="../../ifcstructuralloadresource/lexical/ifcstructuralloadconfiguration.htm">IfcStructuralLoadConfiguration</a> and shall contain two or more items.</li>
+  <li>In case of types LINEAR, POLYGONAL, and DISCRETE, the load items shall have
+      one-dimensional <i>IfcStructuralLoadConfiguration.Locations</i>, defining the
+      location of the load samples in local coordinates of the curve action.
+      The load items shall be provided in ascending order according to their locations.
+      The first and the last load item define the extent of the load distribution.</i>
+  <li>Point actions must be of type DISCRETE, thus contain two or more load points.
+      (Single point loads are modeled by <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralpointaction.htm">IfcStructuralPointAction</a>.)</li>
+  <li>All items in <i>SELF\IfcStructuralActivity.AppliedLoad\IfcStructuralLoadConfiguration.Values</i>
+      shall be of the same entity type.</li>
+</ol>
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>11</td><td>ProjectedOrTrue</td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcprojectedortruelengthenum.htm">IfcProjectedOrTrueLengthEnum</a></td><td>? </td><td>
+Defines whether load values are given per true length of the curve on which they act, or per length of the projection of the curve in load direction.  The latter is only applicable to loads which act in global coordinate directions.</td><td>X</td></tr>
+<tr><td>12</td><td>PredefinedType</td><td><a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveactivitytypeenum.htm">IfcStructuralCurveActivityTypeEnum</a></td><td></td><td>
+Type of action according to its distribution of load values.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>ProjectedIsGlobal</td><td>A load can only be related to projected length if it was specified in global coordinate directions (i.e. in analysis model coordinate directions).  If a load was specified in local coordinate directions, it can only relate to true length.</td></tr>
+<tr><td>HasObjectType</td><td>The attribute ObjectType shall be given if the predefined type is set to USERDEFINED.</td></tr>
+<tr><td>SuitablePredefinedType</td><td>The EQUIDISTANT distribution type is out of scope of structural curve actions.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm">IfcStructuralCurveAction</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm">IfcStructuralCurveAction</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveaction.htm">IfcStructuralCurveAction</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;ProjectedOrTrue&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcprojectedortruelengthenum.htm">IfcProjectedOrTrueLengthEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveactivitytypeenum.htm">IfcStructuralCurveActivityTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcStructuralCurveAction<br/>
+&nbsp;<span class="keyword">SUPERTYPE OF</span>(<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructurallinearaction.htm">IfcStructuralLinearAction</a>)<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralaction.htm">IfcStructuralAction</a>)<b>;</b><br/>
+&nbsp;&nbsp;ProjectedOrTrue : <span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralanalysisdomain/lexical/ifcprojectedortruelengthenum.htm">IfcProjectedOrTrueLengthEnum</a>;<br/>
+&nbsp;&nbsp;PredefinedType : <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveactivitytypeenum.htm">IfcStructuralCurveActivityTypeEnum</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;ProjectedIsGlobal : (NOT EXISTS(ProjectedOrTrue)) OR<br/>
+((ProjectedOrTrue &lt;&gt; PROJECTED_LENGTH) OR<br/>
+ (SELF\<a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralactivity.htm">IfcStructuralActivity</a>.GlobalOrLocal = GLOBAL_COORDS));<br/>&nbsp;&nbsp;HasObjectType : (PredefinedType &lt;&gt; <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveactivitytypeenum.htm">IfcStructuralCurveActivityTypeEnum</a>.USERDEFINED) OR EXISTS(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType);<br/>&nbsp;&nbsp;SuitablePredefinedType : PredefinedType &lt;&gt; <a href="../../ifcstructuralanalysisdomain/lexical/ifcstructuralcurveactivitytypeenum.htm">IfcStructuralCurveActivityTypeEnum</a>.EQUIDISTANT;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralanalysisdomain/diagram_0004.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcstructuralcurveaction%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcstructuralcurveaction.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

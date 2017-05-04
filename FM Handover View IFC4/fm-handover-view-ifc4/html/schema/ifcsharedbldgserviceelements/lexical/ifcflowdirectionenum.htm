@@ -1,0 +1,75 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcFlowDirectionEnum</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 6 index2 2 index3 2 index4 3 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-6.htm#6.2.2.4");
+//-->
+</script>
+
+<h4 class="num">IfcFlowDirectionEnum</h4>
+<section>
+<h5 class="num">Semantic definitions at the type</h5>
+<p><b><u>Type definition</u></b></p>
+<p>This enumeration defines the flow direction at a distribution port.</p>
+
+<ul>
+<li>For pipe-based ports, the direction is the physical flow direction.</li>
+<li>For duct-based ports, the direction is the physical flow direction.</li>
+li>For cable-based ports carrying electric power (circuits containing hot, neutral, ground), the direction is from the origination of power (from a distribution board to protective devices to switches to fixtures).  For cable-based ports carrying communication signals, the direction originates from where the signal is shaped, such as a sensor.  For communicaton networks, the direction originates from the up-level network host, such as a router (having <i>SOURCE</i> ports) hosting multiple computers (having <i>SINK</i> ports).</li>
+
+<blockquote class="history">
+HISTORY&nbsp; New enumeration in IFC2.0.
+</blockquote><p></p>
+<p><b><u>Enumeration definition</u></b></p>
+<table class="attributes">
+<tr><th>Constant</th><th>Description</th></tr>
+<tr><td>SOURCE</td><td>A flow source, where a substance flows out of the connection.</td></tr><tr><td>SINK</td><td>A flow sink, where a substance flows into the connection.</td></tr><tr><td>SOURCEANDSINK</td><td>Both a source and sink, where a substance flows both into and out of the connection simultaneously.</td></tr><tr><td>NOTDEFINED</td><td>Undefined flow direction.</td></tr></table>
+<p></p>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:simpleType name=&quot;<a href="../../ifcsharedbldgserviceelements/lexical/ifcflowdirectionenum.htm">IfcFlowDirectionEnum</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;source&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;sink&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;sourceandsink&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;notdefined&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:restriction&gt;<br/>
+&nbsp;&lt;/xs:simpleType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">TYPE</span> IfcFlowDirectionEnum = <span class="keyword">ENUMERATION OF</span> (<br/>
+&nbsp;SOURCE, <br/>&nbsp;SINK, <br/>&nbsp;SOURCEANDSINK, <br/>&nbsp;NOTDEFINED);<br/><span class="keyword">END_TYPE;</span><br/>
+(*<br/>
+</p>
+<p class="std"><a href="../../../annex/annex-d/ifcsharedbldgserviceelements/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcflowdirectionenum%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcflowdirectionenum.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

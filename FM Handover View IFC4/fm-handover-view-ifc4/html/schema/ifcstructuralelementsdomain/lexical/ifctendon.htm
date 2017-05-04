@@ -1,0 +1,143 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcTendon</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 8 index3 3 index4 12 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.8.3.13");
+//-->
+</script>
+
+<h4 class="num">IfcTendon</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralelementsdomain/lexical/ifctendon.htm">IfcTendon</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OwnerHistory</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PredefinedType</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NominalDiameter</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CrossSectionArea</td><td></td><td></td><td>MODIFIED</td><td>Instantiation changed to <i>OPTIONAL</i>. <br/></td></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc4-addendum-1/index.htm">IFC4 Addendum 1</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralelementsdomain/lexical/ifctendon.htm">IfcTendon</a></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HasCoverings</td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>A tendon is a steel element such as a wire, cable, bar, rod, or strand used to impart prestress to concrete when the element is tensioned.</p>
+<blockquote class="extDef">NOTE&nbsp; Definition according to ISO 6707-1: steel bar(s) or groups of bars, strands or wires given a tensile stress that produces a compressive stress in prestressed concrete or masonry. </blockquote>
+
+<blockquote class="history">
+HISTORY&nbsp; New entity in IFC2x2.
+</blockquote>
+
+<blockquote class="change-ifc2x4">
+IFC4 CHANGE&nbsp; Attribute <i>PredefinedType</i> made optional. <i>NominalDiameter</i> and <i>CrossSectionArea</i> made optional and deprecated; this information can now be provided by <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a>.  Description of <i>FrictionCoefficient</i> corrected.
+</blockquote>
+
+<p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>10</td><td>PredefinedType</td><td><a href="../../ifcstructuralelementsdomain/lexical/ifctendontypeenum.htm">IfcTendonTypeEnum</a></td><td>? </td><td>
+Predefined generic types for a tendon.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional.</blockquote></td><td>X</td></tr>
+<tr><td>11</td><td>NominalDiameter</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+The nominal diameter defining the cross-section size of the tendon.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>12</td><td>CrossSectionArea</td><td><a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a></td><td>? </td><td>
+The effective cross-section area of the tendon.
+
+<blockquote class="change-ifc2x4">IFC4 CHANGE&nbsp; Attribute made optional and deprecated.  Use respective attribute at <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a> instead.</blockquote></td><td>X</td></tr>
+<tr><td>13</td><td>TensionForce</td><td><a href="../../ifcmeasureresource/lexical/ifcforcemeasure.htm">IfcForceMeasure</a></td><td>? </td><td>
+The maximum allowed tension force that can be applied on the tendon.</td><td>X</td></tr>
+<tr><td>14</td><td>PreStress</td><td><a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a></td><td>? </td><td>
+The prestress to be applied on the tendon.</td><td>X</td></tr>
+<tr><td>15</td><td>FrictionCoefficient</td><td><a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a></td><td>? </td><td>
+The friction coefficient between tendon and tendon sheet while the tendon is unbonded.</td><td>X</td></tr>
+<tr><td>16</td><td>AnchorageSlip</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+The deformation of an anchor or slippage of tendons when the prestressing device is released.</td><td>X</td></tr>
+<tr><td>17</td><td>MinCurvatureRadius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td>? </td><td>
+The smallest curvature radius calculated on the whole effective length of the tendon where the tension properties are still valid.</td><td>X</td></tr>
+</table>
+<p></p>
+<p><b><u>Formal Propositions</u></b></p>
+<table class="propositions">
+<tr><th>Rule</th><th>Description</th></tr>
+<tr><td>CorrectPredefinedType</td><td>Either the <i>PredefinedType</i> attribute is unset (e.g. because an <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a> is associated), or the inherited attribute <i>ObjectType</i> shall be provided, if the <i>PredefinedType</i> is set to USERDEFINED.</td></tr>
+<tr><td>CorrectTypeAssigned</td><td>If this occurrence is defined by a type object, the latter has to be an <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a>.</td></tr>
+</table>
+
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifctendon.htm">IfcTendon</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifctendon.htm">IfcTendon</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifctendon.htm">IfcTendon</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PredefinedType&quot; type=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifctendontypeenum.htm">IfcTendonTypeEnum</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;NominalDiameter&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;CrossSectionArea&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;TensionForce&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcforcemeasure.htm">IfcForceMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;PreStress&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;FrictionCoefficient&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;AnchorageSlip&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;MinCurvatureRadius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcTendon<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>)<b>;</b><br/>
+&nbsp;&nbsp;PredefinedType : <span class="keyword">OPTIONAL</span> <a href="../../ifcstructuralelementsdomain/lexical/ifctendontypeenum.htm">IfcTendonTypeEnum</a>;<br/>
+&nbsp;&nbsp;NominalDiameter : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;CrossSectionArea : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcareameasure.htm">IfcAreaMeasure</a>;<br/>
+&nbsp;&nbsp;TensionForce : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcforcemeasure.htm">IfcForceMeasure</a>;<br/>
+&nbsp;&nbsp;PreStress : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpressuremeasure.htm">IfcPressureMeasure</a>;<br/>
+&nbsp;&nbsp;FrictionCoefficient : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcnormalisedratiomeasure.htm">IfcNormalisedRatioMeasure</a>;<br/>
+&nbsp;&nbsp;AnchorageSlip : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;&nbsp;MinCurvatureRadius : <span class="keyword">OPTIONAL</span> <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+&nbsp;<span class="keyword">WHERE</span><br/>
+&nbsp;&nbsp;CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR<br/>
+(PredefinedType &lt;&gt; <a href="../../ifcstructuralelementsdomain/lexical/ifctendontypeenum.htm">IfcTendonTypeEnum</a>.USERDEFINED) OR<br/>
+((PredefinedType = <a href="../../ifcstructuralelementsdomain/lexical/ifctendontypeenum.htm">IfcTendonTypeEnum</a>.USERDEFINED) AND EXISTS (SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.ObjectType));<br/>&nbsp;&nbsp;CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR<br/>
+(&#39;IFCSTRUCTURALELEMENTSDOMAIN.<a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a>&#39; IN TYPEOF(SELF\<a href="../../ifckernel/lexical/ifcobject.htm">IfcObject</a>.IsTypedBy[1].RelatingType))<br/>
+;<br/><span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralelementsdomain/diagram_0002.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifctendon%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifctendon.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

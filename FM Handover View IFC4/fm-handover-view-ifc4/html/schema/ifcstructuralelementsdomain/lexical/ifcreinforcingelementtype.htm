@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcReinforcingElementType</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 7 index2 8 index3 3 index4 8 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-7.htm#7.8.3.9");
+//-->
+</script>
+
+<h4 class="num">IfcReinforcingElementType</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcstructuralelementsdomain/lexical/ifcreinforcingelementtype.htm">IfcReinforcingElementType</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The element component type <b>IfcReinforcingElementType</b> defines commonly shared information for occurrences of reinforcing elements. The set of shared information may include: <ul>
+<li>common properties with shared property sets</li>
+<li>common representations</li>
+<li>common materials</li>
+<li>common composition of elements</li>
+</ul><p>It is used to define a reinforcing element type specification indicating the specific product information that is common to all occurrences of that product type. 
+The <b>IfcReinforcingElementType</b> may be declared within <a href="../../ifckernel/lexical/ifcproject.htm">IfcProject</a> or <a href="../../ifckernel/lexical/ifcprojectlibrary.htm">IfcProjectLibrary</a> using <a href="../../ifckernel/lexical/ifcreldeclares.htm">IfcRelDeclares</a> and may be exchanged with or without occurrences of the type. Occurrences of <b>IfcReinforcingElementType</b> are represented by instances of <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelement.htm">IfcReinforcingElement</a>.</p>
+
+<blockquote class="history">HISTORY&nbsp; New entity in IFC2x2.</blockquote>
+
+<p class="use-head">Material Use Definition</p>
+
+<p>An associated material denotes the steel grade, preferrably using material classification.</p>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelementtype.htm">IfcReinforcingElementType</a>&quot; type=&quot;ifc:<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelementtype.htm">IfcReinforcingElementType</a>&quot; abstract=&quot;true&quot; substitutionGroup=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingelementtype.htm">IfcReinforcingElementType</a>&quot; abstract=&quot;true&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>&quot;/&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcReinforcingElementType<br/>
+&nbsp;<span class="keyword">ABSTRACT</span> <span class="keyword">SUPERTYPE OF</span>(<span class="keyword">ONEOF</span>(<a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingbartype.htm">IfcReinforcingBarType</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifcreinforcingmeshtype.htm">IfcReinforcingMeshType</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifctendonanchortype.htm">IfcTendonAnchorType</a>, <a href="../../ifcstructuralelementsdomain/lexical/ifctendontype.htm">IfcTendonType</a>))<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcsharedcomponentelements/lexical/ifcelementcomponenttype.htm">IfcElementComponentType</a>)<b>;</b><br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcstructuralelementsdomain/diagram_0003.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifcreinforcingelementtype%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifcreinforcingelementtype.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

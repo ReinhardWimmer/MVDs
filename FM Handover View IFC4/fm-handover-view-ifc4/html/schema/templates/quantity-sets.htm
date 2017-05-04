@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../details-shim.css">
+    <script type="text/javascript" src="../../details-shim.js"></script>
+    <title>Quantity Sets</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 0 index2 0 index3 0 index4 -1 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../toc-4.htm#4.2.2");
+//-->
+</script>
+
+<h3 class="std">4.2.2 Quantity Sets</h3>
+
+<p>Any specialization of object can be related to multiple quantity set occurrences. A quantity set contains multiple quantity occurrences. The data type of quantity occurrence values are count, length, area, volume, weight, time, or a combination of quantities. Each quantity is defined by its name, value, and optionally a description and a formula.</p>
+<p>The quantity set is expressed by instances of <a href="../ifcproductextension/lexical/ifcelementquantity.htm">IfcElementQuantity</a>, where the <i>Name</i> attribute determines the common designator of the quantity set. This specification contains a number of predefined quantity sets, a template definition is provided for each of them. The name of the template has to be used as the value of the <i>Name</i> attribute. The <i>MethodOfMeasurement</i> attribute specifies the method, by which the values of the individual quantities are calculated. For the quantity set templates included in this specification, the value of <i>MethodOfMeasurement</i> shall be "BaseQuantities".</p><p class="fig-ref">Figure 5 illustrates an instance diagram.</p>
+<table><tr><td><img alt="Quantity Sets" src="./diagrams/quantity-sets.png" usemap="#f5"><map name="f5"><area shape="rect" coords="8,8,176,212" href="../ifckernel/lexical/ifcobject.htm" alt="IfcObject" /><area shape="rect" coords="208,8,376,92" href="../ifckernel/lexical/ifcreldefinesbyproperties.htm" alt="IfcRelDefinesByProperties" /><area shape="rect" coords="408,8,576,152" href="../ifcproductextension/lexical/ifcelementquantity.htm" alt="IfcElementQuantity" /><area shape="rect" coords="608,8,776,20" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /><area shape="rect" coords="608,40,776,52" href="../ifcmeasureresource/lexical/ifctext.htm" alt="IfcText" /><area shape="rect" coords="608,72,776,84" href="../ifcmeasureresource/lexical/ifclabel.htm" alt="IfcLabel" /><area shape="rect" coords="608,104,776,200" href="../ifcquantityresource/lexical/ifcquantitylength.htm" alt="IfcQuantityLength" /><area shape="rect" coords="808,8,976,20" href="./length-quantity.htm" alt="Length Quantity" /><area shape="rect" coords="608,220,776,316" href="../ifcquantityresource/lexical/ifcquantityarea.htm" alt="IfcQuantityArea" /><area shape="rect" coords="808,40,976,52" href="./area-quantity.htm" alt="Area Quantity" /><area shape="rect" coords="608,336,776,432" href="../ifcquantityresource/lexical/ifcquantityvolume.htm" alt="IfcQuantityVolume" /><area shape="rect" coords="808,72,976,84" href="./volume-quantity.htm" alt="Volume Quantity" /><area shape="rect" coords="608,452,776,548" href="../ifcquantityresource/lexical/ifcquantityweight.htm" alt="IfcQuantityWeight" /><area shape="rect" coords="808,104,976,116" href="./weight-quantity.htm" alt="Weight Quantity" /><area shape="rect" coords="608,568,776,664" href="../ifcquantityresource/lexical/ifcquantitycount.htm" alt="IfcQuantityCount" /><area shape="rect" coords="808,136,976,148" href="./count-quantity.htm" alt="Count Quantity" /><area shape="rect" coords="608,684,776,780" href="../ifcquantityresource/lexical/ifcquantitytime.htm" alt="IfcQuantityTime" /><area shape="rect" coords="808,168,976,180" href="./time-quantity.htm" alt="Time Quantity" /></map></td></tr><tr><td><p class="figure">Figure 5 &mdash; Quantity Sets</p></td></tr></table>
+
+<hr/>
+<h4>Basic_FM_Handover_View</h4>
+<table class="exchange">
+<tr><th>Entity</th><th><a href="../views/basic_fm_handover_view/basic.htm"><img width="16" src="../../img/mvd-basic.png" title="BASIC"/></a></th>
+</tr><tr><td><a href="../ifcproductextension/lexical/ifcbuilding.htm">IfcBuilding</a></td><td>-<br/>-</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcbuildingstorey.htm">IfcBuildingStorey</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifccovering.htm">IfcCovering</a></td><td>-<br/>O</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifcdoor.htm">IfcDoor</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcsite.htm">IfcSite</a></td><td>-<br/>-</td>
+</tr>
+<tr><td><a href="../ifcproductextension/lexical/ifcspace.htm">IfcSpace</a></td><td>-<br/>R</td>
+</tr>
+<tr><td><a href="../ifcsharedbldgelements/lexical/ifcwindow.htm">IfcWindow</a></td><td>-<br/>R</td>
+</tr>
+</table>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22quantity-sets%22" target="_blank" ><img src="../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../link/quantity-sets.htm" target="_top" ><img src="../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>

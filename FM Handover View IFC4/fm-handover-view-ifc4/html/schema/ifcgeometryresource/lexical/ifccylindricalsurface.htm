@@ -1,0 +1,126 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../../../ifc-styles.css">
+
+    <link rel="stylesheet" type="text/css" href="../../../details-shim.css">
+    <script type="text/javascript" src="../../../details-shim.js"></script>
+    <title>IfcCylindricalSurface</title>
+
+    <style type="text/css">
+      body { counter-reset: index1 8 index2 9 index3 3 index4 24 index5 0; }
+    </style>
+  </head>
+
+  <body>
+
+<p>Draft: Update of the IFC 2x3 based FM Handover View to IFC4 Add 2</p>
+
+<script type="text/javascript">
+<!--
+    parent.index.location.replace("../../toc-8.htm#8.9.3.25");
+//-->
+</script>
+
+<h4 class="num">IfcCylindricalSurface</h4>
+<p><b><u>Change log</u></b></p>
+<table class="gridtable">
+<tr><th>Item</th><th>SPF</th><th>XML</th><th>Change</th><th>Description</th></tr>
+<td colspan=5><b><a href="../../../annex/annex-f/ifc2x3-to-ifc4/index.htm">IFC2x3 to IFC4</a></b></td>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../schema/ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a></td><td></td><td></td><td>ADDED</td><td></td></tr>
+</table>
+<p></p>
+<section>
+<h5 class="num">Semantic definitions at the entity</h5>
+<p><b><u>Entity definition</u></b></p>
+<p>The cylindrical surface is a surface unbounded in the direction of <i>z</i>. Bounded cylindrical surfaces are
+defined by using a subtype of <a href="../../ifcgeometryresource/lexical/ifcboundedsurface.htm">IfcBoundedSurface</a> with <i>BasisSurface</i> being a cylindrical surface.</p>
+<blockquote class="note">NOTE 1&nbsp; A bounded cylindrical surface can be defined by an
+<a href="../../ifcgeometryresource/lexical/ifcrectangulartrimmedsurface.htm">IfcRectangularTrimmedSurface</a> with <i>BasisSurface</i> being the cylindrical surface and <i>U1</i> =
+0&deg;, <i>U2</i> = 360&deg; and <i>V1</i> = lower bound in <b>z</b>, <i>V2</i> = upper bound in <b>z</b> (if the
+plane angle measure is degree). A bounded cylindrical arc surface is provided with |U1 - U2| &lt; 360&deg; (assuming
+the Usense and Vsense agree to the sense of the basis surface).</blockquote>
+<blockquote class="note">NOTE 2&nbsp; A non-rectangular bounded cylindrical surface, e.g. the surface of a round wall
+underneath a sloped roof, cab be defined by an <a href="../../ifcgeometryresource/lexical/ifccurveboundedsurface.htm">IfcCurveBoundedSurface</a> with <a href="../../ifcgeometryresource/lexical/ifcboundarycurve.htm">IfcBoundaryCurve</a>'s, being
+a collection of p-curve segments. A p-curve is curve which lies on the basis of a surface and is defined in the
+parameter space of that surface.</blockquote>
+<p>The inherited attributes are interpreted as</p>
+<ul>
+<li><i>SELF\IfcElementarySurface.Position</i> defines the location and orientation of the cylindrical surface.</li>
+<li><i>SELF\IfcElementarySurface.Position.Location</i> definesd a point on the axis of the cylindrical surface.</li>
+<li><i>SELF\IfcElementarySurface.Position.P[3]</i> defines the direction of the axis of the cylindrical surface.</li>
+</ul>
+<blockquote class="extDef">
+<p style="font-size:inherit">NOTE Definition according to ISO/CD 10303-42:1992<br>
+A cylindrical surface is a surface at a constant distance (the radius) from a straight line. A cylindrical surface is
+defined by its radius and its orientation and location. The data is to be interpreted as follows:</p>
+<blockquote style="font-size:inherit">
+<pre style=" font-size:x-small;">
+C = Position.Location
+x = Position.P[1]
+y = Position.P[2]
+z = Position.P[3]
+<i>R</i> = Radius
+</pre></blockquote>
+<p style="font-size:inherit">and the surface is parameterized as:</p>
+<blockquote><img src="../../../figures/ifccylindricalsurface-math1.gif" alt="formula" width="300" height="25"></blockquote>
+<p style="font-size:inherit">where the parametric range is -&infin; &lt; <i>u,v</i> &lt; &infin; .</p>
+<p style="font-size:inherit">In the above parameterization the length unit for the unit vectors <b>z</b> is equal to
+that of the radius <b><i>R</i></b>. In the placement coordinate system defined above, the surface is represented by
+the equation <i>S</i> = 0, where</p>
+<blockquote><img src="../../../figures/ifccylindricalsurface-math2.gif" alt="formula" width="200" height="25"></blockquote>
+<p style="font-size:inherit">The positive direction of the normal to the surface at any point on the surface is given
+by</p>
+<blockquote>
+<p style="font-size:inherit"><img src="../../../figures/ifccylindricalsurface-math3.gif" alt="formula" width="100" height="25">,
+or as unit normal by</p>
+<p style="font-size:inherit"><img src="../../../figures/ifccylindricalsurface-math4.gif" alt="formula" width="220" height=
+"25"></p>
+</blockquote>
+<p style="font-size:inherit">The direction of the normal is away from the axis of the cylinder.</p>
+</blockquote>
+<blockquote class="note">NOTE&nbsp; Entity adapted from <strong>cylindrical_surface</strong> defined in ISO
+10303-42.</blockquote>
+<blockquote class="history">HISTORY&nbsp; New entity in IFC4.</blockquote><p></p>
+<p><b><u>Attribute definitions</u></b></p>
+<table class="attributes">
+<tr><th>#</th><th>Attribute</th><th>Type</th><th>Cardinality</th><th>Description</th>
+<th>B</th></tr>
+<tr><td>2</td><td>Radius</td><td><a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a></td><td></td><td>
+The radius of the cylindrical surface.</td><td>X</td></tr>
+</table>
+<p></p>
+</section>
+</section>
+<section>
+<h5 class="num">Formal representations</h5>
+<p><b><u>XML Specification</u></b></p>
+<div class="xsd"><code class="xsd">&nbsp;&lt;xs:element name=&quot;<a href="../../ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a>&quot; type=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a>&quot; substitutionGroup=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot; nillable=&quot;true&quot;/&gt;<br/>
+&nbsp;&lt;xs:complexType name=&quot;<a href="../../ifcgeometryresource/lexical/ifccylindricalsurface.htm">IfcCylindricalSurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&lt;xs:complexContent&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;xs:extension base=&quot;ifc:<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:attribute name=&quot;Radius&quot; type=&quot;ifc:<a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>&quot; use=&quot;optional&quot;/&gt;<br/>
+&nbsp;&nbsp;&nbsp;&lt;/xs:extension&gt;<br/>
+&nbsp;&nbsp;&lt;/xs:complexContent&gt;<br/>
+&nbsp;&lt;/xs:complexType&gt;<br/>
+</code></div><p></p>
+<p><b><u>EXPRESS Specification</u></b></p>
+<div class="express"><code class="express">
+*)<br/>
+<span class="keyword">ENTITY</span> IfcCylindricalSurface<br/>
+&nbsp;<span class="keyword">SUBTYPE OF</span> (<a href="../../ifcgeometryresource/lexical/ifcelementarysurface.htm">IfcElementarySurface</a>)<b>;</b><br/>
+&nbsp;&nbsp;Radius : <a href="../../ifcmeasureresource/lexical/ifcpositivelengthmeasure.htm">IfcPositiveLengthMeasure</a>;<br/>
+<span class="keyword">END_ENTITY;</span><br/>
+(*<br/>
+<p class="std"><a href="../../../annex/annex-d/ifcgeometryresource/diagram_0008.htm" ><img src="../../../img/diagram.png" style="border: 0px" title="Link to EXPRESS-G diagram" alt="Link to EXPRESS-G diagram">&nbsp;EXPRESS-G diagram</a></p>
+</code></div>
+<p></p>
+</section>
+<p><a href="http://jira.buildingsmart.org/issues/?jql=project%20%3D%20IFR%20AND%20text%20~%20%22ifccylindricalsurface%22" target="_blank" ><img src="../../../img/external.png" style="border: 0px" title="Report issue" alt="Report issue"/>&nbsp; Report an issue</a></p>
+<p><a href="../../../link/ifccylindricalsurface.htm" target="_top" ><img src="../../../img/permlink.png" style="border: 0px" title="Link to this page" alt="Link to this page"/>&nbsp; Link to this page</a></p>
+<p>By Reinhard Wimmer</p>
+  </body>
+</html>
